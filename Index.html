@@ -46,18 +46,26 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="darkmode.css" />
     <link rel="stylesheet" href="Index_New.css" />
     <link rel="stylesheet" href="NewCSS.css" />
     <link rel="stylesheet" href="navbar-css-trial.css" />
     <link rel="icon" href="Asset/LOGO PT/logoicon.ico" />
     <title>PT.BKKA.CO.ID</title>
   </head>
-  <body class="bg-blue-100 font-sans min-h-screen">
+  <body class="bg-white dark:bg-black font-sans min-h-screen">
     <!-- Navbar -->
     <section class="sm:hidden md:block">
       <!-- MD Navbar -->
       <nav
-        class="fixed top-0 z-10 flex w-full flex-wrap items-center justify-between bg-zinc-50 py-2 shadow-dark-mild dark:bg-neutral-700 lg:py-4"
+        class="fixed top-0 z-10 flex w-full flex-wrap items-center justify-between bg-zinc-50 py-2 shadow-dark-mild dark:bg-black lg:py-4"
       >
         <div class="flex w-full flex-wrap items-center justify-between px-3">
           <!-- Left elements -->
@@ -79,6 +87,16 @@
             >
               PT. BATUKARANG KENAN ABADI
             </h1>
+
+            <!-- Dark Mode Toggler -->
+            <div class="dark-mode-toggle relative top-4 left-10">
+              <input type="checkbox" class="checkbox" id="checkbox" />
+              <label for="checkbox" class="checkbox-label">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+                <span class="ball"></span>
+              </label>
+            </div>
           </div>
 
           <!-- Navbar Hamburger -->
@@ -110,7 +128,7 @@
                     <div tabindex="0" id="menu-label" class="onclick-menu">
                       Solutions
                       <ul id="submenu-label" class="onclick-menu-content">
-                        <li><a href="ISMS.html">ISMS</a></li>
+                        <li><a class="mx-16" href="ISMS.html">ISMS</a></li>
                         <li><a href="WIM.html">WIM</a></li>
                         <li><a href="ISHMS.html">ISHMS</a></li>
                         <li><a href="VPMS.html">VPMS</a></li>
@@ -124,7 +142,9 @@
                         <li><a href="Monitoring.html">Monitoring</a></li>
                         <li><a href="Sensors.html">Sensors</a></li>
                         <li>
-                          <a href="Access-Management.html">Access Management</a>
+                          <a class="mx-14 text-xl" href="Access-Management.html"
+                            >Access Management</a
+                          >
                         </li>
                         <li>
                           <a href="Parking-Area.html">Parking Management</a>
@@ -522,7 +542,7 @@
                 alt="A person monitoring area with our system"
               />
             </div>
-            <div class="p-6 text-black">
+            <div class="p-6 text-black dark:text-white">
               <h3 class="text-lg font-bold mb-4">
                 Integrated Security Management System (ISMS)
               </h3>
@@ -551,7 +571,7 @@
                 alt="Moving truck are weighed on the road"
               />
             </div>
-            <div class="p-4 text-black">
+            <div class="p-4 text-black dark:text-white">
               <h3 class="text-base font-bold mb-4">
                 Weigh in Motion System (WIM)
               </h3>
@@ -580,7 +600,7 @@
                 alt="Moving truck are weighed on the road"
               />
             </div>
-            <div class="p-4 text-black">
+            <div class="p-4 text-black dark:text-white">
               <h3 class="text-lg font-bold mb-4">
                 Intelligent Structure Health Monitoring System (ISHMS)
               </h3>
@@ -610,7 +630,7 @@
                 alt="Moving truck are weighed on the road"
               />
             </div>
-            <div class="p-4 text-black">
+            <div class="p-4 text-black dark:text-white">
               <h3 class="text-lg font-bold mb-4">
                 Vehicle Parking Management System (VPMS)
               </h3>
@@ -640,7 +660,7 @@
     <!--Tabs navigation-->
     <section>
       <h2
-        class="my-8 text-4xl text-black font-extrabold pb-8 pt-4 pl-2 shadow-lg uppercase"
+        class="my-8 text-4xl text-black dark:text-white font-extrabold pb-8 pt-4 pl-2 shadow-lg uppercase"
       >
         products
       </h2>
@@ -649,7 +669,7 @@
           class="tab grid grid-cols justify-center md:grid-cols-5 overflow-hidden md:justify-between"
         >
           <button
-            class="tablinks sm:col-span-2 md:col-span-1 text-[10px] text-blue-500 font-bold border-2 border-blue-500 rounded-2xl mb-2 p-1 px-2 shadow-lg hover:text-white hover:bg-blue-600 active:bg-blue-700 active:text-black focus:outline-none focus:ring focus:ring-blue-300 uppercase after"
+            class="tablinks sm:col-span-2 md:col-span-1 text-[10px] text-blue-500 font-bold border-2 border-blue-500 rounded-2xl mb-2 p-1 px-2 shadow-lg hover:text-white hover:bg-blue-600 active:bg-blue-700 active:text-black focus:outline-none focus:ring focus:ring-blue-300 uppercase dark:text-white"
             onclick="openProducts(event, 'monitoring')"
           >
             Monitoring
@@ -680,7 +700,10 @@
           </button>
         </div>
 
-        <div id="monitoring" class="tabcontent text-black md:flex md:flex-rows">
+        <div
+          id="monitoring"
+          class="tabcontent text-black dark:text-white md:flex md:flex-rows"
+        >
           <div class="max-w-3xl mx-auto px-4">
             <img
               class="object-fill"
@@ -707,7 +730,10 @@
           </div>
         </div>
 
-        <div id="sensors" class="tabcontent text-black md:flex md:flex-rows">
+        <div
+          id="sensors"
+          class="tabcontent text-black dark:text-white md:flex md:flex-rows"
+        >
           <div class="max-w-3xl mx-auto px-4 sm:px-6">
             <!--Container-->
             <img
@@ -735,7 +761,7 @@
 
         <div
           id="access management"
-          class="tabcontent text-black md:flex md:flex-rows"
+          class="tabcontent text-black dark:text-white md:flex md:flex-rows"
         >
           <div class="max-w-3xl mx-auto px-4 sm:px-6">
             <img
@@ -762,7 +788,7 @@
         </div>
         <div
           id="parking management"
-          class="tabcontent text-black md:flex md:flex-rows"
+          class="tabcontent text-black dark:text-white md:flex md:flex-rows"
         >
           <div class="max-w-3xl mx-auto px-4 sm:px-6">
             <img
@@ -790,7 +816,7 @@
 
         <div
           id="data centers"
-          class="tabcontent text-black md:flex md:flex-rows"
+          class="tabcontent text-black dark:text-white md:flex md:flex-rows"
         >
           <div class="max-w-3xl mx-auto px-4 sm:px-6">
             <img src="Asset/22.jpg" alt="server racks are lined up orderly" />
@@ -837,7 +863,9 @@
     <!-- Markets -->
     <div class="mx-auto px-4">
       <section>
-        <h2 class="text-4xl text-black font-extrabold pb-8 pt-4 pl-2 shadow-lg">
+        <h2
+          class="text-4xl text-black dark:text-white font-extrabold pb-8 pt-4 pl-2 shadow-lg"
+        >
           Market
         </h2>
         <div
@@ -1062,7 +1090,7 @@
     <!-- Keperluan Tugas asymetric grid - remove after use -->
     <section id="scenario-photos">
       <h2
-        class="my-8 text-4xl text-black font-extrabold pb-8 pt-4 pl-2 shadow-lg uppercase"
+        class="my-8 text-4xl text-black dark:text-white font-extrabold pb-8 pt-4 pl-2 shadow-lg uppercase"
       >
         Scenarios
       </h2>
@@ -1138,7 +1166,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white dark:bg-gray-900">
+    <footer class="bg-white dark:bg-gray-900 dark:text-white">
       <div class="w-full p-4 py-6 md:py-4">
         <div
           class="w-full flex flex-col md:grid md:grid-cols-3 md:justify-between lg:flex lg:flex-row lg:justify-between"
@@ -1383,6 +1411,30 @@
       </div>
     </footer>
     <script src="Index_New.js"></script>
+    <script src="darkmode.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/js/tw-elements.umd.min.js"></script>
+
+    <!-- Darkmode Script -->
+    <script>
+      const userPrefersDark = false;
+
+      function setThemePreference(prefersDark) {
+        if (prefersDark) {
+          document.body.classList.add("dark-theme");
+        } else {
+          document.body.classList.remove("dark-theme");
+        }
+      }
+
+      setThemePreference(userPrefersDark);
+
+      const checkbox = document.getElementById("checkbox");
+      checkbox.checked = userPrefersDark;
+
+      checkbox.addEventListener("change", (event) => {
+        const isDarkMode = event.target.checked;
+        setThemePreference(isDarkMode);
+      });
+    </script>
   </body>
 </html>

@@ -39,7 +39,28 @@
       };
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
-
+    <!-- Dark Mode Theme -->
+    <script>
+      tailwind.config = {
+        darkMode:
+          "class" /* class/media, here we use class to enable manually dark mode */,
+      };
+    </script>
+    <script>
+      /**
+       * Loads the theme stored
+       */
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+    <!-- End of Mode Theme -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -53,16 +74,16 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="darkmode.css" />
-    <link rel="stylesheet" href="Index_New.css" />
     <link rel="stylesheet" href="NewCSS.css" />
     <link rel="stylesheet" href="navbar-css-trial.css" />
     <link rel="icon" href="Asset/LOGO PT/logoicon.ico" />
     <title>PT.BKKA.CO.ID</title>
   </head>
-  <body class="bg-white dark:bg-black font-sans min-h-screen">
+  <body class="bg-white text-black dark:bg-black dark:text-white font-sans">
     <!-- Navbar -->
-    <section class="sm:hidden md:block">
+    <section
+      class="sm:hidden md:block bg-white text black dark:bg-black dark:text-white"
+    >
       <!-- MD Navbar -->
       <nav
         class="fixed top-0 z-10 flex w-full flex-wrap items-center justify-between bg-zinc-50 py-2 shadow-dark-mild dark:bg-black lg:py-4"
@@ -89,14 +110,36 @@
             </h1>
 
             <!-- Dark Mode Toggler -->
-            <div class="dark-mode-toggle relative top-4 left-10">
-              <input type="checkbox" class="checkbox" id="checkbox" />
-              <label for="checkbox" class="checkbox-label">
-                <i class="fas fa-moon"></i>
-                <i class="fas fa-sun"></i>
-                <span class="ball"></span>
-              </label>
-            </div>
+            <button
+              id="theme-toggle"
+              type="button"
+              class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
+            >
+              <svg
+                id="theme-toggle-dark-icon"
+                class="hidden w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                ></path>
+              </svg>
+              <svg
+                id="theme-toggle-light-icon"
+                class="hidden w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
           </div>
 
           <!-- Navbar Hamburger -->
@@ -115,9 +158,9 @@
                   They are acting like a real hamburger,
                   not that McDonalds stuff.
                   -->
-                <span></span>
-                <span></span>
-                <span></span>
+                <span class="bg-black dark:bg-white"></span>
+                <span class="bg-black dark:bg-white"></span>
+                <span class="bg-black dark:bg-white"></span>
 
                 <!--
                   Too bad the menu has to be inside of the button
@@ -527,10 +570,12 @@
     </div>
 
     <!-- solution -->
-    <div class="w-full mx-auto px-4">
+    <div
+      class="w-full mx-auto px-4 bg-white text-black dark:bg-black dark:text-white"
+    >
       <section>
         <h2
-          class="my-8 text-4xl text-black font-extrabold pb-8 pt-4 pl-2 shadow-lg uppercase"
+          class="my-8 text-4xl font-extrabold pb-8 pt-4 pl-2 shadow-lg uppercase"
         >
           solution
         </h2>
@@ -572,10 +617,10 @@
               />
             </div>
             <div class="p-4 text-black dark:text-white">
-              <h3 class="text-base font-bold mb-4">
+              <h3 class="text-lg font-bold mb-4">
                 Weigh in Motion System (WIM)
               </h3>
-              <p class="text-sm mb-4">
+              <p class="text-base mb-6">
                 Traffic efficiency and road safety start with accurate
                 measurements. Our Weigh-in-Motion System is designed to monitor
                 vehicle weight in real-time, without stopping traffic flow. With
@@ -604,7 +649,7 @@
               <h3 class="text-lg font-bold mb-4">
                 Intelligent Structure Health Monitoring System (ISHMS)
               </h3>
-              <p class="text-sm mb-4">
+              <p class="text-base mb-6">
                 Structural integrity is a sustainable investment. Our
                 Intelligent Structure Health Monitoring System helps you
                 maintain the performance and durability of structures by
@@ -634,7 +679,7 @@
               <h3 class="text-lg font-bold mb-4">
                 Vehicle Parking Management System (VPMS)
               </h3>
-              <p class="text-sm mb-4">
+              <p class="text-base mb-6">
                 Structural integrity is a sustainable investment. Our
                 Intelligent Structure Health Monitoring System helps you
                 maintain the performance and durability of structures by
@@ -864,9 +909,9 @@
     <div class="mx-auto px-4">
       <section>
         <h2
-          class="text-4xl text-black dark:text-white font-extrabold pb-8 pt-4 pl-2 shadow-lg"
+          class="text-4xl text-black dark:text-white font-extrabold pb-8 pt-4 pl-2 shadow-lg uppercase"
         >
-          Market
+          MARKET
         </h2>
         <div
           id="carouselIndicators"
@@ -1090,7 +1135,7 @@
     <!-- Keperluan Tugas asymetric grid - remove after use -->
     <section id="scenario-photos">
       <h2
-        class="my-8 text-4xl text-black dark:text-white font-extrabold pb-8 pt-4 pl-2 shadow-lg uppercase"
+        class="my-4 text-4xl text-black dark:text-white font-extrabold pb-8 pt-4 pl-2 shadow-lg uppercase"
       >
         Scenarios
       </h2>
@@ -1129,7 +1174,7 @@
     </section>
 
     <!-- Encouragement -->
-    <section class="mx-auto my-8 px-4">
+    <section class="mx-auto my-8">
       <img
         class="mx-auto"
         src="Asset/they trust bka.png"
@@ -1138,17 +1183,19 @@
     </section>
 
     <!-- Subscribe -->
-    <section class="mx-auto px-4">
+    <section class="mx-auto">
       <div class="">
         <img
           class="mx-auto w-full"
           src="Asset/subs.png"
           alt="Subscribe to get the latest news and updates from PT. BATUKARANG KENAN ABADI."
         />
-        <div class="relative mb-4 flex w-full flex-wrap items-stretch">
+        <div
+          class="relative mb-4 flex w-full flex-wrap items-stretch justify-center"
+        >
           <input
             type="email"
-            class="relative m-0 -me-px block flex-auto rounded-s border border-solid border-neutral-200 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-surface outline-none transition duration-200 ease-in-out placeholder:text-neutral-500 focus:z-[3] focus:border-primary focus:shadow-inset focus:outline-none motion-reduce:transition-none dark:border-white/10 dark:text-white dark:placeholder:text-neutral-200 dark:autofill:shadow-autofill dark:focus:border-primary"
+            class="lg:absolute p-2 border-black dark:border-white w-full md:w-[85vw] lg:w-[20vw] lg:bottom-[120px] lg:left-[55px] md:bottom-[]"
             placeholder="Bussiness E-Mail"
             aria-label="Bussiness E-Mail"
             aria-describedby="button-Subscribe"
@@ -1411,29 +1458,55 @@
       </div>
     </footer>
     <script src="Index_New.js"></script>
-    <script src="darkmode.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/js/tw-elements.umd.min.js"></script>
 
     <!-- Darkmode Script -->
     <script>
-      const userPrefersDark = false;
+      var themeToggleDarkIcon = document.getElementById(
+        "theme-toggle-dark-icon"
+      );
+      var themeToggleLightIcon = document.getElementById(
+        "theme-toggle-light-icon"
+      );
 
-      function setThemePreference(prefersDark) {
-        if (prefersDark) {
-          document.body.classList.add("dark-theme");
-        } else {
-          document.body.classList.remove("dark-theme");
-        }
+      // Change the icons inside the button based on previous settings
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        themeToggleLightIcon.classList.remove("hidden");
+      } else {
+        themeToggleDarkIcon.classList.remove("hidden");
       }
 
-      setThemePreference(userPrefersDark);
+      var themeToggleBtn = document.getElementById("theme-toggle");
 
-      const checkbox = document.getElementById("checkbox");
-      checkbox.checked = userPrefersDark;
+      themeToggleBtn.addEventListener("click", function () {
+        // toggle icons inside button
+        themeToggleDarkIcon.classList.toggle("hidden");
+        themeToggleLightIcon.classList.toggle("hidden");
 
-      checkbox.addEventListener("change", (event) => {
-        const isDarkMode = event.target.checked;
-        setThemePreference(isDarkMode);
+        // if set via local storage previously
+        if (localStorage.getItem("color-theme")) {
+          if (localStorage.getItem("color-theme") === "light") {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("color-theme", "dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("color-theme", "light");
+          }
+
+          // if NOT set via local storage previously
+        } else {
+          if (document.documentElement.classList.contains("dark")) {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("color-theme", "light");
+          } else {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("color-theme", "dark");
+          }
+        }
       });
     </script>
   </body>

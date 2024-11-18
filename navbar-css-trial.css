@@ -27,7 +27,7 @@ a:hover {
   top: 20px;
   right: 0px;
 
-  z-index: 1;
+  z-index: 10;
 
   -webkit-user-select: none;
   user-select: none;
@@ -141,7 +141,7 @@ a:hover {
   pointer-events: none;
 }
 
-.onclick-menu:focus .onclick-menu-content {
+.onclick-menu:focus-within .onclick-menu-content {
   /*  opacity is 1 in opened state (see below) */
   opacity: 1;
   visibility: visible;
@@ -156,6 +156,8 @@ a:hover {
   opacity: 0;
   visibility: hidden;
   transition: visibility 0.5s;
+  font-size: x-large;
+  margin-left: 8px;
 }
 .onclick-menu-content li {
   list-style: none;

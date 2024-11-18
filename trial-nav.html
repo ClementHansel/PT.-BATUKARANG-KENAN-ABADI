@@ -74,13 +74,12 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="NewCSS.css" />
     <link rel="stylesheet" href="navbar-css-trial.css" />
+    <link rel="stylesheet" href="NewCSS.css" />
     <link rel="icon" href="Asset/LOGO PT/logoicon.ico" />
     <title>PT.BKKA.CO.ID</title>
   </head>
-
-  <body class="bg-blue-100">
+  <body class="bg-white text-black dark:bg-black dark:text-white font-sans">
     <!-- Navbar -->
     <section
       class="sm:hidden md:block bg-white text black dark:bg-black dark:text-white"
@@ -145,151 +144,118 @@
 
           <!-- Navbar Hamburger -->
           <section class="body-nav-hamburger lg:hidden z-10">
-            <nav role="navigation">
+            <nav role="navigation" class="relative dark:bg-slate-200">
               <div id="menuToggle">
                 <!--
-               A fake / hidden checkbox is used as click reciever,
-               so you can use the :checked selector on it.
-               -->
+                  A fake / hidden checkbox is used as click reciever,
+                  so you can use the :checked selector on it.
+                  -->
                 <input type="checkbox" />
 
                 <!--
-               Some spans to act as a hamburger.
-       
-               They are acting like a real hamburger,
-               not that McDonalds stuff.
-               -->
+                  Some spans to act as a hamburger.
+          
+                  They are acting like a real hamburger,
+                  not that McDonalds stuff.
+                  -->
                 <span class="bg-black dark:bg-white"></span>
                 <span class="bg-black dark:bg-white"></span>
                 <span class="bg-black dark:bg-white"></span>
 
                 <!--
-               Too bad the menu has to be inside of the button
-               but hey, it's pure CSS magic.
-               -->
+                  Too bad the menu has to be inside of the button
+                  but hey, it's pure CSS magic.
+                  -->
+
                 <ul id="menu">
-                  <li class="">
-                    <div tabindex="0" id="menu-label-1" class="onclick-menu">
-                      Solutions
-                      <ul id="submenu-label-1" class="onclick-menu-content">
-                        <li>
-                          <a class="mx-8 text-xl" href="https://bkka.site/isms"
-                            >ISMS</a
-                          >
-                        </li>
-                        <li>
-                          <a class="mx-8 text-xl" href="WIM.html">WIM</a>
-                        </li>
-                        <li>
-                          <a class="mx-8 text-xl" href="ISHMS.html">ISHMS</a>
-                        </li>
-                        <li>
-                          <a class="mx-8 text-xl" href="VPMS.html">VPMS</a>
-                        </li>
-                      </ul>
-                    </div>
+                  <!-- Solutions -->
+                  <li class="onclick-menu">
+                    Solutions
+                    <ul class="onclick-menu-content">
+                      <li>
+                        <a href="ISMS.html">ISMS</a>
+                      </li>
+                      <li>
+                        <a href="WIM.html">WIM</a>
+                      </li>
+                      <li>
+                        <a href="ISHMS.html">ISHMS</a>
+                      </li>
+                      <li>
+                        <a href="VPMS.html">VPMS</a>
+                      </li>
+                    </ul>
                   </li>
+                  <!-- Products -->
+                  <li class="onclick-menu">
+                    Products
+                    <ul class="onclick-menu-content">
+                      <li>
+                        <a href="Monitoring.html">Monitoring</a>
+                      </li>
+                      <li>
+                        <a href="Sensors.html">Sensors</a>
+                      </li>
+                      <li>
+                        <a href="Access-Management.html">Acces Management</a>
+                      </li>
+                      <li>
+                        <a href="Parking-Management.html">Parking Management</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <!-- Markets -->
+                  <li class="onclick-menu">
+                    Markets
+                    <ul class="onclick-menu-content">
+                      <li>
+                        <a href="Telecom.html">Telecom</a>
+                      </li>
+                      <li>
+                        <a href="Goverment.html">Goverment</a>
+                      </li>
+                      <li>
+                        <a href="Infrastructure.html">Infrastructures</a>
+                      </li>
+                      <li>
+                        <a href="Industrial-Area.html">Industrial Area</a>
+                      </li>
+                      <li>
+                        <a href="Commercial-Area.html">Commercial Buildings</a>
+                      </li>
+                      <li>
+                        <a href="Residential-Area.html">Residential Area</a>
+                      </li>
+                      <li>
+                        <a href="Parking-Management.html">Parking Management</a>
+                      </li>
+                      <li>
+                        <a href="Data-Centers.html">Data-centers</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <!-- Partners -->
                   <li>
-                    <div id="menu-label-2" tabindex="0" class="onclick-menu">
-                      Products
-                      <ul id="submenu-label-2" class="onclick-menu-content">
-                        <li>
-                          <a class="mx-8 text-xl" href="Monitoring.html"
-                            >Monitoring</a
-                          >
-                        </li>
-                        <li>
-                          <a class="mx-8 text-xl" href="Sensors.html"
-                            >Sensors</a
-                          >
-                        </li>
-                        <li>
-                          <a class="mx-8 text-xl" href="Access-Management.html"
-                            >Access Management</a
-                          >
-                        </li>
-                        <li>
-                          <a class="mx-8 text-xl" href="Parking-Area.html"
-                            >Parking Management</a
-                          >
-                        </li>
-                        <li>
-                          <a class="mx-8 text-xl" href="Data-Centers.html"
-                            >Data Centers</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li class="">
-                    <div id="menu-label-3" tabindex="0" class="onclick-menu">
-                      Markets
-                      <ul id="submenu-label-3" class="onclick-menu-content">
-                        <li>
-                          <a class="mx-8 text-xl" href="Telecom.html"
-                            >Telecom</a
-                          >
-                        </li>
-                        <li>
-                          <a class="mx-8 text-xl" href="Goverment.html"
-                            >Goverment</a
-                          >
-                        </li>
-                        <li>
-                          <a class="mx-8 text-xl" href="Infrastructure.html"
-                            >Infrastructures</a
-                          >
-                        </li>
-                        <li>
-                          <a class="mx-8 text-xl" href="Industrial-Area.html"
-                            >Industrial Area</a
-                          >
-                        </li>
-                        <li>
-                          <a class="mx-8 text-xl" href="Commercial-Area.html"
-                            >Commercial Building</a
-                          >
-                        </li>
-                        <li>
-                          <a class="mx-8 text-xl" href="Residential-Area.html"
-                            >Residential Area</a
-                          >
-                        </li>
-                        <li>
-                          <a class="mx-8 text-xl" href="Parking-Area.html"
-                            >Parking Area</a
-                          >
-                        </li>
-                        <li>
-                          <a class="mx-8 text-xl" href="Data-Centers.html"
-                            >Data Centers</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li id="menu-label-4">
                     <a href="become-a-partner.html">Partners</a>
                   </li>
-                  <li class="">
-                    <div id="menu-label-5" tabindex="0" class="onclick-menu">
-                      About
-                      <ul id="submenu-label-5" class="onclick-menu-content">
-                        <li>
-                          <a class="mx-8 text-xl" href="company-profile.html"
-                            >Company Profile</a
-                          >
-                        </li>
-                        <li>
-                          <a class="mx-8 text-xl" href="Joinus.html">Join Us</a>
-                        </li>
-                      </ul>
-                    </div>
+                  <!-- about -->
+                  <li class="onclick-menu">
+                    About
+                    <ul class="onclick-menu-content">
+                      <li>
+                        <a href="company-profile.html">Company Profile</a>
+                      </li>
+                      <li>
+                        <a href="Joinus.html">Join Us</a>
+                      </li>
+                    </ul>
                   </li>
-                  <li id="menu-label-6">
+                  <li>
                     <a href="Contactus.html">Contact</a>
                   </li>
-                  <li id="menu-label-7"><a href="login.html">Log In</a></li>
+                  <li>
+                    <a href="login.html">Log In</a>
+                  </li>
                 </ul>
               </div>
             </nav>
@@ -595,176 +561,6 @@
         </div>
       </nav>
     </section>
-
-    <!-- Hero -->
-    <div class="w-full">
-      <div class="relative mt-16">
-        <img src="Asset/66.jpg" alt="man pressing Solution" />
-        <div
-          class="absolute top-20 md:top-[150px] lg:top-[300px] left-3 md:left-10"
-        >
-          <h1
-            class="w-1/2 font-extrabold text-[9px] text-white md:text-xl lg:text-3xl"
-          >
-            PT. BATUKARANG KENAN ABADI
-          </h1>
-          <h2
-            class="w-1/2 pb-1 md:pb-4 lg:pb-8 text-[7px] text-white md:text-xl lg:text-xl"
-          >
-            We specificaly develop AI-powered technology solutions that make
-            your Bussiness safer, more efficient, and more accessible.
-          </h2>
-          <a
-            href="book-consultation.html"
-            class="border p-1 m-1 md:p-2 md:m-2 rounded-3xl bg-white text-[8px] md:text-[12px] lg:text-[20px] text-black font-extrabold hover:text-black hover:bg-blue-600 hover:font-extrabold hover:border-blue-600"
-          >
-            Book a Free consultation
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Login form -->
-    <section class="my-8 hidden md:block">
-      <div class="sign">
-        <div class="container w-full md:w-3/4 lg:w-1/2 mx-auto" id="container">
-          <div class="form-container sign-up">
-            <form>
-              <h1>Create Account</h1>
-              <div class="social-icons">
-                <a href="#" class="icon"
-                  ><i class="fa-brands fa-google-plus-g"></i
-                ></a>
-                <a href="#" class="icon"
-                  ><i class="fa-brands fa-facebook-f"></i
-                ></a>
-                <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                <a href="#" class="icon"
-                  ><i class="fa-brands fa-linkedin-in"></i
-                ></a>
-              </div>
-              <span>or use your email for registeration</span>
-              <input type="text" placeholder="Name" />
-              <input type="email" placeholder="Email" />
-              <input type="password" placeholder="Password" />
-              <button>Sign Up</button>
-            </form>
-          </div>
-          <div class="form-container sign-in">
-            <form>
-              <h1>Sign In</h1>
-              <div class="social-icons">
-                <a href="#" class="icon"
-                  ><i class="fa-brands fa-google-plus-g"></i
-                ></a>
-                <a href="#" class="icon"
-                  ><i class="fa-brands fa-facebook-f"></i
-                ></a>
-                <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                <a href="#" class="icon"
-                  ><i class="fa-brands fa-linkedin-in"></i
-                ></a>
-              </div>
-              <span>or use your email password</span>
-              <input type="email" placeholder="Email" />
-              <input type="password" placeholder="Password" />
-              <a href="#">Forget Your Password?</a>
-              <button>Sign In</button>
-            </form>
-          </div>
-          <div class="toggle-container">
-            <div class="toggle">
-              <div class="toggle-panel toggle-left">
-                <h1>Welcome Back!</h1>
-                <p>Enter your personal details to use all of site features</p>
-                <button id="login">Sign In</button>
-              </div>
-              <div class="toggle-panel toggle-right">
-                <h1>Hello, Friend!</h1>
-                <p>
-                  Register with your personal details to use all of site
-                  features
-                </p>
-                <button id="register">Sign Up</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Login Mobile -->
-    <section class="my-8 md:hidden">
-      <div class="signmobile">
-        <div
-          class="containermobile w-full md:w-3/4 lg:w-1/2 mx-auto"
-          id="containermobile"
-        >
-          <div class="form-containermobile sign-upmobile">
-            <form>
-              <h1>Create Account</h1>
-              <div class="social-icons">
-                <a href="#" class="icon"
-                  ><i class="fa-brands fa-google-plus-g"></i
-                ></a>
-                <a href="#" class="icon"
-                  ><i class="fa-brands fa-facebook-f"></i
-                ></a>
-                <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                <a href="#" class="icon"
-                  ><i class="fa-brands fa-linkedin-in"></i
-                ></a>
-              </div>
-              <span>or use your email for registeration</span>
-              <input type="text" placeholder="Name" />
-              <input type="email" placeholder="Email" />
-              <input type="password" placeholder="Password" />
-              <button>Sign Up</button>
-            </form>
-          </div>
-          <div class="form-containermobile sign-inmobile">
-            <form>
-              <h1>Sign In</h1>
-              <div class="social-icons">
-                <a href="#" class="icon"
-                  ><i class="fa-brands fa-google-plus-g"></i
-                ></a>
-                <a href="#" class="icon"
-                  ><i class="fa-brands fa-facebook-f"></i
-                ></a>
-                <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                <a href="#" class="icon"
-                  ><i class="fa-brands fa-linkedin-in"></i
-                ></a>
-              </div>
-              <span>or use your email password</span>
-              <input type="email" placeholder="Email" />
-              <input type="password" placeholder="Password" />
-              <a href="#">Forget Your Password?</a>
-              <button>Sign In</button>
-            </form>
-          </div>
-          <div class="toggle-containermobile">
-            <div class="togglemobile">
-              <div class="toggle-panelmobile toggle-up">
-                <h1>Welcome Back!</h1>
-                <p>Enter your personal details to use all of site features</p>
-                <button id="loginmobile">Sign In</button>
-              </div>
-              <div class="toggle-panelmobile toggle-down">
-                <h1>Hello, Friend!</h1>
-                <p>
-                  Register with your personal details to use all of site
-                  features
-                </p>
-                <button id="registermobile">Sign Up</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Footer -->
     <footer class="bg-white dark:bg-gray-900 dark:text-white">
       <div class="w-full p-4 py-6 md:py-4 dark:bg-black dark:text-white">

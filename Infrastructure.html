@@ -39,342 +39,561 @@
       };
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="Index_New.js"></script>
+    <!-- Dark Mode Theme -->
+    <script>
+      tailwind.config = {
+        darkMode:
+          "class" /* class/media, here we use class to enable manually dark mode */,
+      };
+    </script>
+    <script>
+      /**
+       * Loads the theme stored
+       */
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+    <!-- End of Mode Theme -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="Index_New.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="NewCSS.css" />
+    <link rel="stylesheet" href="navbar-css-trial.css" />
     <link rel="icon" href="Asset/LOGO PT/logoicon.ico" />
     <title>PT.BKKA.CO.ID</title>
   </head>
   <body class="bg-white font-sans min-h-screen">
-    <nav
-      class="fixed top-0 z-10 flex w-full flex-wrap items-center justify-between bg-zinc-50 py-2 shadow-dark-mild dark:bg-neutral-700 lg:py-4"
+    <!-- Navbar -->
+    <section
+      class="sm:hidden md:block bg-white text black dark:bg-black dark:text-white"
     >
-      <div class="flex w-full flex-wrap items-center justify-between px-3">
-        <!-- Left elements -->
-        <div class="flex">
-          <!-- Brand -->
-          <a
-            class="mx-2 my-1 flex items-center lg:mb-0 lg:mt-0"
-            href="index.html"
+      <!-- MD Navbar -->
+      <nav
+        class="fixed top-0 z-10 flex w-full flex-wrap items-center justify-between bg-zinc-50 py-2 shadow-dark-mild lg:py-4 dark:bg-black"
+      >
+        <div class="flex w-full flex-wrap items-center justify-between px-3">
+          <!-- Left elements -->
+          <div class="flex justify-between">
+            <!-- Brand -->
+            <a
+              class="mx-2 my-1 flex items-center lg:mb-0 lg:mt-0"
+              href="index.html"
+            >
+              <img
+                class="me-2 h-10"
+                src="Asset/LOGO PT/Logo-BKKA-Transparant.png"
+                alt="PT. BATUKARANG KENAN ABADI Logo"
+                loading="lazy"
+              />
+            </a>
+            <h1
+              class="hidden md:flex mx-2 my-1 items-center pt-2 text-blue-700 font-bold text-base"
+            >
+              PT. BATUKARANG KENAN ABADI
+            </h1>
+
+            <!-- Dark Mode Toggler -->
+            <button
+              id="theme-toggle"
+              type="button"
+              class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
+            >
+              <svg
+                id="theme-toggle-dark-icon"
+                class="hidden w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                ></path>
+              </svg>
+              <svg
+                id="theme-toggle-light-icon"
+                class="hidden w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Navbar Hamburger -->
+          <section class="body-nav-hamburger lg:hidden z-10">
+            <nav role="navigation">
+              <div id="menuToggle">
+                <!--
+               A fake / hidden checkbox is used as click reciever,
+               so you can use the :checked selector on it.
+               -->
+                <input type="checkbox" />
+
+                <!--
+               Some spans to act as a hamburger.
+       
+               They are acting like a real hamburger,
+               not that McDonalds stuff.
+               -->
+                <span class="bg-black dark:bg-white"></span>
+                <span class="bg-black dark:bg-white"></span>
+                <span class="bg-black dark:bg-white"></span>
+
+                <!--
+               Too bad the menu has to be inside of the button
+               but hey, it's pure CSS magic.
+               -->
+                <ul id="menu">
+                  <li class="">
+                    <div tabindex="0" id="menu-label-1" class="onclick-menu">
+                      Solutions
+                      <ul id="submenu-label-1" class="onclick-menu-content">
+                        <li>
+                          <a class="mx-8 text-xl" href="https://bkka.site/isms"
+                            >ISMS</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="WIM.html">WIM</a>
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="ISHMS.html">ISHMS</a>
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="VPMS.html">VPMS</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li>
+                    <div id="menu-label-2" tabindex="0" class="onclick-menu">
+                      Products
+                      <ul id="submenu-label-2" class="onclick-menu-content">
+                        <li>
+                          <a class="mx-8 text-xl" href="Monitoring.html"
+                            >Monitoring</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Sensors.html"
+                            >Sensors</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Access-Management.html"
+                            >Access Management</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Parking-Area.html"
+                            >Parking Management</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Data-Centers.html"
+                            >Data Centers</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="">
+                    <div id="menu-label-3" tabindex="0" class="onclick-menu">
+                      Markets
+                      <ul id="submenu-label-3" class="onclick-menu-content">
+                        <li>
+                          <a class="mx-8 text-xl" href="Telecom.html"
+                            >Telecom</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Goverment.html"
+                            >Goverment</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Infrastructure.html"
+                            >Infrastructures</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Industrial-Area.html"
+                            >Industrial Area</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Commercial-Area.html"
+                            >Commercial Building</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Residential-Area.html"
+                            >Residential Area</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Parking-Area.html"
+                            >Parking Area</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Data-Centers.html"
+                            >Data Centers</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li id="menu-label-4">
+                    <a href="become-a-partner.html">Partners</a>
+                  </li>
+                  <li class="">
+                    <div id="menu-label-5" tabindex="0" class="onclick-menu">
+                      About
+                      <ul id="submenu-label-5" class="onclick-menu-content">
+                        <li>
+                          <a class="mx-8 text-xl" href="company-profile.html"
+                            >Company Profile</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Joinus.html">Join Us</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li id="menu-label-6">
+                    <a href="Contactus.html">Contact</a>
+                  </li>
+                  <li id="menu-label-7"><a href="login.html">Log In</a></li>
+                </ul>
+              </div>
+            </nav>
+          </section>
+
+          <!-- Left elements -->
+
+          <!-- Right elements -->
+          <ul
+            class="list-style-none ms-auto flex flex-row ps-0 md:ps-4"
+            data-twe-navbar-nav-ref
           >
-            <img
-              class="me-2 h-10"
-              src="Asset/LOGO PT/Logo-BKKA-Transparant.png"
-              alt="PT. BATUKARANG KENAN ABADI Logo"
-              loading="lazy"
-            />
-          </a>
-          <h1
-            class="hidden md:flex mx-2 my-1 items-center pt-2 text-blue-700 font-bold text-base"
-          >
-            PT. BATUKARANG KENAN ABADI
-          </h1>
+            <!-- Products dropdown Trigger -->
+            <li class="relative px-2 hidden lg:flex" data-twe-dropdown-ref>
+              <a
+                class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
+                href="#"
+                role="button"
+                data-twe-dropdown-toggle-ref
+                aria-expanded="false"
+              >
+                <strong class="[&>svg]:h-6 [&>svg]:w-6"> Products </strong>
+              </a>
+              <ul
+                class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
+                aria-labelledby="dropdownMenuButton1"
+                data-twe-dropdown-menu-ref
+              >
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Monitoring.html"
+                    data-twe-dropdown-item-ref
+                    >Monitoring</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Sensors.html"
+                    data-twe-dropdown-item-ref
+                    >Sensors</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Access-Management.html"
+                    data-twe-dropdown-item-ref
+                    >Access Management</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Parking-Management.html"
+                    data-twe-dropdown-item-ref
+                    >Parking Management</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Data-Centers.html"
+                    data-twe-dropdown-item-ref
+                    >Data Center</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Softwares.html"
+                    data-twe-dropdown-item-ref
+                    >Softwares</a
+                  >
+                </li>
+              </ul>
+              <!-- First dropdown trigger -->
+            </li>
+
+            <!-- Solutions dropdown trigger -->
+            <li class="relative px-2 hidden lg:flex" data-twe-dropdown-ref>
+              <a
+                class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
+                href=""
+                role="button"
+                data-twe-dropdown-toggle-ref
+                aria-expanded="false"
+              >
+                <strong class="[&>svg]:h-6 [&>svg]:w-6"> Solutions </strong>
+              </a>
+              <ul
+                class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
+                aria-labelledby="dropdownMenuButton1"
+                data-twe-dropdown-menu-ref
+              >
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="ISMS.html"
+                    data-twe-dropdown-item-ref
+                    >Integrated Smart Security System</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="WIM.html"
+                    data-twe-dropdown-item-ref
+                    >Weigh In Motion</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="ISHMS.html"
+                    data-twe-dropdown-item-ref
+                    >Structure Health Monitoring System</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="VPMS.html"
+                    data-twe-dropdown-item-ref
+                    >Vehicle Parking Management System</a
+                  >
+                </li>
+              </ul>
+
+              <!-- First dropdown trigger -->
+            </li>
+
+            <!-- Markets dropdown trigger -->
+            <li class="relative px-2 hidden lg:flex" data-twe-dropdown-ref>
+              <a
+                class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
+                href=""
+                role="button"
+                data-twe-dropdown-toggle-ref
+                aria-expanded="false"
+              >
+                <strong class="[&>svg]:h-6 [&>svg]:w-6"> Markets </strong>
+              </a>
+              <ul
+                class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
+                aria-labelledby="dropdownMenuButton1"
+                data-twe-dropdown-menu-ref
+              >
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Telecom.html"
+                    data-twe-dropdown-item-ref
+                    >Telecom</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Goverment.html"
+                    data-twe-dropdown-item-ref
+                    >Goverment</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Infrastructure.html"
+                    data-twe-dropdown-item-ref
+                    >infrastructures</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Industrial-Area.html"
+                    data-twe-dropdown-item-ref
+                    >Industrial Area</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Commercial-Area.html"
+                    data-twe-dropdown-item-ref
+                    >Commercial Buildings</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Residential-Area.html"
+                    data-twe-dropdown-item-ref
+                    >Residential Area</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Parking-Area.html"
+                    data-twe-dropdown-item-ref
+                    >Parking Area</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Data-Centers.html"
+                    data-twe-dropdown-item-ref
+                    >Data Center</a
+                  >
+                </li>
+              </ul>
+
+              <!-- First dropdown trigger -->
+            </li>
+
+            <!-- Partners -->
+            <li class="px-2 hidden lg:flex" data-twe-nav-item-ref>
+              <a
+                class="flex text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
+                href="become-a-partner.html"
+                data-twe-nav-link-ref
+              >
+                <strong class="ms-1 sm:block">Partners</strong>
+              </a>
+            </li>
+
+            <!-- About Us Dropdown trigger  -->
+            <li class="relative px-2 hidden lg:flex" data-twe-dropdown-ref>
+              <a
+                class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
+                href=""
+                role="button"
+                data-twe-dropdown-toggle-ref
+                aria-expanded="false"
+              >
+                <strong class="[&>svg]:h-6 [&>svg]:w-6"> About </strong>
+              </a>
+              <ul
+                class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
+                aria-labelledby="dropdownMenuButton1"
+                data-twe-dropdown-menu-ref
+              >
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="company-profile.html"
+                    data-twe-dropdown-item-ref
+                    >Company</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Joinus.html"
+                    data-twe-dropdown-item-ref
+                    >Join Us</a
+                  >
+                </li>
+              </ul>
+
+              <!-- First dropdown trigger -->
+            </li>
+
+            <!-- Contact Us -->
+            <li class="px-2 hidden lg:flex" data-twe-nav-item-ref>
+              <a
+                class="flex text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
+                href="Contactus.html"
+                data-twe-nav-link-ref
+              >
+                <strong class="ms-1 sm:block">Contact</strong>
+              </a>
+            </li>
+
+            <!-- Login Button -->
+            <li class="px-2 hidden lg:block" data-twe-nav-item-ref>
+              <a
+                class="flex text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
+                href="login.html"
+                data-twe-nav-link-ref
+              >
+                <span class="[&>svg]:h-6 [&>svg]:w-6">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                    fill="currentColor"
+                  >
+                    <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                      fill-rule="evenodd"
+                      d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span class="hidden">Login</span>
+                </span>
+              </a>
+            </li>
+          </ul>
         </div>
-        <!-- Left elements -->
-
-        <!-- Right elements -->
-        <ul
-          class="list-style-none ms-auto flex flex-row ps-0 md:ps-4"
-          data-twe-navbar-nav-ref
-        >
-          <!-- Products dropdown Trigger -->
-          <li class="relative px-2 hidden md:flex" data-twe-dropdown-ref>
-            <a
-              class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
-              href="#"
-              role="button"
-              data-twe-dropdown-toggle-ref
-              aria-expanded="false"
-            >
-              <strong class="[&>svg]:h-6 [&>svg]:w-6"> Products </strong>
-            </a>
-            <ul
-              class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
-              aria-labelledby="dropdownMenuButton1"
-              data-twe-dropdown-menu-ref
-            >
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Products/Monitoring.html"
-                  data-twe-dropdown-item-ref
-                  >Monitoring</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Products/Sensors.html"
-                  data-twe-dropdown-item-ref
-                  >Sensors</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Products/Access-Controls.html"
-                  data-twe-dropdown-item-ref
-                  >Access Control</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Products/Parking-Management.html"
-                  data-twe-dropdown-item-ref
-                  >Parking Management</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Products/Data-Centers.html"
-                  data-twe-dropdown-item-ref
-                  >Data Center</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Products/Softwares.html"
-                  data-twe-dropdown-item-ref
-                  >Softwares</a
-                >
-              </li>
-            </ul>
-            <!-- First dropdown trigger -->
-          </li>
-
-          <!-- Solutions dropdown trigger -->
-          <li class="relative px-2 hidden md:flex" data-twe-dropdown-ref>
-            <a
-              class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
-              href=""
-              role="button"
-              data-twe-dropdown-toggle-ref
-              aria-expanded="false"
-            >
-              <strong class="[&>svg]:h-6 [&>svg]:w-6"> Solutions </strong>
-            </a>
-            <ul
-              class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
-              aria-labelledby="dropdownMenuButton1"
-              data-twe-dropdown-menu-ref
-            >
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Solutions/IntegratedSmartSecuritySystem.html"
-                  data-twe-dropdown-item-ref
-                  >Integrated Smart Security System</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Solutions/WeighinMotion.html"
-                  data-twe-dropdown-item-ref
-                  >Weigh In Motion</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Solutions/StructureHealthMonitoringSystem.html"
-                  data-twe-dropdown-item-ref
-                  >Structure Health Monitoring System</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Solutions/Vehicle-Parking-Management-System.html"
-                  data-twe-dropdown-item-ref
-                  >Vehicle Parking Management System</a
-                >
-              </li>
-            </ul>
-
-            <!-- First dropdown trigger -->
-          </li>
-
-          <!-- Markets dropdown trigger -->
-          <li class="relative px-2 hidden lg:flex" data-twe-dropdown-ref>
-            <a
-              class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
-              href=""
-              role="button"
-              data-twe-dropdown-toggle-ref
-              aria-expanded="false"
-            >
-              <strong class="[&>svg]:h-6 [&>svg]:w-6"> Markets </strong>
-            </a>
-            <ul
-              class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
-              aria-labelledby="dropdownMenuButton1"
-              data-twe-dropdown-menu-ref
-            >
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Markets/Telecom.html"
-                  data-twe-dropdown-item-ref
-                  >Telecom</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Markets/Govermental.html"
-                  data-twe-dropdown-item-ref
-                  >Goverment</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Markets/Infrastructures.html"
-                  data-twe-dropdown-item-ref
-                  >infrastructures</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Markets/Industrial Area.html"
-                  data-twe-dropdown-item-ref
-                  >Industrial Area</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Markets/Commercial Buildings.html"
-                  data-twe-dropdown-item-ref
-                  >Commercial Buildings</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Markets/Residential Area.html Area.html Area.html"
-                  data-twe-dropdown-item-ref
-                  >Residential Area</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Markets/Parking Area.html Area.html"
-                  data-twe-dropdown-item-ref
-                  >Parking Area</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Markets/Data Centers.html"
-                  data-twe-dropdown-item-ref
-                  >Data Center</a
-                >
-              </li>
-            </ul>
-
-            <!-- First dropdown trigger -->
-          </li>
-
-          <!-- Partners -->
-          <li class="px-2 hidden lg:flex" data-twe-nav-item-ref>
-            <a
-              class="flex text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
-              href="Become Our Partner/become-a-partner.html"
-              data-twe-nav-link-ref
-            >
-              <strong class="ms-1 sm:block">Partners</strong>
-            </a>
-          </li>
-
-          <!-- About Us Dropdown trigger  -->
-          <li class="relative px-2 hidden lg:flex" data-twe-dropdown-ref>
-            <a
-              class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
-              href=""
-              role="button"
-              data-twe-dropdown-toggle-ref
-              aria-expanded="false"
-            >
-              <strong class="[&>svg]:h-6 [&>svg]:w-6"> About </strong>
-            </a>
-            <ul
-              class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
-              aria-labelledby="dropdownMenuButton1"
-              data-twe-dropdown-menu-ref
-            >
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="About Us/company.html"
-                  data-twe-dropdown-item-ref
-                  >Company</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="About Us/Joinus.html"
-                  data-twe-dropdown-item-ref
-                  >Join Us</a
-                >
-              </li>
-            </ul>
-
-            <!-- First dropdown trigger -->
-          </li>
-
-          <!-- Contact Us -->
-          <li class="px-2 hidden lg:flex" data-twe-nav-item-ref>
-            <a
-              class="flex text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
-              href="Contactus.html"
-              data-twe-nav-link-ref
-            >
-              <strong class="ms-1 sm:block">Contact</strong>
-            </a>
-          </li>
-
-          <!-- Login Button -->
-          <li class="px-2" data-twe-nav-item-ref>
-            <a
-              class="flex text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
-              href="signup.html"
-              data-twe-nav-link-ref
-            >
-              <span class="[&>svg]:h-6 [&>svg]:w-6">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 448 512"
-                  fill="currentColor"
-                >
-                  <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                  <path
-                    fill-rule="evenodd"
-                    d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-                <span class="hidden">Login</span>
-              </span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+      </nav>
+    </section>
 
     <!-- Hero -->
     <div class="w-full">
@@ -404,76 +623,1326 @@
       </div>
     </div>
 
-    <!-- Market -->
+    <!-- Main content Infrastructure -->
 
     <section>
+      <!-- WIM -->
       <div>
-        <span class="text-black font-bolder text-[20px]">
-          <h2>Infrastructures</h2>
+        <!-- Opening -->
+        <span>
+          <h2>Weigh In Motion (WIM System)</h2>
+        </span>
+        <div>
+          <p>
+            Di tengah pertumbuhan ekonomi yang pesat, lalu lintas kendaraan
+            komersial semakin padat, membawa dampak langsung terhadap kondisi
+            jalan raya. Salah satu permasalahan utama yang dihadapi pemerintah
+            adalah kendaraan dengan muatan berlebih (overload) dan ukuran
+            berlebihan (overdimensi). Kendaraan-kendaraan ini sering kali
+            membawa beban yang melampaui kapasitas jalan, menyebabkan kerusakan
+            struktural yang memperpendek umur jalan dan jembatan, serta
+            meningkatkan risiko kecelakaan lalu lintas.
+          </p>
+          <p>
+            Permasalahan ini tidak hanya berdampak pada biaya pemeliharaan
+            infrastruktur yang semakin tinggi, namun juga memperlambat mobilitas
+            transportasi serta berpotensi merugikan masyarakat luas. Pemerintah,
+            dalam upayanya untuk menegakkan ketertiban dan menjaga keselamatan,
+            menghadapi tantangan besar dalam melakukan pemantauan dan penegakan
+            aturan secara efektif terhadap pelanggaran muatan.
+          </p>
+          <p>
+            Inilah yang menjadi dasar pemasangan Weigh-in-Motion (WIM) System,
+            solusi canggih yang memungkinkan pemantauan muatan kendaraan secara
+            real-time tanpa mengganggu alur lalu lintas. Dengan sistem ini,
+            petugas dapat langsung mengidentifikasi kendaraan yang melanggar
+            batas muatan, sehingga penegakan hukum dapat dilakukan lebih
+            efisien, cepat, dan akurat.
+          </p>
+          <img src="" alt="" />
+          <h5>
+            Kendaraan Over dimensi Overload (ODOL) menyebabkan kerusakan jalan.
+          </h5>
+          <img src="" alt="" />
+          <h5>
+            Kendaraan ODOL dapat membahayakan pengguna jalan lain bahkan dapat
+            menyebabkan kecelakaan
+          </h5>
+        </div>
+
+        <!-- Value -->
+        <div>
+          <span>Value:</span>
+          <p>
+            Dengan mengimplementasikan Weigh-in-Motion (WIM) System, pemerintah
+            memperoleh solusi efektif dalam menjaga infrastruktur jalan raya
+            tetap berkualitas dan aman. Sistem ini memungkinkan pemantauan
+            otomatis kendaraan dengan muatan berlebih secara real-time,
+            mengurangi kebutuhan inspeksi manual dan mempercepat penindakan. WIM
+            membantu menurunkan biaya pemeliharaan jalan yang sering rusak
+            akibat kendaraan overload, serta meningkatkan keselamatan pengguna
+            jalan melalui kontrol ketat terhadap kendaraan dengan muatan
+            berlebih. Hasilnya, WIM System mendukung efisiensi operasional,
+            pengelolaan anggaran publik yang lebih baik, dan keamanan
+            infrastruktur nasional yang terjaga.
+          </p>
+          <img src="" alt="" />
+        </div>
+
+        <!-- Product Lists -->
+        <div>
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8316A</span>
+              <ul>
+                <li>Consistency: ± 3%</li>
+                <li>Repeatability: better than ±1%</li>
+                <li>Road abrasive layer: Grouting</li>
+                <li>Overload capacity: Greater than 150% F.S</li>
+                <li>Service life: More than 300 million axle times</li>
+                <li>Weighing speed range: 0.5 – 100 km/h</li>
+                <li>Degree of protection: IP68</li>
+                <li>Operating temperature: -45 – 80°C</li>
+                <li>Load capacity: ≥40t</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8316A</span>
+              <ul>
+                <li>Consistency: ± 3%</li>
+                <li>Repeatability: better than ±1%</li>
+                <li>Road abrasive layer: Grouting</li>
+                <li>Overload capacity: Greater than 150% F.S</li>
+                <li>Service life: More than 300 million axle times</li>
+                <li>Weighing speed range: 0.5 – 100 km/h</li>
+                <li>Degree of protection: IP68</li>
+                <li>Operating temperature: -45 – 80°C</li>
+                <li>Load capacity: ≥40t</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8768</span>
+              <ul>
+                <li>Data output: RS485/CAN</li>
+                <li>Degree of protection: IP68</li>
+                <li>Speed range: 0.5 ~ 200km/h</li>
+                <li>Operating temperature: -30℃~65℃</li>
+                <li>Overload capacity: Greater than 150%F.S</li>
+                <li>Length: 1.5m, 2m</li>
+                <li>Section size: （48mm*58mm）x58mm</li>
+                <li>Service life: More than 100 million axle times</li>
+                <li>Tire type recognition rate: ≥99%</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY7718A Data Logger</span>
+              <ul>
+                <li>Maximum weighing axle load: 40T</li>
+                <li>Weighing speed range: 0.5 ~ 100km/h</li>
+                <li>
+                  Total vehicle weight accuracy level: Class 2, class 5, class
+                  10
+                </li>
+                <li>Vehicle type recognition accuracy: ≥98%</li>
+                <li>Division value: d =50kg</li>
+                <li>Operating temperature: -25℃~+65℃</li>
+                <li>Vehicle separation accuracy: ≥99</li>
+                <li>Max management lanes: 4</li>
+                <li>Max input sensor channel: 32</li>
+                <li>Displayer: Optional</li>
+                <li>Keyboard and mouse: Optional</li>
+                <li>Clock: Date and time</li>
+                <li>Dimension: 482*390*89mm</li>
+                <li>Product weight:7.5kg</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY7719A Data Logger (overload management)</span>
+              <ul>
+                <li>Maximum weighing axle load: 40T</li>
+                <li>Weighing speed range: 0.5 ~ 100km/h</li>
+                <li>
+                  Total vehicle weight accuracy level: Class1, Class 2, class 5,
+                  class 10
+                </li>
+                <li>Vehicle type recognition accuracy: ≥98%</li>
+                <li>Division value: d =50kg</li>
+                <li>Operating temperature: -25℃~+65℃</li>
+                <li>Vehicle separation accuracy: ≥99</li>
+                <li>Max management lanes: 4</li>
+                <li>Max input sensor channel: 32</li>
+                <li>Display screen: 4.3 inches, RGB, color</li>
+                <li>Keyboard and mouse: Optional</li>
+                <li>Clock: Date and time</li>
+                <li>Dimension: 282*200*139mm</li>
+                <li>Product weight:5.1kg</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8311 Piezoelectric Traffic Sensor</span>
+              <ul>
+                <li>Section size: ～3×7mm2</li>
+                <li>
+                  Length: Visible brass length is 1.78 m, overall length is 1.93
+                  m
+                </li>
+                <li>Piezoelectric coefficient: ≥20pC/N Nominal value</li>
+                <li>Insulation resistance: ＞500MΩ</li>
+                <li>Equivalent capacitance: ～6.5nF</li>
+                <li>Working temperature: -25℃～60℃</li>
+                <li>Interface: Q9</li>
+                <li>
+                  Mounting bracket: Attach the mounting bracket with the sensor
+                  (Nylon material, not recycled).1 pcs bracket each 15 cm.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY7701B Charge Amplifier</span>
+              <ul>
+                <li>Noise: Less than 1 Mv</li>
+                <li>Channels: 4CH, 6CH, 8CH</li>
+                <li>Maximum output current: ±50 mA</li>
+                <li>Working temperature: -40℃~60℃</li>
+                <li>Maximum output amplitude: ±6.5 VPP</li>
+                <li>Accuracy: 0.5% Sensitivity: 0.05mV/pC</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY7727 Equipment Cabinet</span>
+              <ul>
+                <li>Dimension: 95*80*160cm/75*80*160cm</li>
+                <li>Color: white</li>
+                <li>Maximum allowed lanes: 4</li>
+                <li>
+                  Material: Cold-rolled steel (stainless steel customizable)
+                </li>
+                <li>Lock: common key/individual key</li>
+                <li>
+                  Intelligent lock control: remote unlock/QR code
+                  unlock/Bluetooth unlock/smart key unlock.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY7726 Video Camera</span>
+              <ul>
+                <li>Resolution: 1920×1080</li>
+                <li>Power: ≤70W</li>
+                <li>Humidity: 90%</li>
+                <li>
+                  Illumination: 0.0004Lux/F1.5 (color), 0.0001Lux/F1.5 (black
+                  and white)
+                </li>
+                <li>Operating temperature: -40℃~70℃</li>
+                <li>Frame rate: 30 FPS</li>
+                <li>Protection level: IP67</li>
+                <li>Infrared irradiation distance: 200m</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY7725 Snapping Camera</span>
+              <ul>
+                <li>Resolution: 4096 (H)x2160 (V)</li>
+                <li>Interface protocol: ISAPI, GB28181</li>
+                <li>Frequency: 25 FPS</li>
+                <li>Working humidity: 5%~95% ,40℃no condensation</li>
+                <li>Dimension: 180mm(W)x152.7mm(H)x636MM (D)</li>
+                <li>Protection level: IP65</li>
+                <li>Power consumption: 20W MA</li>
+                <li>Operating temperature: -30℃~60℃</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY7724 Industrial PC</span>
+              <ul>
+                <li>Processor: ARM A9 dual core</li>
+                <li>Upload: breakpoint continue/manual upload</li>
+                <li>
+                  Data storage: Vehicle information (records and pictures)
+                </li>
+                <li>Dimension: 370mm(L)x237mm(W)x102.5mm(H)</li>
+                <li>Network interface: 8 100M, 2 10/100/1000m adaptive</li>
+                <li>Operating temperature: -40℃~70℃</li>
+                <li>Power consumption: ≤60W</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY7723 Switch</span>
+              <ul>
+                <li>Application hierarchy of switch: 2</li>
+                <li>Power: 238.7W</li>
+                <li>Transmission rate: 10/100/1000Mbps</li>
+                <li>Backplane bandwidth: 256Gbps</li>
+                <li>Network standard: IEEE 802.3AH, 802.1 AG</li>
+                <li>Dimension: 442mm(L) x 310mm(W) x 43.6mm(H)</li>
+                <li>Packet forwarding rate: 42Mpps</li>
+                <li>Port descr1ption: 24 10/100/1000base-T</li>
+                <li>Working temperature: 0~45℃</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY7722 Laser Radar Detector</span>
+              <ul>
+                <li>Repeat accuracy: ±30mm</li>
+                <li>Scanning range: 270°</li>
+                <li>Laser source: 905nm class</li>
+                <li>Operating temperature: -10℃~55℃</li>
+                <li>Sampling rate: 45kHz</li>
+                <li>Scanning frame rate: 10/15/20/25/30Hz</li>
+                <li>
+                  Detection range: 0.1-20m /90% reflectivity, 0.1-8m /10%
+                  reflectivity
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY7721 Vehicle Detector</span>
+              <ul>
+                <li>
+                  Response time: 38.4ms±1.2ms （A type）38.4ms±2.4ms （E type）
+                </li>
+                <li>Sensitivity: 0.02%~0.96%（A type）0.04%~1.04%（E type）</li>
+                <li>Cable length: MAX 500m</li>
+                <li>Frequency range: 30~160 KHz</li>
+                <li>Rated power: ≤3W</li>
+                <li>Operating temperature: -20℃~65℃</li>
+                <li>Product weight: 1.2kg</li>
+                <li>Dimension: 215×120×42mm</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8313 Dynamic and Static Weighing Sensor</span>
+              <ul>
+                <li>Weighing speed：0-80km/h Accuracy: ±2.5%</li>
+                <li>Weighing speed：80km/h-120km/ h</li>
+                <li>Accuracy: ±5%</li>
+                <li>Weight measuring range: 0.5-30t</li>
+                <li>Operating temperature: -40℃-80℃</li>
+                <li>
+                  Driving position detection, wheel/axle identification, drive
+                  shaft identification.
+                </li>
+                <li>Safety overload: 200%</li>
+                <li>Degree of protection: IP68</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span> QSY7719B/C Data Logger (toll by weight)</span>
+              <ul>
+                <li>Weighing speed range: 0.5 ~ 100km/h</li>
+                <li>Division value: d =50kg</li>
+                <li>
+                  Total vehicle weight accuracy level: Class 1, class 2, class 5
+                </li>
+                <li>Vehicle separation accuracy: ≥99%</li>
+                <li>Max input sensor channel: 32</li>
+                <li>Keyboard: Optional</li>
+                <li>Dimension: 282*200*139mm</li>
+                <li>Maximum weighing axle load: 40t</li>
+                <li>Vehicle type recognition accuracy: ≥98%</li>
+                <li>Operating temperature: -25℃~+65℃</li>
+                <li>Max management lanes: 4</li>
+                <li>Display screen: 4.3 inches, RGB, color</li>
+                <li>Clock: Date and time</li>
+                <li>Product weight: 5.1kg</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ISHMS -->
+      <div>
+        <span
+          class="text-black font-bolder text-[20px] text-center md:text-left"
+        >
+          <h2>Intelligent Structure Health Monitoring System (ISHMS)</h2>
         </span>
 
-        <!-- Description Infrastructure -->
-        <article>
-          <p class="my-4 text-black text-justify">
-            An Intelligent Structure Health Monitoring system is a sophisticated
-            framework designed to continuously assess the condition and
-            performance of various structures, such as bridges, buildings, and
-            dams. This system employs a combination of advanced sensors, data
-            analytics, and real-time monitoring technologies to gather critical
-            information about structural integrity. By analyzing parameters such
-            as stress, strain, temperature, and vibration, the system can
-            provide valuable insights into the health of a structure, enabling
-            timely maintenance and repairs. This proactive approach not only
-            enhances safety but also extends the lifespan of the infrastructure.
+        <!-- Opening ISHMS -->
+        <div>
+          <p>
+            Platform Intelligent Structural Health Monitoring ini dirancang
+            dengan arsitektur B/S (Browser/Server) dan mendukung penyebaran di
+            cloud maupun lokal. Platform ini memungkinkan pemantauan data secara
+            real-time, pemrosesan data yang terintegrasi, pemantauan dan
+            peringatan dini, statistik laporan, serta publikasi data. Platform
+            ini dapat mengelola ratusan proyek sekaligus, memberikan layanan
+            informasi yang andal dan cepat bagi klien. Platform ini sangat cocok
+            untuk digunakan oleh instansi pemerintah di tingkat provinsi, kota,
+            dan kabupaten, serta korporat.
           </p>
-          <p class="my-4 text-black text-justify">
-            The necessity for an Intelligent Structure Health Monitoring system
-            arises from the increasing complexity and demands placed on modern
-            infrastructure. As structures age and environmental conditions
-            change, the risk of structural failure escalates, potentially
-            leading to catastrophic consequences. Implementing such a monitoring
-            system allows for early detection of potential issues, thereby
-            mitigating risks and ensuring the safety of occupants and users.
-            Furthermore, it supports compliance with regulatory standards and
-            helps organizations manage maintenance budgets more effectively by
-            prioritizing interventions based on real-time data rather than
-            reactive measures.
+          <img src="" alt="" />
+        </div>
+
+        <!-- Value -->
+        <div>
+          <span>Value</span>
+          <p>
+            Dengan mengadopsi Intelligent Structural Health Monitoring System
+            (ISHMS), pemerintah mendapatkan solusi komprehensif untuk menjaga
+            keamanan dan keandalan infrastruktur vital seperti jembatan, gedung,
+            dan terowongan. ISHMS memungkinkan pemantauan kondisi struktur
+            secara real-time dan deteksi dini potensi kerusakan yang sulit
+            diidentifikasi secara manual. Dengan analisis data yang mendalam,
+            pemerintah dapat mengoptimalkan perawatan, mengurangi biaya
+            pemeliharaan jangka panjang, dan memperpanjang usia infrastruktur.
+            Sistem ini membantu pemerintah melindungi investasi publik,
+            meningkatkan efisiensi operasional, dan memastikan keselamatan
+            masyarakat pengguna infrastruktur.
           </p>
-          <p class="my-4 text-black text-justify">
-            Our expertise in Intelligent Structure Health Monitoring can
-            significantly benefit your business by providing tailored solutions
-            that enhance operational efficiency and safety. We offer
-            comprehensive assessments and customized monitoring systems that
-            align with your specific structural needs. By leveraging our
-            advanced technology and analytical capabilities, we can help you
-            make informed decisions regarding maintenance and repairs,
-            ultimately reducing costs and minimizing downtime. Our commitment to
-            innovation and excellence ensures that your infrastructure remains
-            resilient and reliable, allowing you to focus on your core business
-            objectives with confidence.
-          </p>
+          <img src="" alt="" />
+        </div>
+
+        <!-- Article Tunnel Online Monitoring -->
+        <article class="">
+          <h3>Tunnel Online Monitoring</h3>
+          <!-- Masalah -->
+          <div>
+            <img src="" alt="()" />
+            <span>Masalah:</span>
+            <p class="my-4 text-black text-justify">
+              Dalam beberapa tahun terakhir, pembangunan terowongan di Indonesia
+              berkembang pesat seiring dengan peningkatan proyek infrastruktur.
+              Namun, penggalian terowongan sering kali menyebabkan penurunan
+              tanah. Masalah seperti retakan pada atap terowongan, rembesan air,
+              dan deformasi besar pada terowongan menjadi tantangan utama,
+              seperti yang terjadi pada kasus rembesan dan longsor saat
+              pembangunan Terowongan Nanjung di Jawa Barat. Oleh karena itu,
+              sangat penting untuk memantau dan menganalisis semua kondisi
+              terowongan selama proses konstruksi dan operasionalnya.
+            </p>
+          </div>
+
+          <!-- Value -->
+          <div>
+            <span>Value:</span>
+            <img src="" alt="()" />
+          </div>
+
+          <!-- Product List -->
+          <div>
+            <span>Product List:</span>
+            <img src="" alt="()" />
+          </div>
         </article>
+
+        <!-- Article Dam Online Monitoring  -->
+        <article class="">
+          <h3>Dam Online Monitoring</h3>
+          <!-- Masalah -->
+          <div>
+            <img src="" alt="()" />
+            <span>Masalah:</span>
+            <p class="my-4 text-black text-justify">
+              Jebolnya bendungan adalah jenis kegagalan yang sangat serius,
+              ditandai dengan tumpahnya air dalam jumlah besar secara tiba-tiba,
+              cepat, dan tidak terkendali. Di Indonesia, salah satu kasus
+              kegagalan bendungan yang pernah terjadi adalah jebolnya tanggul
+              Situ Gintung di Tangerang Selatan pada 27 Maret 2009. Tanggul yang
+              menahan air di Situ Gintung mengalami keruntuhan besar,
+              menyebabkan banjir yang menyapu kawasan pemukiman di sekitarnya.
+              Bencana ini mengakibatkan lebih dari 100 orang meninggal dunia,
+              puluhan lainnya luka-luka, dan ratusan rumah rusak parah. Kejadian
+              ini menjadi pengingat pentingnya pemantauan dan perawatan
+              bendungan secara berkala untuk mencegah bencana serupa di masa
+              depan.
+            </p>
+          </div>
+
+          <!-- Value -->
+          <div>
+            <span>Value:</span>
+            <img src="" alt="()" />
+          </div>
+
+          <!-- Product List -->
+          <div>
+            <span>Product List:</span>
+            <img src="" alt="()" />
+          </div>
+        </article>
+
+        <!-- Article River Online Monitoring -->
+        <article class="">
+          <h3>River Online Monitoring</h3>
+          <!-- Masalah -->
+          <div>
+            <img src="" alt="()" />
+            <span>Masalah:</span>
+            <p class="my-4 text-black text-justify">
+              Banyak sungai dan aliran air di Indonesia yang saat ini tidak
+              terpantau, sehingga masyarakat tidak menyadari kenaikan debit air
+              saat hujan lebat. Peristiwa cuaca ekstrem semakin sering dan
+              intens terjadi. Dengan memprediksi banjir sebelum terjadi, langkah
+              pencegahan dapat diambil, dan masyarakat dapat diperingatkan lebih
+              awal untuk bersiap menghadapi kondisi banjir. Contohnya adalah
+              banjir besar yang melanda Jakarta setiap musim hujan, terutama
+              saat sungai-sungai seperti Ciliwung meluap. Kami menyediakan
+              sistem canggih untuk memantau ketinggian sungai sehingga pihak
+              berwenang dapat memberikan respons darurat lebih cepat terhadap
+              potensi banjir di wilayah tersebut.
+            </p>
+          </div>
+
+          <!-- Value -->
+          <div>
+            <span>Value:</span>
+            <img src="" alt="()" />
+          </div>
+        </article>
+
+        <!-- Article Foundation Pit Online Monitoring   -->
+        <article class="">
+          <h3>Foundation Pit Online Monitoring</h3>
+          <!-- Masalah -->
+          <div>
+            <img src="" alt="()" />
+            <span>Masalah:</span>
+            <p class="my-4 text-black text-justify">
+              Penggalian pondasi dalam kota memiliki risiko konstruksi yang
+              tinggi dan tingkat kesulitan yang besar. Hal ini disebabkan oleh
+              kompleksitas karakteristik tanah bawah tanah, beban yang
+              ditanggung, dan lingkungan konstruksi. Oleh karena itu, pemantauan
+              karakteristik tanah, lingkungan sekitar, bangunan di sekitarnya,
+              serta fasilitas bawah tanah menjadi langkah yang sangat penting
+              selama proses konstruksi. Di Indonesia, salah satu contohnya
+              adalah pembangunan pondasi dalam MRT Jakarta, yang melibatkan
+              penggalian di area padat penduduk dengan lingkungan dan
+              infrastruktur kompleks. Pemantauan secara cermat dilakukan untuk
+              memastikan keamanan konstruksi, melindungi bangunan di sekitar,
+              dan mencegah kecelakaan selama proses pembangunan.
+            </p>
+          </div>
+
+          <!-- Value -->
+          <div>
+            <span>Value:</span>
+            <img src="" alt="()" />
+          </div>
+
+          <!-- Product List -->
+          <div>
+            <span>Product List:</span>
+            <img src="" alt="()" />
+          </div>
+        </article>
+
+        <!-- Article Subgrade Online Monitoring -->
+        <article class="">
+          <h3>Subgrade Online Monitoring</h3>
+          <!-- Masalah -->
+          <div>
+            <img src="" alt="()" />
+            <span>Masalah:</span>
+            <p class="my-4 text-black text-justify">
+              Dalam beberapa tahun terakhir, pembangunan jalan tol di Indonesia
+              berkembang pesat. Namun, setelah digunakan dalam jangka waktu
+              tertentu, banyak jalan tol yang mengalami permukaan tidak rata,
+              ambles, atau longsor. Masalah serupa juga sering terjadi pada
+              proses pembangunan jalur kereta api. Subgrade atau lapisan dasar
+              merupakan bagian penting dari rekayasa perkeretaapian. Subgrade
+              berfungsi menahan beban struktur rel dan kereta, namun juga
+              menjadi bagian yang paling rentan dan tidak stabil dalam proyek
+              jalur kereta. Penurunan berlebih pada subgrade dapat menyebabkan
+              berbagai kerusakan, meningkatkan biaya perawatan, dan mengancam
+              keselamatan lalu lintas. Contohnya adalah kasus penurunan tanah
+              pada jalur Kereta Cepat Jakarta-Bandung, yang menimbulkan
+              tantangan besar selama proses konstruksi. Pemantauan dan
+              pengelolaan subgrade secara ketat diperlukan untuk memastikan
+              stabilitas, mengurangi risiko kerusakan, serta menjaga efisiensi
+              dan keselamatan operasional jalur kereta.
+            </p>
+          </div>
+
+          <!-- Value -->
+          <div>
+            <span>Value:</span>
+            <img src="" alt="()" />
+          </div>
+
+          <!-- Product List -->
+          <div>
+            <span>Product List:</span>
+            <img src="" alt="()" />
+          </div>
+        </article>
+
+        <!-- Article Slope Online Monitoring -->
+        <article class="">
+          <h3>Slope Online Monitoring</h3>
+          <!-- Masalah -->
+          <div>
+            <img src="" alt="()" />
+            <span>Masalah:</span>
+            <p class="my-4 text-black text-justify">
+              Selama ini, teknologi pemantauan keamanan lereng masih menjadi
+              kelemahan dalam rekayasa jalan. Karena kurangnya penelitian
+              sistematis mengenai teknologi pemantauan keamanan, belum ada
+              pengalaman yang matang untuk diterapkan pada proyek jalan. Di
+              Indonesia, tanah longsor merupakan ancaman serius, terutama di
+              kawasan pegunungan. Salah satu contoh nyata adalah longsor yang
+              terjadi di jalur Puncak, Bogor, yang sering menimbulkan kerusakan
+              jalan dan kecelakaan fatal. Rata-rata, tanah longsor di Indonesia
+              menyebabkan puluhan korban jiwa setiap tahunnya, terutama akibat
+              runtuhan batu dan aliran puing. Pemantauan keamanan lereng yang
+              terintegrasi dan berbasis teknologi sangat penting untuk
+              meminimalkan risiko, melindungi pengguna jalan, dan memastikan
+              keberlanjutan infrastruktur jalan di wilayah rawan longsor.
+            </p>
+          </div>
+
+          <!-- Value -->
+          <div>
+            <span>Value:</span>
+            <img src="" alt="()" />
+          </div>
+
+          <!-- Product List -->
+          <div>
+            <span>Product List:</span>
+            <img src="" alt="()" />
+          </div>
+        </article>
+
+        <!-- Product Lists -->
+
+        <!-- Page 1 ISHMS Product Lists -->
+        <div>
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY500Z Multi-function data acquisition</span>
+              <p>
+                QSY500 is the fifth-generation smart and multi-function data
+                acquisition system specially developed for geological monitoring
+                in various geotechnical engineering. Apply to online monitoring
+                of slope, subgrade, bridge, tunnel, dam, and foundation pit.
+              </p>
+              <ul>
+                <li>
+                  More powerful on Real-time data management: Embedded LINUX
+                  operating system
+                </li>
+                <li>
+                  More stronger Data transmission compatibility: Support all
+                  mainstream communication network.
+                </li>
+                <li>
+                  More convenient to export data: LAN remote awakening and data
+                  download function.
+                </li>
+                <li>
+                  Further online networking distance: LORI wireless network,
+                  further network distance, easier data transmission.
+                </li>
+                <li>
+                  Stronger durability: Highlight OLED display module, industrial
+                  grade (-40~ 80℃) working temperature range, suitable for all
+                  kind of extreme conditions.
+                </li>
+                <li>
+                  Stronger security: Add a new function of instrument alarm,
+                  timely manager the working status by updating data of
+                  temperature and humidity, and the instrument's supply voltage.
+                  Add a new lightning protection device to effectively protect
+                  the sensor access the circuit. Add a new anti-theft device,
+                  additional input and output port to real-time master
+                  information of anti-theft.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8987 Freezing rain sensor</span>
+              <ul>
+                <li>Measurement range：0～50mm, 0～100mm, 0～200mm</li>
+                <li>Resolution：0.01mm</li>
+                <li>Accuracy of measurement：±0.1%F. S</li>
+                <li>Working voltage：+12VDC</li>
+                <li>Working temperature：-20℃～+80℃</li>
+                <li>Working humidity：0～95%RH</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8979 Radar water level meter</span>
+              <ul>
+                <li>Measurement range：1.5~30m</li>
+                <li>Accuracy of measurement：±2cm</li>
+                <li>Measuring lasting time ：0~180s</li>
+                <li>Measurement interval：1~18000s adjustable</li>
+                <li>Radar frequency：24GHz</li>
+                <li>Angle of radio emission：11°x11°</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8978 Barometric pressure sensor</span>
+              <ul>
+                <li>Measurement range：0.1, 0.2, 0.4, 0.8, 1.0, 1.6, 2.5Mpa</li>
+                <li>Resolution：≤0.08%F. S</li>
+                <li>Non-straightness：≤ 1.5 % F.S</li>
+                <li>Error：≤ 2.0 %</li>
+                <li>Working temperature：-25℃～+60℃</li>
+                <li>Protection class：IP68</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8984 Thermistor</span>
+              <ul>
+                <li>Measurement range：-50℃~+50℃</li>
+                <li>Resolution：0.01℃</li>
+                <li>Accuracy of measurement：±0.03℃</li>
+                <li>Working voltage：+12VDC</li>
+                <li>Working current：10μA~1mA</li>
+                <li>Protection class：IP68</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8971 Ultrasonic anemometer</span>
+              <ul>
+                <li>Measurement range：0～50mm, 0～100mm, 0～200mm</li>
+                <li>Resolution：0.01mm</li>
+                <li>Accuracy of measurement：±0.1%F. S</li>
+                <li>Working voltage：+12VDC</li>
+                <li>Working temperature：-20℃～+80℃</li>
+                <li>Working humidity：0～95%RH</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8989 Wind speed transmitter</span>
+              <ul>
+                <li>Measurement range：1.0m/s~60m/s</li>
+                <li>Resolution：0.1m/s</li>
+                <li>Accuracy of mesurement：30ms</li>
+                <li>Working voltage：+12VDC</li>
+                <li>Working temperature：-20℃～+80℃</li>
+                <li>Working humidity：0～95%RH</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8988 Wind direction transmitter</span>
+              <ul>
+                <li>Measurement range of wind speed：0~100m/s</li>
+                <li>Measurement range of wind direction：0~360°</li>
+                <li>Accuracy of mesurement：士0.3m/s</li>
+                <li>Output：O~5VDC，4~20mA</li>
+                <li>Working temperature：-50~50°C</li>
+                <li>Start-up wind speed（10° displacement)：1.1m/s</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY7901 Spherical camera</span>
+              <ul>
+                <li>Image sensor ：2/3＂ Progressive Scan CMOS</li>
+                <li>Video compression：H.265/H.264/MJPEG</li>
+                <li>IR View distance：200m</li>
+                <li>Signal to noise ratio (SNR)：≥55dB</li>
+                <li>Electronic shutter：1/1-1/30,000s</li>
+                <li>Day and night mode ：Automatic ICR color to black</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8975 Rain gauge</span>
+              <ul>
+                <li>Measurement range：0.1mm/min～4mm/min</li>
+                <li>Resolution：±0.01mm</li>
+                <li>Accuracy of measurement：±0.1mm</li>
+                <li>Working voltage：10VDC～24VDC</li>
+                <li>Power consumption：0.4W</li>
+                <li>Working temperature：-20℃～+80℃</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page 2 ISHMS Product Lists -->
+        <div>
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8965 Ambient temperature sensor</span>
+              <ul>
+                <li>Accuracy of measurement：±0.5℃（25℃</li>
+                <li>Measuring range：-40℃~+120℃</li>
+                <li>Long-term stability：≤0.1℃/y</li>
+                <li>Response time：≤1s</li>
+                <li>DC supply ：10-30VDC</li>
+                <li>Max Power consumption ：0.8W</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8977 Multifactor weather Box</span>
+              <ul>
+                <li>Scale distance：100, 150, 250mm</li>
+                <li>stress：1200με</li>
+                <li>press：1800με</li>
+                <li>Resolution：≤0.4%F. S</li>
+                <li>Error：≤1.5%F. S</li>
+                <li>Working temperature：-25℃～60℃</li>
+                <li>Working voltage：12V</li>
+                <li>Working current：5mA</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8972 Visibility sensor</span>
+              <ul>
+                <li>Measurement range: ±5/±15/±30</li>
+                <li>Measurement axial: X/Y optional</li>
+                <li>Accuracy of measurement: ±0.003°</li>
+                <li>Resolution: 0.0005°</li>
+                <li>Temperature drift: 0.0005°/℃</li>
+                <li>Protection class: IP67</li>
+                <li>Working temperature：-40℃~+85℃</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8973 Total radiation sensor</span>
+              <ul>
+                <li>Measurement range: ±5/±15/±30</li>
+                <li>Measurement axial: X/Y optional</li>
+                <li>Accuracy of measurement: ±0.003°</li>
+                <li>Resolution: 0.0005°</li>
+                <li>Temperature drift: 0.0005°/℃</li>
+                <li>Default baud rate: 2400~19200</li>
+                <li>Repeatability：0.003°</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8951 Anchor meter</span>
+              <ul>
+                <li>Measurement range: 500, 1000, 2000, 3000, 4000, 5000 KN</li>
+                <li>Resolution: ≤0.10% F.S</li>
+                <li>Error: ≤1.0% F.S</li>
+                <li>Working temperature: -25℃～+60℃</li>
+                <li>Protection class: IP68</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8943 Axial force meter</span>
+              <ul>
+                <li>Dimension(T): 50, 100, 200, 300, 400, 500, 600</li>
+                <li>Measurement range: 0～2000KN</li>
+                <li>Resolution: 0.1KN</li>
+                <li>Sensitivity: 0.1Mpa/F</li>
+                <li>Working temperature: -25℃～+60℃</li>
+                <li>Protection class：IP68</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8941 Vibrating string steel stress gauge</span>
+              <ul>
+                <li>Maximum tensile press: 100MPa</li>
+                <li>Maximum tensile stress200MPa</li>
+                <li>Resolution：≤ 0.05%F. S</li>
+                <li>Error：≤ 1.5% F.S</li>
+                <li>Working temperature: -25℃～+60℃</li>
+                <li>Protection class：IP68</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8961 Soil pressure gauge</span>
+              <ul>
+                <li>Measurement range：0.1, 0.2, 0.4, 0.8, 1.0, 1.6, 2.5Mpa</li>
+                <li>Resolution ：≤0.08%F. S</li>
+                <li>Non-straightness：≤ 1.5 % F.S</li>
+                <li>Error：≤ 2.0 % F.S</li>
+                <li>Working temperature: -25℃～+60℃</li>
+                <li>Protection class：IP68</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8947 Embedded type concrete strain meter</span>
+              <ul>
+                <li>Scale distance：100, 150, 250mm</li>
+                <li>stress：1200με</li>
+                <li>pressure：1800με</li>
+                <li>Resolution：≤0.4%F. S</li>
+                <li>Error：≤1.5%F. S</li>
+                <li>Working temperature：-25℃～60℃</li>
+                <li>Working voltage：12V</li>
+                <li>Working current：5mA</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8946 Surface strain meter</span>
+              <ul>
+                <li>Scale distance：100mm</li>
+                <li>Measurement range：±1500με</li>
+                <li>Accuracy of measurement：±0.1%F.S</li>
+                <li>Withstand water pressure：≥ 0.5MPa</li>
+                <li>Insulation resistance：≥50MΩ</li>
+                <li>Working voltage：12V</li>
+                <li>Working current：5mA</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page 3 ISHMS Product Lists -->
+        <div>
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8913 inclinometer</span>
+              <ul>
+                <li>Measurement range: ±5/±15/±30</li>
+                <li>Measurement axial: X/Y optional</li>
+                <li>Accuracy of measurement: ±0.003°</li>
+                <li>Resolution: 0.0005°</li>
+                <li>Temperature drift: 0.0005°/℃</li>
+                <li>Protection class: IP67</li>
+                <li>Working temperature：-40℃~+85℃</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8923 Hydrostatic level</span>
+              <ul>
+                <li>Measurement range：0mm～200mm</li>
+                <li>Sensitivity：≤0.01mm</li>
+                <li>Accuracy of measurement：±0.1%F.S</li>
+                <li>Working temperature：-20℃～+80℃</li>
+                <li>Working humidity：0～95%RH</li>
+                <li>Output signal: RS485/4mA～20mA</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8924 Hydraulic sedimentation meter</span>
+              <ul>
+                <li>Measurement range：0-1.5m-5m</li>
+                <li>Resolution：0.01mmH2O</li>
+                <li>Accuracy of measurement：≥±0.2mmH2O</li>
+                <li>Output signal：RS485</li>
+                <li>Working temperature：-20℃～85℃</li>
+                <li>Working humidity：0～95%RH</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8928 Drawstring displacement meter</span>
+              <ul>
+                <li>Measurement range：0～50mm, 0～100mm, 0～200mm</li>
+                <li>Resolution：0.01mm</li>
+                <li>Accuracy of measurement：±0.1%F.S</li>
+                <li>Working voltage：+12VDC</li>
+                <li>Working temperature：-20℃～+80℃</li>
+                <li>Working humidity：0～95%RH</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8927 Convergent displacement meter</span>
+              <ul>
+                <li>Measurement range：0～50mm, 0～100mm, 0～200mm</li>
+                <li>Resolution：0.01mm</li>
+                <li>Accuracy of measurement：±0.1%F.S</li>
+                <li>Working voltage：+12VDC</li>
+                <li>Working temperature：-20℃～+80℃</li>
+                <li>Working humidity：0～95%RH</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8909 Soil moisture gauge</span>
+              <ul>
+                <li>Measurement range: 0～50%, 0～100%</li>
+                <li>Accuracy of measurement: ±3% (0-53%), ±5% (53%)</li>
+                <li>Output signal: 4～20mA</li>
+                <li>Working voltage：+5V</li>
+                <li>Working temperature: DC40℃～85℃</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8905 Osmometer</span>
+              <ul>
+                <li>Measurement range：0MPa～0.3MPa</li>
+                <li>Resolution：≤0.1KPa</li>
+                <li>Accuracy of measurement：±0.1%F.S</li>
+                <li>Error：≤1.5% F.S</li>
+                <li>Withstand water pressure：≥50MΩ</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8906 Throw- in type water gauge</span>
+              <ul>
+                <li>Measurement range：0MPa～0.7MPa</li>
+                <li>Resolution：≤0.02%F.S</li>
+                <li>Accuracy of measurement：±0.1%F.S</li>
+                <li>Error：≤1.5% F.S</li>
+                <li>Withstand water pressure：1.2 times measurement range</li>
+                <li>Insulation resistance：≥50MΩ</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8908 Pore water pressure gauge</span>
+              <ul>
+                <li>Measurement range: 0.2, 0.4, 0.8, 10, 1.6, 2.5, 4.0 Mpa</li>
+                <li>Resolution: 0.01mm</li>
+                <li>Accuracy of measurement：±0.1%F.S</li>
+                <li>Error：≤1.5% F.S</li>
+                <li>Withstand water pressure：1.2 times measurement range</li>
+                <li>Insulation resistance：≥50MΩ</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8942 Optical fiber grating surface strain meter</span>
+              <ul>
+                <li>Measurement range: -1500 ～ +1500uε</li>
+                <li>Resolution：1uε</li>
+                <li>Accuracy of mesurement：0.5%F·Suε</li>
+                <li>Central wavelength：1525 ～1565nm</li>
+                <li>Working temperature：-30℃~+80℃</li>
+                <li>Scale distance：150mm</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Page 4 ISHMS Product Lists -->
+        <div>
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8955 Intelligent surface strain meter</span>
+              <ul>
+                <li>Measurement range：±1500u</li>
+                <li>Resolution：1u</li>
+                <li>Accuracy of measurement：±0.5%F.S</li>
+                <li>Working voltage：+12VDC</li>
+                <li>Working current：5mA</li>
+                <li>Working humidity：-20℃～+80℃</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8701 Fixed clinometer</span>
+              <ul>
+                <li>Measurement range：±30°</li>
+                <li>Resolution：±0.01°</li>
+                <li>Accuracy of measurement：±0.5%F.S</li>
+                <li>Working voltage：+12VDC</li>
+                <li>Working temperature：-20℃～+80℃</li>
+                <li>Working humidity：0～95%RH</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8907 Multipoint displacement meter</span>
+              <ul>
+                <li>Measurement range：0~100mm, 0~200mm, 0~400mm</li>
+                <li>Resolution：0.01%F.S</li>
+                <li>Accuracy of measurement：±0.1%F.S</li>
+                <li>Working voltage：+12VDC</li>
+                <li>Working temperature：-20℃～+80℃</li>
+                <li>Working humidity：0～95%RH</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8922 Layered settlement gauge</span>
+              <ul>
+                <li>Measurement range：0～50mm</li>
+                <li>Resolution：＜0.01mm</li>
+                <li>Accuracy of measurement：±0.1%F.S</li>
+                <li>Working voltage：+12VDC</li>
+                <li>Working temperature：-20℃～+80℃</li>
+                <li>Working humidity：0～95%RH</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8929 Single point displacement meter</span>
+              <ul>
+                <li>Measurement range：0～50mm</li>
+                <li>Resolution：＜0.01mm</li>
+                <li>Accuracy of measurement：±0.1%F.S</li>
+                <li>Working voltage：+12VDC</li>
+                <li>Working temperature：-20℃～+80℃</li>
+                <li>Working humidity：0～95%RH</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8926 Flexible displacement meter</span>
+              <ul>
+                <li>Measurement range：0～50mm, 0～100mm, 0～200mm</li>
+                <li>Resolution：＜0.01mm</li>
+                <li>Accuracy of measurement：±0.1%F.S</li>
+                <li>Working voltage：+12VDC</li>
+                <li>Working temperature：-20℃～+80℃</li>
+                <li>Working humidity：0～95%RH</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY8931 Joint meter</span>
+              <ul>
+                <li>Measurement range：0～50mm, 0～100mm, 0～200mm</li>
+                <li>Resolution：＜0.01mm</li>
+                <li>Accuracy of measurement：±0.1%F.S</li>
+                <li>Working voltage：+12VDC</li>
+                <li>Working temperature：-20℃～+80℃</li>
+                <li>Working humidity：0～95%RH</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY532 Data transmission radio</span>
+              <ul>
+                <li>Carrier frequency: 410.125 ～ 493.125MHz</li>
+                <li>Output power: 25W</li>
+                <li>Communication distance: 40km</li>
+                <li>Communication mode: RS232/RS485</li>
+                <li>Communication channel: 84</li>
+                <li>Supply voltage: 12V</li>
+                <li>Working temperature: -40～85℃</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY520 Comprehensive data acquisition instrument</span>
+              <ul>
+                <li>Voltage: ±10V</li>
+                <li>Voltage accuracy: ±0.1%FS±1mV</li>
+                <li>String wire: 450 ～5000Hz</li>
+                <li>Electric current: 4 ～40mA</li>
+                <li>Electric current accuracy: ±0.1%FS±1uA</li>
+                <li>String wire accuracy: ±0.1%FS±1Hz</li>
+                <li>Resistance: 50 ～ 10000Ω</li>
+                <li>Resistance accuracy: ±0.1%FS±1Ω</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <img src="" alt="" />
+            <div>
+              <span>QSY510 Resistance acquisition instrument</span>
+              <ul>
+                <li>Measurement range(optional): 0Ω ～15000Ω</li>
+                <li>Accuracy of measurement: ±0.01%FS</li>
+                <li>Number of channels: 64 channels</li>
+                <li>Resolution: 0.01Ω</li>
+                <li>Power supply: +12VDC</li>
+                <li>Working current: 40mA</li>
+                <li>Working temperature: -40℃～+85℃</li>
+                <li>Communication mode: RS232/RS485</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Subscribe -->
-    <section class="mx-auto px-4">
-      <div class="">
+    <section class="mx-auto">
+      <div class="dark:bg-black dark:text-white">
         <img
           class="mx-auto w-full"
           src="Asset/subs.png"
           alt="Subscribe to get the latest news and updates from PT. BATUKARANG KENAN ABADI."
         />
-        <div class="relative mb-4 flex w-full flex-wrap items-stretch">
+        <div
+          class="relative mb-4 flex w-full flex-wrap items-stretch justify-center"
+        >
           <input
             type="email"
-            class="relative m-0 -me-px block flex-auto rounded-s border border-solid border-neutral-200 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-surface outline-none transition duration-200 ease-in-out placeholder:text-neutral-500 focus:z-[3] focus:border-primary focus:shadow-inset focus:outline-none motion-reduce:transition-none dark:border-white/10 dark:text-white dark:placeholder:text-neutral-200 dark:autofill:shadow-autofill dark:focus:border-primary"
+            class="lg:absolute p-2 border-2 border-black dark:border-white w-full md:w-[85vw] lg:w-[20vw] lg:bottom-[80px] lg:left-[55px] md:bottom-[] inline-block dark:text-white"
             placeholder="Bussiness E-Mail"
             aria-label="Bussiness E-Mail"
             aria-describedby="button-Subscribe"
           />
           <button
-            class="z-[2] inline-block rounded-e border-2 border-primary-100 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:border-primary-accent-200 hover:bg-secondary-50/50 focus:border-primary-accent-200 focus:bg-secondary-50/50 focus:outline-none focus:ring-0 active:border-primary-accent-200 dark:border-primary-400 dark:text-primary-300 dark:hover:bg-blue-950 dark:focus:bg-blue-950"
+            class="lg:absolute lg:bottom-[80px] lg:left-[400px] z-[2] inline-block border-2 border-primary-100 px-6 pb-[6px] pt-2 text-lg font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:border-primary-accent-200 hover:bg-secondary-50/50 focus:border-primary-accent-200 focus:bg-secondary-50/50 focus:outline-none focus:ring-0 active:border-primary-accent-200 dark:border-primary-400 dark:text-primary-300 dark:hover:bg-blue-950 dark:focus:bg-blue-950"
             data-twe-ripple-init
             type="button"
             id="button-Subscribe"
@@ -485,8 +1954,8 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white dark:bg-gray-900">
-      <div class="w-full p-4 py-6 md:py-4">
+    <footer class="bg-white dark:bg-gray-900 dark:text-white">
+      <div class="w-full p-4 py-6 md:py-4 dark:bg-black dark:text-white">
         <div
           class="w-full flex flex-col md:grid md:grid-cols-3 md:justify-between lg:flex lg:flex-row lg:justify-between"
         >
@@ -526,7 +1995,18 @@
                 </div>
                 <div>
                   <a href="https://X.com">
-                    <img class="h-8 px-1" src="Asset/twitter.png" alt="X" />
+                    <img
+                      class="h-8 px-1 dark:hidden"
+                      src="Asset/twitter.png"
+                      alt="X"
+                    />
+                  </a>
+                  <a href="https://X.com">
+                    <img
+                      class="h-8 px-1 hidden dark:block"
+                      src="Asset/twitter2.png"
+                      alt="X"
+                    />
                   </a>
                 </div>
                 <div>
@@ -551,7 +2031,7 @@
             </div>
 
             <!-- Company Copyright footer-->
-            <div>
+            <div class="dark:bg-black dark:text-white">
               <p class="text-[14px] mt-2 mx-4 text-center">
                 &copy; 2024. PT.BATUKARANG KENAN ABADI. All Rights Reserved.
               </p>
@@ -566,140 +2046,105 @@
             </div>
           </div>
           <!-- Solutions footer-->
-          <div class="py-6 flex-col">
-            <a
-              href="Solutions/solution.html"
-              class="mb-2 font-bold hover:underline"
-            >
-              Solutions
-            </a>
-            <ul>
+          <div class="py-6 flex-col dark:bg-black dark:text-white">
+            <span class="mb-2 font-bold hover:underline"> Solutions </span>
+            <ul class="dark:bg-black dark:text-white">
               <li class="mt-4">
-                <a
-                  href="Solutions/IntegratedSmartSecuritySystem.html"
-                  class="hover:underline"
+                <a href="ISMS.html" class="hover:underline"
                   >Integrated Security Management System (ISMS)</a
                 >
               </li>
               <li>
-                <a href="Solutions/WeighinMotion.html" class="hover:underline"
+                <a href="WIM.html" class="hover:underline"
                   >Weigh In Motion (WIM)</a
                 >
               </li>
               <li>
-                <a
-                  href="Solutions/StructureHealthMonitoringSystem.html"
-                  class="hover:underline"
+                <a href="ISHMS.html" class="hover:underline"
                   >Structural Health Monitoring System (SHMS)</a
                 >
               </li>
               <li>
-                <a
-                  href="Solutions/Vehicle-Parking-Management-System.html"
-                  class="hover:underline"
+                <a href="VPMS.html" class="hover:underline"
                   >Vehicle Parking Management System (VPMS)</a
                 >
               </li>
             </ul>
           </div>
           <!-- Products footer-->
-          <div class="py-6 flex-col">
-            <a
-              class="mb-2 font-bold hover:underline"
-              href="Products/Products.html"
-              >Products</a
-            >
+          <div class="py-6 flex-col dark:bg-black dark:text-white">
+            <span class="mb-2 font-bold hover:underline">Products</span>
             <ul>
               <li class="mt-4">
-                <a class="hover:underline" href="Products/Monitoring.html"
-                  >Monitoring</a
-                >
+                <a class="hover:underline" href="Monitoring.html">Monitoring</a>
               </li>
               <li>
-                <a class="hover:underline" href="Products/Sensors.html"
-                  >Sensors</a
-                >
+                <a class="hover:underline" href="Sensors.html">Sensors</a>
               </li>
               <li>
-                <a class="hover:underline" href="Products/Access-Controls.html"
+                <a class="hover:underline" href="Access-Management.html"
                   >Access Control</a
                 >
               </li>
               <li>
-                <a
-                  class="hover:underline"
-                  href="Products/Parking-Management.html"
+                <a class="hover:underline" href="Parking-Management.html"
                   >Parking Management</a
                 >
               </li>
               <li>
-                <a class="hover:underline" href="Products/Data-Centers.html"
+                <a class="hover:underline" href="Data-Centers.html"
                   >Data Center</a
                 >
               </li>
             </ul>
           </div>
           <!-- Markets footer-->
-          <div class="py-6 flex-col">
-            <a
-              class="mb-2 font-bold hover:underline"
-              href="Markets/Markets.html"
-              >Scenarios</a
-            >
+          <div class="py-6 flex-col dark:bg-black dark:text-white">
+            <span class="mb-2 font-bold hover:underline">Scenarios</span>
             <ul>
               <li class="mt-4">
-                <a class="hover:underline" href="Markets/Telecom.html"
-                  >Telecom</a
-                >
+                <a class="hover:underline" href="Telecom.html">Telecom</a>
               </li>
               <li>
-                <a class="hover:underline" href="Markets/Govermental.html"
-                  >Goverment</a
-                >
+                <a class="hover:underline" href="Govermental.html">Goverment</a>
               </li>
               <li>
-                <a class="hover:underline" href="Markets/Infrastructures.html"
+                <a class="hover:underline" href="Infrastructures.html"
                   >Infrastructures</a
                 >
               </li>
               <li>
-                <a class="hover:underline" href="Markets/Industrial Area.html"
+                <a class="hover:underline" href="Industrial-Area.html"
                   >Industrial Area</a
                 >
               </li>
               <li>
-                <a
-                  class="hover:underline"
-                  href="Markets/Commercial Buildings.html"
+                <a class="hover:underline" href="Commercial-Area.html"
                   >Commercial Building</a
                 >
               </li>
               <li>
-                <a class="hover:underline" href="Markets/Residential Area.html"
+                <a class="hover:underline" href="Residential-Area.html"
                   >Residential Area</a
                 >
               </li>
               <li>
-                <a
-                  class="hover:underline"
-                  href="Markets/Parking Area.html Area.html"
+                <a class="hover:underline" href="Parking-Management.html"
                   >Parking Area</a
                 >
               </li>
               <li>
-                <a class="hover:underline" href="Markets/Data Centers.html"
+                <a class="hover:underline" href="Data-Centers.html"
                   >Data Center</a
                 >
               </li>
             </ul>
           </div>
-          <div class="py-6 flex-col">
+          <div class="py-6 flex-col dark:bg-black dark:text-white">
             <span class="mb-2 font-bold">Partners</span>
             <ul>
               <li class="my-4">
-                <a
-                  class="hover:underline"
-                  href="Become Our Partner/become-a-partner.html"
+                <a class="hover:underline" href="become-a-partner.html"
                   >Become our Partner</a
                 >
               </li>
@@ -708,20 +2153,16 @@
             <span class="my-2 font-bold">About Us</span>
             <ul>
               <li class="mt-4">
-                <a class="hover:underline" href="About Us/company.html"
+                <a class="hover:underline" href="company-profile.html"
                   >Company Profile</a
                 >
               </li>
               <li>
-                <a class="hover:underline" href="About Us/Joinus.html"
-                  >Join Us</a
-                >
+                <a class="hover:underline" href="Joinus.html">Join Us</a>
               </li>
             </ul>
-            <div class="flex flex-col">
-              <a
-                class="mt-2 font-bold hover:underline"
-                href="Contact Us/contactus.html"
+            <div class="flex flex-col dark:bg-black dark:text-white">
+              <a class="mt-2 font-bold hover:underline" href="Contactus.html"
                 >Contact Us</a
               >
             </div>
@@ -729,6 +2170,57 @@
         </div>
       </div>
     </footer>
+    <script src="Index_New.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/js/tw-elements.umd.min.js"></script>
+
+    <!-- Darkmode Script -->
+    <script>
+      var themeToggleDarkIcon = document.getElementById(
+        "theme-toggle-dark-icon"
+      );
+      var themeToggleLightIcon = document.getElementById(
+        "theme-toggle-light-icon"
+      );
+
+      // Change the icons inside the button based on previous settings
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        themeToggleLightIcon.classList.remove("hidden");
+      } else {
+        themeToggleDarkIcon.classList.remove("hidden");
+      }
+
+      var themeToggleBtn = document.getElementById("theme-toggle");
+
+      themeToggleBtn.addEventListener("click", function () {
+        // toggle icons inside button
+        themeToggleDarkIcon.classList.toggle("hidden");
+        themeToggleLightIcon.classList.toggle("hidden");
+
+        // if set via local storage previously
+        if (localStorage.getItem("color-theme")) {
+          if (localStorage.getItem("color-theme") === "light") {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("color-theme", "dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("color-theme", "light");
+          }
+
+          // if NOT set via local storage previously
+        } else {
+          if (document.documentElement.classList.contains("dark")) {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("color-theme", "light");
+          } else {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("color-theme", "dark");
+          }
+        }
+      });
+    </script>
   </body>
 </html>

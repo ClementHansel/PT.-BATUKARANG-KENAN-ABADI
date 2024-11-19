@@ -39,342 +39,561 @@
       };
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="Index_New.js"></script>
+    <!-- Dark Mode Theme -->
+    <script>
+      tailwind.config = {
+        darkMode:
+          "class" /* class/media, here we use class to enable manually dark mode */,
+      };
+    </script>
+    <script>
+      /**
+       * Loads the theme stored
+       */
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+    <!-- End of Mode Theme -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="Index_New.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="NewCSS.css" />
+    <link rel="stylesheet" href="navbar-css-trial.css" />
     <link rel="icon" href="Asset/LOGO PT/logoicon.ico" />
     <title>PT.BKKA.CO.ID</title>
   </head>
   <body class="bg-white font-sans min-h-screen">
-    <nav
-      class="fixed top-0 z-10 flex w-full flex-wrap items-center justify-between bg-zinc-50 py-2 shadow-dark-mild dark:bg-neutral-700 lg:py-4"
+    <!-- Navbar -->
+    <section
+      class="sm:hidden md:block bg-white text black dark:bg-black dark:text-white"
     >
-      <div class="flex w-full flex-wrap items-center justify-between px-3">
-        <!-- Left elements -->
-        <div class="flex">
-          <!-- Brand -->
-          <a
-            class="mx-2 my-1 flex items-center lg:mb-0 lg:mt-0"
-            href="index.html"
+      <!-- MD Navbar -->
+      <nav
+        class="fixed top-0 z-10 flex w-full flex-wrap items-center justify-between bg-zinc-50 py-2 shadow-dark-mild lg:py-4 dark:bg-black"
+      >
+        <div class="flex w-full flex-wrap items-center justify-between px-3">
+          <!-- Left elements -->
+          <div class="flex justify-between">
+            <!-- Brand -->
+            <a
+              class="mx-2 my-1 flex items-center lg:mb-0 lg:mt-0"
+              href="index.html"
+            >
+              <img
+                class="me-2 h-10"
+                src="Asset/LOGO PT/Logo-BKKA-Transparant.png"
+                alt="PT. BATUKARANG KENAN ABADI Logo"
+                loading="lazy"
+              />
+            </a>
+            <h1
+              class="hidden md:flex mx-2 my-1 items-center pt-2 text-blue-700 font-bold text-base"
+            >
+              PT. BATUKARANG KENAN ABADI
+            </h1>
+
+            <!-- Dark Mode Toggler -->
+            <button
+              id="theme-toggle"
+              type="button"
+              class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
+            >
+              <svg
+                id="theme-toggle-dark-icon"
+                class="hidden w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                ></path>
+              </svg>
+              <svg
+                id="theme-toggle-light-icon"
+                class="hidden w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Navbar Hamburger -->
+          <section class="body-nav-hamburger lg:hidden z-10">
+            <nav role="navigation">
+              <div id="menuToggle">
+                <!--
+                  A fake / hidden checkbox is used as click reciever,
+                  so you can use the :checked selector on it.
+                  -->
+                <input type="checkbox" />
+
+                <!--
+                  Some spans to act as a hamburger.
+          
+                  They are acting like a real hamburger,
+                  not that McDonalds stuff.
+                  -->
+                <span class="bg-black dark:bg-white"></span>
+                <span class="bg-black dark:bg-white"></span>
+                <span class="bg-black dark:bg-white"></span>
+
+                <!--
+                  Too bad the menu has to be inside of the button
+                  but hey, it's pure CSS magic.
+                  -->
+                <ul id="menu">
+                  <li class="">
+                    <div tabindex="0" id="menu-label-1" class="onclick-menu">
+                      Solutions
+                      <ul id="submenu-label-1" class="onclick-menu-content">
+                        <li>
+                          <a class="mx-8 text-xl" href="https://bkka.site/isms"
+                            >ISMS</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="WIM.html">WIM</a>
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="ISHMS.html">ISHMS</a>
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="VPMS.html">VPMS</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li>
+                    <div id="menu-label-2" tabindex="0" class="onclick-menu">
+                      Products
+                      <ul id="submenu-label-2" class="onclick-menu-content">
+                        <li>
+                          <a class="mx-8 text-xl" href="Monitoring.html"
+                            >Monitoring</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Sensors.html"
+                            >Sensors</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Access-Management.html"
+                            >Access Management</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Parking-Area.html"
+                            >Parking Management</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Data-Centers.html"
+                            >Data Centers</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="">
+                    <div id="menu-label-3" tabindex="0" class="onclick-menu">
+                      Markets
+                      <ul id="submenu-label-3" class="onclick-menu-content">
+                        <li>
+                          <a class="mx-8 text-xl" href="Telecom.html"
+                            >Telecom</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Goverment.html"
+                            >Goverment</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Infrastructure.html"
+                            >Infrastructures</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Industrial-Area.html"
+                            >Industrial Area</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Commercial-Area.html"
+                            >Commercial Building</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Residential-Area.html"
+                            >Residential Area</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Parking-Area.html"
+                            >Parking Area</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Data-Centers.html"
+                            >Data Centers</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li id="menu-label-4">
+                    <a href="become-a-partner.html">Partners</a>
+                  </li>
+                  <li class="">
+                    <div id="menu-label-5" tabindex="0" class="onclick-menu">
+                      About
+                      <ul id="submenu-label-5" class="onclick-menu-content">
+                        <li>
+                          <a class="mx-8 text-xl" href="company-profile.html"
+                            >Company Profile</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Joinus.html">Join Us</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li id="menu-label-6">
+                    <a href="Contactus.html">Contact</a>
+                  </li>
+                  <li id="menu-label-7"><a href="login.html">Log In</a></li>
+                </ul>
+              </div>
+            </nav>
+          </section>
+
+          <!-- Left elements -->
+
+          <!-- Right elements -->
+          <ul
+            class="list-style-none ms-auto flex flex-row ps-0 md:ps-4"
+            data-twe-navbar-nav-ref
           >
-            <img
-              class="me-2 h-10"
-              src="Asset/LOGO PT/Logo-BKKA-Transparant.png"
-              alt="PT. BATUKARANG KENAN ABADI Logo"
-              loading="lazy"
-            />
-          </a>
-          <h1
-            class="hidden md:flex mx-2 my-1 items-center pt-2 text-blue-700 font-bold text-base"
-          >
-            PT. BATUKARANG KENAN ABADI
-          </h1>
+            <!-- Products dropdown Trigger -->
+            <li class="relative px-2 hidden lg:flex" data-twe-dropdown-ref>
+              <a
+                class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
+                href="#"
+                role="button"
+                data-twe-dropdown-toggle-ref
+                aria-expanded="false"
+              >
+                <strong class="[&>svg]:h-6 [&>svg]:w-6"> Products </strong>
+              </a>
+              <ul
+                class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
+                aria-labelledby="dropdownMenuButton1"
+                data-twe-dropdown-menu-ref
+              >
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Monitoring.html"
+                    data-twe-dropdown-item-ref
+                    >Monitoring</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Sensors.html"
+                    data-twe-dropdown-item-ref
+                    >Sensors</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Access-Management.html"
+                    data-twe-dropdown-item-ref
+                    >Access Management</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Parking-Management.html"
+                    data-twe-dropdown-item-ref
+                    >Parking Management</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Data-Centers.html"
+                    data-twe-dropdown-item-ref
+                    >Data Center</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Softwares.html"
+                    data-twe-dropdown-item-ref
+                    >Softwares</a
+                  >
+                </li>
+              </ul>
+              <!-- First dropdown trigger -->
+            </li>
+
+            <!-- Solutions dropdown trigger -->
+            <li class="relative px-2 hidden lg:flex" data-twe-dropdown-ref>
+              <a
+                class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
+                href=""
+                role="button"
+                data-twe-dropdown-toggle-ref
+                aria-expanded="false"
+              >
+                <strong class="[&>svg]:h-6 [&>svg]:w-6"> Solutions </strong>
+              </a>
+              <ul
+                class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
+                aria-labelledby="dropdownMenuButton1"
+                data-twe-dropdown-menu-ref
+              >
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="ISMS.html"
+                    data-twe-dropdown-item-ref
+                    >Integrated Smart Security System</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="WIM.html"
+                    data-twe-dropdown-item-ref
+                    >Weigh In Motion</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="ISHMS.html"
+                    data-twe-dropdown-item-ref
+                    >Structure Health Monitoring System</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="VPMS.html"
+                    data-twe-dropdown-item-ref
+                    >Vehicle Parking Management System</a
+                  >
+                </li>
+              </ul>
+
+              <!-- First dropdown trigger -->
+            </li>
+
+            <!-- Markets dropdown trigger -->
+            <li class="relative px-2 hidden lg:flex" data-twe-dropdown-ref>
+              <a
+                class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
+                href=""
+                role="button"
+                data-twe-dropdown-toggle-ref
+                aria-expanded="false"
+              >
+                <strong class="[&>svg]:h-6 [&>svg]:w-6"> Markets </strong>
+              </a>
+              <ul
+                class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
+                aria-labelledby="dropdownMenuButton1"
+                data-twe-dropdown-menu-ref
+              >
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Telecom.html"
+                    data-twe-dropdown-item-ref
+                    >Telecom</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Goverment.html"
+                    data-twe-dropdown-item-ref
+                    >Goverment</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Infrastructure.html"
+                    data-twe-dropdown-item-ref
+                    >infrastructures</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Industrial-Area.html"
+                    data-twe-dropdown-item-ref
+                    >Industrial Area</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Commercial-Area.html"
+                    data-twe-dropdown-item-ref
+                    >Commercial Buildings</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Residential-Area.html"
+                    data-twe-dropdown-item-ref
+                    >Residential Area</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Parking-Area.html"
+                    data-twe-dropdown-item-ref
+                    >Parking Area</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Data-Centers.html"
+                    data-twe-dropdown-item-ref
+                    >Data Center</a
+                  >
+                </li>
+              </ul>
+
+              <!-- First dropdown trigger -->
+            </li>
+
+            <!-- Partners -->
+            <li class="px-2 hidden lg:flex" data-twe-nav-item-ref>
+              <a
+                class="flex text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
+                href="become-a-partner.html"
+                data-twe-nav-link-ref
+              >
+                <strong class="ms-1 sm:block">Partners</strong>
+              </a>
+            </li>
+
+            <!-- About Us Dropdown trigger  -->
+            <li class="relative px-2 hidden lg:flex" data-twe-dropdown-ref>
+              <a
+                class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
+                href=""
+                role="button"
+                data-twe-dropdown-toggle-ref
+                aria-expanded="false"
+              >
+                <strong class="[&>svg]:h-6 [&>svg]:w-6"> About </strong>
+              </a>
+              <ul
+                class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
+                aria-labelledby="dropdownMenuButton1"
+                data-twe-dropdown-menu-ref
+              >
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="company-profile.html"
+                    data-twe-dropdown-item-ref
+                    >Company</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Joinus.html"
+                    data-twe-dropdown-item-ref
+                    >Join Us</a
+                  >
+                </li>
+              </ul>
+
+              <!-- First dropdown trigger -->
+            </li>
+
+            <!-- Contact Us -->
+            <li class="px-2 hidden lg:flex" data-twe-nav-item-ref>
+              <a
+                class="flex text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
+                href="Contactus.html"
+                data-twe-nav-link-ref
+              >
+                <strong class="ms-1 sm:block">Contact</strong>
+              </a>
+            </li>
+
+            <!-- Login Button -->
+            <li class="px-2 hidden lg:block" data-twe-nav-item-ref>
+              <a
+                class="flex text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
+                href="login.html"
+                data-twe-nav-link-ref
+              >
+                <span class="[&>svg]:h-6 [&>svg]:w-6">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                    fill="currentColor"
+                  >
+                    <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                      fill-rule="evenodd"
+                      d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span class="hidden">Login</span>
+                </span>
+              </a>
+            </li>
+          </ul>
         </div>
-        <!-- Left elements -->
-
-        <!-- Right elements -->
-        <ul
-          class="list-style-none ms-auto flex flex-row ps-0 md:ps-4"
-          data-twe-navbar-nav-ref
-        >
-          <!-- Products dropdown Trigger -->
-          <li class="relative px-2 hidden md:flex" data-twe-dropdown-ref>
-            <a
-              class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
-              href="#"
-              role="button"
-              data-twe-dropdown-toggle-ref
-              aria-expanded="false"
-            >
-              <strong class="[&>svg]:h-6 [&>svg]:w-6"> Products </strong>
-            </a>
-            <ul
-              class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
-              aria-labelledby="dropdownMenuButton1"
-              data-twe-dropdown-menu-ref
-            >
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Products/Monitoring.html"
-                  data-twe-dropdown-item-ref
-                  >Monitoring</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Products/Sensors.html"
-                  data-twe-dropdown-item-ref
-                  >Sensors</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Products/Access-Controls.html"
-                  data-twe-dropdown-item-ref
-                  >Access Control</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Products/Parking-Management.html"
-                  data-twe-dropdown-item-ref
-                  >Parking Management</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Products/Data-Centers.html"
-                  data-twe-dropdown-item-ref
-                  >Data Center</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Products/Softwares.html"
-                  data-twe-dropdown-item-ref
-                  >Softwares</a
-                >
-              </li>
-            </ul>
-            <!-- First dropdown trigger -->
-          </li>
-
-          <!-- Solutions dropdown trigger -->
-          <li class="relative px-2 hidden md:flex" data-twe-dropdown-ref>
-            <a
-              class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
-              href=""
-              role="button"
-              data-twe-dropdown-toggle-ref
-              aria-expanded="false"
-            >
-              <strong class="[&>svg]:h-6 [&>svg]:w-6"> Solutions </strong>
-            </a>
-            <ul
-              class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
-              aria-labelledby="dropdownMenuButton1"
-              data-twe-dropdown-menu-ref
-            >
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Solutions/IntegratedSmartSecuritySystem.html"
-                  data-twe-dropdown-item-ref
-                  >Integrated Smart Security System</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Solutions/WeighinMotion.html"
-                  data-twe-dropdown-item-ref
-                  >Weigh In Motion</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Solutions/StructureHealthMonitoringSystem.html"
-                  data-twe-dropdown-item-ref
-                  >Structure Health Monitoring System</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Solutions/Vehicle-Parking-Management-System.html"
-                  data-twe-dropdown-item-ref
-                  >Vehicle Parking Management System</a
-                >
-              </li>
-            </ul>
-
-            <!-- First dropdown trigger -->
-          </li>
-
-          <!-- Markets dropdown trigger -->
-          <li class="relative px-2 hidden lg:flex" data-twe-dropdown-ref>
-            <a
-              class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
-              href=""
-              role="button"
-              data-twe-dropdown-toggle-ref
-              aria-expanded="false"
-            >
-              <strong class="[&>svg]:h-6 [&>svg]:w-6"> Markets </strong>
-            </a>
-            <ul
-              class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
-              aria-labelledby="dropdownMenuButton1"
-              data-twe-dropdown-menu-ref
-            >
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Markets/Telecom.html"
-                  data-twe-dropdown-item-ref
-                  >Telecom</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Markets/Govermental.html"
-                  data-twe-dropdown-item-ref
-                  >Goverment</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Markets/Infrastructures.html"
-                  data-twe-dropdown-item-ref
-                  >infrastructures</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Markets/Industrial Area.html"
-                  data-twe-dropdown-item-ref
-                  >Industrial Area</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Markets/Commercial Buildings.html"
-                  data-twe-dropdown-item-ref
-                  >Commercial Buildings</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Markets/Residential Area.html Area.html Area.html"
-                  data-twe-dropdown-item-ref
-                  >Residential Area</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Markets/Parking Area.html Area.html"
-                  data-twe-dropdown-item-ref
-                  >Parking Area</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Markets/Data Centers.html"
-                  data-twe-dropdown-item-ref
-                  >Data Center</a
-                >
-              </li>
-            </ul>
-
-            <!-- First dropdown trigger -->
-          </li>
-
-          <!-- Partners -->
-          <li class="px-2 hidden lg:flex" data-twe-nav-item-ref>
-            <a
-              class="flex text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
-              href="Become Our Partner/become-a-partner.html"
-              data-twe-nav-link-ref
-            >
-              <strong class="ms-1 sm:block">Partners</strong>
-            </a>
-          </li>
-
-          <!-- About Us Dropdown trigger  -->
-          <li class="relative px-2 hidden lg:flex" data-twe-dropdown-ref>
-            <a
-              class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
-              href=""
-              role="button"
-              data-twe-dropdown-toggle-ref
-              aria-expanded="false"
-            >
-              <strong class="[&>svg]:h-6 [&>svg]:w-6"> About </strong>
-            </a>
-            <ul
-              class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
-              aria-labelledby="dropdownMenuButton1"
-              data-twe-dropdown-menu-ref
-            >
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="About Us/company.html"
-                  data-twe-dropdown-item-ref
-                  >Company</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="About Us/Joinus.html"
-                  data-twe-dropdown-item-ref
-                  >Join Us</a
-                >
-              </li>
-            </ul>
-
-            <!-- First dropdown trigger -->
-          </li>
-
-          <!-- Contact Us -->
-          <li class="px-2 hidden lg:flex" data-twe-nav-item-ref>
-            <a
-              class="flex text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
-              href="Contactus.html"
-              data-twe-nav-link-ref
-            >
-              <strong class="ms-1 sm:block">Contact</strong>
-            </a>
-          </li>
-
-          <!-- Login Button -->
-          <li class="px-2" data-twe-nav-item-ref>
-            <a
-              class="flex text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
-              href="signup.html"
-              data-twe-nav-link-ref
-            >
-              <span class="[&>svg]:h-6 [&>svg]:w-6">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 448 512"
-                  fill="currentColor"
-                >
-                  <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                  <path
-                    fill-rule="evenodd"
-                    d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-                <span class="hidden">Login</span>
-              </span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+      </nav>
+    </section>
 
     <!-- Hero -->
     <div class="w-full">
@@ -404,89 +623,1049 @@
       </div>
     </div>
 
-    <!-- solution -->
-
-    <section>
+    <!-- VPMS -->
+    <div>
+      <!-- Opening -->
       <div>
-        <span class="text-black font-bolder text-[20px]">
-          <h2>Vehicle Parking Management System (VPMS)</h2>
-        </span>
-
-        <!-- Description VPMS -->
-        <article>
-          <p class="my-4 text-black text-justify">
-            A Vehicle Parking Management System is a sophisticated solution
-            designed to streamline the process of managing parking spaces in
-            various environments, such as commercial buildings, shopping
-            centers, and public facilities. This system employs advanced
-            technology to monitor and control parking availability, ensuring
-            efficient use of space. It typically includes features such as
-            real-time tracking of parking occupancy, automated payment
-            processing, and user-friendly interfaces for both operators and
-            customers. By integrating these functionalities, the system enhances
-            the overall parking experience, reduces congestion, and optimizes
-            resource allocation.
-          </p>
-          <p class="my-4 text-black text-justify">
-            The necessity of a Vehicle Parking Management System arises from the
-            growing challenges associated with urbanization and increased
-            vehicle ownership. As cities become more populated, the demand for
-            parking spaces escalates, leading to frustration among drivers
-            searching for available spots. This system addresses these issues by
-            providing accurate information about parking availability, thereby
-            minimizing the time spent looking for a space. Additionally, it can
-            help reduce traffic congestion, lower emissions, and improve safety
-            by managing the flow of vehicles in and out of parking areas.
-            Ultimately, implementing such a system can lead to enhanced customer
-            satisfaction and increased revenue for businesses.
-          </p>
-          <p class="my-4 text-black text-justify">
-            Our expertise in developing and implementing Vehicle Parking
-            Management Systems can significantly benefit your business by
-            providing tailored solutions that meet your specific needs. We
-            understand the unique challenges faced by different industries and
-            can customize our system to enhance operational efficiency and
-            customer experience. By leveraging our technology, you can expect
-            improved space utilization, streamlined payment processes, and
-            valuable data analytics that inform decision-making. Our commitment
-            to ongoing support and system upgrades ensures that your parking
-            management remains effective and adaptable to future demands,
-            ultimately contributing to your business's success.
-          </p>
-        </article>
+        <h2>Vehicle Parking Management System (VPMS)</h2>
+        <p>(Need Opening)</p>
       </div>
-    </section>
 
-    <section>
-      <div>
-        <h2>Products</h2>
+      <!-- Article Vehicle Entrance & Exit Management -->
+      <article>
         <div>
-          <div>Tab 1</div>
-          <div>Tab 2</div>
-          <div>Tab 3</div>
-          <div>Tab 4</div>
+          <h3>Vehicle Entrance and Exit Management</h3>
+          <p>
+            Sistem manajemen tradisional yang mengandalkan pencatatan manual
+            sering kali tidak efisien dan rentan terhadap kesalahan. Kendaraan
+            yang belum terdaftar sering kali harus mengantri panjang hanya untuk
+            verifikasi atau pendaftaran, yang akhirnya membuat pengalaman
+            pengguna kurang nyaman. Selain itu, pencatatan manual yang dilakukan
+            secara berkala menyulitkan pengelola dalam melacak dan memonitor
+            data kendaraan secara real-time, sehingga memperlambat respons
+            terhadap insiden dan membuat operasional menjadi kurang optimal.
+          </p>
         </div>
-      </div>
-    </section>
+        <div>
+          <img src="" alt="" />
+          <h5>
+            Identifikasi tamu dan kendaraan terdaftar secara manual kurang
+            efisien sehingga dapat menyebabkan risiko pencurian, kehilangan
+            properti, atau insiden keamanan.
+          </h5>
+        </div>
+        <div>
+          <img src="" alt="" />
+          <h5>
+            Antrian panjang untuk proses verifikasi akses dan pencatatan manual
+            berkontribusi besar terhadap menurunnya pengalaman pengguna secara
+            keseluruhan.
+          </h5>
+        </div>
+        <div>
+          <img src="" alt="" />
+          <h5>
+            Melacak catatan keluar masuk kendaraan melalui dokumentasi manual
+            sangat sulit dan tidak efisien.
+          </h5>
+        </div>
+
+        <!-- Value -->
+        <div>
+          <div>
+            <span>Value:</span>
+            <p>
+              Dengan memilih Vehicle Entrance and Exit Management Solution kami,
+              Anda mendapatkan solusi cerdas yang memberikan nilai tambah nyata
+              bagi keamanan dan efisiensi fasilitas Anda. Solusi ini akan
+              mengidentifikasi tamu dan kendaraan terdaftar secara otomatis,
+              cepat dan akurat, sehingga mengurangi potensi risiko keamanan,
+              pencurian, dan kehilangan aset. Selain itu, sistem ini mempercepat
+              proses verifikasi akses tanpa antrian panjang, menciptakan
+              pengalaman yang lebih nyaman dan profesional bagi para pengguna.
+              Data keluar masuk kendaraan juga tercatat secara otomatis dan
+              terpusat, memudahkan pengelola untuk melacak rekam jejak kendaraan
+              secara real-time dan meningkatkan respons terhadap insiden.
+            </p>
+          </div>
+          <div>
+            <span>Efficient Verification</span>
+            <div>
+              <img src="" alt="" />
+              <p>
+                ANPR (Automatic Number Plate Recognition) dapat membantu
+                mencegah masuknya kendaraan yang tidak terdaftar/ tidak memiliki
+                izin.
+              </p>
+            </div>
+            <div>
+              <img src="" alt="" />
+              <span>Efficient Verification</span>
+              <div>
+                <img src="" alt="" />
+                <p>
+                  ANPR (Automatic Number Plate Recognition) dapat membantu
+                  mencegah masuknya kendaraan yang tidak terdaftar/ tidak
+                  memiliki izin.
+                </p>
+              </div>
+              <div>
+                <img src="" alt="" />
+                <p>
+                  ANPR (Automatic Number Plate Recognition) dapat membantu
+                  mencegah masuknya kendaraan yang tidak terdaftar/ tidak
+                  memiliki izin.
+                </p>
+              </div>
+              <div>
+                <img src="" alt="" />
+                <p>
+                  Verifikasi visual akan mempermudah pencatatan serta pencarian
+                  data kendaraan.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Lists -->
+        <div>
+          <img src="" alt="" />
+          <div>
+            <h4>ITC413-PW4D Series</h4>
+            <span>Dahua Access ANPR Camera</span>
+            <ul>
+              <li>
+                High-performance CMOS image sensor and processor that supports
+                continuously extracting metadata 24/7.
+              </li>
+              <li>
+                Adopts intelligent deep learning algorithms and supports
+                recognition of unlicensed vehicles and the type, brand and color
+                of vehicles.
+              </li>
+              <li>
+                Built-in signal port, data port, communication port and remote
+                controllers assist in controlling external devices such as entry
+                and exit barriers.
+              </li>
+              <li>
+                Built-in LED for simplified installation and commissioning.
+              </li>
+              <li>
+                All-in-one structure with junction box and bracket, and it is
+                also low power consumption.
+              </li>
+              <li>IP67 and IK10 rated.</li>
+              <li>
+                Supports intrusion and loitering detection and triggers light
+                and voice alarms when perimeter events occur to actively deter
+                targets. Custom audios can also be imported and edited.
+              </li>
+              <li>
+                Easily adapts to scenarios through its motorized vary-focal
+                lens.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <img src="" alt="" />
+          <div>
+            <h4>VTO4202F-P-S2</h4>
+            <span>2Mp Modular Apartment Door Station</span>
+            <ul>
+              <li>Anodized aluminum front panel</li>
+              <li>CMOS low illumination 2MP HD colorful 160° fisheye camera</li>
+              <li>Video intercom function</li>
+              <li>Access control function that supports two locks</li>
+              <li>
+                Mobile phone app, talk to the visitor or unlock the door
+                remotely on your phone
+              </li>
+              <li>Compatibility 2-wire Interface and RJ45 Interface</li>
+              <li>IK07&IP65</li>
+              <li>Support H.265</li>
+              <li>Support surface and flush mount</li>
+              <li>Modules make the device with great expansibility</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <img src="" alt="" />
+          <div>
+            <h4>ITSJC-2303</h4>
+            <span>79 GHz Anti-smashing Radar</span>
+            <ul>
+              <li>
+                Uses the latest algorithm to filter interference and is suitable
+                for advertising barriers, fence arm barriers, straight arm
+                barriers, and folding arm barriers.
+              </li>
+              <li>
+                Adjustable detection distance and width, applicable to multiple
+                scenes.
+              </li>
+              <li>
+                Supports updating through serial port and mobile app (with Wi-Fi
+                connection), and allows online commissioning and firmware
+                update.
+              </li>
+              <li>
+                The radar reads the surroundings automatically, which makes it
+                applicable to complicated scenes.
+              </li>
+              <li>
+                Connects to cameras through RS-485 to obtain parameters and
+                working logs of the radar on camera web interface.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <img src="" alt="" />
+          <div>
+            <h4>ITSXS-1201-44</h4>
+            <span>Entrance and Exit LED Display</span>
+            <ul>
+              <li>
+                Highlighted LED module displays in 64 × 64 lattice diagram (4.75
+                mm pixel pitch) with adjustable brightness
+              </li>
+              <li>Supports voice broadcast</li>
+              <li>Supports screen bad pixel (abnormal LED) detection</li>
+              <li>Supports online update of program and character library</li>
+              <li>Conforms to EMC CLASS A standards</li>
+              <li>Conforms to ROHS standards</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <img src="" alt="" />
+          <div>
+            <h4>IPMECD-302X</h4>
+            <span>Straight Arm/Folding Arm Barriery</span>
+            <ul>
+              <li>
+                Attractive housing with sheet metal and an aluminum profile
+                design.
+              </li>
+              <li>
+                Designed with anti-smashing adhesive tape made of polymer
+                polyure thane material, the arm is safe, stable and has a long
+                service life.
+              </li>
+              <li>
+                Supports being connected to an anti-smashing radar, loop and IR
+                device, and has a built-in 12 VDC motherboard that can power the
+                radar.
+              </li>
+              <li>
+                Developed with an LED light belt, the housing and straight arm
+                ap pear red when the arm falls, and green when it rises
+              </li>
+              <li>
+                Automatically rises when the barrier arm makes contact with an
+                object.
+              </li>
+              <li>Rises automatically during a power failure.</li>
+              <li>
+                With rolling code technology, the barrier supports remote
+                control at a maximum distance of 50 m (164 ft) when in an open
+                environment that does not have interference.
+              </li>
+              <li>Motor lifespan: 5 million cycles.</li>
+              <li>Spring lifespan: 5 million cycles.</li>
+              <li>
+                Operating temperature: –40 ��C to +70 ��C (–40 ��F to +158 ��F).
+              </li>
+              <li>Operating humidity: 10%–90%.</li>
+              <li>IP55 rated.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <img src="" alt="" />
+          <div>
+            <h4>PFS3110-8ET-96</h4>
+            <span>10-Port Unmanaged Desktop Switch with 8 Port PoE</span>
+            <span
+              >* The parameters and datasheets below can only be applied to V2.0
+              (version 2.0)</span
+            >
+            <ul>
+              <li>Intelligent PoE</li>
+              <li>BT 90W</li>
+              <li>8-pin assignment PoE power supply</li>
+              <li>Long distance PoE</li>
+              <li>PoE watchdog</li>
+              <li>Wide working temperature</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <img src="" alt="" />
+          <div>
+            <h4>NVR5216-EI</h4>
+            <span>Dahua 16CH 2HDD 1U NETWORK VIDEO RECORDER</span>
+            <ul>
+              <li>
+                Supports Smart H.265+, H.265, Smart H.264+, H.264 and MJPEG
+                decoding formats.
+              </li>
+              <li>
+                Max. decoding capability: 32 × 1080p@30 fps or 16 × 4MP@30 fps.
+              </li>
+              <li>
+                Max. 384/384/384 Mbps incoming/recording/outgoing bandwidth.
+              </li>
+              <li>Supports IP cameras with a resolution up to 32 MP.</li>
+              <li>Supports AcuPick with up to 16 channels.</li>
+              <li>Supports N+M cluster, iSCSI.</li>
+              <li>
+                AI by Recorder supports 2-channel face detection and
+                recognition, up to 20 face databases and 20,000 face images;
+                4-channel perimeter protection; 8-channel SMD Plus.
+              </li>
+              <li>
+                AI by Camera supports face detection and recognition, perimeter
+                protection, SMD Plus, metadata, ANPR, stereo analysis, heat map,
+                and people counting.
+              </li>
+              <li>Supports EPTZ, and one-click arming and disarming.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <img src="" alt="" />
+          <div>
+            <h4>LM32-F200</h4>
+            <span>32" FHD Monitor</span>
+            <ul>
+              <li>Light and cost-effective plastic housing</li>
+              <li>Suitable for continuous 24/7 operation</li>
+              <li>
+                178°H/178°V extra-wide viewing angle for overall viewing
+                performance
+              </li>
+              <li>
+                High fidelity digital processing for a brilliant and vivid video
+              </li>
+              <li>8ms fast response time with no image blurring or ghosting</li>
+              <li>Support multiple signal inputs such as HDMI, VGA and USB</li>
+              <li>Built-in speakers</li>
+              <li>Physical button and infrared remote dual control mode</li>
+              <li>Low energy consumption, long service life</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Article Fire Lane Parking Detection -->
+      <article>
+        <div>
+          <h3>Fire Lane Parking Detection</h3>
+          <p>
+            Jalur darurat kebakaran adalah jalur penting yang sangat berpengaruh
+            pada keselamatan orang dan properti di sekitarnya. Namun, jalur ini
+            sering terhalang oleh kendaraan, yang dapat menyebabkan kerugian
+            besar. Inspeksi manual konvensional tidak dapat memberikan
+            pemantauan 24/7, sehingga pelanggaran parkir di jalur darurat
+            kebakaran sering kali tidak terdeteksi tepat waktu. Kurangnya bukti
+            yang memadai juga membuat pelanggaran sulit ditindaklanjuti setelah
+            terjadi.
+          </p>
+        </div>
+        <div>
+          <img src="" alt="" />
+          <h5>
+            Hambatan pada jalur darurat kebakaran dapat menyebabkan kerugian dan
+            kerusakan yang serius.
+          </h5>
+        </div>
+        <div>
+          <img src="" alt="" />
+          <h5>
+            Inspeksi manual konvensional tidak dapat memberikan pemantauan 24/7,
+            sehingga pelanggaran parkir di jalur darurat kebakaran sering kali
+            tidak terdeteksi tepat waktu.
+          </h5>
+        </div>
+        <div>
+          <img src="" alt="" />
+          <h5>
+            Kurangnya bukti yang memadai membuat pelanggaran sulit
+            ditindaklanjuti setelah terjadi.
+          </h5>
+        </div>
+
+        <!-- Value -->
+        <div>
+          <div>
+            <span>Value:</span>
+            <p>
+              Solusi Fire Lane Parking Detection menggunakan algoritma AI untuk
+              mendeteksi parkir ilegal di jalur darurat kebakaran secara akurat.
+              Sistem ini memberikan notifikasi langsung kepada petugas keamanan
+              untuk menangani pelanggaran dengan cepat. Selain itu, rekaman
+              video yang jelas dari parkir liar ini dapat menjadi bukti penting
+              untuk investigasi lebih lanjut.
+            </p>
+          </div>
+          <div>
+            <div>
+              <img src="" alt="" />
+              <span>Round-the-Clock Accurate Detection</span>
+              <p>
+                Sistem kami menawarkan pemantauan terus-menerus 24/7 dengan
+                menggunakan algoritma AI canggih untuk mendeteksi parkir ilegal
+                di jalur darurat kebakaran.
+              </p>
+            </div>
+            <div>
+              <img src="" alt="" />
+              <span>Instant Security Notifications</span>
+              <p>
+                Sistem mengirimkan pemberitahuan langsung kepada petugas
+                keamanan untuk merespons dengan cepat.
+              </p>
+            </div>
+            <div>
+              <img src="" alt="" />
+              <span>Clear Video Recordings</span>
+              <p>
+                Rekaman video yang jelas dapat digunakan sebagai bukti untuk
+                keperluan investigasi.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Lists -->
+        <div>
+          <img src="" alt="" />
+          <div>
+            <h4>IPC-HFW5442T-ASE</h4>
+            <span>4MP IR Fixed-focal Bullet WizMind Network Camera</span>
+            <span>
+              * The parameters and datasheets below can only be applied to
+              5442-ASE-S3 series.
+            </span>
+            <ul>
+              <li>
+                4-MP 1/1.8" CMOS image sensor, low luminance, and
+                high-definition image.
+              </li>
+              <li>Outputs max. 4 MP (2688×1520) @25/30fps.</li>
+              <li>
+                Built-in IR LED, and the max. illumination distance is 80 m.
+              </li>
+              <li>
+                ROI, SVC, SMART H.264+/H.265+, AI H.264/H.265, encoding after
+                filter, flexible coding, applicable to various bandwidth and
+                storage environments.
+              </li>
+              <li>
+                Rotation mode, WDR, 3D NR, HLC, BLC, digital watermarking,
+                applicable to various monitoring scenes.
+              </li>
+              <li>
+                With deep learning algorithm, it supports: video metadata, smart
+                sound detection, IVS, face detection, smart object detection,
+                and people counting, etc.
+              </li>
+              <li>
+                Alarm: 1 in, 1 out; audio: 1 in, 1 out; supports max. 1 TB Micro
+                SD card, built-in MIC.
+              </li>
+              <li>12 VDC/PoE power supply; ePoE.</li>
+              <li>IP67 and IK10 protection.</li>
+              <li>SMD 3.0.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <img src="" alt="" />
+          <div>
+            <h4>NVR5208-EI</h4>
+            <span>Dahua 8CH 2HDD 1U NETWORK VIDEO RECORDER</span>
+            <ul>
+              <li>
+                Supports Smart H.265+, H.265, Smart H.264+, H.264 and MJPEG
+                decoding formats.
+              </li>
+              <li>
+                Max. decoding capability: 32 × 1080p@30 fps or 8 × 8MP@30 fps.
+              </li>
+              <li>
+                Max. 384/384/384 Mbps incoming/recording/outgoing bandwidth.
+              </li>
+              <li>Supports IP cameras with a resolution up to 32 MP.</li>
+              <li>Supports AcuPick with up to 8 channels.</li>
+              <li>Supports N+M cluster,iSCSI.</li>
+              <li>
+                AI by Recorder supports 2-channel face detection and
+                recognition, up to 20 face databases and 20,000 face images;
+                4-channel perimeter protection; 8-channel SMD Plus.
+              </li>
+              <li>
+                AI by Camera supports face detection and recognition, perimeter
+                protection, SMD Plus, metadata, ANPR, stereo analysis, heat map,
+                and people counting.
+              </li>
+              <li>Supports EPTZ, and one-click arming and disarming.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <img src="" alt="" />
+          <div>
+            <h4>IS4210-8GT-120</h4>
+            <span
+              >10-Port Managed Industrial Gigabit Switch with 8-Port PoE
+              (Managed)</span
+            >
+            <ul>
+              <li>All-gigabit port design.</li>
+              <li>
+                Supports IEEE802.3af, IEEE802.3at, Hi-PoE and IEEE802.3bt (red
+                port) standards.
+              </li>
+              <li>250 m long-distance PoE transmission (10 Mbps).</li>
+              <li>PoE Watchdog.</li>
+              <li>Supports STP, RSTP, and ERPS.</li>
+              <li>IEEE802.1Q-based VLAN configuration.</li>
+              <li>Manual link aggregation and static LACP.</li>
+              <li>Desktop mount and DIN-rail mount.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <img src="" alt="" />
+          <div>
+            <h4>LM22-B200S</h4>
+            <span>21.45" FHD Monitor</span>
+            <ul>
+              <li>Light and cost-effective plastic housing</li>
+              <li>Ultra-narrow bezel, elegant appearance, metal base</li>
+              <li>
+                178°H/178°V extra-wide viewing angle for overall viewing
+                performance
+              </li>
+              <li>
+                High fidelity digital processing for a brilliant and vivid video
+              </li>
+              <li>Support multiple signal inputs such as HDMI, VGA</li>
+              <li>Physical button control mode</li>
+              <li>Low energy consumption, long service life</li>
+              <li>Anti-blue light design, eye-protective.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Article Over Speed Detection -->
+      <article>
+        <div>
+          <!-- Opening Over speed detection -->
+          <div>
+            <h3>Over Speed Detection</h3>
+            <p>
+              Di lingkungan tertentu seperti kawasan industri, kompleks
+              perumahan, area pendidikan, hingga jalan-jalan umum yang dikelola
+              pemerintah, keselamatan menjadi prioritas utama. Namun, perilaku
+              pengemudi yang melaju dengan kecepatan berlebih (overspeeding)
+              akan meningkatkan risiko kecelakaan fatal, kerusakan fasilitas dan
+              membahayakan nyawa orang sekitar.
+            </p>
+            <p>
+              Tantangan yang dihadapi meliputi terbatasnya sumber daya untuk
+              pengawasan real-time, sulitnya memonitor semua area berisiko
+              secara terus-menerus, serta kurangnya bukti yang memadai untuk
+              mendukung penegakan hukum. Upaya seperti pemasangan rambu lalu
+              lintas atau patroli berkala sering kali tidak cukup untuk mencegah
+              pelanggaran secara efektif.
+            </p>
+            <p>
+              Diperlukan solusi cerdas yang mampu mendeteksi, merekam, dan
+              melaporkan pelanggaran kecepatan dengan akurasi tinggi. Dengan
+              teknologi ini, pemerintah dapat menciptakan sistem yang lebih
+              aman, meningkatkan kepatuhan pengemudi, dan mengurangi risiko
+              kecelakaan, sehingga menciptakan lingkungan yang lebih tertib dan
+              nyaman bagi masyarakat.
+            </p>
+          </div>
+
+          <!-- Value -->
+          <div>
+            <span>Value:</span>
+            <div>
+              <div>
+                <img src="" alt="" />
+                <p>
+                  Sistem pemantauan kecepatan kendaraan 24/7 dengan akurasi
+                  tinggi dan segala cuaca meningkatkan keselamatan. Pengumpulan
+                  data akurat, dan respons cepat.
+                </p>
+              </div>
+
+              <div>
+                <div>
+                  <img src="" alt="" />
+                  <p>
+                    Display secara real-time dengan peringatan audio
+                    meningkatkan kesadaran pengemudi untuk memperlambat
+                    kecepatan kendaraan.
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <div>
+                  <img src="" alt="" />
+                  <p>
+                    Pengambilan bukti video yang terintegrasi mempercepat
+                    efisiensi waktu dan meningkatkan akurasi informasi
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product List -->
+          <div>
+            <h3>Product List</h3>
+            <div>
+              <img src="" alt="" />
+              <div>
+                <h4>ITACS-024SA-JB</h4>
+                <span>Radar Speed Sign</span>
+                <ul>
+                  <li>Speed measurement range: 5km/h–199km/h</li>
+                  <li>
+                    Speed measurement distance: 20m–100m (65.62ft–328.08ft)
+                  </li>
+                  <li>Lane coverage: 4 lanes at most</li>
+                  <li>
+                    Display mode: Two-color LED display. Red numbers for
+                    overspeed, and green numbers for normal speed. Up to 3
+                    digits can be displayed, and the largest number can be
+                    displayed is 199
+                  </li>
+                  <li>Power consumption: Radar: <5W; LED display: <40W</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <img src="" alt="" />
+              <div>
+                <h4>ITC413-PW4D Series</h4>
+                <span>Dahua Access ANPR Camera</span>
+                <ul>
+                  <li>
+                    High-performance CMOS image sensor and processor that
+                    supports continuously extracting metadata 24/7.
+                  </li>
+                  <li>
+                    Adopts intelligent deep learning algorithms and supports
+                    recognition of unlicensed vehicles and the type, brand and
+                    color of vehicles.
+                  </li>
+                  <li>
+                    Built-in signal port, data port, communication port and
+                    remote controllers assist in controlling external devices
+                    such as entry and exit barriers.
+                  </li>
+                  <li>
+                    Built-in LED for simplified installation and commissioning.
+                  </li>
+                  <li>
+                    All-in-one structure with junction box and bracket, and it
+                    is also low power consumption.
+                  </li>
+                  <li>IP67 and IK10 rated.</li>
+                  <li>
+                    Supports intrusion and loitering detection and triggers
+                    light and voice alarms when perimeter events occur to
+                    actively deter targets.
+                  </li>
+                  <li>Custom audios can also be imported and edited.</li>
+                  <li>
+                    Easily adapts to scenarios through its motorized vary-focal
+                    lens.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <img src="" alt="" />
+              <div>
+                <h4>IS4210-8GT-120</h4>
+                <span
+                  >10-Port Managed Industrial Gigabit Switch with 8-Port PoE
+                  (Managed)</span
+                >
+                <ul>
+                  <li>All-gigabit port design.</li>
+                  <li>
+                    Supports IEEE802.3af, IEEE802.3at, Hi-PoE and IEEE802.3bt
+                    (red port) standards.
+                  </li>
+                  <li>250 m long-distance PoE transmission (10 Mbps).</li>
+                  <li>PoE Watchdog.</li>
+                  <li>Supports STP, RSTP, and ERPS.</li>
+                  <li>Supports IEEE 802.1Q-based VLAN configuration.</li>
+                  <li>Manual link aggregation and static LACP.</li>
+                  <li>Desktop mount and DIN-rail mount.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <img src="" alt="" />
+              <div>
+                <h4>NVR5216-EI</h4>
+                <span>Dahua 16CH 2HDD 1U NETWORK VIDEO RECORDER</span>
+                <ul>
+                  <li>
+                    Supports Smart H.265+, H.265, Smart H.264+, H.264 and MJPEG
+                    decoding formats.
+                  </li>
+                  <li>
+                    Max. decoding capability: 32 × 1080p@30 fps or 16 × 4MP@30
+                    fps.
+                  </li>
+                  <li>
+                    Max. 384/384/384 Mbps incoming/recording/outgoing bandwidth.
+                  </li>
+                  <li>Supports IP cameras with a resolution up to 32 MP.</li>
+                  <li>Supports AcuPick with up to 16 channels.</li>
+                  <li>Supports N+M cluster, iSCSI.</li>
+                  <li>
+                    AI by Recorder supports 2-channel face detection and
+                    recognition, up to 20 face databases and 20,000 face images;
+                    4-channel perimeter protection; 8-channel SMD Plus.
+                  </li>
+                  <li>
+                    AI by Camera supports face detection and recognition,
+                    perimeter protection, SMD Plus, metadata, ANPR, stereo
+                    analysis, heat map, and people counting.
+                  </li>
+                  <li>Supports EPTZ, and one-click arming and disarming.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <img src="" alt="" />
+              <div>
+                <h4>LM22-B200S</h4>
+                <span>21.45" FHD Monitor</span>
+                <ul>
+                  <li>Light and cost-effective plastic housing</li>
+                  <li>Ultra-narrow bezel, elegant appearance, metal base</li>
+                  <li>
+                    178°H/178°V extra-wide viewing angle for overall viewing
+                    performance
+                  </li>
+                  <li>
+                    High fidelity digital processing for a brilliant and vivid
+                    video
+                  </li>
+                  <li>Support multiple signal inputs such as HDMI, VGA</li>
+                  <li>Physical button control mode</li>
+                  <li>Low energy consumption, long service life</li>
+                  <li>Anti-blue light design, eye-protective.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Article Parking Guidance -->
+      <article>
+        <!-- Opening Parking Guidance -->
+        <div>
+          <h3>Parking Guidance</h3>
+          <p>
+            Parking Guidance Solution dirancang untuk meningkatkan efisiensi
+            parkir di berbagai lokasi, seperti gedung perkantoran, pusat
+            perbelanjaan, dan kawasan industri. Solusi ini menggunakan teknologi
+            kamera canggih yang mendeteksi ketersediaan tempat parkir secara
+            real-time dan memberikan panduan visual kepada pengemudi, sehingga
+            mereka dapat menemukan tempat kosong dengan cepat dan mudah.
+          </p>
+          <img src="" alt="" />
+        </div>
+
+        <!-- Product Lists -->
+        <div>
+          <span>Product Lists</span>
+          <div>
+            <h4>Parking Guidance Camera</h4>
+            <div>
+              <img src="" alt="" />
+              <div>
+                <h5>DS-TCP440-B(ES)</h5>
+                <span>Parking Camera with audio function</span>
+                <ul>
+                  <li>
+                    Built-in high-performance algorithm, supporting ANPR
+                    (accuracy ≥ 99.5%), detection of the parking space status
+                    (accuracy ≥ 99.99%), and smart analysis of crossing over
+                    line, motion detection, etc.
+                  </li>
+                  <li>
+                    HD 4.0 MP camera, applied in environment with low
+                    illumination such as underground garage.
+                  </li>
+                  <li>
+                    3D noise reduction to guarantee clean and exquisite image.
+                  </li>
+                  <li>
+                    Smart detection of the parking space status, and smart
+                    analysis of crossing over line, motion detection, etc.
+                  </li>
+                  <li>
+                    Energy-saving LED with high brightness and low consumption.
+                  </li>
+                  <li>
+                    Speed recognition in second accuracy to indicate the parking
+                    space status in real time and provide accurate available
+                    parking space number.
+                  </li>
+                  <li>
+                    Network wiring with easy connection, installation, and
+                    maintenance.
+                  </li>
+                  <li>ROI encoding.</li>
+                  <li>
+                    Two RJ45 interfaces, supporting connecting cameras in
+                    series, and no power cord is needed.
+                  </li>
+                  <li>
+                    Built-in iBeacon module, supporting indoor positioning and
+                    navigation with the help of APP. iOS or Android SDK is
+                    provided.
+                  </li>
+                  <li>Support audio output function.</li>
+                  <li>
+                    Support setting the broadcast volume and frequency, setting
+                    the volume and broadcast number according to the time
+                    period, driving away the broadcast of special parking spaces
+                    and the detection of the line pressing.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <img src="" alt="" />
+              <div>
+                <h5>DS-TCP440-B</h5>
+                <span>4 MP iBeacon Guidance Camera</span>
+                <ul>
+                  <li>
+                    Built-in high-performance algorithm, supporting ANPR
+                    (accuracy ≥ 99.5%), detection of the parking space status
+                    (accuracy ≥ 99.99%), and smart analysis of crossing over
+                    line, motion detection, etc.
+                  </li>
+                  <li>
+                    HD 4.0 MP camera, applied in environment with low
+                    illumination such as underground garage.
+                  </li>
+                  <li>
+                    3D noise reduction to guarantee clean and exquisite image.
+                  </li>
+                  <li>
+                    Smart detection of the parking space status, and smart
+                    analysis of crossing over line, motion detection, etc.
+                  </li>
+                  <li>
+                    Energy-saving LED with high brightness and low consumption.
+                  </li>
+                  <li>
+                    Speed recognition in second accuracy to indicate the parking
+                    space status in real time and provide accurate available
+                    parking space number.
+                  </li>
+                  <li>
+                    Network wiring with easy connection, installation, and
+                    maintenance.
+                  </li>
+                  <li>ROI encoding.</li>
+                  <li>
+                    Two RJ45 interfaces, supporting connecting cameras in
+                    series, and no power cord is needed.
+                  </li>
+                  <li>
+                    Built-in iBeacon module, supporting indoor positioning and
+                    navigation with the help of APP. iOS or Android SDK is
+                    provided.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <img src="" alt="" />
+              <div>
+                <h5>DS-TCP440-DB</h5>
+                <span>4 MP iBeacon Guidance Camera</span>
+                <ul>
+                  <li>
+                    Built-in high-performance chip, supporting ANPR (accuracy ≥
+                    99.5%), detection of the parking space status (accuracy ≥
+                    99.99%), and smart analysis of crossing over line, motion
+                    detection, etc.
+                  </li>
+                  <li>
+                    HD 4.0 MP camera, applied in environment with low
+                    illumination such as underground garage.
+                  </li>
+                  <li>
+                    3D noise reduction to guarantee clean and exquisite image.
+                  </li>
+                  <li>
+                    Smart detection of the parking space status, and smart
+                    analysis of crossing over line, motion detection, etc.
+                  </li>
+                  <li>
+                    Energy-saving LED with high brightness and low consumption.
+                  </li>
+                  <li>
+                    Speed recognition in second accuracy to indicate the parking
+                    space status in real time and provide accurate available
+                    parking space number.
+                  </li>
+                  <li>
+                    Network wiring with easy connection, installation, and
+                    maintenance.
+                  </li>
+                  <li>ROI encoding.</li>
+                  <li>
+                    Two RJ45 interfaces, supporting connecting cameras in
+                    series, and no power cord is needed.
+                  </li>
+                  <li>
+                    Built-in iBeacon module, supporting indoor positioning and
+                    navigation with the help of APP. iOS or Android SDK is
+                    provided.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <img src="" alt="" />
+              <div>
+                <h5>DS-TCP506</h5>
+                <span>5MP Fisheye Parking Camera</span>
+                <ul>
+                  <li>
+                    5 MP HD camera with max. 2688 × 1944 resolution and 25 fps
+                    frame rate in the fisheye mode. It is applicable to the
+                    underground parking lot and other low illumination scenes.
+                    High quality imaging with 1/2.7" progressive scan CMOS. 0.04
+                    lux low illumination with clearer imaging at night.
+                  </li>
+                  <li>Adopts ultra wide-angle lens for 360° monitoring.</li>
+                  <li>
+                    Supports multiple output modes, including the fisheye
+                    dual-channel calibration and 4-channel calibration.
+                  </li>
+                  <li>
+                    Supports H.265/H.264/MJPEG video encoding algorithm and
+                    multiple video quality configuration and profile settings.
+                  </li>
+                  <li>
+                    Energy-saving LED with high brightness and low consumption.
+                  </li>
+                  <li>Support standard PoE and HIK-POE</li>
+                  <li>
+                    Built-in AI intelligent algorithm of parking space detection
+                    supports to detect the parking space in the fisheye
+                    calibration mode.
+                  </li>
+                  <li>Supports motion detection.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <img src="" alt="" />
+              <div>
+                <h5>DS-TCPC06</h5>
+                <span>12MP Fisheye Parking Camera</span>
+                <ul>
+                  <li>
+                     12 MP HD camera with max. 4000 × 3000 resolution and 15
+                    fps frame rate in the fisheye mode. It is applicable to the
+                    underground parking lot and other low illumination scenes.
+                    High quality imaging with 1/1.7" progressive scan CMOS. 0.04
+                    lux low illumination with clearer imaging at night.
+                  </li>
+                  <li>Adopts ultra wide-angle lens for 360° monitoring.</li>
+                  <li>
+                    Supports multiple output modes, including the fisheye
+                    dual-channel calibration and 4-channel calibration.
+                  </li>
+                  <li>
+                    Supports H.265/H.264/MJPEG video encoding algorithm and
+                    multiple video quality configuration and profile settings.
+                  </li>
+                  <li>
+                    Energy-saving LED with high brightness and low consumption.
+                  </li>
+                  <li>Support standard PoE and HIK-POE</li>
+                  <li>
+                    Built-in AI intelligent algorithm of parking space detection
+                    supports to detect the parking space in the fisheye
+                    calibration mode.
+                  </li>
+                  <li>Supports motion detection.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
 
     <!-- Subscribe -->
-    <section class="mx-auto px-4">
-      <div class="">
+    <section class="mx-auto">
+      <div class="dark:bg-black dark:text-white">
         <img
           class="mx-auto w-full"
           src="Asset/subs.png"
           alt="Subscribe to get the latest news and updates from PT. BATUKARANG KENAN ABADI."
         />
-        <div class="relative mb-4 flex w-full flex-wrap items-stretch">
+        <div
+          class="relative mb-4 flex w-full flex-wrap items-stretch justify-center"
+        >
           <input
             type="email"
-            class="relative m-0 -me-px block flex-auto rounded-s border border-solid border-neutral-200 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-surface outline-none transition duration-200 ease-in-out placeholder:text-neutral-500 focus:z-[3] focus:border-primary focus:shadow-inset focus:outline-none motion-reduce:transition-none dark:border-white/10 dark:text-white dark:placeholder:text-neutral-200 dark:autofill:shadow-autofill dark:focus:border-primary"
+            class="lg:absolute p-2 border-2 border-black dark:border-white w-full md:w-[85vw] lg:w-[20vw] lg:bottom-[80px] lg:left-[55px] md:bottom-[] inline-block dark:text-white"
             placeholder="Bussiness E-Mail"
             aria-label="Bussiness E-Mail"
             aria-describedby="button-Subscribe"
           />
           <button
-            class="z-[2] inline-block rounded-e border-2 border-primary-100 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:border-primary-accent-200 hover:bg-secondary-50/50 focus:border-primary-accent-200 focus:bg-secondary-50/50 focus:outline-none focus:ring-0 active:border-primary-accent-200 dark:border-primary-400 dark:text-primary-300 dark:hover:bg-blue-950 dark:focus:bg-blue-950"
+            class="lg:absolute lg:bottom-[80px] lg:left-[400px] z-[2] inline-block border-2 border-primary-100 px-6 pb-[6px] pt-2 text-lg font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:border-primary-accent-200 hover:bg-secondary-50/50 focus:border-primary-accent-200 focus:bg-secondary-50/50 focus:outline-none focus:ring-0 active:border-primary-accent-200 dark:border-primary-400 dark:text-primary-300 dark:hover:bg-blue-950 dark:focus:bg-blue-950"
             data-twe-ripple-init
             type="button"
             id="button-Subscribe"
@@ -498,8 +1677,8 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white dark:bg-gray-900">
-      <div class="w-full p-4 py-6 md:py-4">
+    <footer class="bg-white dark:bg-gray-900 dark:text-white">
+      <div class="w-full p-4 py-6 md:py-4 dark:bg-black dark:text-white">
         <div
           class="w-full flex flex-col md:grid md:grid-cols-3 md:justify-between lg:flex lg:flex-row lg:justify-between"
         >
@@ -539,7 +1718,18 @@
                 </div>
                 <div>
                   <a href="https://X.com">
-                    <img class="h-8 px-1" src="Asset/twitter.png" alt="X" />
+                    <img
+                      class="h-8 px-1 dark:hidden"
+                      src="Asset/twitter.png"
+                      alt="X"
+                    />
+                  </a>
+                  <a href="https://X.com">
+                    <img
+                      class="h-8 px-1 hidden dark:block"
+                      src="Asset/twitter2.png"
+                      alt="X"
+                    />
                   </a>
                 </div>
                 <div>
@@ -564,7 +1754,7 @@
             </div>
 
             <!-- Company Copyright footer-->
-            <div>
+            <div class="dark:bg-black dark:text-white">
               <p class="text-[14px] mt-2 mx-4 text-center">
                 &copy; 2024. PT.BATUKARANG KENAN ABADI. All Rights Reserved.
               </p>
@@ -579,140 +1769,105 @@
             </div>
           </div>
           <!-- Solutions footer-->
-          <div class="py-6 flex-col">
-            <a
-              href="Solutions/solution.html"
-              class="mb-2 font-bold hover:underline"
-            >
-              Solutions
-            </a>
-            <ul>
+          <div class="py-6 flex-col dark:bg-black dark:text-white">
+            <span class="mb-2 font-bold hover:underline"> Solutions </span>
+            <ul class="dark:bg-black dark:text-white">
               <li class="mt-4">
-                <a
-                  href="Solutions/IntegratedSmartSecuritySystem.html"
-                  class="hover:underline"
+                <a href="ISMS.html" class="hover:underline"
                   >Integrated Security Management System (ISMS)</a
                 >
               </li>
               <li>
-                <a href="Solutions/WeighinMotion.html" class="hover:underline"
+                <a href="WIM.html" class="hover:underline"
                   >Weigh In Motion (WIM)</a
                 >
               </li>
               <li>
-                <a
-                  href="Solutions/StructureHealthMonitoringSystem.html"
-                  class="hover:underline"
+                <a href="ISHMS.html" class="hover:underline"
                   >Structural Health Monitoring System (SHMS)</a
                 >
               </li>
               <li>
-                <a
-                  href="Solutions/Vehicle-Parking-Management-System.html"
-                  class="hover:underline"
+                <a href="VPMS.html" class="hover:underline"
                   >Vehicle Parking Management System (VPMS)</a
                 >
               </li>
             </ul>
           </div>
           <!-- Products footer-->
-          <div class="py-6 flex-col">
-            <a
-              class="mb-2 font-bold hover:underline"
-              href="Products/Products.html"
-              >Products</a
-            >
+          <div class="py-6 flex-col dark:bg-black dark:text-white">
+            <span class="mb-2 font-bold hover:underline">Products</span>
             <ul>
               <li class="mt-4">
-                <a class="hover:underline" href="Products/Monitoring.html"
-                  >Monitoring</a
-                >
+                <a class="hover:underline" href="Monitoring.html">Monitoring</a>
               </li>
               <li>
-                <a class="hover:underline" href="Products/Sensors.html"
-                  >Sensors</a
-                >
+                <a class="hover:underline" href="Sensors.html">Sensors</a>
               </li>
               <li>
-                <a class="hover:underline" href="Products/Access-Controls.html"
+                <a class="hover:underline" href="Access-Management.html"
                   >Access Control</a
                 >
               </li>
               <li>
-                <a
-                  class="hover:underline"
-                  href="Products/Parking-Management.html"
+                <a class="hover:underline" href="Parking-Management.html"
                   >Parking Management</a
                 >
               </li>
               <li>
-                <a class="hover:underline" href="Products/Data-Centers.html"
+                <a class="hover:underline" href="Data-Centers.html"
                   >Data Center</a
                 >
               </li>
             </ul>
           </div>
           <!-- Markets footer-->
-          <div class="py-6 flex-col">
-            <a
-              class="mb-2 font-bold hover:underline"
-              href="Markets/Markets.html"
-              >Scenarios</a
-            >
+          <div class="py-6 flex-col dark:bg-black dark:text-white">
+            <span class="mb-2 font-bold hover:underline">Scenarios</span>
             <ul>
               <li class="mt-4">
-                <a class="hover:underline" href="Markets/Telecom.html"
-                  >Telecom</a
-                >
+                <a class="hover:underline" href="Telecom.html">Telecom</a>
               </li>
               <li>
-                <a class="hover:underline" href="Markets/Govermental.html"
-                  >Goverment</a
-                >
+                <a class="hover:underline" href="Govermental.html">Goverment</a>
               </li>
               <li>
-                <a class="hover:underline" href="Markets/Infrastructures.html"
+                <a class="hover:underline" href="Infrastructures.html"
                   >Infrastructures</a
                 >
               </li>
               <li>
-                <a class="hover:underline" href="Markets/Industrial Area.html"
+                <a class="hover:underline" href="Industrial-Area.html"
                   >Industrial Area</a
                 >
               </li>
               <li>
-                <a
-                  class="hover:underline"
-                  href="Markets/Commercial Buildings.html"
+                <a class="hover:underline" href="Commercial-Area.html"
                   >Commercial Building</a
                 >
               </li>
               <li>
-                <a class="hover:underline" href="Markets/Residential Area.html"
+                <a class="hover:underline" href="Residential-Area.html"
                   >Residential Area</a
                 >
               </li>
               <li>
-                <a
-                  class="hover:underline"
-                  href="Markets/Parking Area.html Area.html"
+                <a class="hover:underline" href="Parking-Management.html"
                   >Parking Area</a
                 >
               </li>
               <li>
-                <a class="hover:underline" href="Markets/Data Centers.html"
+                <a class="hover:underline" href="Data-Centers.html"
                   >Data Center</a
                 >
               </li>
             </ul>
           </div>
-          <div class="py-6 flex-col">
+          <div class="py-6 flex-col dark:bg-black dark:text-white">
             <span class="mb-2 font-bold">Partners</span>
             <ul>
               <li class="my-4">
-                <a
-                  class="hover:underline"
-                  href="Become Our Partner/become-a-partner.html"
+                <a class="hover:underline" href="become-a-partner.html"
                   >Become our Partner</a
                 >
               </li>
@@ -721,20 +1876,16 @@
             <span class="my-2 font-bold">About Us</span>
             <ul>
               <li class="mt-4">
-                <a class="hover:underline" href="About Us/company.html"
+                <a class="hover:underline" href="company-profile.html"
                   >Company Profile</a
                 >
               </li>
               <li>
-                <a class="hover:underline" href="About Us/Joinus.html"
-                  >Join Us</a
-                >
+                <a class="hover:underline" href="Joinus.html">Join Us</a>
               </li>
             </ul>
-            <div class="flex flex-col">
-              <a
-                class="mt-2 font-bold hover:underline"
-                href="Contact Us/contactus.html"
+            <div class="flex flex-col dark:bg-black dark:text-white">
+              <a class="mt-2 font-bold hover:underline" href="Contactus.html"
                 >Contact Us</a
               >
             </div>
@@ -742,6 +1893,57 @@
         </div>
       </div>
     </footer>
+    <script src="Index_New.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/js/tw-elements.umd.min.js"></script>
+
+    <!-- Darkmode Script -->
+    <script>
+      var themeToggleDarkIcon = document.getElementById(
+        "theme-toggle-dark-icon"
+      );
+      var themeToggleLightIcon = document.getElementById(
+        "theme-toggle-light-icon"
+      );
+
+      // Change the icons inside the button based on previous settings
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        themeToggleLightIcon.classList.remove("hidden");
+      } else {
+        themeToggleDarkIcon.classList.remove("hidden");
+      }
+
+      var themeToggleBtn = document.getElementById("theme-toggle");
+
+      themeToggleBtn.addEventListener("click", function () {
+        // toggle icons inside button
+        themeToggleDarkIcon.classList.toggle("hidden");
+        themeToggleLightIcon.classList.toggle("hidden");
+
+        // if set via local storage previously
+        if (localStorage.getItem("color-theme")) {
+          if (localStorage.getItem("color-theme") === "light") {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("color-theme", "dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("color-theme", "light");
+          }
+
+          // if NOT set via local storage previously
+        } else {
+          if (document.documentElement.classList.contains("dark")) {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("color-theme", "light");
+          } else {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("color-theme", "dark");
+          }
+        }
+      });
+    </script>
   </body>
 </html>

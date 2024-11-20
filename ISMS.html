@@ -79,521 +79,521 @@
     <link rel="icon" href="Asset/LOGO PT/logoicon.ico" />
     <title>PT.BKKA.CO.ID</title>
   </head>
-  <body class="bg-white font-sans min-h-screen">
+  <body class="bg-white font-sans min-h-screen dark:bg-black ">
      <!-- Navbar -->
     <section
-     class="sm:hidden md:block bg-white text black dark:bg-black dark:text-white"
-   >
-     <!-- MD Navbar -->
-     <nav
-       class="fixed top-0 z-10 flex w-full flex-wrap items-center justify-between bg-zinc-50 py-2 shadow-dark-mild lg:py-4 dark:bg-black"
-     >
-       <div class="flex w-full flex-wrap items-center justify-between px-3">
-         <!-- Left elements -->
-         <div class="flex justify-between">
-           <!-- Brand -->
-           <a
-             class="mx-2 my-1 flex items-center lg:mb-0 lg:mt-0"
-             href="index.html"
-           >
-             <img
-               class="me-2 h-10"
-               src="Asset/LOGO PT/Logo-BKKA-Transparant.png"
-               alt="PT. BATUKARANG KENAN ABADI Logo"
-               loading="lazy"
-             />
-           </a>
-           <h1
-             class="hidden md:flex mx-2 my-1 items-center pt-2 text-blue-700 font-bold text-base"
-           >
-             PT. BATUKARANG KENAN ABADI
-           </h1>
+    class="sm:hidden md:block bg-white text black dark:bg-black dark:text-white"
+  >
+    <!-- MD Navbar -->
+    <nav
+      class="fixed top-0 z-10 flex w-full flex-wrap items-center justify-between bg-zinc-50 py-2 shadow-dark-mild lg:py-4 dark:bg-black"
+    >
+      <div class="flex w-full flex-wrap items-center justify-between px-3">
+        <!-- Left elements -->
+        <div class="flex justify-between">
+          <!-- Brand -->
+          <a
+            class="mx-2 my-1 flex items-center lg:mb-0 lg:mt-0"
+            href="index.html"
+          >
+            <img
+              class="me-2 h-10"
+              src="Asset/LOGO PT/Logo-BKKA-Transparant.png"
+              alt="PT. BATUKARANG KENAN ABADI Logo"
+              loading="lazy"
+            />
+          </a>
+          <h1
+            class="hidden md:flex mx-2 my-1 items-center pt-2 text-blue-700 font-bold text-base"
+          >
+            PT. BATUKARANG KENAN ABADI
+          </h1>
 
-           <!-- Dark Mode Toggler -->
-           <button
-             id="theme-toggle"
-             type="button"
-             class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
-           >
-             <svg
-               id="theme-toggle-dark-icon"
-               class="hidden w-5 h-5"
-               fill="currentColor"
-               viewBox="0 0 20 20"
-               xmlns="http://www.w3.org/2000/svg"
-             >
-               <path
-                 d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
-               ></path>
-             </svg>
-             <svg
-               id="theme-toggle-light-icon"
-               class="hidden w-5 h-5"
-               fill="currentColor"
-               viewBox="0 0 20 20"
-               xmlns="http://www.w3.org/2000/svg"
-             >
-               <path
-                 d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                 fill-rule="evenodd"
-                 clip-rule="evenodd"
-               ></path>
-             </svg>
-           </button>
-         </div>
+          <!-- Dark Mode Toggler -->
+          <button
+            id="theme-toggle"
+            type="button"
+            class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
+          >
+            <svg
+              id="theme-toggle-dark-icon"
+              class="hidden w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+              ></path>
+            </svg>
+            <svg
+              id="theme-toggle-light-icon"
+              class="hidden w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+        </div>
 
-         <!-- Navbar Hamburger -->
-         <section class="body-nav-hamburger lg:hidden z-10">
-           <nav role="navigation">
-             <div id="menuToggle">
-               <!--
-                 A fake / hidden checkbox is used as click reciever,
-                 so you can use the :checked selector on it.
-                 -->
-               <input type="checkbox" />
+        <!-- Navbar Hamburger -->
+        <section class="body-nav-hamburger lg:hidden z-10">
+          <nav role="navigation">
+            <div id="menuToggle">
+              <!--
+                A fake / hidden checkbox is used as click reciever,
+                so you can use the :checked selector on it.
+                -->
+              <input type="checkbox" />
 
-               <!--
-                 Some spans to act as a hamburger.
-         
-                 They are acting like a real hamburger,
-                 not that McDonalds stuff.
-                 -->
-               <span class="bg-black dark:bg-white"></span>
-               <span class="bg-black dark:bg-white"></span>
-               <span class="bg-black dark:bg-white"></span>
+              <!--
+                Some spans to act as a hamburger.
+        
+                They are acting like a real hamburger,
+                not that McDonalds stuff.
+                -->
+              <span class="bg-black dark:bg-white"></span>
+              <span class="bg-black dark:bg-white"></span>
+              <span class="bg-black dark:bg-white"></span>
 
-               <!--
-                 Too bad the menu has to be inside of the button
-                 but hey, it's pure CSS magic.
-                 -->
-               <ul id="menu">
-                 <li class="">
-                   <div tabindex="0" id="menu-label-1" class="onclick-menu">
-                     Solutions
-                     <ul id="submenu-label-1" class="onclick-menu-content">
-                       <li>
-                         <a class="mx-8 text-xl" href="https://bkka.site/isms"
-                           >ISMS</a
-                         >
-                       </li>
-                       <li>
-                         <a class="mx-8 text-xl" href="WIM.html">WIM</a>
-                       </li>
-                       <li>
-                         <a class="mx-8 text-xl" href="ISHMS.html">ISHMS</a>
-                       </li>
-                       <li>
-                         <a class="mx-8 text-xl" href="VPMS.html">VPMS</a>
-                       </li>
-                     </ul>
-                   </div>
-                 </li>
-                 <li>
-                   <div id="menu-label-2" tabindex="0" class="onclick-menu">
-                     Products
-                     <ul id="submenu-label-2" class="onclick-menu-content">
-                       <li>
-                         <a class="mx-8 text-xl" href="Monitoring.html"
-                           >Monitoring</a
-                         >
-                       </li>
-                       <li>
-                         <a class="mx-8 text-xl" href="Sensors.html"
-                           >Sensors</a
-                         >
-                       </li>
-                       <li>
-                         <a class="mx-8 text-xl" href="Access-Management.html"
-                           >Access Management</a
-                         >
-                       </li>
-                       <li>
-                         <a class="mx-8 text-xl" href="Parking-Area.html"
-                           >Parking Management</a
-                         >
-                       </li>
-                       <li>
-                         <a class="mx-8 text-xl" href="Data-Centers.html"
-                           >Data Centers</a
-                         >
-                       </li>
-                     </ul>
-                   </div>
-                 </li>
-                 <li class="">
-                   <div id="menu-label-3" tabindex="0" class="onclick-menu">
-                     Markets
-                     <ul id="submenu-label-3" class="onclick-menu-content">
-                       <li>
-                         <a class="mx-8 text-xl" href="Telecom.html"
-                           >Telecom</a
-                         >
-                       </li>
-                       <li>
-                         <a class="mx-8 text-xl" href="Goverment.html"
-                           >Goverment</a
-                         >
-                       </li>
-                       <li>
-                         <a class="mx-8 text-xl" href="Infrastructure.html"
-                           >Infrastructures</a
-                         >
-                       </li>
-                       <li>
-                         <a class="mx-8 text-xl" href="Industrial-Area.html"
-                           >Industrial Area</a
-                         >
-                       </li>
-                       <li>
-                         <a class="mx-8 text-xl" href="Commercial-Area.html"
-                           >Commercial Building</a
-                         >
-                       </li>
-                       <li>
-                         <a class="mx-8 text-xl" href="Residential-Area.html"
-                           >Residential Area</a
-                         >
-                       </li>
-                       <li>
-                         <a class="mx-8 text-xl" href="Parking-Area.html"
-                           >Parking Area</a
-                         >
-                       </li>
-                       <li>
-                         <a class="mx-8 text-xl" href="Data-Centers.html"
-                           >Data Centers</a
-                         >
-                       </li>
-                     </ul>
-                   </div>
-                 </li>
-                 <li id="menu-label-4">
-                   <a href="become-a-partner.html">Partners</a>
-                 </li>
-                 <li class="">
-                   <div id="menu-label-5" tabindex="0" class="onclick-menu">
-                     About
-                     <ul id="submenu-label-5" class="onclick-menu-content">
-                       <li>
-                         <a class="mx-8 text-xl" href="company-profile.html"
-                           >Company Profile</a
-                         >
-                       </li>
-                       <li>
-                         <a class="mx-8 text-xl" href="Joinus.html">Join Us</a>
-                       </li>
-                     </ul>
-                   </div>
-                 </li>
-                 <li id="menu-label-6">
-                   <a href="Contactus.html">Contact</a>
-                 </li>
-                 <li id="menu-label-7"><a href="login.html">Log In</a></li>
-               </ul>
-             </div>
-           </nav>
-         </section>
+              <!--
+                Too bad the menu has to be inside of the button
+                but hey, it's pure CSS magic.
+                -->
+              <ul id="menu">
+                <li class="">
+                  <div tabindex="0" id="menu-label-1" class="onclick-menu">
+                    Solutions
+                    <ul id="submenu-label-1" class="onclick-menu-content">
+                      <li>
+                        <a class="mx-8 text-xl" href="https://bkka.site/isms"
+                          >ISMS</a
+                        >
+                      </li>
+                      <li>
+                        <a class="mx-8 text-xl" href="WIM.html">WIM</a>
+                      </li>
+                      <li>
+                        <a class="mx-8 text-xl" href="ISHMS.html">ISHMS</a>
+                      </li>
+                      <li>
+                        <a class="mx-8 text-xl" href="VPMS.html">VPMS</a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div id="menu-label-2" tabindex="0" class="onclick-menu">
+                    Products
+                    <ul id="submenu-label-2" class="onclick-menu-content">
+                      <li>
+                        <a class="mx-8 text-xl" href="Monitoring.html"
+                          >Monitoring</a
+                        >
+                      </li>
+                      <li>
+                        <a class="mx-8 text-xl" href="Sensors.html"
+                          >Sensors</a
+                        >
+                      </li>
+                      <li>
+                        <a class="mx-8 text-xl" href="Access-Management.html"
+                          >Access Management</a
+                        >
+                      </li>
+                      <li>
+                        <a class="mx-8 text-xl" href="Parking-Area.html"
+                          >Parking Management</a
+                        >
+                      </li>
+                      <li>
+                        <a class="mx-8 text-xl" href="Data-Centers.html"
+                          >Data Centers</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="">
+                  <div id="menu-label-3" tabindex="0" class="onclick-menu">
+                    Markets
+                    <ul id="submenu-label-3" class="onclick-menu-content">
+                      <li>
+                        <a class="mx-8 text-xl" href="Telecom.html"
+                          >Telecom</a
+                        >
+                      </li>
+                      <li>
+                        <a class="mx-8 text-xl" href="Goverment.html"
+                          >Goverment</a
+                        >
+                      </li>
+                      <li>
+                        <a class="mx-8 text-xl" href="Infrastructure.html"
+                          >Infrastructures</a
+                        >
+                      </li>
+                      <li>
+                        <a class="mx-8 text-xl" href="Industrial-Area.html"
+                          >Industrial Area</a
+                        >
+                      </li>
+                      <li>
+                        <a class="mx-8 text-xl" href="Commercial-Area.html"
+                          >Commercial Building</a
+                        >
+                      </li>
+                      <li>
+                        <a class="mx-8 text-xl" href="Residential-Area.html"
+                          >Residential Area</a
+                        >
+                      </li>
+                      <li>
+                        <a class="mx-8 text-xl" href="Parking-Area.html"
+                          >Parking Area</a
+                        >
+                      </li>
+                      <li>
+                        <a class="mx-8 text-xl" href="Data-Centers.html"
+                          >Data Centers</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li id="menu-label-4">
+                  <a href="become-a-partner.html">Partners</a>
+                </li>
+                <li class="">
+                  <div id="menu-label-5" tabindex="0" class="onclick-menu">
+                    About
+                    <ul id="submenu-label-5" class="onclick-menu-content">
+                      <li>
+                        <a class="mx-8 text-xl" href="company-profile.html"
+                          >Company Profile</a
+                        >
+                      </li>
+                      <li>
+                        <a class="mx-8 text-xl" href="Joinus.html">Join Us</a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li id="menu-label-6">
+                  <a href="Contactus.html">Contact</a>
+                </li>
+                <li id="menu-label-7"><a href="login.html">Log In</a></li>
+              </ul>
+            </div>
+          </nav>
+        </section>
 
-         <!-- Left elements -->
+        <!-- Left elements -->
 
-         <!-- Right elements -->
-         <ul
-           class="list-style-none ms-auto flex flex-row ps-0 md:ps-4"
-           data-twe-navbar-nav-ref
-         >
-           <!-- Products dropdown Trigger -->
-           <li class="relative px-2 hidden lg:flex" data-twe-dropdown-ref>
-             <a
-               class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
-               href="#"
-               role="button"
-               data-twe-dropdown-toggle-ref
-               aria-expanded="false"
-             >
-               <strong class="[&>svg]:h-6 [&>svg]:w-6"> Products </strong>
-             </a>
-             <ul
-               class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
-               aria-labelledby="dropdownMenuButton1"
-               data-twe-dropdown-menu-ref
-             >
-               <li>
-                 <a
-                   class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                   href="Monitoring.html"
-                   data-twe-dropdown-item-ref
-                   >Monitoring</a
-                 >
-               </li>
-               <li>
-                 <a
-                   class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                   href="Sensors.html"
-                   data-twe-dropdown-item-ref
-                   >Sensors</a
-                 >
-               </li>
-               <li>
-                 <a
-                   class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                   href="Access-Management.html"
-                   data-twe-dropdown-item-ref
-                   >Access Management</a
-                 >
-               </li>
-               <li>
-                 <a
-                   class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                   href="Parking-Management.html"
-                   data-twe-dropdown-item-ref
-                   >Parking Management</a
-                 >
-               </li>
-               <li>
-                 <a
-                   class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                   href="Data-Centers.html"
-                   data-twe-dropdown-item-ref
-                   >Data Center</a
-                 >
-               </li>
-               <li>
-                 <a
-                   class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                   href="Softwares.html"
-                   data-twe-dropdown-item-ref
-                   >Softwares</a
-                 >
-               </li>
-             </ul>
-             <!-- First dropdown trigger -->
-           </li>
+        <!-- Right elements -->
+        <ul
+          class="list-style-none ms-auto flex flex-row ps-0 md:ps-4"
+          data-twe-navbar-nav-ref
+        >
+          <!-- Products dropdown Trigger -->
+          <li class="relative px-2 hidden lg:flex" data-twe-dropdown-ref>
+            <a
+              class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
+              href="#"
+              role="button"
+              data-twe-dropdown-toggle-ref
+              aria-expanded="false"
+            >
+              <strong class="[&>svg]:h-6 [&>svg]:w-6"> Products </strong>
+            </a>
+            <ul
+              class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
+              aria-labelledby="dropdownMenuButton1"
+              data-twe-dropdown-menu-ref
+            >
+              <li>
+                <a
+                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                  href="Monitoring.html"
+                  data-twe-dropdown-item-ref
+                  >Monitoring</a
+                >
+              </li>
+              <li>
+                <a
+                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                  href="Sensors.html"
+                  data-twe-dropdown-item-ref
+                  >Sensors</a
+                >
+              </li>
+              <li>
+                <a
+                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                  href="Access-Management.html"
+                  data-twe-dropdown-item-ref
+                  >Access Management</a
+                >
+              </li>
+              <li>
+                <a
+                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                  href="Parking-Management.html"
+                  data-twe-dropdown-item-ref
+                  >Parking Management</a
+                >
+              </li>
+              <li>
+                <a
+                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                  href="Data-Centers.html"
+                  data-twe-dropdown-item-ref
+                  >Data Center</a
+                >
+              </li>
+              <li>
+                <a
+                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                  href="Softwares.html"
+                  data-twe-dropdown-item-ref
+                  >Softwares</a
+                >
+              </li>
+            </ul>
+            <!-- First dropdown trigger -->
+          </li>
 
-           <!-- Solutions dropdown trigger -->
-           <li class="relative px-2 hidden lg:flex" data-twe-dropdown-ref>
-             <a
-               class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
-               href=""
-               role="button"
-               data-twe-dropdown-toggle-ref
-               aria-expanded="false"
-             >
-               <strong class="[&>svg]:h-6 [&>svg]:w-6"> Solutions </strong>
-             </a>
-             <ul
-               class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
-               aria-labelledby="dropdownMenuButton1"
-               data-twe-dropdown-menu-ref
-             >
-               <li>
-                 <a
-                   class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                   href="ISMS.html"
-                   data-twe-dropdown-item-ref
-                   >Integrated Smart Security System</a
-                 >
-               </li>
-               <li>
-                 <a
-                   class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                   href="WIM.html"
-                   data-twe-dropdown-item-ref
-                   >Weigh In Motion</a
-                 >
-               </li>
-               <li>
-                 <a
-                   class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                   href="ISHMS.html"
-                   data-twe-dropdown-item-ref
-                   >Structure Health Monitoring System</a
-                 >
-               </li>
-               <li>
-                 <a
-                   class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                   href="VPMS.html"
-                   data-twe-dropdown-item-ref
-                   >Vehicle Parking Management System</a
-                 >
-               </li>
-             </ul>
+          <!-- Solutions dropdown trigger -->
+          <li class="relative px-2 hidden lg:flex" data-twe-dropdown-ref>
+            <a
+              class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
+              href=""
+              role="button"
+              data-twe-dropdown-toggle-ref
+              aria-expanded="false"
+            >
+              <strong class="[&>svg]:h-6 [&>svg]:w-6"> Solutions </strong>
+            </a>
+            <ul
+              class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
+              aria-labelledby="dropdownMenuButton1"
+              data-twe-dropdown-menu-ref
+            >
+              <li>
+                <a
+                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                  href="ISMS.html"
+                  data-twe-dropdown-item-ref
+                  >Integrated Smart Security System</a
+                >
+              </li>
+              <li>
+                <a
+                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                  href="WIM.html"
+                  data-twe-dropdown-item-ref
+                  >Weigh In Motion</a
+                >
+              </li>
+              <li>
+                <a
+                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                  href="ISHMS.html"
+                  data-twe-dropdown-item-ref
+                  >Structure Health Monitoring System</a
+                >
+              </li>
+              <li>
+                <a
+                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                  href="VPMS.html"
+                  data-twe-dropdown-item-ref
+                  >Vehicle Parking Management System</a
+                >
+              </li>
+            </ul>
 
-             <!-- First dropdown trigger -->
-           </li>
+            <!-- First dropdown trigger -->
+          </li>
 
-           <!-- Markets dropdown trigger -->
-           <li class="relative px-2 hidden lg:flex" data-twe-dropdown-ref>
-             <a
-               class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
-               href=""
-               role="button"
-               data-twe-dropdown-toggle-ref
-               aria-expanded="false"
-             >
-               <strong class="[&>svg]:h-6 [&>svg]:w-6"> Markets </strong>
-             </a>
-             <ul
-               class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
-               aria-labelledby="dropdownMenuButton1"
-               data-twe-dropdown-menu-ref
-             >
-               <li>
-                 <a
-                   class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                   href="Telecom.html"
-                   data-twe-dropdown-item-ref
-                   >Telecom</a
-                 >
-               </li>
-               <li>
-                 <a
-                   class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                   href="Goverment.html"
-                   data-twe-dropdown-item-ref
-                   >Goverment</a
-                 >
-               </li>
-               <li>
-                 <a
-                   class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                   href="Infrastructure.html"
-                   data-twe-dropdown-item-ref
-                   >infrastructures</a
-                 >
-               </li>
-               <li>
-                 <a
-                   class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                   href="Industrial-Area.html"
-                   data-twe-dropdown-item-ref
-                   >Industrial Area</a
-                 >
-               </li>
-               <li>
-                 <a
-                   class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                   href="Commercial-Area.html"
-                   data-twe-dropdown-item-ref
-                   >Commercial Buildings</a
-                 >
-               </li>
-               <li>
-                 <a
-                   class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                   href="Residential-Area.html"
-                   data-twe-dropdown-item-ref
-                   >Residential Area</a
-                 >
-               </li>
-               <li>
-                 <a
-                   class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                   href="Parking-Area.html"
-                   data-twe-dropdown-item-ref
-                   >Parking Area</a
-                 >
-               </li>
-               <li>
-                 <a
-                   class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                   href="Data-Centers.html"
-                   data-twe-dropdown-item-ref
-                   >Data Center</a
-                 >
-               </li>
-             </ul>
+          <!-- Markets dropdown trigger -->
+          <li class="relative px-2 hidden lg:flex" data-twe-dropdown-ref>
+            <a
+              class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
+              href=""
+              role="button"
+              data-twe-dropdown-toggle-ref
+              aria-expanded="false"
+            >
+              <strong class="[&>svg]:h-6 [&>svg]:w-6"> Markets </strong>
+            </a>
+            <ul
+              class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
+              aria-labelledby="dropdownMenuButton1"
+              data-twe-dropdown-menu-ref
+            >
+              <li>
+                <a
+                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                  href="Telecom.html"
+                  data-twe-dropdown-item-ref
+                  >Telecom</a
+                >
+              </li>
+              <li>
+                <a
+                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                  href="Goverment.html"
+                  data-twe-dropdown-item-ref
+                  >Goverment</a
+                >
+              </li>
+              <li>
+                <a
+                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                  href="Infrastructure.html"
+                  data-twe-dropdown-item-ref
+                  >infrastructures</a
+                >
+              </li>
+              <li>
+                <a
+                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                  href="Industrial-Area.html"
+                  data-twe-dropdown-item-ref
+                  >Industrial Area</a
+                >
+              </li>
+              <li>
+                <a
+                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                  href="Commercial-Area.html"
+                  data-twe-dropdown-item-ref
+                  >Commercial Buildings</a
+                >
+              </li>
+              <li>
+                <a
+                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                  href="Residential-Area.html"
+                  data-twe-dropdown-item-ref
+                  >Residential Area</a
+                >
+              </li>
+              <li>
+                <a
+                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                  href="Parking-Area.html"
+                  data-twe-dropdown-item-ref
+                  >Parking Area</a
+                >
+              </li>
+              <li>
+                <a
+                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                  href="Data-Centers.html"
+                  data-twe-dropdown-item-ref
+                  >Data Center</a
+                >
+              </li>
+            </ul>
 
-             <!-- First dropdown trigger -->
-           </li>
+            <!-- First dropdown trigger -->
+          </li>
 
-           <!-- Partners -->
-           <li class="px-2 hidden lg:flex" data-twe-nav-item-ref>
-             <a
-               class="flex text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
-               href="become-a-partner.html"
-               data-twe-nav-link-ref
-             >
-               <strong class="ms-1 sm:block">Partners</strong>
-             </a>
-           </li>
+          <!-- Partners -->
+          <li class="px-2 hidden lg:flex" data-twe-nav-item-ref>
+            <a
+              class="flex text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
+              href="become-a-partner.html"
+              data-twe-nav-link-ref
+            >
+              <strong class="ms-1 sm:block">Partners</strong>
+            </a>
+          </li>
 
-           <!-- About Us Dropdown trigger  -->
-           <li class="relative px-2 hidden lg:flex" data-twe-dropdown-ref>
-             <a
-               class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
-               href=""
-               role="button"
-               data-twe-dropdown-toggle-ref
-               aria-expanded="false"
-             >
-               <strong class="[&>svg]:h-6 [&>svg]:w-6"> About </strong>
-             </a>
-             <ul
-               class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
-               aria-labelledby="dropdownMenuButton1"
-               data-twe-dropdown-menu-ref
-             >
-               <li>
-                 <a
-                   class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                   href="company-profile.html"
-                   data-twe-dropdown-item-ref
-                   >Company</a
-                 >
-               </li>
-               <li>
-                 <a
-                   class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                   href="Joinus.html"
-                   data-twe-dropdown-item-ref
-                   >Join Us</a
-                 >
-               </li>
-             </ul>
+          <!-- About Us Dropdown trigger  -->
+          <li class="relative px-2 hidden lg:flex" data-twe-dropdown-ref>
+            <a
+              class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
+              href=""
+              role="button"
+              data-twe-dropdown-toggle-ref
+              aria-expanded="false"
+            >
+              <strong class="[&>svg]:h-6 [&>svg]:w-6"> About </strong>
+            </a>
+            <ul
+              class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
+              aria-labelledby="dropdownMenuButton1"
+              data-twe-dropdown-menu-ref
+            >
+              <li>
+                <a
+                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                  href="company-profile.html"
+                  data-twe-dropdown-item-ref
+                  >Company</a
+                >
+              </li>
+              <li>
+                <a
+                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                  href="Joinus.html"
+                  data-twe-dropdown-item-ref
+                  >Join Us</a
+                >
+              </li>
+            </ul>
 
-             <!-- First dropdown trigger -->
-           </li>
+            <!-- First dropdown trigger -->
+          </li>
 
-           <!-- Contact Us -->
-           <li class="px-2 hidden lg:flex" data-twe-nav-item-ref>
-             <a
-               class="flex text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
-               href="Contactus.html"
-               data-twe-nav-link-ref
-             >
-               <strong class="ms-1 sm:block">Contact</strong>
-             </a>
-           </li>
+          <!-- Contact Us -->
+          <li class="px-2 hidden lg:flex" data-twe-nav-item-ref>
+            <a
+              class="flex text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
+              href="Contactus.html"
+              data-twe-nav-link-ref
+            >
+              <strong class="ms-1 sm:block">Contact</strong>
+            </a>
+          </li>
 
-           <!-- Login Button -->
-           <li class="px-2 hidden lg:block" data-twe-nav-item-ref>
-             <a
-               class="flex text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
-               href="login.html"
-               data-twe-nav-link-ref
-             >
-               <span class="[&>svg]:h-6 [&>svg]:w-6">
-                 <svg
-                   xmlns="http://www.w3.org/2000/svg"
-                   viewBox="0 0 448 512"
-                   fill="currentColor"
-                 >
-                   <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                   <path
-                     fill-rule="evenodd"
-                     d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
-                     clip-rule="evenodd"
-                   />
-                 </svg>
-                 <span class="hidden">Login</span>
-               </span>
-             </a>
-           </li>
-         </ul>
-       </div>
-     </nav>
-    </section>
+          <!-- Login Button -->
+          <li class="px-2 hidden lg:block" data-twe-nav-item-ref>
+            <a
+              class="flex text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
+              href="login.html"
+              data-twe-nav-link-ref
+            >
+              <span class="[&>svg]:h-6 [&>svg]:w-6">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                  fill="currentColor"
+                >
+                  <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    fill-rule="evenodd"
+                    d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <span class="hidden">Login</span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </section>
 
     <!-- Hero -->
     <div class="w-full">
@@ -624,108 +624,113 @@
     </div>
 
     <!-- Main Content -->
-    <section>
-      <!-- ISMS -->
-      <div>
-        <span
-          class="text-black font-bolder text-[20px] text-center md:text-left"
-        >
-          <h2>Integrated Security Management System (ISMS)</h2>
-        </span>
+    <section class="m-4">
+     <!-- ISMS -->
+     <div>
+      <span
+        class="dark:text-white font-bolder text-[20px] text-center md:text-left "
+      >
+        <h2 class="m-8 font-extrabold text-center md:text-xl lg:text-3xl">Integrated Security Management System (ISMS)</h2>
+      </span>
 
-        <!-- Article Perimeter Protection -->
-        <article class="">
-          <h3>Perimeter Protection</h3>
-          <!-- Masalah -->
-          <div>
-            <span>Masalah:</span>
-            <p class="my-4 text-black text-justify">
-              Ancaman keamanan perimeter meningkat, terutama di area vital
-              seperti fasilitas pemerintahan, industri, dan area terlarang.
-              Pengamanan standar sering kali tidak cukup untuk mendeteksi atau
-              menanggulangi pelanggaran akses yang canggih.
-            </p>
-            <div class="flex flex-cols">
-              <div>
-                <img src="" alt="()" />
-                <h4></h4>
-                <h5>
-                  (Kurangnya pengawasan 24/7 menyebabkan pencurian, kerusakan
-                  properti, dan pelanggaran yang mengakibatkan kerugian)
+      <!-- Article Perimeter Protection -->
+      <article class="dark:text-white m-8">
+        <h3 class="font-extrabold text-lg">Perimeter Protection</h3>
+        <!-- Masalah -->
+        <div class="py-8">
+          <span class="dark:text-white font-bold">Challenge:</span>
+          <p class="my-4 text-black dark:text-white text-justify">
+            Ancaman keamanan perimeter meningkat, terutama di area vital
+            seperti fasilitas pemerintahan, industri, dan area terlarang.
+            Pengamanan standar sering kali tidak cukup untuk mendeteksi atau
+            menanggulangi pelanggaran akses yang canggih.
+          </p>
+          <div class="py-8" >
+            <div class="flex flex-col md:flex-row">
+              <div >
+                <img class="my-2" src="" alt="()" />
+                <h4 class="dark:text-white font-bold"></h4>
+                <h5 class="dark:text-white">
+                  Kurangnya pengawasan 24/7 menyebabkan pencurian, kerusakan
+                  properti, dan pelanggaran yang mengakibatkan kerugian
                 </h5>
               </div>
-              <div>
-                <img src="" alt="()" />
-                <h4></h4>
-                <h5>
-                  (Petugas keamanan yang berada jauh atau terbatas secara fisik
+              <div class="my-8">
+                <img class="my-2" src="" alt="()" />
+                <h4 class="dark:text-white font-bold"></h4>
+                <h5 class="dark:text-white">
+                  Petugas keamanan yang berada jauh atau terbatas secara fisik
                   memungkinkan ancaman meningkat sehingga menghambat penanganan
-                  situasi secara cepat)
+                  situasi secara cepat
                 </h5>
               </div>
               <div>
-                <img src="" alt="()" />
-                <h4></h4>
-                <h5>
-                  (Tidak adanya bukti tercatat mengenai penyusupan menyebabkan
+                <img class="my-2" src="" alt="()" />
+                <h4 class="dark:text-white font-bold"></h4>
+                <h5 class="dark:text-white">
+                  Tidak adanya bukti tercatat mengenai penyusupan menyebabkan
                   kendala untuk mengajukan klaim asuransi, karena tidak ada
-                  catatan yang mendukungnya)
+                  catatan yang mendukungnya
                 </h5>
               </div>
             </div>
+            
           </div>
+        </div>
 
-          <!-- Value -->
-          <div>
-            <span>Value:</span>
-            <p>
-              Perimeter Solution hadir sebagai solusi komprehensif dengan
-              teknologi canggih untuk keamanan perimeter. Dengan sistem sensor
-              gerak, kamera pengawas pintar, dan sistem deteksi dini otomatis,
-              perimeter Anda terjaga secara real-time, memberikan perlindungan
-              maksimal dari setiap potensi ancaman.
-            </p>
-            <div class="flex flex-cols">
-              <div>
-                <img src="" alt="()" />
-                <h4>Cakupan keamanan 24/7</h4>
-                <h5>
-                  (Perekaman video 24/7 yang berkelanjutan memberikan cakupan
-                  yang terperinci dan menyeluruh. Sistem ini juga memiliki
-                  akurasi 99% dalam mendeteksi penyusup, sehingga meminimalkan
-                  alarm palsu)
-                </h5>
-              </div>
-              <div>
-                <img src="" alt="()" />
-                <h4>Respon tanggap terhadap penyusupan</h4>
-                <h5>
-                  (Saat kamera AI mendeteksi adanya penyusupan, ia memicu
-                  tindakan pencegahan aktif lokal secara real-time dan memberi
-                  tahu petugas keamanan untuk mengambil tindakan yang tepat)
-                </h5>
-              </div>
-              <div>
-                <img src="" alt="()" />
-                <h4>Bukti yang Cukup untuk Investigasi</h4>
-                <h5>
-                  (Rekaman video HD dari penyusupan yang terdeteksi sangat
-                  penting untuk investigasi lebih lanjut dan klaim asuransi)
-                </h5>
-              </div>
+        <!-- Value -->
+        <div class="">
+          <span class="dark:text-white font-bold py-4">Value:</span>
+          <p class="dark:text-white my-8">
+            Perimeter Solution hadir sebagai solusi komprehensif dengan
+            teknologi canggih untuk keamanan perimeter. Dengan sistem sensor
+            gerak, kamera pengawas pintar, dan sistem deteksi dini otomatis,
+            perimeter Anda terjaga secara real-time, memberikan perlindungan
+            maksimal dari setiap potensi ancaman.
+          </p>
+          <div class="flex flex-col md:flex-row">
+            <div>
+              <img class="my-2" src="" alt="()" />
+              <h4 class="dark:text-white font-bold">Cakupan keamanan 24/7</h4>
+              <h5 class="dark:text-white">
+                Perekaman video 24/7 yang berkelanjutan memberikan cakupan
+                yang terperinci dan menyeluruh. Sistem ini juga memiliki
+                akurasi 99% dalam mendeteksi penyusup, sehingga meminimalkan
+                alarm palsu
+              </h5>
+            </div>
+            <div class="my-8">
+              <img class="my-2" src="" alt="()" />
+              <h4 class="dark:text-white font-bold">Respon tanggap terhadap penyusupan</h4>
+              <h5 class="dark:text-white">
+                Saat kamera AI mendeteksi adanya penyusupan, ia memicu
+                tindakan pencegahan aktif lokal secara real-time dan memberi
+                tahu petugas keamanan untuk mengambil tindakan yang tepat
+              </h5>
+            </div>
+            <div>
+              <img class="my-2" src="" alt="()" />
+              <h4 class="dark:text-white font-bold">Bukti yang Cukup untuk Investigasi</h4>
+              <h5 class="dark:text-white">
+                Rekaman video HD dari penyusupan yang terdeteksi sangat
+                penting untuk investigasi lebih lanjut dan klaim asuransi
+              </h5>
             </div>
           </div>
+        </div>
 
-          <!-- Product List -->
-          <div>
-            <span>Product List:</span>
-            <div class="flex flex-cols">
-              <img src="" alt="()">
-              <p>
-                <h4>TPC-BF1241-S8</h4>
+        <!-- Product List -->
+        <div class="my-8 py-8">
+          <span class="dark:text-white font-bold my-8">Product List:</span>
+          <div class="md:grid md:grid-cols-3 md:grid-cols-2 md:mx-8 md:gap-8">
+
+            <div class="flex flex-col">
+              <img class="my-2" src="" alt="()">
+              <div class="dark:text-white ">
+                <h4 class="font-bold">TPC-BF1241-S8</h4>
                 <h5>
                   Thermal Network Mini Hybrid Bullet Camera
-                  <ul class="list-disc">
+                  <ul class="list-disc py-4">
                     <li>Vanadium oxide uncooled focal plane detector. </li>
                     <li>4Megapixel progressive scan CMOS</li>
                     <li>AI functions: heat detection, tripwire, human/vehicle classification, smoking detection, and call detection</li>
@@ -736,19 +741,18 @@
                     <li>IP67 rated</li>
                   </ul>
                 </h5>
-              </p>
+              </div>
             </div>
 
-            <div class="flex flex-cols">
-              <img src="" alt="()">
-              <p>
-                <h4>IPC-HFW3449T1-AS-PV</h4>
-                <span></span>
-               
+            <div class="flex flex-col">
+              <img class="my-2" src="" alt="()">
+              <div class="dark:text-white">
+                <h4 class="font-bold">IPC-HFW3449T1-AS-PV</h4>
+              
                 <h5>
                   4MP Smart Dual Light Active Deterrence Fixed-focal Bullet WizSense Network Camera
                   <span>* The parameters and datasheets below can only be applied to 3449-PV-S5 series.</span>
-                  <ul class="list-disc">
+                  <ul class="list-disc py-4">
                     <li>4-MP 1/2.7" CMOS image sensor, low luminance, and high definition image. </li>
                     <li>Outputs max. 4 MP (2688 × 1520)@25/30 fps</li>
                     <li>H.265 codec, high compression rate, ultra-low bit rate</li>
@@ -766,16 +770,16 @@
                     <li>SMD area can be set in warm light areas that support triggering alarms</li>
                   </ul>
                 </h5>
-              </p>
+              </div>
             </div>
 
-            <div class="flex flex-cols">
-              <img src="" alt="()">
-              <p>
-                <h4>IS4210-8GT-120</h4>
+            <div class="flex flex-col">
+              <img class="my-2" src="" alt="()">
+              <div class="dark:text-white">
+                <h4 class="font-bold">IS4210-8GT-120</h4>
                 <h5>
                   10-Port Managed Industrial Gigabit Switch with 8-Port PoE (Managed)
-                  <ul class="list-disc">
+                  <ul class="list-disc py-4">
                     <li>All-gigabit port design. </li>
                     <li>Supports IEEE802.3af, IEEE802.3at, Hi-PoE and IEEE802.3bt (red port) standards. </li>
                     <li>250 m long-distance PoE transmission (10 Mbps). </li>
@@ -786,16 +790,16 @@
                     <li>Desktop mount and DIN-rail mount</li>
                   </ul>
                 </h5>
-              </p>
+              </div>
             </div>
 
-            <div class="flex flex-cols">
-              <img src="" alt="()">
-              <p>
-                <h4>NVR4216-EI</h4>
+            <div class="flex flex-col">
+              <img class="my-2" src="" alt="()">
+              <div class="dark:text-white">
+                <h4 class="font-bold">NVR4216-EI</h4>
                 <h5>
                   16CH 1U 2HDDs WizSense Network Video Recorder
-                  <ul class="list-disc">
+                  <ul class="list-disc py-4">
                     <li>Smart H.265+/H.265/Smart H.264+/H.264/MJPEG decoding format  </li>
                     <li>Access, storage or forwarding at 256 Mbps (180 Mbps when AI function enabled) </li>
                     <li>Max. decoding capability: 16 × 1080p@30 fps. Supports adaptive decoding </li>
@@ -805,16 +809,16 @@
                     <li>Security baseline 2.3</li>
                   </ul>
                 </h5>
-              </p>
+              </div>
             </div>
 
-            <div class="flex flex-cols">
-              <img src="" alt="()">
-              <p>
-                <h4>32" FHD Monitor</h4>
+            <div class="flex flex-col">
+              <img class="my-2" src="" alt="()">
+              <div class="dark:text-white">
+                <h4 class="font-bold">32" FHD Monitor</h4>
                 <h5>
                   Thermal Network Mini Hybrid Bullet Camera
-                  <ul class="list-disc">
+                  <ul class="list-disc py-4">
                     <li>Light and cost-effective plastic housing </li>
                     <li>Suitable for continuous 24/7 operation </li>
                     <li>178°H/178°V extra-wide viewing angle for overall viewing performance </li>
@@ -826,87 +830,90 @@
                     <li>Low energy consumption, long service life</li>
                   </ul>
                 </h5>
-              </p>
-            </div>
-          </div>
-        </article>
-
-        <!-- Article Personnel Entrance and Exit management -->
-        <article class="">
-          <h3>Personnel Entrance and Exit Management</h3>
-          
-          <!-- Masalah -->
-          <div>
-            <span>Masalah:</span>
-            <p class="my-4 text-black text-justify">
-              Pendaftaran entri personel secara manual di kawasan industri dan gedung tidak efektif dalam memverifikasi individu, sehingga meningkatkan risiko pencurian, kehilangan properti, dan insiden keamanan. Personel yang terdaftar menghadapi antrean panjang, sehingga menciptakan pengalaman yang buruk, sementara pencatatan manual di atas kertas menyulitkan pelacakan karena sangat bergantung pada penilaian manusia, yang tidak efektif maupun akurat.
-            </p>
-            <div class="flex flex-cols">
-              <div>
-                <img src="" alt="()" />
-                <h4></h4>
-                <h5>
-                  (Verifikasi identitas manual yang tidak efisien dapat menyebabkan pencurian, kehilangan properti, atau insiden keamanan)
-                </h5>
-              </div>
-              <div>
-                <img src="" alt="()" />
-                <h4></h4>
-                <h5>
-                  (Long queues for manual access checks are a frustrating experience, especially during peak hours)
-                </h5>
-              </div>
-              <div>
-                <img src="" alt="()" />
-                <h4></h4>
-                <h5>
-                  (Sangat sulit untuk melacak catatan masuk dan keluar seseorang)
-                </h5>
               </div>
             </div>
           </div>
+        </div>
+        
+      </article>
 
-          <!-- Value -->
-          <div>
-            <span>Value:</span>
-            <p>
-              AI Smart Entrance Control Solution kami menggunakan autentikasi wajah untuk mencegah masuknya orang yang tidak berwenang sehingga mengurangi risiko pencurian, kehilangan, dan insiden keamanan. Teknologi dengan akses hands-free akan meningkatkan kecepatan dalam memberikan akses bagi personel yang terdaftar, sementara rekaman masuk dan keluar visual akan memudahkan pencarian catatan.
-            </p>
-            <div class="flex flex-cols">
-              <div>
-                <img src="" alt="()" />
-                <h4>Efficient Verification</h4>
-                <h5>
-                  (Autentikasi Wajah/Kartu mencegah personel tak berwenang memasuki lokasi)
-                </h5>
-              </div>
-              <div>
-                <img src="" alt="()" />
-                <h4>Hands-free Entry Experience</h4>
-                <h5>
-                  (Penghalang yang dikontrol oleh teknologi verifikasi biometrik memastikan akses yang akurat dan efisien, meningkatkan pengalaman masuk)
-                </h5>
-              </div>
-              <div>
-                <img src="" alt="()" />
-                <h4>Visual Record and Search</h4>
-                <h5>
-                  (Verifikasi visual atas peristiwa alarm dan pemantauan akses orang secara efisien memastikan entri yang aman dan menyederhanakan pencarian rekaman.)
-                </h5>
-              </div>
+      <!-- Article Personnel Entrance and Exit management -->
+      <article class="dark:text-white m-8">
+        <h3 class="font-extrabold text-lg">Personnel Entrance and Exit Management</h3>
+        
+        <!-- Masalah -->
+        <div class="py-8">
+          <span class="dark:text-white font-bold">Masalah:</span>
+          <p class="my-4 text-black dark:text-white text-justify">
+            Pendaftaran entri personel secara manual di kawasan industri dan gedung tidak efektif dalam memverifikasi individu, sehingga meningkatkan risiko pencurian, kehilangan properti, dan insiden keamanan. Personel yang terdaftar menghadapi antrean panjang, sehingga menciptakan pengalaman yang buruk, sementara pencatatan manual di atas kertas menyulitkan pelacakan karena sangat bergantung pada penilaian manusia, yang tidak efektif maupun akurat.
+          </p>
+          <div class="md:flex md:flex-cols">
+            <div>
+              <img class="my-2" src="" alt="()" />
+              <h4 class="dark:text-white font-bold"></h4>
+              <h5 class="dark:text-white">
+                Verifikasi identitas manual yang tidak efisien dapat menyebabkan pencurian, kehilangan properti, atau insiden keamanan
+              </h5>
+            </div>
+            <div>
+              <img class="my-2" src="" alt="()" />
+              <h4 class="dark:text-white font-bold"></h4>
+              <h5 class="dark:text-white">
+                Long queues for manual access checks are a frustrating experience, especially during peak hours
+              </h5>
+            </div>
+            <div>
+              <img class="my-2" src="" alt="()" />
+              <h4 class="dark:text-white font-bold"></h4>
+              <h5 class="dark:text-white">
+                Sangat sulit untuk melacak catatan masuk dan keluar seseorang
+              </h5>
             </div>
           </div>
+        </div>
 
-          <!-- Product List -->
-          <div>
-            <span>Product List:</span>
-            <div class="flex flex-cols">
-              <img src="" alt="()">
-              <p>
-                <h4>ASGB6XXX-X</h4>
-                <h5>
+        <!-- Value -->
+        <div>
+          <span class="dark:text-white font-bold py-4">Value:</span>
+          <p class="dark:text-white my-8 text-justify">
+            AI Smart Entrance Control Solution kami menggunakan autentikasi wajah untuk mencegah masuknya orang yang tidak berwenang sehingga mengurangi risiko pencurian, kehilangan, dan insiden keamanan. Teknologi dengan akses hands-free akan meningkatkan kecepatan dalam memberikan akses bagi personel yang terdaftar, sementara rekaman masuk dan keluar visual akan memudahkan pencarian catatan.
+          </p>
+          <div class="md:flex md:flex-cols">
+            <div class="dark:text-white my-4">
+              <img class="my-2" src="" alt="()" />
+              <h4 class="font-bold">Efficient Verification</h4>
+              <h5>
+                (Autentikasi Wajah/Kartu mencegah personel tak berwenang memasuki lokasi)
+              </h5>
+            </div>
+            <div class="dark:text-white my-4">
+              <img class="my-2" src="" alt="()" />
+              <h4 class="font-bold">Hands-free Entry Experience</h4>
+              <h5>
+                (Penghalang yang dikontrol oleh teknologi verifikasi biometrik memastikan akses yang akurat dan efisien, meningkatkan pengalaman masuk)
+              </h5>
+            </div>
+            <div class="dark:text-white my-4">
+              <img class="my-2" src="" alt="()" />
+              <h4 class="font-bold">Visual Record and Search</h4>
+              <h5>
+                (Verifikasi visual atas peristiwa alarm dan pemantauan akses orang secara efisien memastikan entri yang aman dan menyederhanakan pencarian rekaman.)
+              </h5>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product List -->
+        <div class="my-8 py-8 ">
+          <span class="dark:text-white font-bold">Product List:</span>
+          <div class="md:grid md:grid-cols-3 md:gap-8 my-4">
+            <div class=" ">
+              <img class="my-2" src="" alt="()">
+              <div>
+                <h4 class="dark:text-white font-bold">ASGB6XXX-X</h4>
+                <h5 class="dark:text-white">
                   Swing Turnstile
-                  <ul class="list-disc">
+                  <ul class="list-disc dark:text-white my-4">
                     <li>Barriers will be closed automatically if no one entered the turnstile after the identity is verified </li>
                     <li>Parameters can be restored to default settings</li>
                     <li>The lock and unlock of barriers can be controlled by remote controller (optional).</li>
@@ -921,19 +928,18 @@
                     <li>Support integration of face, fingerprint, QR code, CPU card reader/ ID card reader module and more to achieve a combination of multiple authentication methods.</li>
                   </ul>
                 </h5>
-              </p>
+              </div>
             </div>
 
-            <div class="flex flex-cols">
-              <img src="" alt="()">
-              <p>
-                <h4>ASI7213S-W</h4>
+            <div class="">
+              <img class="my-2" src="" alt="()">
+              <div>
+                <h4 class="dark:text-white font-bold">ASI7213S-W</h4>
                 <span></span>
                
-                <h5>
-                  Dahua Face Recognition, Card Swiping, Password Face Recognition Access Controller
-                  <span>* The parameters and datasheets below can only be applied to 3449-PV-S5 series.</span>
-                  <ul class="list-disc">
+                <h5 class="dark:text-white">Dahua Face Recognition, Card Swiping, Password Face Recognition Access Controller</h5>
+                  <span class="dark:text-white" >* The parameters and datasheets below can only be applied to 3449-PV-S5 series.</span>
+                  <ul class="list-disc dark:text-white my-4">
                     <li>7" LCD with a resolution of 1024 × 600 </li>
                     <li>The 2-MP dual-lens CMOS camera and high-performance image sensor ensure accurate recognition even in poor lighting and dark locations that lack illumination.</li>
                     <li>Features auto illumination to effectively reduce light pollution.</li>
@@ -957,17 +963,15 @@
                     <li>Online update and update through USB.</li>
                     <li>Connects to DSS Pro and SmartPSS Lite.</li>
                   </ul>
-                </h5>
-              </p>
+              </div>
             </div>
 
-            <div class="flex flex-cols">
-              <img src="" alt="()">
-              <p>
-                <h4>LM22-B200S</h4>
-                <h5>
-                  21.45" FHD Monitor
-                  <ul class="list-disc">
+            <div class="">
+              <img class="my-2" src="" alt="()">
+              <div class="dark:text-white">
+                <h4 class="dark:text-white font-bold">LM22-B200S</h4>
+                <h5 class="dark:text-white">21.45" FHD Monitor</h5>
+                  <ul class="list-disc my-4">
                     <li>Light and cost-effective plastic housing </li>
                     <li>Ultra-narrow bezel, elegant appearance, metal base </li>
                     <li>178°H/178°V extra-wide viewing angle for overall viewing performance </li>
@@ -977,120 +981,119 @@
                     <li>Low energy consumption, long service life</li>
                     <li>Anti-blue light design, eye-protective</li>
                   </ul>
-                </h5>
-              </p>
+              </div>
             </div>
 
-            <div class="flex flex-cols">
-              <img src="" alt="()">
-              <p>
-                <h4>ASM100 ASM100-D</h4>
-                <h5>
-                  Card Enrollment Reader
-                  <ul class="list-disc">
+            <div class="">
+              <img class="my-2" src="" alt="()">
+              <div>
+                <h4 class="dark:text-white font-bold">ASM100 ASM100-D</h4>
+                <h5 class="dark:text-white">Card Enrollment Reader</h5>
+                  <ul class="list-disc dark:text-white my-4">
                     <li>Default IC (Mifare) card (“-D” means ID EM card) </li>
                     <li>No driver installation, plug and play </li>
                     <li>USB power supply and communication </li>
                     <li>Beep and indicator </li>
                   </ul>
-                </h5>
-              </p>
+              </div>
             </div>
 
-            <div class="flex flex-cols">
-              <img src="" alt="()">
-              <p>
-                <h4>HAC-UZ3</h4>
-                <h5>
-                  2MP USB Camera
-                  <ul class="list-disc">
+            <div class="">
+              <img class="my-2" src="" alt="()">
+              <div>
+                <h4 class="dark:text-white font-bold">HAC-UZ3</h4>
+                <h5 class="dark:text-white">2MP USB Camera</h5>
+                  <ul class="list-disc dark:text-white my-4">
                     <li>High-definition image sensor </li>
                     <li>USB connection and easy operation </li>
                     <li>UVC protocol and high compatibility </li>
                     <li>Far-field pickup, beamforming, noise reduction </li>
                   </ul>
-                </h5>
-              </p>
+              </div>
             </div>
           </div>
-        </article>
-
-        <!-- Article Fire Prevention -->
-        <article class="">
-          <h3>Fire Prevention</h3>
           
-          <!-- Masalah -->
-          <div>
-            <span>Masalah:</span>
-            <p class="my-4 text-black text-justify">
-              Kebakaran merupakan salah satu risiko paling serius yang dapat mengancam berbagai jenis bangunan dan fasilitas. Mencegah kebakaran bukanlah tugas yang mudah, karena membutuhkan deteksi dini, pemberian peringatan secara real-time, dan penanganan risiko yang tepat. Sayangnya, banyak tempat seringkali kekurangan sistem yang mampu mendeteksi potensi kebakaran. Kurangnya tindakan pencegahan yang memadai meningkatkan risiko kerusakan properti, hilangnya aset, hingga membahayakan keselamatan orang di sekitar.
-            </p>
-            <div class="flex flex-cols">
-              <div>
-                <img src="" alt="()" />
-                <h4></h4>
-                <h5>
-                  (Kurangnya sistem deteksi kebakaran membuat sulit mengidentifikasi potensi bahaya kebakaran)
-                </h5>
-              </div>
-              <div>
-                <img src="" alt="()" />
-                <h4></h4>
-                <h5>
-                  (Keterlambatan dalam pemberitahuan kebakaran dapat mengakibatkan keterlambatan dalam respon terhadap kebakaran, yang memperbesar penyebaran api dan menyebabkan kerusakan properti yang parah)
-                </h5>
-              </div>
-              <div>
-                <img src="" alt="()" />
-                <h4></h4>
-                <h5>
-                  (Menentukan penyebab kebakaran merupakan hal yang sulit karena bukti yang tidak mencukupi, sehingga menghasilkan kesimpulan yang tidak dapat diandalkan)
-                </h5>
-              </div>
+        </div>
+      </article>
+
+      <!-- Article Fire Prevention -->
+      <article class="dark:text-white m-8">
+        <h3 class="font-extrabold text-lg">Fire Prevention</h3>
+        
+        <!-- Masalah -->
+        <div class="py-8">
+          <span class="dark:text-white font-bold">Masalah:</span>
+          <p class="my-4 text-black dark:text-white text-justify">
+            Kebakaran merupakan salah satu risiko paling serius yang dapat mengancam berbagai jenis bangunan dan fasilitas. Mencegah kebakaran bukanlah tugas yang mudah, karena membutuhkan deteksi dini, pemberian peringatan secara real-time, dan penanganan risiko yang tepat. Sayangnya, banyak tempat seringkali kekurangan sistem yang mampu mendeteksi potensi kebakaran. Kurangnya tindakan pencegahan yang memadai meningkatkan risiko kerusakan properti, hilangnya aset, hingga membahayakan keselamatan orang di sekitar.
+          </p>
+          <div class="md:flex md:flex-cols">
+            <div>
+              <img class="my-2" class="my-2" src="" alt="()" />
+              <h4 class="dark:text-white font-bold"></h4>
+              <h5 class="dark:text-white">
+                Kurangnya sistem deteksi kebakaran membuat sulit mengidentifikasi potensi bahaya kebakaran
+              </h5>
+            </div>
+            <div>
+              <img class="my-2" class="my-2" src="" alt="()" />
+              <h4 class="dark:text-white font-bold"></h4>
+              <h5 class="dark:text-white">
+                Keterlambatan dalam pemberitahuan kebakaran dapat mengakibatkan keterlambatan dalam respon terhadap kebakaran, yang memperbesar penyebaran api dan menyebabkan kerusakan properti yang parah
+              </h5>
+            </div>
+            <div>
+              <img class="my-2" class="my-2" src="" alt="()" />
+              <h4 class="dark:text-white font-bold"></h4>
+              <h5 class="dark:text-white">
+                Menentukan penyebab kebakaran merupakan hal yang sulit karena bukti yang tidak mencukupi, sehingga menghasilkan kesimpulan yang tidak dapat diandalkan
+              </h5>
             </div>
           </div>
+        </div>
 
-          <!-- Value -->
-          <div>
-            <span>Value:</span>
-            <p>
-              Solusi pencegahan kebakaran berbasis AI kami menawarkan deteksi suhu yang abnormal dan potensi bahaya kebakaran selama 24/7. Sistem secara cepat memberikan peringatan kepada pihak keamanan terkait risiko kebakaran, sehingga meminimalisir potensi kerugian dan memastikan bukti-bukti terkumpul untuk menentukan penyebab kebakaran.
-            </p>
-            <div class="flex flex-cols">
-              <div>
-                <img src="" alt="()" />
-                <h4>AI Detection of Temperature Abnormalities</h4>
-                <h5>
-                  (Sistem canggih bertenaga AI terus memantau fluktuasi dan kelainan suhu secara real-time)
-                </h5>
-              </div>
-              <div>
-                <img src="" alt="()" />
-                <h4>Immediate Fire Alerts</h4>
-                <h5>
-                  (Peringatan kebakaran secara dini memungkinkan respons cepat, meningkatkan keselamatan, melindungi properti, mengurangi kerugian finansial, dan memperbaiki koordinasi saat keadaan darurat.)
-                </h5>
-              </div>
-              <div>
-                <img src="" alt="()" />
-                <h4>Clear Video Recordings</h4>
-                <h5>
-                  (Rekaman video berkualitas tinggi membantu penyelidikan menyeluruh terkait penyebab kebakaran.)
-                </h5>
-              </div>
+        <!-- Value -->
+        <div>
+          <span class="dark:text-white font-bold py-4">Value:</span>
+          <p class="dark:text-white my-8">
+            Solusi pencegahan kebakaran berbasis AI kami menawarkan deteksi suhu yang abnormal dan potensi bahaya kebakaran selama 24/7. Sistem secara cepat memberikan peringatan kepada pihak keamanan terkait risiko kebakaran, sehingga meminimalisir potensi kerugian dan memastikan bukti-bukti terkumpul untuk menentukan penyebab kebakaran.
+          </p>
+          <div class="md:flex md:flex-cols">
+            <div>
+              <img class="my-2" class="my-2" src="" alt="()" />
+              <h4 class="dark:text-white font-bold">AI Detection of Temperature Abnormalities</h4>
+              <h5 class="dark:text-white">
+                Sistem canggih bertenaga AI terus memantau fluktuasi dan kelainan suhu secara real-time
+              </h5>
+            </div>
+            <div>
+              <img class="my-2" class="my-2" src="" alt="()" />
+              <h4 class="dark:text-white font-bold">Immediate Fire Alerts</h4>
+              <h5 class="dark:text-white">
+                Peringatan kebakaran secara dini memungkinkan respons cepat, meningkatkan keselamatan, melindungi properti, mengurangi kerugian finansial, dan memperbaiki koordinasi saat keadaan darurat.
+              </h5>
+            </div>
+            <div>
+              <img class="my-2" class="my-2" src="" alt="()" />
+              <h4 class="dark:text-white font-bold">Clear Video Recordings</h4>
+              <h5 class="dark:text-white">
+                Rekaman video berkualitas tinggi membantu penyelidikan menyeluruh terkait penyebab kebakaran.
+              </h5>
             </div>
           </div>
+        </div>
 
-          <!-- Product List -->
-          <div>
-            <span>Product List:</span>
-            <div class="flex flex-cols">
-              <img src="" alt="()">
-              <p>
-                <h4>TPC-BF1241-T-S8</h4>
-                <h5>
+        <!-- Product List -->
+        <div class="my-8 py-8">
+          <span class="dark:text-white font-bold">Product List:</span>
+
+          <div class="md:grid md:grid-cols-3 md:grid-cols-2 md:mx-8 md:gap-8">
+            <div class="">
+              <img class="my-2" class="my-2" src="" alt="()">
+              <div>
+                <h4 class="dark:text-white font-bold">TPC-BF1241-T-S8</h4>
+                <h5 class="dark:text-white">
                   Thermal Network Mini Hybrid Bullet Camera
-                  <ul class="list-disc">
+                  <ul class="list-disc dark:text-white">
                     <li>Vanadium oxide uncooled focal plane detector </li>
                     <li>4Megapixel progressive scan CMOS.</li>
                     <li>AI functions: heat detection, tripwire, human/vehicle classification, smoking detection, and call detection.</li>
@@ -1103,16 +1106,16 @@
                     <li>IP67 rated.</li>
                   </ul>
                 </h5>
-              </p>
+              </div>
             </div>
 
-            <div class="flex flex-cols">
-              <img src="" alt="()">
-              <p>
-                <h4>HY-C151</h4>
+            <div class="">
+              <img class="my-2" class="my-2" src="" alt="()">
+              <div class="dark:text-white">
+                <h4 class="dark:text-white font-bold">HY-C151</h4>
                 <span></span>
                
-                <h5>
+                <h5 class="dark:text-white">
                   Conventional Sounder Strobe
                   <ul class="list-disc">
                     <li>Meets all requirements of latest EN54 </li>
@@ -1124,16 +1127,16 @@
                     <li>Contacts material is highly acid-resistant and rust-resistant</li>
                   </ul>
                 </h5>
-              </p>
+              </div>
             </div>
 
-            <div class="flex flex-cols">
-              <img src="" alt="()">
-              <p>
-                <h4>NVR5208-EI</h4>
-                <h5>
+            <div class="">
+              <img class="my-2" class="my-2" src="" alt="()">
+              <div>
+                <h4 class="dark:text-white font-bold">NVR5208-EI</h4>
+                <h5 class="dark:text-white">
                   Dahua 8CH 2HDD 1U NETWORK VIDEO RECORDER
-                  <ul class="list-disc">
+                  <ul class="list-disc dark:text-white">
                     <li>Supports Smart H.265+, H.265, Smart H.264+, H.264 and MJPEG decoding formats </li>
                     <li>Max. decoding capability: 32 × 1080p@30 fps or 8 × 8MP@30 fps. </li>
                     <li>Max. 384/384/384 Mbps incoming/recording/outgoing bandwidth </li>
@@ -1145,16 +1148,16 @@
                     <li>Supports EPTZ, and one-click arming and disarming</li>
                   </ul>
                 </h5>
-              </p>
+              </div>
             </div>
 
-            <div class="flex flex-cols">
-              <img src="" alt="()">
-              <p>
-                <h4>IS4210-8GT-120</h4>
-                <h5>
+            <div class="">
+              <img class="my-2" class="my-2" src="" alt="()">
+              <div>
+                <h4 class="dark:text-white font-bold">IS4210-8GT-120</h4>
+                <h5 class="dark:text-white">
                   10-Port Managed Industrial Gigabit Switch with 8-Port PoE (Managed)
-                  <ul class="list-disc">
+                  <ul class="list-disc dark:text-white">
                     <li>All-gigabit port design.  </li>
                     <li>Supports IEEE802.3af, IEEE802.3at, Hi-PoE and IEEE802.3bt (red port) standards.  </li>
                     <li>250 m long-distance PoE transmission (10 Mbps).  </li>
@@ -1165,16 +1168,16 @@
                     <li>Desktop mount and DIN-rail mount.</li>
                   </ul>
                 </h5>
-              </p>
+              </div>
             </div>
 
-            <div class="flex flex-cols">
-              <img src="" alt="()">
-              <p>
-                <h4>LM22-B200S</h4>
-                <h5>
+            <div class="">
+              <img class="my-2" class="my-2" src="" alt="()">
+              <div>
+                <h4 class="dark:text-white font-bold">LM22-B200S</h4>
+                <h5 class="dark:text-white">
                   21.45" FHD Monitor
-                  <ul class="list-disc">
+                  <ul class="list-disc dark:text-white">
                     <li>Light and cost-effective plastic housing </li>
                     <li>Ultra-narrow bezel, elegant appearance, metal base </li>
                     <li>178°H/178°V extra-wide viewing angle for overall viewing performance </li>
@@ -1185,96 +1188,98 @@
                     <li>Anti-blue light design, eye-protective</li>
                   </ul>
                 </h5>
-              </p>
+              </div>
             </div>
           </div>
-        </article>
-
-         <!-- Article Control Center -->
-         <article class="">
-          <h3>Fire Prevention</h3>
           
-          <!-- Masalah -->
-          <div>
-            <span>Masalah:</span>
-            <div>
-              <img src="" alt="()" />
-              <p class="my-4 text-black text-justify">
-                Sistem Control Center saat ini masih menghadapi beberapa tantangan. 
-                <ul>
-                  <li>
-                    <p>
-                    Kurangnya integrasi antar aplikasi keamanan seperti CCTV, Access Control, dan sistem alarm, membuat petugas keamanan harus berpindah-pindah antar aplikasi. Hal ini tidak hanya memakan waktu, tetapi juga meningkatkan risiko human error.
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                    Penggunaan monitor terpisah untuk setiap aplikasi menciptakan tampilan yang terfragmentasi dan kurang efisien. Petugas keamanan harus terus-menerus beralih antara monitor untuk memantau situasi secara keseluruhan.
-                    </p>
-                    </li>
-                  <li>
-                    <p>
-                    Hilangnya rekaman CCTV pada saat dibutuhkan, terutama saat sedang melakukan investigasi terkait kejadian tertentu. Kehilangan rekaman ini dapat menghambat proses penyelidikan dan bahkan mempersulit klaim asuransi.
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                    Sistem keamanan tidak terhubung dengan baik, petugas keamanan harus bekerja lebih keras dan lebih lama untuk memantau semuanya.
-                    </p>
-                  </li>
-                </ul>
-              </p>
-              <p>
-              Jika rekaman hilang saat sedang menyelidiki kejadian tertentu, maka proses klaim asuransi bisa menjadi lebih rumit.
-              </p>
-            </div>
-          </div>
+        </div>
+      </article>
 
-          <!-- Value -->
+       <!-- Article Control Center -->
+      <article class="dark:text-white m-8">
+        <h3 class="font-extrabold text-lg dark:text-white">Control Center</h3>
+        
+        <!-- Masalah -->
+        <div class="py-8">
+          <span class="dark:text-white font-bold">Masalah:</span>
           <div>
-            <span>Value:</span>
-            <p>
-              Control Center Solution ini menawarkan platform terintegrasi yang mampu mengelola berbagai subsistem keamanan. Fitur ini memungkinkan operator/petugas memantau secara menyeluruh, menangani insiden dengan efisien, mengontrol situasi dalam jarak yang jauh, dan menavigasi peta digital.
-              Dengan teknologi decoder dan operasi antar layar, pengalaman operator menjadi lebih nyaman dan beban kerja di ruang control center pun berkurang. Selain itu, penyimpanan redundan NVR dan EVS secara efektif mengatasi masalah kehilangan rekaman, memastikan kelancaran investigasi kejadian dan mencegah kegagalan klaim asuransi.
-
+            <img class="my-2" class="my-2" src="" alt="()" />
+            <p class="my-4 text-black dark:text-white text-justify">
+              Sistem Control Center saat ini masih menghadapi beberapa tantangan:
+              <ul class="list-disc ">
+                <li class="px-8">
+                  <p class="list-disc dark:text-white text-justify">
+                  Kurangnya integrasi antar aplikasi keamanan seperti CCTV, Access Control, dan sistem alarm, membuat petugas keamanan harus berpindah-pindah antar aplikasi. Hal ini tidak hanya memakan waktu, tetapi juga meningkatkan risiko human error.
+                  </p>
+                </li>
+                <li class="px-8">
+                  <p class="dark:text-white text-justify">
+                  Penggunaan monitor terpisah untuk setiap aplikasi menciptakan tampilan yang terfragmentasi dan kurang efisien. Petugas keamanan harus terus-menerus beralih antara monitor untuk memantau situasi secara keseluruhan.
+                  </p>
+                  </li>
+                <li class="px-8">
+                  <p class="dark:text-white text-justify">
+                  Hilangnya rekaman CCTV pada saat dibutuhkan, terutama saat sedang melakukan investigasi terkait kejadian tertentu. Kehilangan rekaman ini dapat menghambat proses penyelidikan dan bahkan mempersulit klaim asuransi.
+                  </p>
+                </li>
+                <li class="px-8">
+                  <p class="dark:text-white text-justify">
+                  Sistem keamanan tidak terhubung dengan baik, petugas keamanan harus bekerja lebih keras dan lebih lama untuk memantau semuanya.
+                  </p>
+                </li>
+                <li>
+                  <p class="dark:text-white text-justify px-8">
+                    Jika rekaman hilang saat sedang menyelidiki kejadian tertentu, maka proses klaim asuransi bisa menjadi lebih rumit.
+                  </p>
+                </li>
+              </ul>
             </p>
-            <div class="flex flex-cols">
-              <div>
-                <img src="" alt="()" />
-                <h4>Integrated Operation Platform</h4>
-                <h5>
-                  DSS berfungsi sebagai platform operasi terintegrasi untuk mengelola semua subsistem, meningkatkan efisiensi kerja personel keamanan.
-                </h5>
-              </div>
-              <div>
-                <img src="" alt="()" />
-                <h4>Multi Display Cross-screen Operation</h4>
-                <h5>
-                  Sistem tampilan terintegrasi meningkatkan visibilitas, efisiensi, dan pengambilan keputusan dengan mengkonsolidasikan berbagai sumber informasi dalam pengaturan konten yang fleksibel.
-                </h5>
-              </div>
-              <div>
-                <img src="" alt="()" />
-                <h4>Dual Storage Protection</h4>
-                <h5>
-                  Dual storage dengan NVR dan EVS akan melindungi data, meningkatkan keamanan, dan mencegah kehilangan bukti untuk investigasi kejadian.
-                </h5>
-              </div>
+            
+          </div>
+        </div>
+
+        <!-- Value -->
+        <div>
+          <span class="dark:text-white font-bold py-4">Value:</span>
+          <p class="dark:text-white my-8">
+            Control Center Solution ini menawarkan platform terintegrasi yang mampu mengelola berbagai subsistem keamanan. Fitur ini memungkinkan operator/petugas memantau secara menyeluruh, menangani insiden dengan efisien, mengontrol situasi dalam jarak yang jauh, dan menavigasi peta digital.
+            Dengan teknologi decoder dan operasi antar layar, pengalaman operator menjadi lebih nyaman dan beban kerja di ruang control center pun berkurang. Selain itu, penyimpanan redundan NVR dan EVS secara efektif mengatasi masalah kehilangan rekaman, memastikan kelancaran investigasi kejadian dan mencegah kegagalan klaim asuransi.
+
+          </p>
+          <div class="md:flex md:flex-cols">
+            <div>
+              <img class="my-2" src="" alt="()" />
+              <h4 class="dark:text-white font-bold">Integrated Operation Platform</h4>
+              <h5 class="dark:text-white">
+                DSS berfungsi sebagai platform operasi terintegrasi untuk mengelola semua subsistem, meningkatkan efisiensi kerja personel keamanan.
+              </h5>
+            </div>
+            <div>
+              <img class="my-2" src="" alt="()" />
+              <h4 class="dark:text-white font-bold">Multi Display Cross-screen Operation</h4>
+              <h5 class="dark:text-white">
+                Sistem tampilan terintegrasi meningkatkan visibilitas, efisiensi, dan pengambilan keputusan dengan mengkonsolidasikan berbagai sumber informasi dalam pengaturan konten yang fleksibel.
+              </h5>
+            </div>
+            <div>
+              <img class="my-2" src="" alt="()" />
+              <h4 class="dark:text-white font-bold">Dual Storage Protection</h4>
+              <h5 class="dark:text-white">
+                Dual storage dengan NVR dan EVS akan melindungi data, meningkatkan keamanan, dan mencegah kehilangan bukti untuk investigasi kejadian.
+              </h5>
             </div>
           </div>
+        </div>
 
-          <!-- Product List -->
-          <div>
-            <span>Product List:</span>
-            <div class="flex flex-cols">
-              <div>
-                <img src="" alt="()">
-              <img src="" alt="()">
-              <img src="" alt="()">
-              </div>
-              <div>
-                <p>
-                  <h4>LS460UDM-UF</h4>
+        <!-- Product List -->
+        <div class="my-8 py-8">
+          <span class="dark:text-white font-bold">Product List:</span>
+          <div class="">
+            <div class="md:grid md:grid-cols-3 md:grid-cols-2 md:mx-8 md:gap-8">
+              <div class="my-8">
+                <img class="my-2" src="" alt="()">
+                <div class="dark:text-white">
+                  <h4 class="dark:text-white font-bold">LS460UDM-UF</h4>
                   <h5>
                     46'' FHD Video Wall Display Unit (Ultra Narrow Bezel 1.7mm)
                     <ul class="list-disc">
@@ -1292,234 +1297,237 @@
                       <li>Widely used in surveillance center, command center, meeting room, commercial display scenes, etc.</li>
                     </ul>
                   </h5>
-                </p>
+                </div>
+                
               </div>
-              
-             
-            </div>
 
-            <div class="flex flex-cols">
-              <img src="" alt="()">
-              <p>
-                <h4>EVS5016S-R-V2</h4>
-                <span></span>
-               
-                <h5>
-                  16-bay Embedded Video Storage
-                  <ul class="list-disc">
-                    <li>64-bit high-performance multi-core processor </li>
-                    <li>Max 320-ch IP camera inputs</li>
-                    <li>Max 800 Mbps incoming/recording/forwarding bandwidth</li>
-                    <li>16 bays, SATA, Hot-Swap</li>
-                    <li>Supports RAID 0/1/5/6/10/50/60, Hot spare</li>
-                    <li>Supports video stream direct storage mode and IPSAN storage mode</li>
-                    <li>Supports N+M cluster</li>
-                    <li>Supports Automatic Network Replenishment (ANR)</li>
-                    <li>Modular and drawer-like design</li>
-                    <li>1+1 redundant 80PLUS platinum power supply</li> 
-                  </ul>
-                </h5>
-              </p>
-            </div>
-
-            <div class="flex flex-cols">
-              <img src="" alt="()">
-              <p>
-                <h4>NVR5864-EI</h4>
-                <h5>
-                  Dahua 64CH 8HDD 2U NETWORK VIDEO RECORDER
-                  <ul class="list-disc">
-                    <li>Supports Smart H.265+, H.265, Smart H.264+, H.264 and MJPEG decoding formats </li>
-                    <li>Max. decoding capability: 32 × 1080p@30 fps or 32 × 2MP@30 fps.  </li>
-                    <li>Max. 384/384/384 Mbps incoming/recording/outgoing bandwidth </li>
-                    <li>Supports IP cameras with a resolution up to 32 MP.  </li>
-                    <li>Supports AcuPick with up to 32 channels </li>
-                    <li>Supports N+M cluster,iSCSI </li>
-                    <li>Support Raid0/1/5/6/10. </li>
-                    <li>AI by Recorder supports 2-channel face detection and recognition, up to 20 face databases and 20,000 face images; 4-channel perimeter protection; 8-channel SMD Plus. </li>
-                    <li>AI by Camera supports face detection and recognition, perimeter protection, SMD Plus, metadata, ANPR, stereo analysis, heat map, and people counting</li>
-                    <li>Supports EPTZ, and one-click arming and disarming</li>
-                  </ul>
-                </h5>
-              </p>
-            </div>
-
-            <div class="flex flex-cols">
-              <img src="" alt="()">
-              <p>
-                <h4>NVD0405DU-2I-8K</h4>
-                <h5>
-                  Ultra-HD Network Video Decoder
-                  <ul class="list-disc">
-                    <li>2ch@8K/10ch@4K/36ch@1080P/144ch@D1 real-time decoding ability  </li>
-                    <li>HDMI input max support 1 channel 4K@60fps collection  </li>
-                    <li>4ch HDMI output max support 4K@60fps output  </li>
-                    <li>Up to 8K image splicing display  </li>
-                    <li>Supports up to 4 video-wall display units or monitors. </li>
-                    <li>Splicing screens control for zoom/merge/roam/overlay </li>
-                    <li>Supports 1/4/6/8/9/16/25/36 and free split</li>
-                    <li>Fisheye de-warp function, supports multi-video split display in ceiling mount, wall mount, ground mount installation mode</li>
-                    <li>Supports alarm, RS232, RS485</li>
-                  </ul>
-                </h5>
-              </p>
-            </div>
-
-            <div class="flex flex-cols">
-              <img src="" alt="()">
-              <p>
-                <h4>S5500-24GF4XF-E</h4>
-                <h5>
-                  28-Port Managed Gigabit Switch with 24-Port GSFP and 4-Port 10G SFP+
-                  <ul class="list-disc">
-                    <li>Rich layer 3 features </li>
-                    <li>Reliable hardware design with modular dual power supply. </li>
-                    <li>Excellent manageability. </li>
-                    <li>High availability </li>
-                    <li>High-density 10 Gigabit port</li>
-                  </ul>
-                </h5>
-              </p>
-            </div>
-
-            <div class="flex flex-cols">
-              <img src="" alt="()">
-              <p>
-                <h4>CS4010-8ET-110</h4>
-                <h5>
-                  10-Port Cloud Managed Desktop Switch with 8-Port PoE
-                  <ul class="list-disc">
-                    <li>Meets the requirements of IEEE802.3,IEEE802.3u,IEEE802.3x,IEEE802.3ab standards </li>
-                    <li>Meets the requirements of IEEE802.3af, IEEE802.3at, Hi-PoE, and IEEE802.3bt power supply standards. </li>
-                    <li>Manages PoE power consumption and PoE power on/off. Supports Intelligent PoE. </li>
-                    <li>A wide operating temperature range and a full metal casing that is fully-enclosed and dust-proof. </li>
-                  </ul>
-                </h5>
-              </p>
-            </div>
-
-            <div class="flex flex-cols">
-              <img src="" alt="()">
-              <p>
-                <h4>NKB1000-E</h4>
-                <h5>
-                  Network Keyboard
-                </h5>
-                <h6>
-                  Keyboard to Control  
-                  <ul class="list-disc">
-                    <li>Dahua High Speed Dome</li>
-                    <li>Dahua Standalone DVR </li>
-                    <li>Network Video Server </li>
-                    <li>A wide operating temperature range and a full metal casing that is fully-enclosed and dust-proof. </li>
-                  </ul>
-                </h6>
-                <h6>
-                  Connection 
-                  <ul class="list-disc">
-                    <li>RS485, RS422 (reserved), USB, RS232 and Network</li>
-                  </ul>
-                </h6>
-                <h6>
-                  Function
-                  <ul class="list-disc">
-                    <li>Three-Dimensional Joystick Control of PTZ Functions</li>
-                    <li>Preset Position, Auto Scan, Auto Pan, Auto Tour & Pattern Auxiliary Functions</li>
-                  </ul>
-                </h6>
-                <h6>
-                  Auxiliary Functions
-                  <ul class="list-disc">
-                    <li>On-Screen Menu and User Operation Procedure Tips</li>
-                    <li>Connect to SmartPSS or DSS platform via USB</li>
-                  </ul>
-                </h6>
-              </p>
+              <div class="my-8">
+                <img class="my-2" src="" alt="()">
+                <div class="dark:text-white">
+                  <h4 class="dark:text-white font-bold">EVS5016S-R-V2</h4>
+                  <span></span>
+                  <h5>
+                    16-bay Embedded Video Storage
+                    <ul class="list-disc">
+                      <li>64-bit high-performance multi-core processor </li>
+                      <li>Max 320-ch IP camera inputs</li>
+                      <li>Max 800 Mbps incoming/recording/forwarding bandwidth</li>
+                      <li>16 bays, SATA, Hot-Swap</li>
+                      <li>Supports RAID 0/1/5/6/10/50/60, Hot spare</li>
+                      <li>Supports video stream direct storage mode and IPSAN storage mode</li>
+                      <li>Supports N+M cluster</li>
+                      <li>Supports Automatic Network Replenishment (ANR)</li>
+                      <li>Modular and drawer-like design</li>
+                      <li>1+1 redundant 80PLUS platinum power supply</li> 
+                    </ul>
+                  </h5>
+                </div>
+              </div>
+  
+              <div class="my-8">
+                <img class="my-2" src="" alt="()">
+                <div class="dark:text-white">
+                  <h4 class="dark:text-white font-bold">NVR5864-EI</h4>
+                  <h5>
+                    Dahua 64CH 8HDD 2U NETWORK VIDEO RECORDER
+                    <ul class="list-disc">
+                      <li>Supports Smart H.265+, H.265, Smart H.264+, H.264 and MJPEG decoding formats </li>
+                      <li>Max. decoding capability: 32 × 1080p@30 fps or 32 × 2MP@30 fps.  </li>
+                      <li>Max. 384/384/384 Mbps incoming/recording/outgoing bandwidth </li>
+                      <li>Supports IP cameras with a resolution up to 32 MP.  </li>
+                      <li>Supports AcuPick with up to 32 channels </li>
+                      <li>Supports N+M cluster,iSCSI </li>
+                      <li>Support Raid0/1/5/6/10. </li>
+                      <li>AI by Recorder supports 2-channel face detection and recognition, up to 20 face databases and 20,000 face images; 4-channel perimeter protection; 8-channel SMD Plus. </li>
+                      <li>AI by Camera supports face detection and recognition, perimeter protection, SMD Plus, metadata, ANPR, stereo analysis, heat map, and people counting</li>
+                      <li>Supports EPTZ, and one-click arming and disarming</li>
+                    </ul>
+                  </h5>
+                </div>
+              </div>
+  
+              <div class="my-8">
+                <img class="my-2" src="" alt="()">
+                <div class="dark:text-white">
+                  <h4 class="dark:text-white font-bold">NVD0405DU-2I-8K</h4>
+                  <h5>
+                    Ultra-HD Network Video Decoder
+                    <ul class="list-disc">
+                      <li>2ch@8K/ 10ch@4K/ 36ch@1080P/ 144ch@D1 real-time decoding ability  </li>
+                      <li>HDMI input max support 1 channel 4K@60fps collection  </li>
+                      <li>4ch HDMI output max support 4K@60fps output  </li>
+                      <li>Up to 8K image splicing display  </li>
+                      <li>Supports up to 4 video-wall display units or monitors. </li>
+                      <li>Splicing screens control for zoom/merge/roam/overlay </li>
+                      <li>Supports 1/4/6/8/9/16/25/36 and free split</li>
+                      <li>Fisheye de-warp function, supports multi-video split display in ceiling mount, wall mount, ground mount installation mode</li>
+                      <li>Supports alarm, RS232, RS485</li>
+                    </ul>
+                  </h5>
+                </div>
+              </div>
+  
+              <div class="my-8">
+                <img class="my-2" src="" alt="()">
+                <div class="dark:text-white">
+                  <h4 class="dark:text-white font-bold">S5500-24GF4XF-E</h4>
+                  <h5>
+                    28-Port Managed Gigabit Switch with 24-Port GSFP and 4-Port 10G SFP+
+                    <ul class="list-disc">
+                      <li>Rich layer 3 features </li>
+                      <li>Reliable hardware design with modular dual power supply. </li>
+                      <li>Excellent manageability. </li>
+                      <li>High availability </li>
+                      <li>High-density 10 Gigabit port</li>
+                    </ul>
+                  </h5>
+                </div>
+              </div>
+  
+              <div class="my-8">
+                <img class="my-2" src="" alt="()">
+                <div class="dark:text-white">
+                  <h4 class="dark:text-white font-bold">CS4010-8ET-110</h4>
+                  <h5>
+                    10-Port Cloud Managed Desktop Switch with 8-Port PoE
+                    <ul class="list-disc ">
+                      <li>Meets the requirements of IEEE802.3, IEEE802.3u, IEEE802.3x, IEEE802.3ab standards </li>
+                      <li>Meets the requirements of IEEE802.3af, IEEE802.3at, Hi-PoE, and IEEE802.3bt power supply standards. </li>
+                      <li>Manages PoE power consumption and PoE power on/off. Supports Intelligent PoE. </li>
+                      <li>A wide operating temperature range and a full metal casing that is fully-enclosed and dust-proof. </li>
+                    </ul>
+                  </h5>
+                </div>
+              </div>
+  
+              <div class="">
+                <img class="my-2" src="" alt="()">
+                <div class="dark:text-white">
+                  <h4 class="dark:text-white font-bold">NKB1000-E</h4>
+                  <h5>
+                    Network Keyboard
+                  </h5>
+                  <h6>
+                    Keyboard to Control  
+                    <ul class="list-disc">
+                      <li>Dahua High Speed Dome</li>
+                      <li>Dahua Standalone DVR </li>
+                      <li>Network Video Server </li>
+                      <li>A wide operating temperature range and a full metal casing that is fully-enclosed and dust-proof. </li>
+                    </ul>
+                  </h6>
+                  <h6>
+                    Connection 
+                    <ul class="list-disc">
+                      <li>RS485, RS422 (reserved), USB, RS232 and Network</li>
+                    </ul>
+                  </h6>
+                  <h6>
+                    Function
+                    <ul class="list-disc">
+                      <li>Three-Dimensional Joystick Control of PTZ Functions</li>
+                      <li>Preset Position, Auto Scan, Auto Pan, Auto Tour & Pattern Auxiliary Functions</li>
+                    </ul>
+                  </h6>
+                  <h6>
+                    Auxiliary Functions
+                    <ul class="list-disc">
+                      <li>On-Screen Menu and User Operation Procedure Tips</li>
+                      <li>Connect to SmartPSS or DSS platform via USB</li>
+                    </ul>
+                  </h6>
+                </div>
+              </div>
             </div>
           </div>
-        </article>
+        </div>
+      </article>
 
-        <!-- Article Loss Prevention -->
-        <article>
-          <h2>Loss Prevention</h2>
+      <!-- Article Loss Prevention -->
+      <article class="dark:text-white m-8">
+        <h3 class="font-extrabold text-lg">Loss Prevention</h3>
 
-          <!-- Masalah -->
+        <!-- Masalah -->
+        <div class="py-8 dark:text-white">
+          <span class="dark:text-white font-bold">Masalah:</span>
           <div>
-            <span>Masalah:</span>
-            <div>
-              <div>
-                <span>Masalah:</span>
+            <div class="dark:text-white">
+              <span>Masalah:</span>
 
-                <p class="my-4 text-black text-justify">
-                  Menjaga keamanan aset di lingkungan pemerintahan adalah tantangan yang sangat penting. Sistem kamera yang terintegrasi dengan sistem keamanan yang efisien, serta yang dapat menangani banyak insiden dan potensi ancaman dapat memberikan keamanan yang tinggi, aman, dan tepat dalam melakukan inspeksi dan pengawasan.
-                </p>
-
-                <div>
-                  <img src="" alt="()" />
+              <p class="my-4 text-black dark:text-white text-justify">
+                Menjaga keamanan aset di lingkungan pemerintahan adalah tantangan yang sangat penting. Sistem kamera yang terintegrasi dengan sistem keamanan yang efisien, serta yang dapat menangani banyak insiden dan potensi ancaman dapat memberikan keamanan yang tinggi, aman, dan tepat dalam melakukan inspeksi dan pengawasan.
+              </p>
+              <div class="md:flex md:flex-cols">
+                <div class="dark:text-white">
+                  <img class="my-2" src="" alt="()" />
                   <h5>Akurasi dalam mendeteksi pencurian sangat penting. Kegagalan alarm bisa menyebabkan kerugian besar.</h5>
                 </div>
 
-                <div>
-                  <img src="" alt="()" />
+                <div class="dark:text-white">
+                  <img class="my-2" src="" alt="()" />
                   <h5>Alarm yang terlambat bisa menghambat kinerja petugas keamanan, yang dapat menyebabkan kerusakan yang tak bisa diperbaiki.</h5>
                 </div>
 
-                <div>
-                  <img src="" alt="()" />
+                <div class="dark:text-white">
+                  <img class="my-2" src="" alt="()" />
                   <h5>Kurangnya bukti yang cukup sering menghambat penegakan hukum yang efektif dan penyelesaian insiden.</h5>
                 </div>
               </div>
+              
             </div>
           </div>
+        </div>
 
-          <!-- Value -->
+        <!-- Value -->
+        <div>
           <div>
-            <div>
-              <span>Value:</span>
-            <p class="my-4 text-black text-justify">
+            <span class="dark:text-white font-bold py-4">Value:</span>
+            <p class="dark:text-white my-8">
               Loss prevention solution akan memberikan deteksi dan peringatan pencurian yang akurat sehingga respon petugas keamanan menjadi lebih cepat. Sistem ini terintegrasi dengan CCTV berbasis AI dan akan meningkatkan efisiensi dalam mengumpulkan bukti pencurian.
             </p>
-            </div>
+          </div>
 
+          <div class="md:flex md:flex-cols">
             <div>
-              <img src="" alt="()" />
-              <div>
+              <img class="my-2" src="" alt="()" />
+              <div class="dark:text-white">
                 <span>Accurate Stealing Detection</span>
-                <p>
+                <p class="dark:text-white">
                   Akurasi pendeteksi pencurian yang tepat terhadap barang-barang yang dicuri secara signifikan akan mengurangi false alarm dan insiden yang terlewatkan.
                 </p>
               </div>
             </div>
 
-            <div>
-              <img src="" alt="()" />
+            <div class="">
+              <img class="my-2" src="" alt="()" />
               <div>
-                <span>Prompt Notifications and Alerts</span>
-                <p>
+                <span class="dark:text-white">Prompt Notifications and Alerts</span>
+                <p class="dark:text-white">
                   Notifikasi dan peringatan tepat waktu memungkinkan respons cepat, meningkatkan keamanan, mengurangi kerugian, meningkatkan kesadaran staf, dan membantu pengumpulan bukti yang akurat.
                 </p>
               </div>
             </div>
 
             <div>
-              <img src="" alt="()" />
+              <img class="my-2" src="" alt="()" />
               <div>
-                <span>Efficient Video Evidence Retrieval</span>
-                <p>
+                <span class="dark:text-white">Efficient Video Evidence Retrieval</span>
+                <p class="dark:text-white">
                   Bukti video yang efisien dapat di unduh, sehingga meningkatkan kecepatan respons, menyederhanakan penyelidikan, dan mengoptimalkan penggunaan bukti pencurian.
                 </p>
               </div>
             </div>
-          </div>
+          </div> 
+        </div>
 
-          <!-- Product Lists -->
-          <div>
-            <h3>Product List</h3>
-
-            <div>
-              <img src="" alt="()" />
-              <div>
-                <span>IPC-HDW3449H-AS-PV</span>
+        <!-- Product Lists -->
+        <div class="my-8 py-8">
+          <h3 class="dark:text-white font-bold">Product List</h3>
+          <div class="md:grid md:grid-cols-3 gap-8">
+            <div class="dark:text-white">
+              <img class="my-2" src="" alt="()" />
+              <div class="dark:text-white">
+                <h4 class="font-bold">IPC-HDW3449H-AS-PV</h4>
                 <span>4MP Smart Dual Illumination Active Deterrence Fixed-focal Eyeball WizSense Network Camera</span>
                 <span>* The parameters and datasheets below can only be applied to 3449-PV-S5 series.</span>
                 <ul>
@@ -1542,10 +1550,10 @@
               </div>
             </div>
 
-            <div>
-              <img src="" alt="()" />
-              <div>
-                <span>ISC-EAA8-C208-P</span>
+            <div class="dark:text-white">
+              <img class="my-2" src="" alt="()" />
+              <div class="dark:text-white">
+                <h4 class="font-bold">ISC-EAA8-C208-P</h4>
                 <span>Network Ultra Acrylic AM Antenna</span>
                 <ul>
                   <li>Minimalist frameless design, high transparent acrylic shell, which is beautiful, stylish, durable, solid and easy to install.</li>
@@ -1567,10 +1575,10 @@
               </div>
             </div>
 
-            <div>
-              <img src="" alt="()" />
-              <div>
-                <span>NVR5208-EI</span>
+            <div class="dark:text-white">
+              <img class="my-2" src="" alt="()" />
+              <div class="dark:text-white">
+                <h4 class="font-bold">NVR5208-EI</h4>
                 <span> Dahua 8CH 2HDD 1U NETWORK VIDEO RECORDER</span>
                 <ul>
                   <li>Supports Smart H.265+, H.265, Smart H.264+, H.264 and MJPEG decoding formats. </li>
@@ -1586,10 +1594,10 @@
               </div>
             </div>
 
-            <div>
-              <img src="" alt="()" />
-              <div>
-                <span>CS4010-8ET-110</span>
+            <div class="dark:text-white">
+              <img class="my-2" src="" alt="()" />
+              <div class="dark:text-white">
+                <h4 class="font-bold">CS4010-8ET-110</h4>
                 <span>10-Port Cloud Managed Desktop Switch with 8-Port PoE</span>
                 <ul>
                   <li>Meets the requirements of IEEE802.3, IEEE802.3u, IEEE802.3x, IEEE802.3ab standards. </li>
@@ -1600,10 +1608,10 @@
               </div>
             </div>
 
-            <div>
-              <img src="" alt="()" />
-              <div>
-                <span>LM22-B200S</span>
+            <div class="dark:text-white">
+              <img class="my-2" src="" alt="()" />
+              <div class="dark:text-white">
+                <h4 class="font-bold">LM22-B200S</h4>
                 <span>21.45" FHD Monitor</span>
                 <ul>
                   <li>Light and cost-effective plastic housing</li>
@@ -1618,10 +1626,10 @@
               </div>
             </div>
 
-            <div>
-              <img src="" alt="()" />
-              <div>
-                <span>ISC-ED-0919</span>
+            <div class="dark:text-white">
+              <img class="my-2" src="" alt="()" />
+              <div class="dark:text-white">
+                <h4 class="font-bold">ISC-ED-0919</h4>
                 <span>Star Super Detacher D919</span>
                 <ul>
                   <li>Adapt to most magnetic unlock EAS Tags.</li>
@@ -1632,10 +1640,10 @@
               </div>
             </div> 
 
-            <div>
-              <img src="" alt="()" />
-              <div>
-                <span>AM Label</span>
+            <div class="dark:text-white">
+              <img class="my-2" src="" alt="()" />
+              <div class="dark:text-white">
+                <h4 class="font-bold">AM Label</h4>
                 <ul>
                   <li>Easy to use, suitable for most commodities.</li>
                   <li>Small in size, able to provide concealed protection.</li>
@@ -1644,10 +1652,10 @@
               </div>
             </div>
             
-            <div>
-              <img src="" alt="()" />
-              <div>
-                <span>ISC-ETA5-T010C</span>
+            <div class="dark:text-white">
+              <img class="my-2" src="" alt="()" />
+              <div class="dark:text-white">
+                <h4 class="font-bold">ISC-ETA5-T010C</h4>
                 <span>AM Pencil Tag T010C</span>
                 <ul>
                   <li>Environmentally friendly and economical, can be reused after unlocking. </li>
@@ -1660,81 +1668,85 @@
             </div> 
           </div>
           
-         </article>
+        </div>
+        
+      </article>
 
-        <!-- Article Integrated Solar Powered Security -->
-        <article class="">
-          <h3>Fire Prevention</h3>
+      <!-- Article Integrated Solar Powered Security -->
+      <article class="dark:text-white m-8">
+        <h3 class="font-extrabold text-lg">Integrated Solar Powered Security</h3>
+        
+        <!-- Masalah -->
+        <div class="py-8">
+          <span class="dark:text-white font-bold">Masalah:</span>
+          <p class="my-4 text-black text-justify dark:text-white">
+            Mengawasi dan menjaga keamanan aset di lingkungan pemerintahan menghadirkan tantangan besar. Banyak instansi pemerintah dihadapkan pada kebutuhan untuk melakukan inspeksi rutin, yang memerlukan tenaga kerja yang cukup besar atau biaya tinggi untuk pemasangan sistem kamera yang kompleks. Keterbatasan dalam memberikan respons secara real-time sering kali mengakibatkan penundaan dalam menangani insiden atau potensi ancaman, yang dapat menimbulkan risiko keamanan tambahan. Di samping itu, upaya untuk mempertahankan operasi sistem keamanan secara berkelanjutan sering kali terbentur masalah biaya dan pemeliharaan yang tidak efisien, sehingga berpotensi mengurangi efektivitas keamanan di fasilitas pemerintah.
+          </p>
+          <div class="md:flex md:flex-cols">
+            <div>
+              <img class="my-2" src="" alt="()" />
+              <h4 class="dark:text-white font-bold"></h4>
+              <h5 class="dark:text-white">
+                Pemilik lahan rentan terhadap kerusakan lahan dan pencurian tanaman karena kurangnya sistem kamera keamanan yang komprehensif.
+              </h5>
+            </div>
+            <div>
+              <img class="my-2" src="" alt="()" />
+              <h4 class="dark:text-white font-bold"></h4>
+              <h5 class="dark:text-white">
+                Penyebaran jaringan dan sumber Listrik di sekitar lahan pertanian rumit dan mahal.
+              </h5>
+            </div>
+            <div>
+              <img class="my-2" src="" alt="()" />
+              <h4 class="dark:text-white font-bold"></h4>
+              <h5 class="dark:text-white">
+                Keterlambatan dalam merespon menghambat deteksi kejadian penyusupan, membahayakan keamanan bukti video yang penting untuk mengklaim kerugian.
+              </h5>
+            </div>
+          </div>
+        </div>
+
+        <!-- Value -->
+        <div>
+          <span class="dark:text-white font-bold py-4">Value:</span>
+          <p class="dark:text-white my-8">
+            Solusi keamanan all-in-one dengan tenaga surya dan kamera AI 4G meningkatkan keamanan dan efisiensi biaya bagi pemilik properti. Selain itu respon terhadap penyusupan akan menjadi tepat waktu. Bukti video mudah di dapatkan untuk mencegah potensi kerugian.
+          </p>
+          <div class="md:flex md:flex-cols">
+            <div>
+              <img class="my-2" src="" alt="()" />
+              <h4 class="dark:text-white font-bold">24/7 Comprehensive Coverage</h4>
+              <h5 class="dark:text-white">
+                Merekam video secara terus-menerus dan memberikan cakupan yang detail. Sistem ini juga menawarkan akurasi 99% dalam mendeteksi penyusup dan meminimalkan kerugian properti.
+              </h5>
+            </div>
+            <div>
+              <img class="my-2" src="" alt="()" />
+              <h4 class="dark:text-white font-bold">Low-cost Deployment</h4>
+              <h5 class="dark:text-white">
+                Desain all-in-one memungkinkan pemasangan memakan biaya yang rendah dan pemasangan hanya membutuhkan waktu 20 menit. Hal tersebut secara signifikan mengurangi biaya dibandingkan dengan konstruksi kabel daya dan jaringan tradisional.
+              </h5>
+            </div>
+            <div>
+              <img class="my-2" src="" alt="()" />
+              <h4 class="dark:text-white font-bold">Real-Time Intrusion Alert</h4>
+              <h5 class="dark:text-white">
+                Deteksi berbasis AI dan peringatan secara pop-up dikirim langsung ke perangkat pemilik sehingga membantu meminimalisir kerugian dan kerusakan.
+              </h5>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product List -->
+        <div class="my-8">
+          <span class="dark:text-white font-bold">Product List:</span>
           
-          <!-- Masalah -->
-          <div>
-            <span>Masalah:</span>
-            <p class="my-4 text-black text-justify">
-              Mengawasi dan menjaga keamanan aset di lingkungan pemerintahan menghadirkan tantangan besar. Banyak instansi pemerintah dihadapkan pada kebutuhan untuk melakukan inspeksi rutin, yang memerlukan tenaga kerja yang cukup besar atau biaya tinggi untuk pemasangan sistem kamera yang kompleks. Keterbatasan dalam memberikan respons secara real-time sering kali mengakibatkan penundaan dalam menangani insiden atau potensi ancaman, yang dapat menimbulkan risiko keamanan tambahan. Di samping itu, upaya untuk mempertahankan operasi sistem keamanan secara berkelanjutan sering kali terbentur masalah biaya dan pemeliharaan yang tidak efisien, sehingga berpotensi mengurangi efektivitas keamanan di fasilitas pemerintah.
-            </p>
-            <div class="flex flex-cols">
-              <div>
-                <img src="" alt="()" />
-                <h4></h4>
-                <h5>
-                  Pemilik lahan rentan terhadap kerusakan lahan dan pencurian tanaman karena kurangnya sistem kamera keamanan yang komprehensif.
-                </h5>
-              </div>
-              <div>
-                <img src="" alt="()" />
-                <h4></h4>
-                <h5>
-                  Penyebaran jaringan dan sumber Listrik di sekitar lahan pertanian rumit dan mahal.
-                </h5>
-              </div>
-              <div>
-                <img src="" alt="()" />
-                <h4></h4>
-                <h5>
-                  Keterlambatan dalam merespon menghambat deteksi kejadian penyusupan, membahayakan keamanan bukti video yang penting untuk mengklaim kerugian.
-                </h5>
-              </div>
-            </div>
-          </div>
-
-          <!-- Value -->
-          <div>
-            <span>Value:</span>
-            <p>
-              Solusi keamanan all-in-one dengan tenaga surya dan kamera AI 4G meningkatkan keamanan dan efisiensi biaya bagi pemilik properti. Selain itu respon terhadap penyusupan akan menjadi tepat waktu. Bukti video mudah di dapatkan untuk mencegah potensi kerugian.
-            </p>
-            <div class="flex flex-cols">
-              <div>
-                <img src="" alt="()" />
-                <h4>24/7 Comprehensive Coverage</h4>
-                <h5>
-                  Merekam video secara terus-menerus dan memberikan cakupan yang detail. Sistem ini juga menawarkan akurasi 99% dalam mendeteksi penyusup dan meminimalkan kerugian properti.
-                </h5>
-              </div>
-              <div>
-                <img src="" alt="()" />
-                <h4>Low-cost Deployment</h4>
-                <h5>
-                  Desain all-in-one memungkinkan pemasangan memakan biaya yang rendah dan pemasangan hanya membutuhkan waktu 20 menit. Hal tersebut secara signifikan mengurangi biaya dibandingkan dengan konstruksi kabel daya dan jaringan tradisional.
-                </h5>
-              </div>
-              <div>
-                <img src="" alt="()" />
-                <h4>Real-Time Intrusion Alert</h4>
-                <h5>
-                  Deteksi berbasis AI dan peringatan secara pop-up dikirim langsung ke perangkat pemilik sehingga membantu meminimalisir kerugian dan kerusakan.
-                </h5>
-              </div>
-            </div>
-          </div>
-
-          <!-- Product List -->
-          <div>
-            <span>Product List:</span>
-            <div class="flex flex-cols">
-              <img src="" alt="()">
-              <p>
-                <h4>SD6C3432GB-HNR-AGQ-PV1-LA</h4>
+          <div class="md:grid md:grid-cols-2 px-8 gap-8">
+            <div class="my-8">
+              <img class="my-2" src="" alt="()">
+              <div class="dark:text-white">
+                <h4 class="dark:text-white font-bold">SD6C3432GB-HNR-AGQ-PV1-LA</h4>
                 <h5>
                   4MP 32x Starlight TiOC WizSense Network PTZ Camera
                   <ul class="list-disc">
@@ -1752,13 +1764,13 @@
                     <li>IP66.</li>
                   </ul>
                 </h5>
-              </p>
+              </div>
             </div>
 
-            <div class="flex flex-cols">
-              <img src="" alt="()">
-              <p>
-                <h4>PFM378-B125-CB</h4>
+            <div class="my-8 dark:text-white">
+              <img class="my-2" src="" alt="()">
+              <div class=" dark:text-white">
+                <h4 class="dark:text-white font-bold">PFM378-B125-CB</h4>
                 <span></span>
                
                 <h5>
@@ -1773,7 +1785,7 @@
                     <li>Built sturdy to resist storms with sustained winds up to 117 km/h.</li>
                   </ul>
                 </h5>
-                <h5>
+                <h5 class="my-4">
                   (Note: The following four functions are only supported when battery power is used.)
                   <ul>
                     <li>Remote monitoring available through the mobile app.</li>
@@ -1784,13 +1796,13 @@
                   </ul>
                 </h5>
                 
-              </p>
+              </div>
             </div>
 
-            <div class="flex flex-cols">
-              <img src="" alt="()">
-              <p>
-                <h4>IPC-HFW3441DG-AS-4G-LA-B</h4>
+            <div class="my-8 dark:text-white">
+              <img class="my-2" src="" alt="()">
+              <div class=" dark:text-white">
+                <h4 class="dark:text-white font-bold">IPC-HFW3441DG-AS-4G-LA-B</h4>
                 <h5>
                   4MP IR Fixed-focal Bullet WizSense 4G Network Camera
                   <ul class="list-disc">
@@ -1809,16 +1821,16 @@
                     <li>SMD 3.0</li>
                   </ul>
                 </h5>
-              </p>
+              </div>
             </div>
 
-            <div class="flex flex-cols">
-              <img src="" alt="()">
-              <p>
-                <h4>PFM378-B100-WB</h4>
-                <h5>
+            <div class="my-8 dark:text-white">
+              <img class="my-2" src="" alt="()">
+              <div class="dark:text-white">
+                <h4 class="dark:text-white font-bold">PFM378-B100-WB</h4>
+                <h5 class="dark:text-white">
                   Integrated Solar Power System (without Lithium Battery)
-                  <ul class="list-disc">
+                  <ul class="list-disc dark:text-white">
                     <li>Integrated design, easy to install</li>
                     <li>Pole mount</li>
                     <li>Flexible angle adjustment of the solar panel and the camera </li>
@@ -1830,11 +1842,13 @@
                     <li>Electric protection.</li>
                   </ul>
                 </h5>
-              </p>
+              </div>
             </div>
+
           </div>
-        </article>
-      </div>
+        </div>
+      </article>
+    </div>
     </section>
 
     <!-- Subscribe -->

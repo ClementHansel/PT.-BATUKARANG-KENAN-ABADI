@@ -39,26 +39,58 @@
       };
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="Index_New.js"></script>
+    <!-- Dark Mode Theme -->
+    <script>
+      tailwind.config = {
+        darkMode:
+          "class" /* class/media, here we use class to enable manually dark mode */,
+      };
+    </script>
+    <script>
+      /**
+       * Loads the theme stored
+       */
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+    <!-- End of Mode Theme -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" href="Asset/LOGO PT/logoicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="NewCSS.css" />
+    <link rel="stylesheet" href="navbar-css-trial.css" />
+    <link rel="icon" href="Assets/Logo-PT/logoicon.ico" />
     <title>PT.BKKA.CO.ID</title>
   </head>
-  <body class="bg-blue-100 font-sans min-h-screen">
+  <body class="bg-white dark:bg-black font-sans min-h-screen">
     <!-- Navbar -->
-    <section>
+    <section
+      class="sm:hidden md:block bg-white text black dark:bg-black dark:text-white"
+    >
       <!-- MD Navbar -->
       <nav
-        class="fixed top-0 z-10 flex w-full flex-wrap items-center justify-between bg-zinc-50 py-2 shadow-dark-mild dark:bg-neutral-700 lg:py-4"
+        class="fixed top-0 z-10 flex w-full flex-wrap items-center justify-between bg-zinc-50 py-2 shadow-dark-mild lg:py-4 dark:bg-black"
       >
         <div class="flex w-full flex-wrap items-center justify-between px-3">
           <!-- Left elements -->
-          <div class="flex">
+          <div class="flex justify-between">
             <!-- Brand -->
             <a
               class="mx-2 my-1 flex items-center lg:mb-0 lg:mt-0"
@@ -66,7 +98,7 @@
             >
               <img
                 class="me-2 h-10"
-                src="Asset/LOGO PT/Logo-BKKA-Transparant.png"
+                src="Assets/Logo-PT/Logo-BKKA-Transparant.png"
                 alt="PT. BATUKARANG KENAN ABADI Logo"
                 loading="lazy"
               />
@@ -76,7 +108,192 @@
             >
               PT. BATUKARANG KENAN ABADI
             </h1>
+
+            <!-- Dark Mode Toggler -->
+            <button
+              id="theme-toggle"
+              type="button"
+              class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
+            >
+              <svg
+                id="theme-toggle-dark-icon"
+                class="hidden w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                ></path>
+              </svg>
+              <svg
+                id="theme-toggle-light-icon"
+                class="hidden w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
           </div>
+
+          <!-- Navbar Hamburger -->
+          <section class="body-nav-hamburger lg:hidden z-10">
+            <nav role="navigation">
+              <div id="menuToggle">
+                <!--
+                  A fake / hidden checkbox is used as click reciever,
+                  so you can use the :checked selector on it.
+                  -->
+                <input type="checkbox" />
+
+                <!--
+                  Some spans to act as a hamburger.
+          
+                  They are acting like a real hamburger,
+                  not that McDonalds stuff.
+                  -->
+                <span class="bg-black dark:bg-white"></span>
+                <span class="bg-black dark:bg-white"></span>
+                <span class="bg-black dark:bg-white"></span>
+
+                <!--
+                  Too bad the menu has to be inside of the button
+                  but hey, it's pure CSS magic.
+                  -->
+                <ul id="menu">
+                  <li class="">
+                    <div tabindex="0" id="menu-label-1" class="onclick-menu">
+                      Solutions
+                      <ul id="submenu-label-1" class="onclick-menu-content">
+                        <li>
+                          <a class="mx-8 text-xl" href="https://bkka.site/isms"
+                            >ISMS</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="WIM.html">WIM</a>
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="ISHMS.html">ISHMS</a>
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="VPMS.html">VPMS</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li>
+                    <div id="menu-label-2" tabindex="0" class="onclick-menu">
+                      Products
+                      <ul id="submenu-label-2" class="onclick-menu-content">
+                        <li>
+                          <a class="mx-8 text-xl" href="Monitoring.html"
+                            >Monitoring</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Sensors.html"
+                            >Sensors</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Access-Management.html"
+                            >Access Management</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Parking-System.html"
+                            >Parking Management</a
+                          >
+                        </li>
+                        <!-- <li>
+                          <a class="mx-8 text-xl" href="Data-Centers.html"
+                            >Data Centers</a
+                          >
+                        </li> -->
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="">
+                    <div id="menu-label-3" tabindex="0" class="onclick-menu">
+                      Markets
+                      <ul id="submenu-label-3" class="onclick-menu-content">
+                        <li>
+                          <a class="mx-8 text-xl" href="Telecom.html"
+                            >Telecom</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Goverment.html"
+                            >Goverment</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Infrastructure.html"
+                            >Infrastructures</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Industrial-Area.html"
+                            >Industrial Area</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Commercial-Area.html"
+                            >Commercial Building</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Residential-Area.html"
+                            >Residential Area</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Parking-Management.html"
+                            >Parking Management</a
+                          >
+                        </li>
+                        <!-- <li>
+                          <a class="mx-8 text-xl" href="Data-Centers.html"
+                            >Data Centers</a
+                          >
+                        </li> -->
+                      </ul>
+                    </div>
+                  </li>
+                  <li id="menu-label-4">
+                    <a href="become-a-partner.html">Partners</a>
+                  </li>
+                  <li class="">
+                    <div id="menu-label-5" tabindex="0" class="onclick-menu">
+                      About
+                      <ul id="submenu-label-5" class="onclick-menu-content">
+                        <li>
+                          <a class="mx-8 text-xl" href="company-profile.html"
+                            >Company Profile</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Joinus.html">Join Us</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li id="menu-label-6">
+                    <a href="Contactus.html">Contact</a>
+                  </li>
+                  <li id="menu-label-7"><a href="login.html">Log In</a></li>
+                </ul>
+              </div>
+            </nav>
+          </section>
+
           <!-- Left elements -->
 
           <!-- Right elements -->
@@ -85,7 +302,7 @@
             data-twe-navbar-nav-ref
           >
             <!-- Products dropdown Trigger -->
-            <li class="relative px-2 hidden md:flex" data-twe-dropdown-ref>
+            <li class="relative px-2 hidden lg:flex" data-twe-dropdown-ref>
               <a
                 class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
                 href="#"
@@ -103,7 +320,7 @@
                 <li>
                   <a
                     class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                    href="Products/Monitoring.html"
+                    href="Monitoring.html"
                     data-twe-dropdown-item-ref
                     >Monitoring</a
                   >
@@ -111,7 +328,7 @@
                 <li>
                   <a
                     class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                    href="Products/Sensors.html"
+                    href="Sensors.html"
                     data-twe-dropdown-item-ref
                     >Sensors</a
                   >
@@ -119,41 +336,41 @@
                 <li>
                   <a
                     class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                    href="Products/Access-Controls.html"
+                    href="Access-Management.html"
                     data-twe-dropdown-item-ref
-                    >Access Control</a
+                    >Access Management</a
                   >
                 </li>
                 <li>
                   <a
                     class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                    href="Products/Parking-Management.html"
+                    href="Parking-System.html"
                     data-twe-dropdown-item-ref
-                    >Parking Management</a
+                    >Parking System</a
                   >
                 </li>
-                <li>
+                <!-- <li>
                   <a
                     class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                    href="Products/Data-Centers.html"
+                    href="Data-Centers.html"
                     data-twe-dropdown-item-ref
                     >Data Center</a
                   >
-                </li>
-                <li>
+                </li> -->
+                <!-- <li>
                   <a
                     class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                    href="Products/Softwares.html"
+                    href="Softwares.html"
                     data-twe-dropdown-item-ref
                     >Softwares</a
                   >
-                </li>
+                </li> -->
               </ul>
               <!-- First dropdown trigger -->
             </li>
 
             <!-- Solutions dropdown trigger -->
-            <li class="relative px-2 hidden md:flex" data-twe-dropdown-ref>
+            <li class="relative px-2 hidden lg:flex" data-twe-dropdown-ref>
               <a
                 class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
                 href=""
@@ -272,19 +489,19 @@
                 <li>
                   <a
                     class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                    href="Parking-Area.html"
+                    href="Parking-Management.html"
                     data-twe-dropdown-item-ref
-                    >Parking Area</a
+                    >Parking Management</a
                   >
                 </li>
-                <li>
+                <!-- <li>
                   <a
                     class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
                     href="Data-Centers.html"
                     data-twe-dropdown-item-ref
                     >Data Center</a
                   >
-                </li>
+                </li> -->
               </ul>
 
               <!-- First dropdown trigger -->
@@ -350,7 +567,7 @@
             </li>
 
             <!-- Login Button -->
-            <li class="px-2" data-twe-nav-item-ref>
+            <li class="px-2 hidden lg:block" data-twe-nav-item-ref>
               <a
                 class="flex text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
                 href="login.html"
@@ -381,1010 +598,2072 @@
     <!-- Hero -->
     <div class="w-full">
       <div class="relative mt-16">
-        <img src="Asset/66.jpg" alt="man pressing Solution" />
-        <div
-          class="absolute top-20 md:top-[150px] lg:top-[300px] left-3 md:left-10"
-        >
-          <h1
-            class="w-1/2 font-extrabold text-[9px] text-white md:text-xl lg:text-3xl"
-          >
-            PT. BATUKARANG KENAN ABADI
-          </h1>
-          <h2
-            class="w-1/2 pb-1 md:pb-4 lg:pb-8 text-[7px] text-white md:text-xl lg:text-xl"
-          >
-            We specificaly develop AI-powered technology solutions that make
-            your Bussiness safer, more efficient, and more accessible.
-          </h2>
-          <a
-            href="book-consultation.html"
-            class="border p-1 m-1 md:p-2 md:m-2 rounded-3xl bg-white text-[8px] md:text-[12px] lg:text-[20px] text-black font-extrabold hover:text-black hover:bg-blue-600 hover:font-extrabold hover:border-blue-600"
-          >
-            Book a Free consultation
-          </a>
-        </div>
+        <img
+          class="w-full"
+          src="Assets/Product/NAVBAR PRODUCTS 1.png"
+          alt="man pressing Solution"
+        />
       </div>
     </div>
 
-    <!-- Products -->
-     <!-- Tab link Monitoring -->
-    <section class="my-8 ">
-        <h2 class="text-black font-extrabold text-4xl"> Monitoring </h2>
-        <div class="tab grid md:grid-cols-5 justify-center text-center m-4 gap-2">
-            <!-- CCTV -->
-            <button class="border-2 border-black p-2" onclick="openProducts(event, 'cctv')">
-                
-                <a href="#cctv" >
-                CCTV
-                </a>
-            </button>
+    <!-- Main content Goverment -->
+    <section>
+      <!-- ISMS -->
+      <div>
+        <span
+          class="dark:text-white font-bolder text-[20px] text-center md:text-left"
+        >
+          <h2 class="m-8 font-extrabold text-center md:text-xl lg:text-3xl">
+            Integrated Security Management System (ISMS)
+          </h2>
+        </span>
 
-            <!-- ANPR -->
-            <button class="border-2 border-black p-2" onclick="openProducts(event, 'anpr')">
-                <a href="#anpr" >
-                ANPR
-                </a>
-            </button>
-            
-            <!-- Face Recognition -->
-            <button class="border-2 border-black p-2" onclick="openProducts(event, 'fr')">
-                <a href="#fr" >
-                Face Recognition
-                </a>
-            </button>
+        <!-- Article Perimeter Protection -->
+        <article class="dark:text-white m-8">
+          <h3 class="font-extrabold text-lg">Perimeter Protection</h3>
 
-            <!-- Perimeter Detection -->
-            <button class="border-2 border-black p-2" onclick="openProducts(event, 'pd')">
-                <a href="#pd" >
-                Perimeter Detection
-                </a>
-            </button>
+          <!-- Product List -->
+          <div class="my-8 py-8">
+            <span class="dark:text-white font-bold my-8">Product List:</span>
+            <div class="md:grid md:grid-cols-3 md:grid-cols-2 md:mx-8 md:gap-8">
+              <div class="flex flex-col">
+                <img
+                  class="my-2"
+                  src="Assets/Product/ISMS/PERIMETER/TPC-BF1241-S8.png"
+                  alt="TPC-BF1241-S8"
+                />
+                <div class="dark:text-white">
+                  <h4 class="font-bold">TPC-BF1241-S8</h4>
+                  <h5>
+                    Thermal Network Mini Hybrid Bullet Camera
+                    <ul class="list-disc py-4">
+                      <li>Vanadium oxide uncooled focal plane detector.</li>
+                      <li>4Megapixel progressive scan CMOS</li>
+                      <li>
+                        AI functions: heat detection, tripwire, human/vehicle
+                        classification, smoking detection, and call detection
+                      </li>
+                      <li>Built-in white light and audio alarm</li>
+                      <li>Remote auxiliary management</li>
+                      <li>Dual image fusion (visible and thermal channels)</li>
+                      <li>Wide input voltage 12 VDC ± 20%, and PoE</li>
+                      <li>IP67 rated</li>
+                    </ul>
+                  </h5>
+                </div>
+              </div>
 
-            <!--Thermal Detection -->
-            <button class="border-2 border-black p-2" onclick="openProducts(event, 'td')">
-                <a href="#td" >
-               Thermal Detection
-                </a>
-            </button>
+              <div class="flex flex-col">
+                <img
+                  class="my-2"
+                  src="Assets/Product/ISMS/PERIMETER/IPC-HFW3449T1-AS-PV.png"
+                  alt="IPC-HFW3449T1-AS-PV"
+                />
+                <div class="dark:text-white">
+                  <h4 class="font-bold">IPC-HFW3449T1-AS-PV</h4>
+
+                  <h5>
+                    4MP Smart Dual Light Active Deterrence Fixed-focal Bullet
+                    WizSense Network Camera
+                    <span
+                      >* The parameters and datasheets below can only be applied
+                      to 3449-PV-S5 series.</span
+                    >
+                    <ul class="list-disc py-4">
+                      <li>
+                        4-MP 1/2.7" CMOS image sensor, low luminance, and high
+                        definition image.
+                      </li>
+                      <li>Outputs max. 4 MP (2688 × 1520)@25/30 fps</li>
+                      <li>
+                        H.265 codec, high compression rate, ultra-low bit rate
+                      </li>
+                      <li>
+                        Built-in warm light and IR LED; the max. IR illumination
+                        distance is 30 m and warm light distance is 30 m.
+                      </li>
+                      <li>
+                        ROI, SMART H.264+/H.265+, AI H.264/H.265, flexible
+                        coding, applicable to various bandwidth and storage
+                        environments.
+                      </li>
+                      <li>
+                        Rotation mode, WDR, 3D NR, HLC, BLC, digital
+                        watermarking, applicable to various monitoring scenes.
+                      </li>
+                      <li>
+                        Intelligent monitoring: Intrusion, tripwire (the two
+                        function support the classification and accurate
+                        detection of vehicle and human)
+                      </li>
+                      <li>
+                        Abnormality detection: Motion detection, privacy
+                        masking, scene changing, audio detection, no SD card, SD
+                        card full, SD card error, network disconnection, IP
+                        conflict, illegal access, and voltage detection.
+                      </li>
+                      <li>
+                        Alarm: 1 in, 1 out; audio: 1 in, 1 out; supports max.
+                        256 G Micro SD card; built-in dual Mic; 1-ch speaker;
+                        support two-way talk.
+                      </li>
+                      <li>12 VDC/PoE power supply</li>
+                      <li>IP67 protection.</li>
+                      <li>Sound and light alarm (red and blue lights)</li>
+                      <li>SMD 4.0.</li>
+                      <li>Supports AI SSA and one-tap arming and disarming</li>
+                      <li>
+                        SMD area can be set in warm light areas that support
+                        triggering alarms
+                      </li>
+                    </ul>
+                  </h5>
+                </div>
+              </div>
+
+              <div class="flex flex-col">
+                <img
+                  class="my-2"
+                  src="Assets/Product/ISMS/PERIMETER/IS4210-8GT-120.png"
+                  alt="IS4210-8GT-120"
+                />
+                <div class="dark:text-white">
+                  <h4 class="font-bold">IS4210-8GT-120</h4>
+                  <h5>
+                    10-Port Managed Industrial Gigabit Switch with 8-Port PoE
+                    (Managed)
+                    <ul class="list-disc py-4">
+                      <li>All-gigabit port design.</li>
+                      <li>
+                        Supports IEEE802.3af, IEEE802.3at, Hi-PoE and
+                        IEEE802.3bt (red port) standards.
+                      </li>
+                      <li>250 m long-distance PoE transmission (10 Mbps).</li>
+                      <li>PoE Watchdog.</li>
+                      <li>Supports STP, RSTP, and ERPS</li>
+                      <li>IEEE802.1Q-based VLAN configuration</li>
+                      <li>Manual link aggregation and static LACP.</li>
+                      <li>Desktop mount and DIN-rail mount</li>
+                    </ul>
+                  </h5>
+                </div>
+              </div>
+
+              <div class="flex flex-col">
+                <img
+                  class="my-2"
+                  src="Assets/Product/ISMS/PERIMETER/NVR4216-EI.png"
+                  alt="NVR4216-EI"
+                />
+                <div class="dark:text-white">
+                  <h4 class="font-bold">NVR4216-EI</h4>
+                  <h5>
+                    16CH 1U 2HDDs WizSense Network Video Recorder
+                    <ul class="list-disc py-4">
+                      <li>
+                        Smart H.265+/H.265/Smart H.264+/H.264/MJPEG decoding
+                        format
+                      </li>
+                      <li>
+                        Access, storage or forwarding at 256 Mbps (180 Mbps when
+                        AI function enabled)
+                      </li>
+                      <li>
+                        Max. decoding capability: 16 × 1080p@30 fps. Supports
+                        adaptive decoding
+                      </li>
+                      <li>
+                        AI by NVR: 1-channel face detection and recognition;
+                        2-channel perimeter protection; up to 10 face databases
+                        and 20,000 face images; 4-channel SMD Plus
+                      </li>
+                      <li>
+                        AI by Camera: Face detection and recognition, perimeter
+                        protection; SMD Plus; people counting; stereo analysis;
+                        heat map
+                      </li>
+                      <li>Connected to the third-party network cameras</li>
+                      <li>Security baseline 2.3</li>
+                    </ul>
+                  </h5>
+                </div>
+              </div>
+
+              <div class="flex flex-col">
+                <img
+                  class="my-2"
+                  src="Assets/Product/ISMS/PERIMETER/LM32-F200 32_ FHD Monitor.png"
+                  alt="32In FHD Monitor"
+                />
+                <div class="dark:text-white">
+                  <h4 class="font-bold">32" FHD Monitor</h4>
+                  <h5>
+                    Thermal Network Mini Hybrid Bullet Camera
+                    <ul class="list-disc py-4">
+                      <li>Light and cost-effective plastic housing</li>
+                      <li>Suitable for continuous 24/7 operation</li>
+                      <li>
+                        178°H/178°V extra-wide viewing angle for overall viewing
+                        performance
+                      </li>
+                      <li>
+                        High fidelity digital processing for a brilliant and
+                        vivid video
+                      </li>
+                      <li>
+                        8ms fast response time with no image blurring or
+                        ghosting
+                      </li>
+                      <li>
+                        Support multiple signal inputs such as HDMI, VGA and USB
+                      </li>
+                      <li>Built-in speakers</li>
+                      <li>
+                        Physical button and infrared remote dual control mode
+                      </li>
+                      <li>Low energy consumption, long service life</li>
+                    </ul>
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article Personnel Entrance and Exit management -->
+        <article class="dark:text-white m-8">
+          <h3 class="font-extrabold text-lg">
+            Personnel Entrance and Exit Management
+          </h3>
+
+          <!-- Product List -->
+          <div class="my-8 py-8">
+            <span class="dark:text-white font-bold">Product List:</span>
+            <div class="md:grid md:grid-cols-3 md:gap-8 my-4">
+              <div class="">
+                <img
+                  class="my-2"
+                  src="Assets/Product/ISMS/PERSON ENTRANCE N EXIT/LM22-B200S 21.45_ FHD Monitor.png"
+                  alt="LM22-B200S"
+                />
+                <div class="dark:text-white">
+                  <h4 class="dark:text-white font-bold">LM22-B200S</h4>
+                  <h5 class="dark:text-white">21.45" FHD Monitor</h5>
+                  <ul class="list-disc my-4">
+                    <li>Light and cost-effective plastic housing</li>
+                    <li>Ultra-narrow bezel, elegant appearance, metal base</li>
+                    <li>
+                      178°H/178°V extra-wide viewing angle for overall viewing
+                      performance
+                    </li>
+                    <li>
+                      High fidelity digital processing for a brilliant and vivid
+                      video
+                    </li>
+                    <li>Support multiple signal inputs such as HDMI, VGA</li>
+                    <li>Physical button control mode</li>
+                    <li>Low energy consumption, long service life</li>
+                    <li>Anti-blue light design, eye-protective</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="">
+                <img
+                  class="my-2"
+                  src="Assets/Product/ISMS/PERSON ENTRANCE N EXIT/HAC-UZ3.png"
+                  alt="HAC-UZ3"
+                />
+                <div>
+                  <h4 class="dark:text-white font-bold">HAC-UZ3</h4>
+                  <h5 class="dark:text-white">2MP USB Camera</h5>
+                  <ul class="list-disc dark:text-white my-4">
+                    <li>High-definition image sensor</li>
+                    <li>USB connection and easy operation</li>
+                    <li>UVC protocol and high compatibility</li>
+                    <li>Far-field pickup, beamforming, noise reduction</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article Fire Prevention -->
+        <article class="dark:text-white m-8">
+          <h3 class="font-extrabold text-lg">Fire Prevention</h3>
+
+          <!-- Product List -->
+          <div class="my-8 py-8">
+            <span class="dark:text-white font-bold">Product List:</span>
+
+            <div class="md:grid md:grid-cols-3 md:grid-cols-2 md:mx-8 md:gap-8">
+              <div class="">
+                <img
+                  class="my-2"
+                  class="my-2"
+                  src="Assets/Product/ISMS/FIRE DETECTION/TPC-BF1241-T-S8.png"
+                  alt="TPC-BF1241-T-S8"
+                />
+                <div>
+                  <h4 class="dark:text-white font-bold">TPC-BF1241-T-S8</h4>
+                  <h5 class="dark:text-white">
+                    Thermal Network Mini Hybrid Bullet Camera
+                    <ul class="list-disc dark:text-white">
+                      <li>Vanadium oxide uncooled focal plane detector</li>
+                      <li>4Megapixel progressive scan CMOS.</li>
+                      <li>
+                        AI functions: heat detection, tripwire, human/vehicle
+                        classification, smoking detection, and call detection.
+                      </li>
+                      <li>
+                        Temperature measurement range of –20 °C to +550 °C.
+                      </li>
+                      <li>Flexible rules and alarms.</li>
+                      <li>Built-in white light and audio alarm.</li>
+                      <li>Remote auxiliary management.</li>
+                      <li>Dual image fusion (visible and thermal channels).</li>
+                      <li>Wide input voltage 12 VDC ± 20%, and PoE.</li>
+                      <li>IP67 rated.</li>
+                    </ul>
+                  </h5>
+                </div>
+              </div>
+
+              <div class="">
+                <img
+                  class="my-2"
+                  class="my-2"
+                  src="Assets/Product/ISMS/FIRE DETECTION/NVR5208-EI.png"
+                  alt="NVR5208-EI"
+                />
+                <div>
+                  <h4 class="dark:text-white font-bold">NVR5208-EI</h4>
+                  <h5 class="dark:text-white">
+                    Dahua 8CH 2HDD 1U NETWORK VIDEO RECORDER
+                    <ul class="list-disc dark:text-white">
+                      <li>
+                        Supports Smart H.265+, H.265, Smart H.264+, H.264 and
+                        MJPEG decoding formats
+                      </li>
+                      <li>
+                        Max. decoding capability: 32 × 1080p@30 fps or 8 ×
+                        8MP@30 fps.
+                      </li>
+                      <li>
+                        Max. 384/384/384 Mbps incoming/recording/outgoing
+                        bandwidth
+                      </li>
+                      <li>
+                        Supports IP cameras with a resolution up to 32 MP.
+                      </li>
+                      <li>Supports AcuPick with up to 8 channels.</li>
+                      <li>Supports N+M cluster, iSCSI.</li>
+                      <li>
+                        AI by Recorder supports 2-channel face detection and
+                        recognition, up to 20 face databases and 20,000 face
+                        images; 4-channel perimeter protection; 8-channel SMD
+                        Plus.
+                      </li>
+                      <li>
+                        AI by Camera supports face detection and recognition,
+                        perimeter protection, SMD Plus, metadata, ANPR, stereo
+                        analysis, heat map, and people counting.
+                      </li>
+                      <li>Supports EPTZ, and one-click arming and disarming</li>
+                    </ul>
+                  </h5>
+                </div>
+              </div>
+
+              <div class="">
+                <img
+                  class="my-2"
+                  class="my-2"
+                  src="Assets/Product/ISMS/FIRE DETECTION/IS4210-8GT-120.png"
+                  alt="IS4210-8GT-120"
+                />
+                <div>
+                  <h4 class="dark:text-white font-bold">IS4210-8GT-120</h4>
+                  <h5 class="dark:text-white">
+                    10-Port Managed Industrial Gigabit Switch with 8-Port PoE
+                    (Managed)
+                    <ul class="list-disc dark:text-white">
+                      <li>All-gigabit port design.</li>
+                      <li>
+                        Supports IEEE802.3af, IEEE802.3at, Hi-PoE and
+                        IEEE802.3bt (red port) standards.
+                      </li>
+                      <li>250 m long-distance PoE transmission (10 Mbps).</li>
+                      <li>PoE Watchdog.</li>
+                      <li>Supports STP, RSTP, and ERPS.</li>
+                      <li>IEEE802.1Q-based VLAN configuration.</li>
+                      <li>Manual link aggregation and static LACP.</li>
+                      <li>Desktop mount and DIN-rail mount.</li>
+                    </ul>
+                  </h5>
+                </div>
+              </div>
+
+              <div class="">
+                <img
+                  class="my-2"
+                  class="my-2"
+                  src="Assets/Product/ISMS/FIRE DETECTION/LM22-B200S 21.45_ FHD Monitor.png"
+                  alt="LM22-B200S"
+                />
+                <div>
+                  <h4 class="dark:text-white font-bold">LM22-B200S</h4>
+                  <h5 class="dark:text-white">
+                    21.45" FHD Monitor
+                    <ul class="list-disc dark:text-white">
+                      <li>Light and cost-effective plastic housing</li>
+                      <li>
+                        Ultra-narrow bezel, elegant appearance, metal base
+                      </li>
+                      <li>
+                        178°H/178°V extra-wide viewing angle for overall viewing
+                        performance
+                      </li>
+                      <li>
+                        High fidelity digital processing for a brilliant and
+                        vivid video
+                      </li>
+                      <li>Support multiple signal inputs such as HDMI, VGA</li>
+                      <li>Physical button control mode</li>
+                      <li>Low energy consumption, long service life</li>
+                      <li>Anti-blue light design, eye-protective</li>
+                    </ul>
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article Control Center -->
+        <article class="dark:text-white m-8">
+          <h3 class="font-extrabold text-lg dark:text-white">Control Center</h3>
+
+          <!-- Product List -->
+          <div class="my-8 py-8">
+            <span class="dark:text-white font-bold">Product List:</span>
+            <div class="">
+              <div
+                class="md:grid md:grid-cols-3 md:grid-cols-2 md:mx-8 md:gap-8"
+              >
+                <div class="my-8">
+                  <img
+                    class="my-2"
+                    src="Assets/Product/ISMS/CONTROL CENTER/LS460UDM-UF 46_ FHD Video Wall Display Unit (Ultra Narrow Bezel 1.7mm).png"
+                    alt="LS460UDM-UF"
+                  />
+                  <div class="dark:text-white">
+                    <h4 class="dark:text-white font-bold">LS460UDM-UF</h4>
+                    <h5>
+                      46'' FHD Video Wall Display Unit (Ultra Narrow Bezel
+                      1.7mm)
+                      <ul class="list-disc">
+                        <li>
+                          Industrial level ADS LCD panel, suitable for
+                          continuous 24/7 operation
+                        </li>
+                        <li>
+                          Ultra-narrow 1.7mm B-to-B (Panel Bezel to Panel Bezel)
+                          design
+                        </li>
+                        <li>
+                          Anti-glare panel, vivid and memorable image quality
+                        </li>
+                        <li>
+                          Factory calibration technology for color uniformity
+                        </li>
+                        <li>
+                          Built-in 3D noise reduction system and picture
+                          splicing function
+                        </li>
+                        <li>
+                          Abundant interfaces HDMI, DVI, VGA, DP (UHD daisy
+                          chain), RS232, Audio
+                        </li>
+                        <li>
+                          Up to 4K@60Hz signal input by DP IN or HDMI 1
+                          interface, up to 4K@30Hz signal output by DP OUT
+                          interface
+                        </li>
+                        <li>
+                          Infrared, RS232 dual mode, supporting remote control
+                          by computer.
+                        </li>
+                        <li>
+                          Professional thermal design to extend device lifespan
+                        </li>
+                        <li>
+                          Built-in power, low energy consumption, ultra-quiet
+                        </li>
+                        <li>
+                          Modular structure design, multiple installation modes
+                        </li>
+                        <li>
+                          Widely used in surveillance center, command center,
+                          meeting room, commercial display scenes, etc.
+                        </li>
+                      </ul>
+                    </h5>
+                  </div>
+                </div>
+
+                <div class="my-8">
+                  <img
+                    class="my-2"
+                    src="Assets/Product/ISMS/CONTROL CENTER/EVS5016S-R-V2.png"
+                    alt="EVS5016S-R-V2"
+                  />
+                  <div class="dark:text-white">
+                    <h4 class="dark:text-white font-bold">EVS5016S-R-V2</h4>
+                    <span></span>
+                    <h5>
+                      16-bay Embedded Video Storage
+                      <ul class="list-disc">
+                        <li>64-bit high-performance multi-core processor</li>
+                        <li>Max 320-ch IP camera inputs</li>
+                        <li>
+                          Max 800 Mbps incoming/recording/forwarding bandwidth
+                        </li>
+                        <li>16 bays, SATA, Hot-Swap</li>
+                        <li>Supports RAID 0/1/5/6/10/50/60, Hot spare</li>
+                        <li>
+                          Supports video stream direct storage mode and IPSAN
+                          storage mode
+                        </li>
+                        <li>Supports N+M cluster</li>
+                        <li>Supports Automatic Network Replenishment (ANR)</li>
+                        <li>Modular and drawer-like design</li>
+                        <li>1+1 redundant 80PLUS platinum power supply</li>
+                      </ul>
+                    </h5>
+                  </div>
+                </div>
+
+                <div class="my-8">
+                  <img
+                    class="my-2"
+                    src="Assets/Product/ISMS/CONTROL CENTER/NVR5864-EI.png"
+                    alt="NVR5864-EI"
+                  />
+                  <div class="dark:text-white">
+                    <h4 class="dark:text-white font-bold">NVR5864-EI</h4>
+                    <h5>
+                      Dahua 64CH 8HDD 2U NETWORK VIDEO RECORDER
+                      <ul class="list-disc">
+                        <li>
+                          Supports Smart H.265+, H.265, Smart H.264+, H.264 and
+                          MJPEG decoding formats
+                        </li>
+                        <li>
+                          Max. decoding capability: 32 × 1080p@30 fps or 32 ×
+                          2MP@30 fps.
+                        </li>
+                        <li>
+                          Max. 384/384/384 Mbps incoming/recording/outgoing
+                          bandwidth
+                        </li>
+                        <li>
+                          Supports IP cameras with a resolution up to 32 MP.
+                        </li>
+                        <li>Supports AcuPick with up to 32 channels</li>
+                        <li>Supports N+M cluster,iSCSI</li>
+                        <li>Support Raid0/1/5/6/10.</li>
+                        <li>
+                          AI by Recorder supports 2-channel face detection and
+                          recognition, up to 20 face databases and 20,000 face
+                          images; 4-channel perimeter protection; 8-channel SMD
+                          Plus.
+                        </li>
+                        <li>
+                          AI by Camera supports face detection and recognition,
+                          perimeter protection, SMD Plus, metadata, ANPR, stereo
+                          analysis, heat map, and people counting
+                        </li>
+                        <li>
+                          Supports EPTZ, and one-click arming and disarming
+                        </li>
+                      </ul>
+                    </h5>
+                  </div>
+                </div>
+
+                <div class="my-8">
+                  <img
+                    class="my-2"
+                    src="Assets/Product/ISMS/CONTROL CENTER/NVD0405DU-2I-8K Ultra-HD Network Video Decoder.png"
+                    alt="NVD0405DU-2I-8K"
+                  />
+                  <div class="dark:text-white">
+                    <h4 class="dark:text-white font-bold">NVD0405DU-2I-8K</h4>
+                    <h5>
+                      Ultra-HD Network Video Decoder
+                      <ul class="list-disc">
+                        <li>
+                          2ch@8K/ 10ch@4K/ 36ch@1080P/ 144ch@D1 real-time
+                          decoding ability
+                        </li>
+                        <li>
+                          HDMI input max support 1 channel 4K@60fps collection
+                        </li>
+                        <li>4ch HDMI output max support 4K@60fps output</li>
+                        <li>Up to 8K image splicing display</li>
+                        <li>
+                          Supports up to 4 video-wall display units or monitors.
+                        </li>
+                        <li>
+                          Splicing screens control for zoom/merge/roam/overlay
+                        </li>
+                        <li>Supports 1/4/6/8/9/16/25/36 and free split</li>
+                        <li>
+                          Fisheye de-warp function, supports multi-video split
+                          display in ceiling mount, wall mount, ground mount
+                          installation mode
+                        </li>
+                        <li>Supports alarm, RS232, RS485</li>
+                      </ul>
+                    </h5>
+                  </div>
+                </div>
+
+                <div class="my-8">
+                  <img
+                    class="my-2"
+                    src="Assets/Product/ISMS/CONTROL CENTER/S5500-24GF4XF-E.png"
+                    alt="S5500-24GF4XF-E"
+                  />
+                  <div class="dark:text-white">
+                    <h4 class="dark:text-white font-bold">S5500-24GF4XF-E</h4>
+                    <h5>
+                      28-Port Managed Gigabit Switch with 24-Port GSFP and
+                      4-Port 10G SFP+
+                      <ul class="list-disc">
+                        <li>Rich layer 3 features</li>
+                        <li>
+                          Reliable hardware design with modular dual power
+                          supply.
+                        </li>
+                        <li>Excellent manageability.</li>
+                        <li>High availability</li>
+                        <li>High-density 10 Gigabit port</li>
+                      </ul>
+                    </h5>
+                  </div>
+                </div>
+
+                <div class="my-8">
+                  <img
+                    class="my-2"
+                    src="Assets/Product/ISMS/CONTROL CENTER/CS4010-8ET-110.png"
+                    alt="CS4010-8ET-110"
+                  />
+                  <div class="dark:text-white">
+                    <h4 class="dark:text-white font-bold">CS4010-8ET-110</h4>
+                    <h5>
+                      10-Port Cloud Managed Desktop Switch with 8-Port PoE
+                      <ul class="list-disc">
+                        <li>
+                          Meets the requirements of IEEE802.3, IEEE802.3u,
+                          IEEE802.3x, IEEE802.3ab standards
+                        </li>
+                        <li>
+                          Meets the requirements of IEEE802.3af, IEEE802.3at,
+                          Hi-PoE, and IEEE802.3bt power supply standards.
+                        </li>
+                        <li>
+                          Manages PoE power consumption and PoE power on/off.
+                          Supports Intelligent PoE.
+                        </li>
+                        <li>
+                          A wide operating temperature range and a full metal
+                          casing that is fully-enclosed and dust-proof.
+                        </li>
+                      </ul>
+                    </h5>
+                  </div>
+                </div>
+
+                <div class="">
+                  <img
+                    class="my-2"
+                    src="Assets/Product/ISMS/CONTROL CENTER/NKB1000-E Network Keyboard.png"
+                    alt="NKB1000-E"
+                  />
+                  <div class="dark:text-white">
+                    <h4 class="dark:text-white font-bold">NKB1000-E</h4>
+                    <h5>Network Keyboard</h5>
+                    <h6>
+                      Keyboard to Control
+                      <ul class="list-disc">
+                        <li>Dahua High Speed Dome</li>
+                        <li>Dahua Standalone DVR</li>
+                        <li>Network Video Server</li>
+                        <li>
+                          A wide operating temperature range and a full metal
+                          casing that is fully-enclosed and dust-proof.
+                        </li>
+                      </ul>
+                    </h6>
+                    <h6>
+                      Connection
+                      <ul class="list-disc">
+                        <li>RS485, RS422 (reserved), USB, RS232 and Network</li>
+                      </ul>
+                    </h6>
+                    <h6>
+                      Function
+                      <ul class="list-disc">
+                        <li>
+                          Three-Dimensional Joystick Control of PTZ Functions
+                        </li>
+                        <li>
+                          Preset Position, Auto Scan, Auto Pan, Auto Tour &
+                          Pattern Auxiliary Functions
+                        </li>
+                      </ul>
+                    </h6>
+                    <h6>
+                      Auxiliary Functions
+                      <ul class="list-disc">
+                        <li>
+                          On-Screen Menu and User Operation Procedure Tips
+                        </li>
+                        <li>Connect to SmartPSS or DSS platform via USB</li>
+                      </ul>
+                    </h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article Loss Prevention Foto kurang-->
+        <article class="dark:text-white m-8">
+          <h3 class="font-extrabold text-lg">Loss Prevention</h3>
+
+          <!-- Product Lists -->
+          <div class="my-8 py-8">
+            <h3 class="dark:text-white font-bold">Product List</h3>
+            <div class="md:grid md:grid-cols-3 gap-8">
+              <div class="dark:text-white">
+                <img
+                  class="my-2"
+                  src="Assets/Product/ISMS/"
+                  alt="IPC-HDW3449H-AS-PV"
+                />
+                <div class="dark:text-white">
+                  <h4 class="font-bold">IPC-HDW3449H-AS-PV</h4>
+                  <span
+                    >4MP Smart Dual Illumination Active Deterrence Fixed-focal
+                    Eyeball WizSense Network Camera</span
+                  >
+                  <span
+                    >* The parameters and datasheets below can only be applied
+                    to 3449-PV-S5 series.</span
+                  >
+                  <ul>
+                    <li>
+                      4-MP 1/2.7" CMOS image sensor, low luminance, and
+                      high-definition image.
+                    </li>
+                    <li>Outputs max. 4 MP (2688 × 1520) @25/30 fps.</li>
+                    <li>
+                      H.265 codec, high compression rate, ultra-low bit rate.
+                    </li>
+                    <li>
+                      Built-in warm light and IR LED; the max. IR illumination
+                      distance is 30 m and warm light distance is 30 m.
+                    </li>
+                    <li>
+                      ROI, SMART H.264+/H.265+, AI H.264/H.265, flexible coding,
+                      applicable to various bandwidth and storage environments.
+                    </li>
+                    <li>
+                      Rotation mode, WDR, 3D NR, HLC, BLC, digital watermarking,
+                      applicable to various monitoring scenes.
+                    </li>
+                    <li>
+                      Intelligent monitoring: Intrusion, tripwire (the two
+                      functions support the classification and accurate
+                      detection of vehicle and human).
+                    </li>
+                    <li>
+                      Abnormality detection: Motion detection, privacy masking,
+                      scene changing, audio detection, no SD card, SD card full,
+                      SD card error, network disconnection, IP conflict, illegal
+                      access, and voltage detection.
+                    </li>
+                    <li>
+                      Alarm: 1 in, 1 out; audio: 1 in, 1 out; supports max. 256
+                      G Micro SD card; built-in dual Mic; 1-ch speaker; support
+                      two-way talk.
+                    </li>
+                    <li>12 VDC/PoE power supply.</li>
+                    <li>IP67 protection.</li>
+                    <li>Sound and light alarm (red and blue lights).</li>
+                    <li>SMD 4.0.</li>
+                    <li>Supports AI SSA and one-tap arming and disarming.</li>
+                    <li>
+                      SMD area can be set in warm light areas that support
+                      triggering alarms.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="dark:text-white">
+                <img class="my-2" src="" alt="()" />
+                <div class="dark:text-white">
+                  <h4 class="font-bold">ISC-EAA8-C208-P</h4>
+                  <span>Network Ultra Acrylic AM Antenna</span>
+                  <ul>
+                    <li>
+                      Minimalist frameless design, high transparent acrylic
+                      shell, which is beautiful, stylish, durable, solid and
+                      easy to install.
+                    </li>
+                    <li>
+                      Superior detection distance, max detection distance can be
+                      2.4 meters (pencil tag DHI-ISC-ETA5-T901).
+                    </li>
+                    <li>
+                      Excellent anti-interference, continuous working in complex
+                      electromagnetic environment.
+                    </li>
+                    <li>
+                      Built-in 1.3-inch OLED display and WEB interface,
+                      convenient configuration.
+                    </li>
+                    <li>
+                      Auto/manual adjust phase to effectively handle different
+                      kinds of interference.
+                    </li>
+                    <li>Alarm volume and alarm tone are both adjustable.</li>
+                    <li>Integrated 5 colors background LED light.</li>
+                    <li>Supports tag too close alert.</li>
+                    <li>
+                      The primary and replica antenna are all integrated
+                      transceivers, three modes can be selected: RX, TX, TR
+                      mode.
+                    </li>
+                    <li>
+                      The primary antenna can connect up to 2 replica antennas
+                      as 1 set system. Multi-system can work together.
+                    </li>
+                    <li>
+                      Economic operating power consumption, energy-saving and
+                      environment-friendly.
+                    </li>
+                    <li>CCTV monitoring linkage.</li>
+                    <li>Supports firmware upgrade.</li>
+                    <li>
+                      Supports network platforms connection, such as DSS Pro
+                      platforms.
+                    </li>
+                    <li>Support cloud services, remote configuration.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="dark:text-white">
+                <img class="my-2" src="" alt="()" />
+                <div class="dark:text-white">
+                  <h4 class="font-bold">NVR5208-EI</h4>
+                  <span> Dahua 8CH 2HDD 1U NETWORK VIDEO RECORDER</span>
+                  <ul>
+                    <li>
+                      Supports Smart H.265+, H.265, Smart H.264+, H.264 and
+                      MJPEG decoding formats.
+                    </li>
+                    <li>
+                      Max. decoding capability: 32 × 1080p@30 fps or 8 × 8MP@30
+                      fps.
+                    </li>
+                    <li>
+                      Max. 384/384/384 Mbps incoming/recording/outgoing
+                      bandwidth.
+                    </li>
+                    <li>Supports IP cameras with a resolution up to 32 MP.</li>
+                    <li>Supports AcuPick with up to 8 channels.</li>
+                    <li>Supports N+M cluster, iSCSI.</li>
+                    <li>
+                      AI by Recorder supports 2-channel face detection and
+                      recognition, up to 20 face databases and 20,000 face
+                      images; 4-channel perimeter protection; 8-channel SMD
+                      Plus.
+                    </li>
+                    <li>
+                      AI by Camera supports face detection and recognition,
+                      perimeter protection, SMD Plus, metadata, ANPR, stereo
+                      analysis, heat map, and people counting.
+                    </li>
+                    <li>Supports EPTZ, and one-click arming and disarming.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="dark:text-white">
+                <img class="my-2" src="" alt="()" />
+                <div class="dark:text-white">
+                  <h4 class="font-bold">CS4010-8ET-110</h4>
+                  <span
+                    >10-Port Cloud Managed Desktop Switch with 8-Port PoE</span
+                  >
+                  <ul>
+                    <li>
+                      Meets the requirements of IEEE802.3, IEEE802.3u,
+                      IEEE802.3x, IEEE802.3ab standards.
+                    </li>
+                    <li>
+                      Meets the requirements of IEEE802.3af, IEEE802.3at,
+                      Hi-PoE, and IEEE802.3bt power supply standards.
+                    </li>
+                    <li>
+                      Manages PoE power consumption and PoE power on/off.
+                      Supports Intelligent PoE.
+                    </li>
+                    <li>
+                      A wide operating temperature range and a full metal casing
+                      that is fully-enclosed and dust-proof.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="dark:text-white">
+                <img class="my-2" src="" alt="()" />
+                <div class="dark:text-white">
+                  <h4 class="font-bold">LM22-B200S</h4>
+                  <span>21.45" FHD Monitor</span>
+                  <ul>
+                    <li>Light and cost-effective plastic housing</li>
+                    <li>Ultra-narrow bezel, elegant appearance, metal base</li>
+                    <li>
+                      178°H/178°V extra-wide viewing angle for overall viewing
+                      performance
+                    </li>
+                    <li>
+                      High fidelity digital processing for a brilliant and vivid
+                      video
+                    </li>
+                    <li>Support multiple signal inputs such as HDMI, VGA</li>
+                    <li>Physical button control mode</li>
+                    <li>Low energy consumption, long service life</li>
+                    <li>Anti-blue light design, eye-protective.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article Integrated Solar Powered Security -->
+        <article class="dark:text-white m-8">
+          <h3 class="font-extrabold text-lg">
+            Integrated Solar Powered Security
+          </h3>
+
+          <!-- Product List -->
+          <div class="my-8">
+            <span class="dark:text-white font-bold">Product List:</span>
+
+            <div class="md:grid md:grid-cols-2 px-8 gap-8">
+              <div class="my-8">
+                <img
+                  class="my-2"
+                  src="Assets/Product/ISMS/SOLAR-POWERED/SD6C3432GB-HNR-AGQ-PV1-LA.png"
+                  alt="SD6C3432GB-HNR-AGQ-PV1-LA"
+                />
+                <div class="dark:text-white">
+                  <h4 class="dark:text-white font-bold">
+                    SD6C3432GB-HNR-AGQ-PV1-LA
+                  </h4>
+                  <h5>
+                    4MP 32x Starlight TiOC WizSense Network PTZ Camera
+                    <ul class="list-disc">
+                      <li>1/2.8" 4Megapixel STARVIS™ CMOS</li>
+                      <li>32x optical zoom.</li>
+                      <li>Starlight technology.</li>
+                      <li>Max. 25/30fps@4MP.</li>
+                      <li>IR distance up to 150 m.</li>
+                      <li>Auto-tracking 3.0.</li>
+                      <li>Perimeter protection</li>
+                      <li>Face detection</li>
+                      <li>4G</li>
+                      <li>SMD 4.0.</li>
+                      <li>Smart Dual Light</li>
+                      <li>IP66.</li>
+                    </ul>
+                  </h5>
+                </div>
+              </div>
+
+              <div class="my-8 dark:text-white">
+                <img
+                  class="my-2"
+                  src="Assets/Product/ISMS/SOLAR-POWERED/PFM378-B125-CB.png"
+                  alt="PFM378-B125-CB"
+                />
+                <div class="dark:text-white">
+                  <h4 class="dark:text-white font-bold">PFM378-B125-CB</h4>
+                  <span></span>
+
+                  <h5>
+                    Integrated Solar Monitoring System (Without Lithium Battery)
+                    <ul class="list-disc">
+                      <li>Solar Power System</li>
+                      <li>Integrated design, easy to install</li>
+                      <li>Pole mount</li>
+                      <li>
+                        Angle flexible adjustment of solar panel and camera
+                        mount.
+                      </li>
+                      <li>125 W Monocrystalline solar panel</li>
+                      <li>Aluminum alloy frame.</li>
+                      <li>
+                        Built sturdy to resist storms with sustained winds up to
+                        117 km/h.
+                      </li>
+                    </ul>
+                  </h5>
+                  <h5 class="my-4">
+                    (Note: The following four functions are only supported when
+                    battery power is used.)
+                    <ul>
+                      <li>
+                        Remote monitoring available through the mobile app.
+                      </li>
+                      <li>
+                        Maximum Power Point Tracking (MPPT) charging controller.
+                      </li>
+                      <li>RS-485 communication.</li>
+                      <li>Electric protection.</li>
+                      <li>
+                        With ceiling mount bracket of PTZ camera PFB301C and
+                        mount adapter PFA111
+                      </li>
+                    </ul>
+                  </h5>
+                </div>
+              </div>
+
+              <div class="my-8 dark:text-white">
+                <img
+                  class="my-2"
+                  src="Assets/Product/ISMS/SOLAR-POWERED/IPC-HFW3441DG-AS-4G-LA-B.png"
+                  alt="IPC-HFW3441DG-AS-4G-LA-B"
+                />
+                <div class="dark:text-white">
+                  <h4 class="dark:text-white font-bold">
+                    IPC-HFW3441DG-AS-4G-LA-B
+                  </h4>
+                  <h5>
+                    4MP IR Fixed-focal Bullet WizSense 4G Network Camera
+                    <ul class="list-disc">
+                      <li>
+                        4-MP 1/3" CMOS image sensor, low luminance, and
+                        high-definition image.
+                      </li>
+                      <li>Outputs max. 4 MP (2688 × 1520) @25/30 fps.</li>
+                      <li>
+                        H.265 codec, high compression rate, ultra-low bit rate.
+                      </li>
+                      <li>Built-in warm light/IR LED.</li>
+                      <li>
+                        Sound and light alarm linkage. When the alarm is
+                        triggered, the sound and light will be linked.
+                      </li>
+                      <li>
+                        Built in high-performance 4G Module that suits all
+                        mobile networks. Installation is no longer limited to
+                        wired networks. Please test the local 4G network with
+                        the camera before use.
+                      </li>
+                      <li>
+                        Built-in PIR sensor that detects human body through
+                        passive infrared which is sensitive to body temperature.
+                      </li>
+                      <li>
+                        Built-in 8 GB eMMC memory chip that protects key records
+                        from being lost.
+                      </li>
+                      <li>
+                        Intelligent detection: Intrusion, tripwire (support the
+                        classification and accurate detection of vehicle and
+                        human).
+                      </li>
+                      <li>
+                        Abnormality detection: Motion detection, video
+                        tampering, audio detection, SD card full, SD card error,
+                        network disconnection, IP conflict and illegal access.
+                      </li>
+                      <li>
+                        Alarm: 1 in, 1 out; audio: 1 in, 1 out; RS485:1 (Only
+                        report the information of solar battery, such as power
+                        and battery level), Supports max. 256 G Micro SD card;
+                        built in MIC and speaker; support two-way talk.
+                      </li>
+                      <li>IP67 protection.</li>
+                      <li>SMD 3.0</li>
+                    </ul>
+                  </h5>
+                </div>
+              </div>
+
+              <div class="my-8 dark:text-white">
+                <img
+                  class="my-2"
+                  src="Assets/Product/ISMS/SOLAR-POWERED/PFM378-B100-WB.png"
+                  alt="PFM378-B100-WB"
+                />
+                <div class="dark:text-white">
+                  <h4 class="dark:text-white font-bold">PFM378-B100-WB</h4>
+                  <h5 class="dark:text-white">
+                    Integrated Solar Power System (without Lithium Battery)
+                    <ul class="list-disc dark:text-white">
+                      <li>Integrated design, easy to install</li>
+                      <li>Pole mount</li>
+                      <li>
+                        Flexible angle adjustment of the solar panel and the
+                        camera
+                      </li>
+                      <li>100W Monocrystalline solar panel.</li>
+                      <li>
+                        Built sturdy to resist storms with sustained winds up to
+                        117 km/h.
+                      </li>
+                      <li>
+                        Remote monitoring available through the mobile app.
+                      </li>
+                      <li>
+                        Maximum Power Point Tracking (MPPT) charging controller
+                      </li>
+                      <li>RS-485 communication function.</li>
+                      <li>Electric protection.</li>
+                    </ul>
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- WIM -->
+      <div class="m-8">
+        <!-- Opening -->
+        <span class="text-black dark:text-white">
+          <h2 class="text-xl lg:text-3xl text-center font-extrabold">
+            Weigh In Motion (WIM System)
+          </h2>
+        </span>
+
+        <!-- Product Lists -->
+        <div class="md:grid md:grid-cols-3 text-black dark:text-white gap-8">
+          <div class="my-4">
+            <img
+              src="Assets/Product/WIM/QSY7726 Video Camera.png"
+              alt="QSY7726 Video Camera"
+            />
+            <div class="text-black dark:text-white my-8 text-justify">
+              <span class="font-bold">QSY7726 Video Camera</span>
+              <ul class="list-disc my-4">
+                <li>Resolution: 1920×1080</li>
+                <li>Power: ≤70W</li>
+                <li>Humidity: 90%</li>
+                <li>
+                  Illumination: 0.0004Lux/F1.5 (color), 0.0001Lux/F1.5 (black
+                  and white)
+                </li>
+                <li>Operating temperature: -40℃~70℃</li>
+                <li>Frame rate: 30 FPS</li>
+                <li>Protection level: IP67</li>
+                <li>Infrared irradiation distance: 200m</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="my-4">
+            <img
+              src="Assets/Product/WIM/QSY7725 Snapping Camera.png"
+              alt="QSY7725 Snapping Camera"
+            />
+            <div class="text-black dark:text-white my-8 text-justify">
+              <span class="font-bold">QSY7725 Snapping Camera</span>
+              <ul class="list-disc my-4">
+                <li>Resolution: 4096 (H)x2160 (V)</li>
+                <li>Interface protocol: ISAPI, GB28181</li>
+                <li>Frequency: 25 FPS</li>
+                <li>Working humidity: 5%~95% ,40℃no condensation</li>
+                <li>Dimension: 180mm(W)x152.7mm(H)x636MM (D)</li>
+                <li>Protection level: IP65</li>
+                <li>Power consumption: 20W MA</li>
+                <li>Operating temperature: -30℃~60℃</li>
+              </ul>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <!-- ISHMS -->
+      <div>
+        <span
+          class="text-black font-bolder text-[20px] text-center md:text-left dark:text-white"
+        >
+          <h2
+            class="text-2xl font-extrabold md:text-3xl lg:text-5xl text-center m-8"
+          >
+            Intelligent Structure Health Monitoring System (ISHMS)
+          </h2>
+        </span>
+
+        <div>
+          <div class="m-8 md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div>
+              <img
+                class="my-4"
+                src="Assets/Product/ISHMS/QSY7901 Spherical camera.png"
+                alt="(QSY7901 Spherical camera)"
+              />
+              <div class="text-black dark:text-white">
+                <span class="font-bold">QSY7901 Spherical camera</span>
+                <ul class="list-disc">
+                  <li>Image sensor ：2/3＂ Progressive Scan CMOS</li>
+                  <li>Video compression：H.265/H.264/MJPEG</li>
+                  <li>IR View distance：200m</li>
+                  <li>Signal to noise ratio (SNR)：≥55dB</li>
+                  <li>Electronic shutter：1/1-1/30,000s</li>
+                  <li>Day and night mode ：Automatic ICR color to black</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VPMS -->
+      <div class="m-8">
+        <!-- Opening -->
+        <div class="text-black dark:text-white my-8 text-justify">
+          <h2 class="text-xl lg:text-3xl text-center font-extrabold">
+            Vehicle Parking Management System (VPMS)
+          </h2>
+        </div>
+
+        <!-- Article Vehicle Entrance & Exit Management -->
+        <article class="dark:text-white m-8">
+          <div class="text-black dark:text-white my-8 text-justify">
+            <h3 class="font-extrabold text-lg">
+              Vehicle Entrance and Exit Management
+            </h3>
+          </div>
+
+          <!-- Product Lists -->
+          <div class="my-8">
+            <span class="dark:text-white font-bold">Product Lists</span>
+          </div>
+
+          <div class="md:grid md:grid-cols-3 gap-8">
+            <div>
+              <img
+                class="my-2"
+                src="Assets/Product/VPMS/VEHICLE ENTER AND EXIT/ITC413-PW4D Series Dahua Access ANPR Camera.png"
+                alt="ITC413-PW4D Series"
+              />
+              <div class="text-black dark:text-white my-8 text-justify">
+                <h4 class="dark:text-white font-bold">ITC413-PW4D Series</h4>
+                <span>Dahua Access ANPR Camera</span>
+                <ul class="list-disc my-8">
+                  <li>
+                    High-performance CMOS image sensor and processor that
+                    supports continuously extracting metadata 24/7.
+                  </li>
+                  <li>
+                    Adopts intelligent deep learning algorithms and supports
+                    recognition of unlicensed vehicles and the type, brand and
+                    color of vehicles.
+                  </li>
+                  <li>
+                    Built-in signal port, data port, communication port and
+                    remote controllers assist in controlling external devices
+                    such as entry and exit barriers.
+                  </li>
+                  <li>
+                    Built-in LED for simplified installation and commissioning.
+                  </li>
+                  <li>
+                    All-in-one structure with junction box and bracket, and it
+                    is also low power consumption.
+                  </li>
+                  <li>IP67 and IK10 rated.</li>
+                  <li>
+                    Supports intrusion and loitering detection and triggers
+                    light and voice alarms when perimeter events occur to
+                    actively deter targets. Custom audios can also be imported
+                    and edited.
+                  </li>
+                  <li>
+                    Easily adapts to scenarios through its motorized vary-focal
+                    lens.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <img
+                class="my-2"
+                src="Assets/Product/VPMS/VEHICLE ENTER AND EXIT/PFS3110-8ET-96.png"
+                alt="PFS3110-8ET-96"
+              />
+              <div class="text-black dark:text-white my-8 text-justify">
+                <h4 class="dark:text-white font-bold">PFS3110-8ET-96</h4>
+                <span>10-Port Unmanaged Desktop Switch with 8 Port PoE</span>
+                <span
+                  >* The parameters and datasheets below can only be applied to
+                  V2.0 (version 2.0)</span
+                >
+                <ul class="list-disc my-8">
+                  <li>Intelligent PoE</li>
+                  <li>BT 90W</li>
+                  <li>8-pin assignment PoE power supply</li>
+                  <li>Long distance PoE</li>
+                  <li>PoE watchdog</li>
+                  <li>Wide working temperature</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <img
+                class="my-2"
+                src="Assets/Product/VPMS/VEHICLE ENTER AND EXIT/NVR5216-EI 16CH.png"
+                alt="NVR5216-EI"
+              />
+              <div class="text-black dark:text-white my-8 text-justify">
+                <h4 class="dark:text-white font-bold">NVR5216-EI</h4>
+                <span>Dahua 16CH 2HDD 1U NETWORK VIDEO RECORDER</span>
+                <ul class="list-disc my-8">
+                  <li>
+                    Supports Smart H.265+, H.265, Smart H.264+, H.264 and MJPEG
+                    decoding formats.
+                  </li>
+                  <li>
+                    Max. decoding capability: 32 × 1080p@30 fps or 16 × 4MP@30
+                    fps.
+                  </li>
+                  <li>
+                    Max. 384/384/384 Mbps incoming/recording/outgoing bandwidth.
+                  </li>
+                  <li>Supports IP cameras with a resolution up to 32 MP.</li>
+                  <li>Supports AcuPick with up to 16 channels.</li>
+                  <li>Supports N+M cluster, iSCSI.</li>
+                  <li>
+                    AI by Recorder supports 2-channel face detection and
+                    recognition, up to 20 face databases and 20,000 face images;
+                    4-channel perimeter protection; 8-channel SMD Plus.
+                  </li>
+                  <li>
+                    AI by Camera supports face detection and recognition,
+                    perimeter protection, SMD Plus, metadata, ANPR, stereo
+                    analysis, heat map, and people counting.
+                  </li>
+                  <li>Supports EPTZ, and one-click arming and disarming.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <img
+                class="my-2"
+                src="Assets/Product/VPMS/VEHICLE ENTER AND EXIT/LM32-F200 32_ FHD Monitor.png"
+                alt="LM32-F200"
+              />
+              <div class="text-black dark:text-white my-8 text-justify">
+                <h4 class="dark:text-white font-bold">LM32-F200</h4>
+                <span>32" FHD Monitor</span>
+                <ul class="list-disc my-8">
+                  <li>Light and cost-effective plastic housing</li>
+                  <li>Suitable for continuous 24/7 operation</li>
+                  <li>
+                    178°H/178°V extra-wide viewing angle for overall viewing
+                    performance
+                  </li>
+                  <li>
+                    High fidelity digital processing for a brilliant and vivid
+                    video
+                  </li>
+                  <li>
+                    8ms fast response time with no image blurring or ghosting
+                  </li>
+                  <li>
+                    Support multiple signal inputs such as HDMI, VGA and USB
+                  </li>
+                  <li>Built-in speakers</li>
+                  <li>Physical button and infrared remote dual control mode</li>
+                  <li>Low energy consumption, long service life</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article Fire Lane Parking Detection -->
+        <article class="dark:text-white m-8">
+          <div class="text-black dark:text-white my-8 text-justify">
+            <h3 class="font-extrabold text-lg">Fire Lane Parking Detection</h3>
+          </div>
+
+          <!-- Product Lists -->
+          <h3 class="text-black dark:text-white my-8 text-xl font-bold">
+            Product Lists
+          </h3>
+
+          <div class="md:grid md:grid-cols-2 gap-8">
+            <div>
+              <img
+                class="my-2"
+                src="Assets/Product/VPMS/FIRE LANE PARKING/IPC-HFW5442T-ASE 4MP IR Fixed-focal Bullet WizMind Network Camera.png"
+                alt="IPC-HFW5442T-ASE"
+              />
+              <div class="dark:text-white">
+                <h4 class="font-bold">IPC-HFW5442T-ASE</h4>
+                <span>4MP IR Fixed-focal Bullet WizMind Network Camera</span>
+                <span>
+                  * The parameters and datasheets below can only be applied to
+                  5442-ASE-S3 series.
+                </span>
+                <ul class="list-disc my-4">
+                  <li>
+                    4-MP 1/1.8" CMOS image sensor, low luminance, and
+                    high-definition image.
+                  </li>
+                  <li>Outputs max. 4 MP (2688×1520) @25/30fps.</li>
+                  <li>
+                    Built-in IR LED, and the max. illumination distance is 80 m.
+                  </li>
+                  <li>
+                    ROI, SVC, SMART H.264+/H.265+, AI H.264/H.265, encoding
+                    after filter, flexible coding, applicable to various
+                    bandwidth and storage environments.
+                  </li>
+                  <li>
+                    Rotation mode, WDR, 3D NR, HLC, BLC, digital watermarking,
+                    applicable to various monitoring scenes.
+                  </li>
+                  <li>
+                    With deep learning algorithm, it supports: video metadata,
+                    smart sound detection, IVS, face detection, smart object
+                    detection, and people counting, etc.
+                  </li>
+                  <li>
+                    Alarm: 1 in, 1 out; audio: 1 in, 1 out; supports max. 1 TB
+                    Micro SD card, built-in MIC.
+                  </li>
+                  <li>12 VDC/PoE power supply; ePoE.</li>
+                  <li>IP67 and IK10 protection.</li>
+                  <li>SMD 3.0.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <img
+                class="my-2"
+                src="Assets/Product/VPMS/FIRE LANE PARKING/NVR5208-EI.png"
+                alt="NVR5208-EI"
+              />
+              <div class="dark:text-white">
+                <h4 class="dark:text-white font-bold">NVR5208-EI</h4>
+                <span>Dahua 8CH 2HDD 1U NETWORK VIDEO RECORDER</span>
+                <ul class="list-disc my-4">
+                  <li>
+                    Supports Smart H.265+, H.265, Smart H.264+, H.264 and MJPEG
+                    decoding formats.
+                  </li>
+                  <li>
+                    Max. decoding capability: 32 × 1080p@30 fps or 8 × 8MP@30
+                    fps.
+                  </li>
+                  <li>
+                    Max. 384/384/384 Mbps incoming/recording/outgoing bandwidth.
+                  </li>
+                  <li>Supports IP cameras with a resolution up to 32 MP.</li>
+                  <li>Supports AcuPick with up to 8 channels.</li>
+                  <li>Supports N+M cluster,iSCSI.</li>
+                  <li>
+                    AI by Recorder supports 2-channel face detection and
+                    recognition, up to 20 face databases and 20,000 face images;
+                    4-channel perimeter protection; 8-channel SMD Plus.
+                  </li>
+                  <li>
+                    AI by Camera supports face detection and recognition,
+                    perimeter protection, SMD Plus, metadata, ANPR, stereo
+                    analysis, heat map, and people counting.
+                  </li>
+                  <li>Supports EPTZ, and one-click arming and disarming.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <img
+                class="my-2"
+                src="Assets/Product/VPMS/FIRE LANE PARKING/IS4210-8GT-120.png"
+                alt="IS4210-8GT-120"
+              />
+              <div class="dark:text-white">
+                <h4 class="dark:text-white font-bold">IS4210-8GT-120</h4>
+                <span
+                  >10-Port Managed Industrial Gigabit Switch with 8-Port PoE
+                  (Managed)</span
+                >
+                <ul class="list-disc my-4">
+                  <li>All-gigabit port design.</li>
+                  <li>
+                    Supports IEEE802.3af, IEEE802.3at, Hi-PoE and IEEE802.3bt
+                    (red port) standards.
+                  </li>
+                  <li>250 m long-distance PoE transmission (10 Mbps).</li>
+                  <li>PoE Watchdog.</li>
+                  <li>Supports STP, RSTP, and ERPS.</li>
+                  <li>IEEE802.1Q-based VLAN configuration.</li>
+                  <li>Manual link aggregation and static LACP.</li>
+                  <li>Desktop mount and DIN-rail mount.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <img
+                class="my-2"
+                src="Assets/Product/VPMS/FIRE LANE PARKING/LM22-B200S 21.45_ FHD Monitor.png"
+                alt="LM22-B200S"
+              />
+              <div class="dark:text-white">
+                <h4 class="dark:text-white font-bold">LM22-B200S</h4>
+                <span>21.45" FHD Monitor</span>
+                <ul class="list-disc my-4">
+                  <li>Light and cost-effective plastic housing</li>
+                  <li>Ultra-narrow bezel, elegant appearance, metal base</li>
+                  <li>
+                    178°H/178°V extra-wide viewing angle for overall viewing
+                    performance
+                  </li>
+                  <li>
+                    High fidelity digital processing for a brilliant and vivid
+                    video
+                  </li>
+                  <li>Support multiple signal inputs such as HDMI, VGA</li>
+                  <li>Physical button control mode</li>
+                  <li>Low energy consumption, long service life</li>
+                  <li>Anti-blue light design, eye-protective.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article Over Speed Detection -->
+        <article class="dark:text-white m-8">
+          <div>
+            <!-- Opening Over speed detection -->
+            <div class="text-black dark:text-white my-8 text-justify">
+              <h3 class="font-extrabold text-lg">Over Speed Detection</h3>
+            </div>
+
+            <!-- Product List -->
+            <h3 class="text-black dark:text-white my-8 text-xl font-bold">
+              Product List
+            </h3>
+            <div
+              class="text-black dark:text-white my-8 text-justify md:grid md:grid-cols-3 gap-8"
+            >
+              <div>
+                <img
+                  class="my-2"
+                  src="Assets/Product/VPMS/OVERSPEEDING/ITACS-024SA-JB.png"
+                  alt="ITACS-024SA-JB"
+                />
+                <div class="dark:text-white">
+                  <h4 class="dark:text-white font-bold">ITACS-024SA-JB</h4>
+                  <span>Radar Speed Sign</span>
+                  <ul class="list-disc my-4">
+                    <li>Speed measurement range: 5km/h–199km/h</li>
+                    <li>
+                      Speed measurement distance: 20m–100m (65.62ft–328.08ft)
+                    </li>
+                    <li>Lane coverage: 4 lanes at most</li>
+                    <li>
+                      Display mode: Two-color LED display. Red numbers for
+                      overspeed, and green numbers for normal speed. Up to 3
+                      digits can be displayed, and the largest number can be
+                      displayed is 199
+                    </li>
+                    <li>Power consumption: Radar: <5W; LED display: <40W</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div>
+                <img
+                  class="my-2"
+                  src="Assets/Product/VPMS/OVERSPEEDING/ITC413-PW4D Series.png"
+                  alt="ITC413-PW4D Series"
+                />
+                <div class="dark:text-white">
+                  <h4 class="dark:text-white font-bold">ITC413-PW4D Series</h4>
+                  <span>Dahua Access ANPR Camera</span>
+                  <ul class="list-disc my-4">
+                    <li>
+                      High-performance CMOS image sensor and processor that
+                      supports continuously extracting metadata 24/7.
+                    </li>
+                    <li>
+                      Adopts intelligent deep learning algorithms and supports
+                      recognition of unlicensed vehicles and the type, brand and
+                      color of vehicles.
+                    </li>
+                    <li>
+                      Built-in signal port, data port, communication port and
+                      remote controllers assist in controlling external devices
+                      such as entry and exit barriers.
+                    </li>
+                    <li>
+                      Built-in LED for simplified installation and
+                      commissioning.
+                    </li>
+                    <li>
+                      All-in-one structure with junction box and bracket, and it
+                      is also low power consumption.
+                    </li>
+                    <li>IP67 and IK10 rated.</li>
+                    <li>
+                      Supports intrusion and loitering detection and triggers
+                      light and voice alarms when perimeter events occur to
+                      actively deter targets.
+                    </li>
+                    <li>Custom audios can also be imported and edited.</li>
+                    <li>
+                      Easily adapts to scenarios through its motorized
+                      vary-focal lens.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div>
+                <img
+                  class="my-2"
+                  src="Assets/Product/VPMS/OVERSPEEDING/IS4210-8GT-120.png"
+                  alt="IS4210-8GT-120"
+                />
+                <div class="dark:text-white">
+                  <h4 class="dark:text-white font-bold">IS4210-8GT-120</h4>
+                  <span
+                    >10-Port Managed Industrial Gigabit Switch with 8-Port PoE
+                    (Managed)</span
+                  >
+                  <ul class="list-disc my-4">
+                    <li>All-gigabit port design.</li>
+                    <li>
+                      Supports IEEE802.3af, IEEE802.3at, Hi-PoE and IEEE802.3bt
+                      (red port) standards.
+                    </li>
+                    <li>250 m long-distance PoE transmission (10 Mbps).</li>
+                    <li>PoE Watchdog.</li>
+                    <li>Supports STP, RSTP, and ERPS.</li>
+                    <li>Supports IEEE 802.1Q-based VLAN configuration.</li>
+                    <li>Manual link aggregation and static LACP.</li>
+                    <li>Desktop mount and DIN-rail mount.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div>
+                <img
+                  class="my-2"
+                  src="Assets/Product/VPMS/OVERSPEEDING/NVR5216-EI.png"
+                  alt="NVR5216-EI"
+                />
+                <div class="dark:text-white">
+                  <h4 class="dark:text-white font-bold">NVR5216-EI</h4>
+                  <span>Dahua 16CH 2HDD 1U NETWORK VIDEO RECORDER</span>
+                  <ul class="list-disc my-4">
+                    <li>
+                      Supports Smart H.265+, H.265, Smart H.264+, H.264 and
+                      MJPEG decoding formats.
+                    </li>
+                    <li>
+                      Max. decoding capability: 32 × 1080p@30 fps or 16 × 4MP@30
+                      fps.
+                    </li>
+                    <li>
+                      Max. 384/384/384 Mbps incoming/recording/outgoing
+                      bandwidth.
+                    </li>
+                    <li>Supports IP cameras with a resolution up to 32 MP.</li>
+                    <li>Supports AcuPick with up to 16 channels.</li>
+                    <li>Supports N+M cluster, iSCSI.</li>
+                    <li>
+                      AI by Recorder supports 2-channel face detection and
+                      recognition, up to 20 face databases and 20,000 face
+                      images; 4-channel perimeter protection; 8-channel SMD
+                      Plus.
+                    </li>
+                    <li>
+                      AI by Camera supports face detection and recognition,
+                      perimeter protection, SMD Plus, metadata, ANPR, stereo
+                      analysis, heat map, and people counting.
+                    </li>
+                    <li>Supports EPTZ, and one-click arming and disarming.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div>
+                <img
+                  class="my-2"
+                  src="Assets/Product/VPMS/OVERSPEEDING/LM22-B200S 21.45_ FHD Monitor.png"
+                  alt="LM22-B200S"
+                />
+                <div class="dark:text-white">
+                  <h4 class="dark:text-white font-bold">LM22-B200S</h4>
+                  <span>21.45" FHD Monitor</span>
+                  <ul class="list-disc my-4">
+                    <li>Light and cost-effective plastic housing</li>
+                    <li>Ultra-narrow bezel, elegant appearance, metal base</li>
+                    <li>
+                      178°H/178°V extra-wide viewing angle for overall viewing
+                      performance
+                    </li>
+                    <li>
+                      High fidelity digital processing for a brilliant and vivid
+                      video
+                    </li>
+                    <li>Support multiple signal inputs such as HDMI, VGA</li>
+                    <li>Physical button control mode</li>
+                    <li>Low energy consumption, long service life</li>
+                    <li>Anti-blue light design, eye-protective.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article Parking Guidance -->
+        <article class="dark:text-white m-8">
+          <!-- Opening Parking Guidance -->
+          <div class="text-black dark:text-white my-8 text-justify">
+            <h3 class="font-extrabold text-lg">Parking Guidance</h3>
+          </div>
+
+          <!-- Product Lists -->
+          <div>
+            <h3 class="text-black dark:text-white my-8 text-xl font-bold">
+              Product Lists
+            </h3>
+            <h4 class="dark:text-white font-bold">Parking Guidance Camera</h4>
+            <div
+              class="text-black dark:text-white my-8 text-justify md:grid md:grid-cols-3 gap-8"
+            >
+              <div>
+                <img
+                  class="my-2"
+                  src="Assets/Product/VPMS/PARKING GUIDANCE/DS-TCP440-B(ES) Parking Camera with audio function.png"
+                  alt="DS-TCP440-B(ES)"
+                />
+                <div class="dark:text-white">
+                  <h5 class="dark:text-white font-bold">DS-TCP440-B(ES)</h5>
+                  <span>Parking Camera with audio function</span>
+                  <ul class="list-disc my-4">
+                    <li>
+                      Built-in high-performance algorithm, supporting ANPR
+                      (accuracy ≥ 99.5%), detection of the parking space status
+                      (accuracy ≥ 99.99%), and smart analysis of crossing over
+                      line, motion detection, etc.
+                    </li>
+                    <li>
+                      HD 4.0 MP camera, applied in environment with low
+                      illumination such as underground garage.
+                    </li>
+                    <li>
+                      3D noise reduction to guarantee clean and exquisite image.
+                    </li>
+                    <li>
+                      Smart detection of the parking space status, and smart
+                      analysis of crossing over line, motion detection, etc.
+                    </li>
+                    <li>
+                      Energy-saving LED with high brightness and low
+                      consumption.
+                    </li>
+                    <li>
+                      Speed recognition in second accuracy to indicate the
+                      parking space status in real time and provide accurate
+                      available parking space number.
+                    </li>
+                    <li>
+                      Network wiring with easy connection, installation, and
+                      maintenance.
+                    </li>
+                    <li>ROI encoding.</li>
+                    <li>
+                      Two RJ45 interfaces, supporting connecting cameras in
+                      series, and no power cord is needed.
+                    </li>
+                    <li>
+                      Built-in iBeacon module, supporting indoor positioning and
+                      navigation with the help of APP. iOS or Android SDK is
+                      provided.
+                    </li>
+                    <li>Support audio output function.</li>
+                    <li>
+                      Support setting the broadcast volume and frequency,
+                      setting the volume and broadcast number according to the
+                      time period, driving away the broadcast of special parking
+                      spaces and the detection of the line pressing.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div>
+                <img
+                  class="my-2"
+                  src="Assets/Product/VPMS/PARKING GUIDANCE/DS-TCP440-B 4 MP iBeacon Guidance Camera.png"
+                  alt="DS-TCP440-B"
+                />
+                <div class="dark:text-white">
+                  <h5 class="dark:text-white font-bold">DS-TCP440-B</h5>
+                  <span>4 MP iBeacon Guidance Camera</span>
+                  <ul class="list-disc my-4">
+                    <li>
+                      Built-in high-performance algorithm, supporting ANPR
+                      (accuracy ≥ 99.5%), detection of the parking space status
+                      (accuracy ≥ 99.99%), and smart analysis of crossing over
+                      line, motion detection, etc.
+                    </li>
+                    <li>
+                      HD 4.0 MP camera, applied in environment with low
+                      illumination such as underground garage.
+                    </li>
+                    <li>
+                      3D noise reduction to guarantee clean and exquisite image.
+                    </li>
+                    <li>
+                      Smart detection of the parking space status, and smart
+                      analysis of crossing over line, motion detection, etc.
+                    </li>
+                    <li>
+                      Energy-saving LED with high brightness and low
+                      consumption.
+                    </li>
+                    <li>
+                      Speed recognition in second accuracy to indicate the
+                      parking space status in real time and provide accurate
+                      available parking space number.
+                    </li>
+                    <li>
+                      Network wiring with easy connection, installation, and
+                      maintenance.
+                    </li>
+                    <li>ROI encoding.</li>
+                    <li>
+                      Two RJ45 interfaces, supporting connecting cameras in
+                      series, and no power cord is needed.
+                    </li>
+                    <li>
+                      Built-in iBeacon module, supporting indoor positioning and
+                      navigation with the help of APP. iOS or Android SDK is
+                      provided.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div>
+                <img
+                  class="my-2"
+                  src="Assets/Product/VPMS/PARKING GUIDANCE/DS-TCP440-DB(ES) Dual-Sensor Parking Camera with audio function.png"
+                  alt="DS-TCP440-DB"
+                />
+                <div class="dark:text-white">
+                  <h5 class="dark:text-white font-bold">DS-TCP440-DB</h5>
+                  <span>4 MP iBeacon Guidance Camera</span>
+                  <ul class="list-disc my-4">
+                    <li>
+                      Built-in high-performance chip, supporting ANPR (accuracy
+                      ≥ 99.5%), detection of the parking space status (accuracy
+                      ≥ 99.99%), and smart analysis of crossing over line,
+                      motion detection, etc.
+                    </li>
+                    <li>
+                      HD 4.0 MP camera, applied in environment with low
+                      illumination such as underground garage.
+                    </li>
+                    <li>
+                      3D noise reduction to guarantee clean and exquisite image.
+                    </li>
+                    <li>
+                      Smart detection of the parking space status, and smart
+                      analysis of crossing over line, motion detection, etc.
+                    </li>
+                    <li>
+                      Energy-saving LED with high brightness and low
+                      consumption.
+                    </li>
+                    <li>
+                      Speed recognition in second accuracy to indicate the
+                      parking space status in real time and provide accurate
+                      available parking space number.
+                    </li>
+                    <li>
+                      Network wiring with easy connection, installation, and
+                      maintenance.
+                    </li>
+                    <li>ROI encoding.</li>
+                    <li>
+                      Two RJ45 interfaces, supporting connecting cameras in
+                      series, and no power cord is needed.
+                    </li>
+                    <li>
+                      Built-in iBeacon module, supporting indoor positioning and
+                      navigation with the help of APP. iOS or Android SDK is
+                      provided.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div>
+                <img
+                  class="my-2"
+                  src="Assets/Product/VPMS/PARKING GUIDANCE/DS-TCP506 5MP Fisheye Parking Camera.png"
+                  alt="DS-TCP506"
+                />
+                <div class="dark:text-white">
+                  <h5 class="dark:text-white font-bold">DS-TCP506</h5>
+                  <span>5MP Fisheye Parking Camera</span>
+                  <ul class="list-disc my-4">
+                    <li>
+                      5 MP HD camera with max. 2688 × 1944 resolution and 25 fps
+                      frame rate in the fisheye mode. It is applicable to the
+                      underground parking lot and other low illumination scenes.
+                      High quality imaging with 1/2.7" progressive scan CMOS.
+                      0.04 lux low illumination with clearer imaging at night.
+                    </li>
+                    <li>Adopts ultra wide-angle lens for 360° monitoring.</li>
+                    <li>
+                      Supports multiple output modes, including the fisheye
+                      dual-channel calibration and 4-channel calibration.
+                    </li>
+                    <li>
+                      Supports H.265/H.264/MJPEG video encoding algorithm and
+                      multiple video quality configuration and profile settings.
+                    </li>
+                    <li>
+                      Energy-saving LED with high brightness and low
+                      consumption.
+                    </li>
+                    <li>Support standard PoE and HIK-POE</li>
+                    <li>
+                      Built-in AI intelligent algorithm of parking space
+                      detection supports to detect the parking space in the
+                      fisheye calibration mode.
+                    </li>
+                    <li>Supports motion detection.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div>
+                <img
+                  class="my-2"
+                  src="Assets/Product/VPMS/PARKING GUIDANCE/DS-TCPC06 12MP Fisheye Parking Camera.png"
+                  alt="DS-TCPC06"
+                />
+                <div class="dark:text-white">
+                  <h5 class="dark:text-white font-bold">DS-TCPC06</h5>
+                  <span>12MP Fisheye Parking Camera</span>
+                  <ul class="list-disc my-4">
+                    <li>
+                       12 MP HD camera with max. 4000 × 3000 resolution and 15
+                      fps frame rate in the fisheye mode. It is applicable to
+                      the underground parking lot and other low illumination
+                      scenes. High quality imaging with 1/1.7" progressive scan
+                      CMOS. 0.04 lux low illumination with clearer imaging at
+                      night.
+                    </li>
+                    <li>Adopts ultra wide-angle lens for 360° monitoring.</li>
+                    <li>
+                      Supports multiple output modes, including the fisheye
+                      dual-channel calibration and 4-channel calibration.
+                    </li>
+                    <li>
+                      Supports H.265/H.264/MJPEG video encoding algorithm and
+                      multiple video quality configuration and profile settings.
+                    </li>
+                    <li>
+                      Energy-saving LED with high brightness and low
+                      consumption.
+                    </li>
+                    <li>Support standard PoE and HIK-POE</li>
+                    <li>
+                      Built-in AI intelligent algorithm of parking space
+                      detection supports to detect the parking space in the
+                      fisheye calibration mode.
+                    </li>
+                    <li>Supports motion detection.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
     </section>
 
-        <!-- Tab Content Monitoring -->
-    <section id="monitoring" class="m-4">
-
-        <!-- CCTV -->
-        <div id="cctv" class="tabcontent">
-            <div  class=" border-2 border-black shadow-xl bg-yellow-200 overflow-hidden ">
-                <h4 class="text-black font-extrabold text-xl">CCTV</h4>
-                <div class=" grid md:grid-cols-5 md:m-4 gap-2">
-                    <div class="border-2 border-black rounded-lg shadow-xl bg-green-700 overflow-hidden md:grid">
-                        <img class="" src="" alt=""></img>
-                        <h3>Product Code</h3>
-                        <p>Product Description</p>
-                    </div>
-        
-                    <div class="border-2 border-black rounded-lg shadow-xl bg-green-700 overflow-hidden md:grid">
-                        <img class="" src="" alt=""></img>
-                        <h3>Product Code</h3>
-                        <p>Product Description</p>
-                    </div>
-        
-                    <div class="border-2 border-black rounded-lg shadow-xl bg-green-700 overflow-hidden md:grid">
-                        <img class="" src="" alt=""></img>
-                        <h3>Product Code</h3>
-                        <p>Product Description</p>
-                    </div>
-        
-                    <div class="border-2 border-black rounded-lg shadow-xl bg-green-700 overflow-hidden md:grid">
-                        <img class="" src="" alt=""></img>
-                        <h3>Product Code</h3>
-                        <p>Product Description</p>
-                    </div>
-        
-                    <div class="border-2 border-black rounded-lg shadow-xl bg-green-700 overflow-hidden md:grid">
-                        <img class="" src="" alt=""></img>
-                        <h3>Product Code</h3>
-                        <p>Product Description</p>
-                    </div>
-        
-                    <div class="border-2 border-black rounded-lg shadow-xl bg-green-700 overflow-hidden md:grid">
-                        <img class="" src="" alt=""></img>
-                        <h3>Product Code</h3>
-                        <p>Product Description</p>
-                    </div>
-                </div>
-                
-                
-            </div>
-        </div>
-
-         <!-- ANPR -->
-        <div id="anpr" class="tabcontent">
-            <div class=" border-2 border-black rounded-lg shadow-xl bg-yellow-200 overflow-hidden ">
-                <h4 class="text-black font-extrabold text-xl">ANPR</h4>
-                <div class="grid md:grid-cols-8 md:m-4">
-                    <div>
-                        <img class="" src="" alt=""></img>
-                        <h3>Product Code</h3>
-                        <p>Product Description</p>
-                    </div>
-                    <div>
-                        <img class="" src="" alt=""></img>
-                        <h3>Product Code</h3>
-                        <p>Product Description</p>
-                    </div>
-        
-                    <div>
-                        <img class="" src="" alt=""></img>
-                        <h3>Product Code</h3>
-                        <p>Product Description</p>
-                    </div>
-        
-                    <div>
-                        <img class="" src="" alt=""></img>
-                        <h3>Product Code</h3>
-                        <p>Product Description</p>
-                    </div>
-        
-                    <div>
-                        <img class="" src="" alt=""></img>
-                        <h3>Product Code</h3>
-                        <p>Product Description</p>
-                    </div>
-                </div>
-    </div>
-        </div>
-
-        <!-- Face Recognition -->
-        <div id="fr" class="tabcontent">
-            <div class=" border-2 border-black rounded-lg shadow-xl bg-yellow-200 overflow-hidden ">
-                <h4 class="text-black font-extrabold text-xl">Face Recognition</h4>
-                <div>
-                    <img class="" src="" alt=""></img>
-                    <h3>Product Code</h3>
-                    <p>Product Description</p>
-                </div>
-    
-                <div>
-                    <img class="" src="" alt=""></img>
-                    <h3>Product Code</h3>
-                    <p>Product Description</p>
-                </div>
-    
-                <div>
-                    <img class="" src="" alt=""></img>
-                    <h3>Product Code</h3>
-                    <p>Product Description</p>
-                </div>
-    
-                <div>
-                    <img class="" src="" alt=""></img>
-                    <h3>Product Code</h3>
-                    <p>Product Description</p>
-                </div>
-    
-                <div>
-                    <img class="" src="" alt=""></img>
-                    <h3>Product Code</h3>
-                    <p>Product Description</p>
-                </div>
-    
-                <div>
-                    <img class="" src="" alt=""></img>
-                    <h3>Product Code</h3>
-                    <p>Product Description</p>
-                </div>
-            </div>
-        </div>
-
-         <!-- Perimeter Detection -->
-        <div id="pd" class="tabcontent">
-            <div  class=" border-2 border-black rounded-lg shadow-xl bg-yellow-200 overflow-hidden ">
-                <h4 class="text-black font-extrabold text-xl">Perimeter Detection</h4>
-                <div>
-                    <img class="" src="" alt=""></img>
-                    <h3>Product Code</h3>
-                    <p>Product Description</p>
-                </div>
-    
-                <div>
-                    <img class="" src="" alt=""></img>
-                    <h3>Product Code</h3>
-                    <p>Product Description</p>
-                </div>
-    
-                <div>
-                    <img class="" src="" alt=""></img>
-                    <h3>Product Code</h3>
-                    <p>Product Description</p>
-                </div>
-    
-                <div>
-                    <img class="" src="" alt=""></img>
-                    <h3>Product Code</h3>
-                    <p>Product Description</p>
-                </div>
-    
-                <div>
-                    <img class="" src="" alt=""></img>
-                    <h3>Product Code</h3>
-                    <p>Product Description</p>
-                </div>
-    
-                <div>
-                    <img class="" src="" alt=""></img>
-                    <h3>Product Code</h3>
-                    <p>Product Description</p>
-                </div>
-    
-                <div>
-                    <img class="" src="" alt=""></img>
-                    <h3>Product Code</h3>
-                    <p>Product Description</p>
-                </div>
-            </div>
-        </div>
-
-         <!-- Thermal Detection -->
-        <div id="td" class="tabcontent">
-            <div  class=" border-2 border-black rounded-lg shadow-xl bg-yellow-200 overflow-hidden ">
-                <h4 class="text-black font-extrabold text-xl">Thermal Detection</h4>
-                <div>
-                    <img class="" src="" alt=""></img>
-                    <h3>Product Code</h3>
-                    <p>Product Description</p>
-                </div>
-    
-                <div>
-                    <img class="" src="" alt=""></img>
-                    <h3>Product Code</h3>
-                    <p>Product Description</p>
-                </div>
-    
-                <div>
-                    <img class="" src="" alt=""></img>
-                    <h3>Product Code</h3>
-                    <p>Product Description</p>
-                </div>
-    
-                <div>
-                    <img class="" src="" alt=""></img>
-                    <h3>Product Code</h3>
-                    <p>Product Description</p>
-                </div>
-    
-                <div>
-                    <img class="" src="" alt=""></img>
-                    <h3>Product Code</h3>
-                    <p>Product Description</p>
-                </div>
-    
-                <div>
-                    <img class="" src="" alt=""></img>
-                    <h3>Product Code</h3>
-                    <p>Product Description</p>
-                </div>
-            </div>
-        </div>
-        <script>
-            function openProducts(evt, productsName) {
-              var i, tabcontent, tablinks;
-              tabcontent = document.getElementsByClassName("tabcontent");
-              for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-              }
-              tablinks = document.getElementsByClassName("tablinks");
-              for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(
-                  " active",
-                  ""
-                );
-              }
-              document.getElementById(productsName).style.display = "block";
-              evt.currentTarget.className += " active";
-            }
-        </script>  
-    </section>
-
-        <!-- Sensors -->
-    <section id="sensors">
-        <h2 class="text-black font-extrabold text-4xl"> Sensors</h2>
-         <div>
-            <div class="border-black shadow-xl bg-blue-500">
-                <div class="grid md:grid-cols-8 md:m-4 p-4 gap-2">
-                    <!-- page 1 -->
-                    <div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY500Z Multi-function data acquisition instrument
-                            </h4>
-                            <p>
-                                QSY500 is the fifth-generation smart and multi-function data acquisition system specially developed for geological monitoring in various geotechnical engineering. Apply to online monitoring of slope, subgrade, bridge, tunnel, dam, and foundation pit.
-                                "More powerful on Real-time data management: Embedded LINUX operating system
-                                More stronger Data transmission compatibility: Support all mainstream communication network.
-                                More convenient to export data: LAN remote awakening and data download function.
-                                Further online networking distance: LORI wireless network, further network distance, easier data transmission.
-                                More stronger durability: Highlight OLED display module, industrial grade(-40~ 80℃)working temperature range, suitable for all kind of extreme conditions.
-                                More stronger security: Add a new function of instrument alarm, timely manager the working status by updating data of temperature and humidity, and the instrument's supply voltage. Add a new lightning protection device to effectively protect the sensor access the circuit.  Add a new anti-theft device, additional input and output port to real-time master information of anti-theft."
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8987 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：±0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20℃～+80℃
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8986 Ultrasonic snow depth sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：±0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20℃～+80℃
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div >
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8979 Radar water level meter
-                            </h4>
-                            <p>
-                                "Measurement range：1.5~30m
-                                Accuracy of mesurement：±2cm
-                                Measuring lasting time ：0~180s
-                                Measurement interval：1~18000s adjustable
-                                Radar frequency：24GHz
-                                Angle of radio emission：11°x11°"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8978 Barometric pressure sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0.1, 0.2, 0.4, 0.8, 1.0, 1.6, 2.5Mpa
-                                Resolution：≤0.08%F.S
-                                Non-straightness：≤ 1.5 % F.S
-                                Error：≤ 2.0 %
-                                Working temperature：-25℃～+60℃
-                                Protection class：IP68"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8984 Thermistor
-                            </h4>
-                            <p>
-                                "Measurement range：-50℃~+50℃
-                                Resolution：0.01℃
-                                Accuracy of mesurement：±0.03℃
-                                Working voltage：+12VDC
-                                Working current：10μA~1mA
-                                Protection class：IP68"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8971 Ultrasonic anemometer
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：±0.1%F.S
-                                Working voltage：+12VDC
-                                orking temperature：-20℃～+80℃
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8989 Wind speed transmitter
-                            </h4>
-                            <p>
-                                "Measurement range：1.0m/s~60m/s
-                                Resolution：0.1m/s
-                                Accuracy of mesurement：30ms
-                                Working voltage：+12VDC
-                                Working temperature：-20℃～+80℃
-                                Working humidity：0～95%RH"                            
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Wind direction transmitter
-                            </h4>
-                            <p>
-                                "Measurement range of wind speed：0~100m/s
-                                Measurement range of wind direction：0~360°
-                                Accuracy of mesurement：士0.3m/s
-                                Output：O~5VDC，4~20mA
-                                Working temperature：-50~50°C
-                                Start-up wind speed（10°displacement )：1.1m/s"                            
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY533 BEIDOU digital receiver
-                            </h4>
-                            <p>
-                                "RDSSFrequency point：S:2491.75MHz;L:1615.68MHz
-                                RDSSModulation system：S: 0QPSK;L:BPSK
-                                RNSSFrequency point：BD2 Bl1561.098MHz GPSL11575.42MHz
-                                RNSSModulation system: B1:UQPSK;L1:BPSK
-                                RNSSerror rate：B1:C2.046MHz;L1:C/A1.023MHz"
-                            </p>
-                        </div>
-                    </div>
-                   
-                <!-- page 2 -->
-                    <div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                    </div>
-                   
-                    <!-- page 3 -->
-                    <div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- page 4 -->
-                    <div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                    </div>
-                   
-                    <!-- page 5 -->
-                    <div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                        <div class="border-2 border-black">
-                            <img src="" alt="" class="class">
-                            <h4>
-                                QSY8988 Freezing rain sensor
-                            </h4>
-                            <p>
-                                "Measurement range：0～50mm, 0～100mm, 0～200mm
-                                Resolution：0.01mm
-                                Accuracy of mesurement：��0.1%F.S
-                                Working voltage：+12VDC
-                                Working temperature：-20��～+80��
-                                Working humidity：0～95%RH"
-                            </p>
-                        </div>
-                    </div>
-
-
-                   
-
-
-
-
-                    
-                </div>
-            </div>
-         </div>
-    </section>
-        
     <!-- Subscribe -->
-    <section class="mx-auto px-4">
-        <div class="">
+    <section class="mx-auto">
+      <div class="dark:bg-black dark:text-white">
         <img
-            class="mx-auto w-full"
-            src="Asset/subs.png"
-            alt="Subscribe to get the latest news and updates from PT. BATUKARANG KENAN ABADI."
+          class="mx-auto w-full"
+          src="Assets/Index/subs.png"
+          alt="Subscribe to get the latest news and updates from PT. BATUKARANG KENAN ABADI."
         />
-        <div class="relative mb-4 flex w-full flex-wrap items-stretch">
-            <input
+        <div
+          class="relative mb-4 flex w-full flex-wrap items-stretch justify-center"
+        >
+          <input
             type="email"
-            class="relative m-0 -me-px block flex-auto rounded-s border border-solid border-neutral-200 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-surface outline-none transition duration-200 ease-in-out placeholder:text-neutral-500 focus:z-[3] focus:border-primary focus:shadow-inset focus:outline-none motion-reduce:transition-none dark:border-white/10 dark:text-white dark:placeholder:text-neutral-200 dark:autofill:shadow-autofill dark:focus:border-primary"
+            class="lg:absolute p-2 border-2 border-black dark:border-white w-full md:w-[85vw] lg:w-[20vw] lg:bottom-[80px] lg:left-[55px] md:bottom-[] inline-block dark:text-white"
             placeholder="Bussiness E-Mail"
             aria-label="Bussiness E-Mail"
             aria-describedby="button-Subscribe"
-            />
-            <button
-            class="z-[2] inline-block rounded-e border-2 border-primary-100 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:border-primary-accent-200 hover:bg-secondary-50/50 focus:border-primary-accent-200 focus:bg-secondary-50/50 focus:outline-none focus:ring-0 active:border-primary-accent-200 dark:border-primary-400 dark:text-primary-300 dark:hover:bg-blue-950 dark:focus:bg-blue-950"
+          />
+          <button
+            class="lg:absolute lg:bottom-[80px] lg:left-[400px] z-[2] inline-block border-2 border-primary-100 px-6 pb-[6px] pt-2 text-lg font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:border-primary-accent-200 hover:bg-secondary-50/50 focus:border-primary-accent-200 focus:bg-secondary-50/50 focus:outline-none focus:ring-0 active:border-primary-accent-200 dark:border-primary-400 dark:text-primary-300 dark:hover:bg-blue-950 dark:focus:bg-blue-950"
             data-twe-ripple-init
             type="button"
             id="button-Subscribe"
-            >
+          >
             Subscribe
-            </button>
+          </button>
         </div>
-        </div>
+      </div>
     </section>
 
-     <!-- Footer -->
-     <footer class="bg-white dark:bg-gray-900">
-      <div class="w-full p-4 py-6 md:py-4">
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-gray-900 dark:text-white">
+      <div class="w-full p-4 py-6 md:py-4 dark:bg-black dark:text-white">
         <div
           class="w-full flex flex-col md:grid md:grid-cols-3 md:justify-between lg:flex lg:flex-row lg:justify-between"
         >
@@ -1395,8 +2674,8 @@
               <div>
                 <a href="Index.html">
                   <img
-                    class="h-30 md:h-20 mb-4"
-                    src="Asset/LOGO PT/Logo-BKKA-Transparant.png"
+                    class="h-30 md:h-20 mb-4 mx-auto"
+                    src="Assets/Logo-PT/Logo-BKKA-Transparant.png"
                     alt="PT. BATUKARANG KENAN ABADI LOGO"
                   />
                 </a>
@@ -1408,7 +2687,7 @@
                   <a href="https://instagram.com">
                     <img
                       class="h-8 px-1"
-                      src="Asset/instagram.png"
+                      src="Assets/Index/instagram.webp"
                       alt="Instagram"
                     />
                   </a>
@@ -1417,21 +2696,32 @@
                   <a href="https://facebook.com">
                     <img
                       class="h-8 px-1"
-                      src="Asset/facebook.png"
+                      src="Assets/Index/facebook.webp"
                       alt="PT. Facebook"
                     />
                   </a>
                 </div>
                 <div>
                   <a href="https://X.com">
-                    <img class="h-8 px-1" src="Asset/twitter.png" alt="X" />
+                    <img
+                      class="h-8 px-1 dark:hidden"
+                      src="Assets/Index/twitter.webp"
+                      alt="X"
+                    />
+                  </a>
+                  <a href="https://X.com">
+                    <img
+                      class="h-8 px-1 hidden dark:block"
+                      src="Assets/Index/twitter2.webp"
+                      alt="X"
+                    />
                   </a>
                 </div>
                 <div>
                   <a href="https://youtube.com">
                     <img
                       class="h-8 px-1"
-                      src="Asset/youtube.png"
+                      src="Assets/Index/youtube.webp"
                       alt="Youtube"
                     />
                   </a>
@@ -1440,7 +2730,7 @@
                   <a href="https://linkedin.com">
                     <img
                       class="h-8 px-1"
-                      src="Asset/linkedin.png"
+                      src="Assets/Index/linkedin.webp"
                       alt="LinkedIn"
                     />
                   </a>
@@ -1449,7 +2739,7 @@
             </div>
 
             <!-- Company Copyright footer-->
-            <div>
+            <div class="dark:bg-black dark:text-white">
               <p class="text-[14px] mt-2 mx-4 text-center">
                 &copy; 2024. PT.BATUKARANG KENAN ABADI. All Rights Reserved.
               </p>
@@ -1464,140 +2754,105 @@
             </div>
           </div>
           <!-- Solutions footer-->
-          <div class="py-6 flex-col">
-            <a
-              href="Solutions/solution.html"
-              class="mb-2 font-bold hover:underline"
-            >
-              Solutions
-            </a>
-            <ul>
+          <div class="py-6 flex-col dark:bg-black dark:text-white">
+            <span class="mb-2 font-bold hover:underline"> Solutions </span>
+            <ul class="dark:bg-black dark:text-white">
               <li class="mt-4">
-                <a
-                  href="Solutions/IntegratedSmartSecuritySystem.html"
-                  class="hover:underline"
+                <a href="ISMS.html" class="hover:underline"
                   >Integrated Security Management System (ISMS)</a
                 >
               </li>
               <li>
-                <a href="Solutions/WeighinMotion.html" class="hover:underline"
+                <a href="WIM.html" class="hover:underline"
                   >Weigh In Motion (WIM)</a
                 >
               </li>
               <li>
-                <a
-                  href="Solutions/StructureHealthMonitoringSystem.html"
-                  class="hover:underline"
+                <a href="ISHMS.html" class="hover:underline"
                   >Structural Health Monitoring System (SHMS)</a
                 >
               </li>
               <li>
-                <a
-                  href="Solutions/Vehicle-Parking-Management-System.html"
-                  class="hover:underline"
+                <a href="VPMS.html" class="hover:underline"
                   >Vehicle Parking Management System (VPMS)</a
                 >
               </li>
             </ul>
           </div>
           <!-- Products footer-->
-          <div class="py-6 flex-col">
-            <a
-              class="mb-2 font-bold hover:underline"
-              href="Products/Products.html"
-              >Products</a
-            >
+          <div class="py-6 flex-col dark:bg-black dark:text-white">
+            <span class="mb-2 font-bold hover:underline">Products</span>
             <ul>
               <li class="mt-4">
-                <a class="hover:underline" href="Products/Monitoring.html"
-                  >Monitoring</a
-                >
+                <a class="hover:underline" href="Monitoring.html">Monitoring</a>
               </li>
               <li>
-                <a class="hover:underline" href="Products/Sensors.html"
-                  >Sensors</a
-                >
+                <a class="hover:underline" href="Sensors.html">Sensors</a>
               </li>
               <li>
-                <a class="hover:underline" href="Products/Access-Controls.html"
+                <a class="hover:underline" href="Access-Management.html"
                   >Access Control</a
                 >
               </li>
               <li>
-                <a
-                  class="hover:underline"
-                  href="Products/Parking-Management.html"
-                  >Parking Management</a
+                <a class="hover:underline" href="Parking-System.html"
+                  >Parking System</a
                 >
               </li>
-              <li>
-                <a class="hover:underline" href="Products/Data-Centers.html"
+              <!-- <li>
+                <a class="hover:underline" href="Data-Centers.html"
                   >Data Center</a
                 >
-              </li>
+              </li> -->
             </ul>
           </div>
           <!-- Markets footer-->
-          <div class="py-6 flex-col">
-            <a
-              class="mb-2 font-bold hover:underline"
-              href="Markets/Markets.html"
-              >Scenarios</a
-            >
+          <div class="py-6 flex-col dark:bg-black dark:text-white">
+            <span class="mb-2 font-bold hover:underline">Scenarios</span>
             <ul>
               <li class="mt-4">
-                <a class="hover:underline" href="Markets/Telecom.html"
-                  >Telecom</a
-                >
+                <a class="hover:underline" href="Telecom.html">Telecom</a>
               </li>
               <li>
-                <a class="hover:underline" href="Markets/Govermental.html"
-                  >Goverment</a
-                >
+                <a class="hover:underline" href="Govermental.html">Goverment</a>
               </li>
               <li>
-                <a class="hover:underline" href="Markets/Infrastructures.html"
+                <a class="hover:underline" href="Infrastructures.html"
                   >Infrastructures</a
                 >
               </li>
               <li>
-                <a class="hover:underline" href="Markets/Industrial Area.html"
+                <a class="hover:underline" href="Industrial-Area.html"
                   >Industrial Area</a
                 >
               </li>
               <li>
-                <a
-                  class="hover:underline"
-                  href="Markets/Commercial Buildings.html"
+                <a class="hover:underline" href="Commercial-Area.html"
                   >Commercial Building</a
                 >
               </li>
               <li>
-                <a class="hover:underline" href="Markets/Residential Area.html"
+                <a class="hover:underline" href="Residential-Area.html"
                   >Residential Area</a
                 >
               </li>
               <li>
-                <a
-                  class="hover:underline"
-                  href="Markets/Parking Area.html Area.html"
-                  >Parking Area</a
+                <a class="hover:underline" href="Parking-Management.html"
+                  >Parking Management</a
                 >
               </li>
-              <li>
-                <a class="hover:underline" href="Markets/Data Centers.html"
+              <!-- <li>
+                <a class="hover:underline" href="Data-Centers.html"
                   >Data Center</a
                 >
-              </li>
+              </li> -->
             </ul>
           </div>
-          <div class="py-6 flex-col">
+          <div class="py-6 flex-col dark:bg-black dark:text-white">
             <span class="mb-2 font-bold">Partners</span>
             <ul>
               <li class="my-4">
-                <a
-                  class="hover:underline"
-                  href="Become Our Partner/become-a-partner.html"
+                <a class="hover:underline" href="become-a-partner.html"
                   >Become our Partner</a
                 >
               </li>
@@ -1606,20 +2861,16 @@
             <span class="my-2 font-bold">About Us</span>
             <ul>
               <li class="mt-4">
-                <a class="hover:underline" href="About Us/company.html"
+                <a class="hover:underline" href="company-profile.html"
                   >Company Profile</a
                 >
               </li>
               <li>
-                <a class="hover:underline" href="About Us/Joinus.html"
-                  >Join Us</a
-                >
+                <a class="hover:underline" href="Joinus.html">Join Us</a>
               </li>
             </ul>
-            <div class="flex flex-col">
-              <a
-                class="mt-2 font-bold hover:underline"
-                href="Contact Us/contactus.html"
+            <div class="flex flex-col dark:bg-black dark:text-white">
+              <a class="mt-2 font-bold hover:underline" href="Contactus.html"
                 >Contact Us</a
               >
             </div>
@@ -1627,6 +2878,57 @@
         </div>
       </div>
     </footer>
+    <script src="Index_New.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/js/tw-elements.umd.min.js"></script>
+
+    <!-- Darkmode Script -->
+    <script>
+      var themeToggleDarkIcon = document.getElementById(
+        "theme-toggle-dark-icon"
+      );
+      var themeToggleLightIcon = document.getElementById(
+        "theme-toggle-light-icon"
+      );
+
+      // Change the icons inside the button based on previous settings
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        themeToggleLightIcon.classList.remove("hidden");
+      } else {
+        themeToggleDarkIcon.classList.remove("hidden");
+      }
+
+      var themeToggleBtn = document.getElementById("theme-toggle");
+
+      themeToggleBtn.addEventListener("click", function () {
+        // toggle icons inside button
+        themeToggleDarkIcon.classList.toggle("hidden");
+        themeToggleLightIcon.classList.toggle("hidden");
+
+        // if set via local storage previously
+        if (localStorage.getItem("color-theme")) {
+          if (localStorage.getItem("color-theme") === "light") {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("color-theme", "dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("color-theme", "light");
+          }
+
+          // if NOT set via local storage previously
+        } else {
+          if (document.documentElement.classList.contains("dark")) {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("color-theme", "light");
+          } else {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("color-theme", "dark");
+          }
+        }
+      });
+    </script>
   </body>
 </html>

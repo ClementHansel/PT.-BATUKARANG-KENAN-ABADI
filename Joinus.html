@@ -78,6 +78,46 @@
     <link rel="stylesheet" href="navbar-css-trial.css" />
     <link rel="icon" href="Assets/Logo-PT/logoicon.ico" />
     <title>PT.BKKA.CO.ID</title>
+
+    <style>
+      .accordion {
+        background-color: #eee;
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+      }
+
+      .active,
+      .accordion:hover {
+        background-color: #ccc;
+      }
+
+      .accordion:after {
+        content: "\002B";
+        color: #777;
+        font-weight: bold;
+        float: right;
+        margin-left: 5px;
+      }
+
+      .active:after {
+        content: "\2212";
+      }
+
+      .panel {
+        padding: 0 18px;
+        background-color: white;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+      }
+    </style>
   </head>
   <body class="bg-white font-sans min-h-screen dark:bg-black">
     <!-- Navbar -->
@@ -98,7 +138,7 @@
             >
               <img
                 class="me-2 h-10"
-                src="Assets/Logo-PT/Logo-BKKA-Transparant.png"
+                src="Assets/Index/Logo-PT/Logo-BKKA-Transparant.png"
                 alt="PT. BATUKARANG KENAN ABADI Logo"
                 loading="lazy"
               />
@@ -147,25 +187,25 @@
             <nav role="navigation">
               <div id="menuToggle">
                 <!--
-               A fake / hidden checkbox is used as click reciever,
-               so you can use the :checked selector on it.
-               -->
+                  A fake / hidden checkbox is used as click reciever,
+                  so you can use the :checked selector on it.
+                  -->
                 <input type="checkbox" />
 
                 <!--
-               Some spans to act as a hamburger.
-       
-               They are acting like a real hamburger,
-               not that McDonalds stuff.
-               -->
+                  Some spans to act as a hamburger.
+          
+                  They are acting like a real hamburger,
+                  not that McDonalds stuff.
+                  -->
                 <span class="bg-black dark:bg-white"></span>
                 <span class="bg-black dark:bg-white"></span>
                 <span class="bg-black dark:bg-white"></span>
 
                 <!--
-               Too bad the menu has to be inside of the button
-               but hey, it's pure CSS magic.
-               -->
+                  Too bad the menu has to be inside of the button
+                  but hey, it's pure CSS magic.
+                  -->
                 <ul id="menu">
                   <li class="">
                     <div tabindex="0" id="menu-label-1" class="onclick-menu">
@@ -213,10 +253,10 @@
                           >
                         </li>
                         <!-- <li>
-                       <a class="mx-8 text-xl" href="Data-Centers.html"
-                         >Data Centers</a
-                       >
-                     </li> -->
+                          <a class="mx-8 text-xl" href="Data-Centers.html"
+                            >Data Centers</a
+                          >
+                        </li> -->
                       </ul>
                     </div>
                   </li>
@@ -260,10 +300,10 @@
                           >
                         </li>
                         <!-- <li>
-                       <a class="mx-8 text-xl" href="Data-Centers.html"
-                         >Data Centers</a
-                       >
-                     </li> -->
+                          <a class="mx-8 text-xl" href="Data-Centers.html"
+                            >Data Centers</a
+                          >
+                        </li> -->
                       </ul>
                     </div>
                   </li>
@@ -350,21 +390,21 @@
                   >
                 </li>
                 <!-- <li>
-               <a
-                 class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                 href="Data-Centers.html"
-                 data-twe-dropdown-item-ref
-                 >Data Center</a
-               >
-             </li> -->
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Data-Centers.html"
+                    data-twe-dropdown-item-ref
+                    >Data Center</a
+                  >
+                </li> -->
                 <!-- <li>
-               <a
-                 class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                 href="Softwares.html"
-                 data-twe-dropdown-item-ref
-                 >Softwares</a
-               >
-             </li> -->
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Softwares.html"
+                    data-twe-dropdown-item-ref
+                    >Softwares</a
+                  >
+                </li> -->
               </ul>
               <!-- First dropdown trigger -->
             </li>
@@ -495,13 +535,13 @@
                   >
                 </li>
                 <!-- <li>
-               <a
-                 class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                 href="Data-Centers.html"
-                 data-twe-dropdown-item-ref
-                 >Data Center</a
-               >
-             </li> -->
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Data-Centers.html"
+                    data-twe-dropdown-item-ref
+                    >Data Center</a
+                  >
+                </li> -->
               </ul>
 
               <!-- First dropdown trigger -->
@@ -607,6 +647,168 @@
     </div>
 
     <!-- Join Us -->
+    <div class="bg-blue-100">
+      <div class="md:grid md:grid-cols-2">
+        <img class="w-full" src="Assets/Joinus/join us1.webp" alt="join us" />
+
+        <!-- accord -->
+        <div class="m-4 md:mx-20 md:my-10">
+          <h1 class="my-8 text-center font-extrabold text-xl md:text-5xl">
+            Current Openings
+          </h1>
+
+          <!-- accord 1 -->
+          <div>
+            <button class="accordion font-bold">
+              Software Developer/Engineer (Android)
+            </button>
+            <div class="panel">
+              <p>
+                <strong>Candidates from: Surabaya or Jakarta Indonesia</strong>
+                <br />
+                <strong>Employment: Contract for Service</strong>
+              </p>
+
+              <p>
+                <span style="text-decoration: underline"
+                  ><strong>Responsibilities</strong></span
+                >
+                <br />
+                • Coordinate the on-going work and development of the solution
+                <br />
+                • Stay current with Software development methodologies <br />
+                • Guide technical team to deliver outstanding results <br />
+                • To develop accurate and efficient programs according to
+                specifications for both software and mobile apps • Participate
+                in the complete software development life cycle (SDLC), which
+                includes user requirement analysis, design, coding, testing,
+                deployment, implementation, and documentation <br />
+                • Lead the design of systems and analysis of program
+                specifications.<br />
+                • System &amp; user documentation. <br />
+                • Maintaining and enhancing existing software modules. <br />
+                • To work as a team as well as work independently to resolve the
+                assigned projects. <br />
+                • To diagnose issues accurately and provide solution to improve
+                the systems efficiency. <br />
+                • To maintain current system; new features, bugs fixing, code
+                refactoring and performance optimization • Able to lead
+                technical discussions <br />
+                • Able to take ownership of the overall solution from
+                conception, development to productization
+              </p>
+
+              <p>
+                <span style="text-decoration: underline"
+                  ><strong>Skills</strong></span
+                >
+                <br />
+                • Software debugging skills <br />
+                • Must have a high degree of problem-solving skills and
+                solutions oriented <br />
+                • Must have strong interpersonal skills <br />
+                • Ability to effectively manage projects and tasks to deliver
+                deadlines and commitments <br />
+                • Be able to work under pressure for quick resolution and
+                delivery <br />
+                • Excellent communication skills (written and verbal) <br />
+                • Able to work in a team or independently<br />
+                • Possess initiative and drive.
+              </p>
+
+              <p>
+                <span style="text-decoration: underline"
+                  ><strong>Qualifications</strong></span
+                >
+                <br />
+                • Candidate must possess at least Bachelor's Degree, Post
+                Graduate Diploma or Professional Degree in Computer Science /
+                Information Technology or equivalent. <br />
+                • Preferred skill(s): Database Server, Mobile App Development
+                Skills. <br />
+                • Must be familiar with Android studio,Java, MySQL, PHP,
+                Javascript <br />
+                • Familiar with Database knowledge <br />
+                • Knowledge in Android SDK and Java Development <br />
+                • Strong Object-Oriented Design and Java Development Experience.
+                <br />
+                • Proven experience with OOP languages any of the languages
+                (Java, C++, VB.NET) <br />
+                • Familiarity with HTML, JavaScript, CSS, and AJAX <br />
+                • Direct experience with Agile software development
+                methodologies a plus <br />
+                • Required language(s): English. <br />
+                • Knowledge in iOS SDK and swift experience are an added plus
+                <br />
+                • At least 2-5 years’ experience in related field as stated.
+              </p>
+
+              <p>
+                <strong
+                  >Please separately document how your experience, skills and
+                  qualifications align with the
+                </strong>
+                <strong
+                  >JD in a cover letter and share it together with your
+                  CV.</strong
+                >
+              </p>
+            </div>
+          </div>
+
+          <!-- accord 2 -->
+          <div>
+            <button class="accordion font-bold">
+              Software Developer/Engineer (iOS)
+            </button>
+            <div class="panel">
+              <p>
+                HTML is a coding language that enable you to create your own web
+                structures. This allows you to start the outline of your
+                project. HTML has been maintained by W3C, an organization that
+                maintained the system and keep improving it to make it easier
+                for us to develop a website. It might not be easy at first, but
+                we will be with you in every step of your learning experience.
+              </p>
+            </div>
+          </div>
+
+          <!-- accord 3 -->
+          <div>
+            <button class="accordion font-bold">
+              Software Developer/Engineer (Web)
+            </button>
+            <div class="panel">
+              <p>
+                HTML is a coding language that enable you to create your own web
+                structures. This allows you to start the outline of your
+                project. HTML has been maintained by W3C, an organization that
+                maintained the system and keep improving it to make it easier
+                for us to develop a website. It might not be easy at first, but
+                we will be with you in every step of your learning experience.
+              </p>
+            </div>
+          </div>
+
+          <!-- accord 4 -->
+          <div>
+            <button class="accordion font-bold">
+              Senior Software Engineer
+            </button>
+            <div class="panel">
+              <p>
+                HTML is a coding language that enable you to create your own web
+                structures. This allows you to start the outline of your
+                project. HTML has been maintained by W3C, an organization that
+                maintained the system and keep improving it to make it easier
+                for us to develop a website. It might not be easy at first, but
+                we will be with you in every step of your learning experience.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Subscribe -->
     <section class="mx-auto">
@@ -652,7 +854,7 @@
                 <a href="Index.html">
                   <img
                     class="h-30 md:h-20 mb-4 mx-auto"
-                    src="Assets/Logo-PT/Logo-BKKA-Transparant.png"
+                    src="Assets/Index/Logo-PT/Logo-BKKA-Transparant.png"
                     alt="PT. BATUKARANG KENAN ABADI LOGO"
                   />
                 </a>
@@ -906,6 +1108,24 @@
           }
         }
       });
+    </script>
+
+    <!-- Accordion Menu Script -->
+    <script>
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          }
+        });
+      }
     </script>
   </body>
 </html>

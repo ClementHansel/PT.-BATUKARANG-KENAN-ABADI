@@ -98,7 +98,7 @@
             >
               <img
                 class="me-2 h-10"
-                src="Assets/Logo-PT/Logo-BKKA-Transparant.png"
+                src="Assets/Index/Logo-PT/Logo-BKKA-Transparant.png"
                 alt="PT. BATUKARANG KENAN ABADI Logo"
                 loading="lazy"
               />
@@ -739,209 +739,129 @@
 
     <!-- Products -->
     <!--Tabs navigation-->
-    <section class="w-full">
-      <h2
-        class="my-8 text-4xl text-black dark:text-white font-extrabold pb-8 pt-4 pl-2 shadow-lg uppercase"
-      >
-        products
-      </h2>
-      <div class="w-full mx-auto">
-        <div
-          class="tab grid grid-cols justify-center md:grid-cols-5 overflow-hidden md:justify-between"
-        >
-          <button
-            class="tablinks sm:col-span-2 md:col-span-1 text-[10px] text-blue-500 font-bold border-2 border-blue-500 rounded-2xl mb-2 shadow-lg hover:text-white hover:bg-blue-600 active:bg-blue-700 active:text-black focus:outline-none focus:ring focus:ring-blue-300 uppercase dark:text-white"
-            onclick="openProducts(event, 'monitoring')"
-          >
-            Monitoring
-          </button>
-          <button
-            class="tablinks text-[10px] text-blue-500 font-bold border-2 border-blue-500 rounded-2xl mb-2 p-1 px-2 shadow-lg hover:text-white hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300 uppercase"
-            onclick="openProducts(event, 'sensors')"
-          >
-            Sensors
-          </button>
-          <button
-            class="tablinks text-[10px] text-blue-500 font-bold border-2 border-blue-500 rounded-2xl mb-2 p-1 px-2 shadow-lg hover:text-white hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300 uppercase"
-            onclick="openProducts(event, 'access management')"
-          >
-            Access Management
-          </button>
-          <button
-            class="tablinks text-[10px] text-blue-500 font-bold border-2 border-blue-500 rounded-2xl mb-2 p-1 px-2 shadow-lg hover:text-white hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300 uppercase"
-            onclick="openProducts(event, 'parking management')"
-          >
-            Parking Management
-          </button>
-          <button
-            class="tablinks text-[10px] text-blue-500 font-bold border-2 border-blue-500 rounded-2xl mb-2 p-1 px-2 shadow-lg hover:text-white hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300 uppercase"
-            onclick="openProducts(event, 'data centers')"
-          >
-            Data Centers
-          </button>
+    <section class="w-full md:grid md:grid-cols-3 lg:grid-cols-5 gap-4">
+      <div id="monitoring" class="tabcontent text-black dark:text-white">
+        <div class="mx-auto px-4">
+          <img
+            class="object-fill"
+            src="Assets/Index/HP PRODUCT MONITORING.webp"
+            alt="CCTV camera active monitoring"
+          />
         </div>
-
-        <div
-          id="monitoring"
-          class="tabcontent text-black dark:text-white md:flex md:flex-rows"
-        >
-          <div class="max-w-3xl mx-auto px-4">
-            <img
-              class="object-fill"
-              src="Assets/Index/HP PRODUCT MONITORING.webp"
-              alt="CCTV camera active monitoring"
-            />
-          </div>
-          <div data-tab-content="" class="p-5"></div>
-          <div class="p-4 dark:bg-black dark:text-white">
-            <h3 class="text-lg md:text-2xl lg:text-5xl font-bold mb-4">
-              Monitoring
-            </h3>
-            <p class="text-sm mb-4">
-              Streamlined your operations with integration of IoT devices and AI
-              at its core. More productivity, higher efficientcy with less
-              effort.
-            </p>
-            <a
-              href="Monitoring.html"
-              class="text-blue-500 hover:text-white hover:bg-blue-600 active:bg-blue-700"
-              >Explore</a
-            >
-            <i class="fa-solid fa-arrow-right-long text-blue-500"></i>
-          </div>
-        </div>
-
-        <div
-          id="sensors"
-          class="tabcontent text-black dark:text-white md:flex md:flex-rows"
-        >
-          <div class="max-w-3xl mx-auto px-4 sm:px-6">
-            <!--Container-->
-            <img
-              src="Assets/Index/HP PRODUC SENSORS.webp"
-              alt="Moving truck are weighed on the road"
-            />
-          </div>
-          <div class="p-5 dark:bg-black dark:text-white">
-            <h3 class="text-base md:text-2xl lg:text-5xl font-bold mb-4">
-              Sensors
-            </h3>
-            <p class="text-sm mb-4">
-              Streamlined your operations with integration of IoT devices and AI
-              at its core. More productivity, higher efficientcy with less
-              effort.
-            </p>
-            <a
-              href="Sensors.html"
-              class="text-blue-500 hover:text-white hover:bg-blue-600 active:bg-blue-700"
-              >Explore</a
-            >
-            <i class="fa-solid fa-arrow-right-long text-blue-500"></i>
-          </div>
-        </div>
-
-        <div
-          id="access management"
-          class="tabcontent text-black dark:text-white md:flex md:flex-rows"
-        >
-          <div class="max-w-3xl mx-auto px-4 sm:px-6">
-            <img
-              src="Assets/Index/HP PRODUCT ACCESS MGMT.webp"
-              alt="a regular man scanning face for door access"
-            />
-          </div>
-          <div class="p-4 dark:bg-black dark:text-white">
-            <h3 class="text-lg md:text-2xl lg:text-5xl font-bold mb-4">
-              Access Management
-            </h3>
-            <p class="text-sm mb-4">
-              Streamlined your operations with integration of IoT devices and AI
-              at its core. More productivity, higher efficientcy with less
-              effort.
-            </p>
-            <a
-              href="Access-Management.html"
-              class="text-blue-500 hover:text-white hover:bg-blue-600 active:bg-blue-700"
-              >Explore</a
-            >
-            <i class="fa-solid fa-arrow-right-long text-blue-500"></i>
-          </div>
-        </div>
-        <div
-          id="parking management"
-          class="tabcontent text-black dark:text-white md:flex md:flex-rows"
-        >
-          <div class="max-w-3xl mx-auto px-4 sm:px-6">
-            <img
-              src="Assets/Index/HP PRODUCT PARKING MGMT.webp"
-              alt="Showing a parking area, remotely monitored by system and connected to mobile phone and security room"
-            />
-          </div>
-          <div class="p-4 dark:bg-black dark:text-white">
-            <h3 class="text-lg md:text-2xl lg:text-5xl font-bold mb-4">
-              Parking System
-            </h3>
-            <p class="text-sm mb-4">
-              Streamlined your operations with integration of IoT devices and AI
-              at its core. More productivity, higher efficientcy with less
-              effort.
-            </p>
-            <a
-              href="Parking-System.html"
-              class="text-blue-500 hover:text-white hover:bg-blue-600 active:bg-blue-700"
-              >Explore</a
-            >
-            <i class="fa-solid fa-arrow-right-long text-blue-500"></i>
-          </div>
-        </div>
-
-        <div
-          id="data centers"
-          class="tabcontent text-black dark:text-white md:flex md:flex-rows"
-        >
-          <div class="max-w-3xl mx-auto px-4 sm:px-6">
-            <img
-              src="Assets/Index/HP PRODUCT DATA CENTER.webp"
-              alt="server racks are lined up orderly"
-            />
-          </div>
-          <div class="p-4 dark:bg-black dark:text-white">
-            <h3 class="text-lg md:text-2xl lg:text-5xl font-bold mb-4">
-              Data Center
-            </h3>
-            <p class="text-sm mb-4">
-              Streamlined your operations with integration of IoT devices and AI
-              at its core. More productivity, higher efficientcy with less
-              effort.
-            </p>
-            <a
-              href="Data-Centers.html"
-              class="text-blue-500 hover:text-white hover:bg-blue-600 active:bg-blue-700"
-              >Explore</a
-            >
-            <i class="fa-solid fa-arrow-right-long text-blue-500"></i>
-          </div>
+        <div class="px-4 dark:bg-black dark:text-white">
+          <h3 class="text-lg md:text-2xl font-bold mb-4">Monitoring</h3>
+          <p class="text-sm mb-4">
+            Streamlined your operations with integration of IoT devices and AI
+            at its core. More productivity, higher efficientcy with less effort.
+          </p>
+          <a
+            href="Monitoring.html"
+            class="text-blue-500 hover:text-white hover:bg-blue-600 active:bg-blue-700"
+            >Explore</a
+          >
+          <i class="fa-solid fa-arrow-right-long text-blue-500"></i>
         </div>
       </div>
 
-      <script>
-        function openProducts(evt, productsName) {
-          var i, tabcontent, tablinks;
-          tabcontent = document.getElementsByClassName("tabcontent");
-          for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-          }
-          tablinks = document.getElementsByClassName("tablinks");
-          for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(
-              " active",
-              ""
-            );
-          }
-          document.getElementById(productsName).style.display = "block";
-          evt.currentTarget.className += " active";
-        }
-      </script>
+      <div id="sensors" class="tabcontent text-black dark:text-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6">
+          <!--Container-->
+          <img
+            src="Assets/Index/HP PRODUC SENSORS.webp"
+            alt="Moving truck are weighed on the road"
+          />
+        </div>
+        <div class="px-6 dark:bg-black dark:text-white">
+          <h3 class="text-base md:text-2xl lg:text-5xl font-bold mb-4">
+            Sensors
+          </h3>
+          <p class="text-sm mb-4">
+            Streamlined your operations with integration of IoT devices and AI
+            at its core. More productivity, higher efficientcy with less effort.
+          </p>
+          <a
+            href="Sensors.html"
+            class="text-blue-500 hover:text-white hover:bg-blue-600 active:bg-blue-700"
+            >Explore</a
+          >
+          <i class="fa-solid fa-arrow-right-long text-blue-500"></i>
+        </div>
+      </div>
+
+      <div id="access management" class="tabcontent text-black dark:text-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6">
+          <img
+            src="Assets/Index/HP PRODUCT ACCESS MGMT.webp"
+            alt="a regular man scanning face for door access"
+          />
+        </div>
+        <div class="px-6 dark:bg-black dark:text-white">
+          <h3 class="text-lg md:text-2xl lg:text-5xl font-bold mb-4">
+            Access Management
+          </h3>
+          <p class="text-sm mb-4">
+            Streamlined your operations with integration of IoT devices and AI
+            at its core. More productivity, higher efficientcy with less effort.
+          </p>
+          <a
+            href="Access-Management.html"
+            class="text-blue-500 hover:text-white hover:bg-blue-600 active:bg-blue-700"
+            >Explore</a
+          >
+          <i class="fa-solid fa-arrow-right-long text-blue-500"></i>
+        </div>
+      </div>
+
+      <div
+        id="parking management"
+        class="tabcontent text-black dark:text-white"
+      >
+        <div class="max-w-3xl mx-auto px-4 sm:px-6">
+          <img
+            src="Assets/Index/HP PRODUCT PARKING MGMT.webp"
+            alt="Showing a parking area, remotely monitored by system and connected to mobile phone and security room"
+          />
+        </div>
+        <div class="px-6 dark:bg-black dark:text-white">
+          <h3 class="text-lg md:text-2xl lg:text-5xl font-bold mb-4">
+            Parking System
+          </h3>
+          <p class="text-sm mb-4">
+            Streamlined your operations with integration of IoT devices and AI
+            at its core. More productivity, higher efficientcy with less effort.
+          </p>
+          <a
+            href="Parking-System.html"
+            class="text-blue-500 hover:text-white hover:bg-blue-600 active:bg-blue-700"
+            >Explore</a
+          >
+          <i class="fa-solid fa-arrow-right-long text-blue-500"></i>
+        </div>
+      </div>
+
+      <div id="data centers" class="tabcontent text-black dark:text-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6">
+          <img
+            src="Assets/Index/HP PRODUCT DATA CENTER.webp"
+            alt="server racks are lined up orderly"
+          />
+        </div>
+        <div class="px-6 dark:bg-black dark:text-white">
+          <h3 class="text-lg md:text-2xl lg:text-5xl font-bold mb-4">
+            Data Center
+          </h3>
+          <p class="text-sm mb-4">
+            Streamlined your operations with integration of IoT devices and AI
+            at its core. More productivity, higher efficientcy with less effort.
+          </p>
+          <a
+            href="Data-Centers.html"
+            class="text-blue-500 hover:text-white hover:bg-blue-600 active:bg-blue-700"
+            >Explore</a
+          >
+          <i class="fa-solid fa-arrow-right-long text-blue-500"></i>
+        </div>
+      </div>
     </section>
 
     <!-- Markets -->
@@ -1182,7 +1102,7 @@
     <!-- Encouragement -->
     <section class="mx-auto my-8">
       <img
-        class="w-full h-[40vh]"
+        class="w-full md:h-[40vh]"
         src="Assets/Index/encourage 1.png"
         alt="THEY TRUST PT. BATUKARANG KENAN ABADI"
       />
@@ -1232,7 +1152,7 @@
                 <a href="Index.html">
                   <img
                     class="h-30 md:h-20 mb-4 mx-auto"
-                    src="Assets/Logo-PT/Logo-BKKA-Transparant.png"
+                    src="Assets/Index/Logo-PT/Logo-BKKA-Transparant.png"
                     alt="PT. BATUKARANG KENAN ABADI LOGO"
                   />
                 </a>

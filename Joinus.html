@@ -39,391 +39,595 @@
       };
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="Index_New.js"></script>
+    <!-- Dark Mode Theme -->
+    <script>
+      tailwind.config = {
+        darkMode:
+          "class" /* class/media, here we use class to enable manually dark mode */,
+      };
+    </script>
+    <script>
+      /**
+       * Loads the theme stored
+       */
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+    <!-- End of Mode Theme -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="Index_New.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="NewCSS.css" />
-    <link rel="icon" href="Asset/LOGO PT/logoicon.ico" />
+    <link rel="stylesheet" href="navbar-css-trial.css" />
+    <link rel="icon" href="Assets/Logo-PT/logoicon.ico" />
     <title>PT.BKKA.CO.ID</title>
   </head>
-  <body class="bg-white font-sans min-h-screen">
-    <nav
-      class="fixed top-0 z-10 flex w-full flex-wrap items-center justify-between bg-zinc-50 py-2 shadow-dark-mild dark:bg-neutral-700 lg:py-4"
+  <body class="bg-white font-sans min-h-screen dark:bg-black">
+    <!-- Navbar -->
+    <section
+      class="sm:hidden md:block bg-white text black dark:bg-black dark:text-white"
     >
-      <div class="flex w-full flex-wrap items-center justify-between px-3">
-        <!-- Left elements -->
-        <div class="flex">
-          <!-- Brand -->
-          <a
-            class="mx-2 my-1 flex items-center lg:mb-0 lg:mt-0"
-            href="index.html"
+      <!-- MD Navbar -->
+      <nav
+        class="fixed top-0 z-10 flex w-full flex-wrap items-center justify-between bg-zinc-50 py-2 shadow-dark-mild lg:py-4 dark:bg-black"
+      >
+        <div class="flex w-full flex-wrap items-center justify-between px-3">
+          <!-- Left elements -->
+          <div class="flex justify-between">
+            <!-- Brand -->
+            <a
+              class="mx-2 my-1 flex items-center lg:mb-0 lg:mt-0"
+              href="index.html"
+            >
+              <img
+                class="me-2 h-10"
+                src="Assets/Logo-PT/Logo-BKKA-Transparant.png"
+                alt="PT. BATUKARANG KENAN ABADI Logo"
+                loading="lazy"
+              />
+            </a>
+            <h1
+              class="hidden md:flex mx-2 my-1 items-center pt-2 text-blue-700 font-bold text-base"
+            >
+              PT. BATUKARANG KENAN ABADI
+            </h1>
+
+            <!-- Dark Mode Toggler -->
+            <button
+              id="theme-toggle"
+              type="button"
+              class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
+            >
+              <svg
+                id="theme-toggle-dark-icon"
+                class="hidden w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                ></path>
+              </svg>
+              <svg
+                id="theme-toggle-light-icon"
+                class="hidden w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Navbar Hamburger -->
+          <section class="body-nav-hamburger lg:hidden z-10">
+            <nav role="navigation">
+              <div id="menuToggle">
+                <!--
+               A fake / hidden checkbox is used as click reciever,
+               so you can use the :checked selector on it.
+               -->
+                <input type="checkbox" />
+
+                <!--
+               Some spans to act as a hamburger.
+       
+               They are acting like a real hamburger,
+               not that McDonalds stuff.
+               -->
+                <span class="bg-black dark:bg-white"></span>
+                <span class="bg-black dark:bg-white"></span>
+                <span class="bg-black dark:bg-white"></span>
+
+                <!--
+               Too bad the menu has to be inside of the button
+               but hey, it's pure CSS magic.
+               -->
+                <ul id="menu">
+                  <li class="">
+                    <div tabindex="0" id="menu-label-1" class="onclick-menu">
+                      Solutions
+                      <ul id="submenu-label-1" class="onclick-menu-content">
+                        <li>
+                          <a class="mx-8 text-xl" href="https://bkka.site/isms"
+                            >ISMS</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="WIM.html">WIM</a>
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="ISHMS.html">ISHMS</a>
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="VPMS.html">VPMS</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li>
+                    <div id="menu-label-2" tabindex="0" class="onclick-menu">
+                      Products
+                      <ul id="submenu-label-2" class="onclick-menu-content">
+                        <li>
+                          <a class="mx-8 text-xl" href="Monitoring.html"
+                            >Monitoring</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Sensors.html"
+                            >Sensors</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Access-Management.html"
+                            >Access Management</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Parking-System.html"
+                            >Parking Management</a
+                          >
+                        </li>
+                        <!-- <li>
+                       <a class="mx-8 text-xl" href="Data-Centers.html"
+                         >Data Centers</a
+                       >
+                     </li> -->
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="">
+                    <div id="menu-label-3" tabindex="0" class="onclick-menu">
+                      Markets
+                      <ul id="submenu-label-3" class="onclick-menu-content">
+                        <li>
+                          <a class="mx-8 text-xl" href="Telecom.html"
+                            >Telecom</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Goverment.html"
+                            >Goverment</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Infrastructure.html"
+                            >Infrastructures</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Industrial-Area.html"
+                            >Industrial Area</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Commercial-Area.html"
+                            >Commercial Building</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Residential-Area.html"
+                            >Residential Area</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Parking-Management.html"
+                            >Parking Management</a
+                          >
+                        </li>
+                        <!-- <li>
+                       <a class="mx-8 text-xl" href="Data-Centers.html"
+                         >Data Centers</a
+                       >
+                     </li> -->
+                      </ul>
+                    </div>
+                  </li>
+                  <li id="menu-label-4">
+                    <a href="become-a-partner.html">Partners</a>
+                  </li>
+                  <li class="">
+                    <div id="menu-label-5" tabindex="0" class="onclick-menu">
+                      About
+                      <ul id="submenu-label-5" class="onclick-menu-content">
+                        <li>
+                          <a class="mx-8 text-xl" href="company-profile.html"
+                            >Company Profile</a
+                          >
+                        </li>
+                        <li>
+                          <a class="mx-8 text-xl" href="Joinus.html">Join Us</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li id="menu-label-6">
+                    <a href="Contactus.html">Contact</a>
+                  </li>
+                  <li id="menu-label-7"><a href="login.html">Log In</a></li>
+                </ul>
+              </div>
+            </nav>
+          </section>
+
+          <!-- Left elements -->
+
+          <!-- Right elements -->
+          <ul
+            class="list-style-none ms-auto flex flex-row ps-0 md:ps-4"
+            data-twe-navbar-nav-ref
           >
-            <img
-              class="me-2 h-10"
-              src="Asset/LOGO PT/Logo-BKKA-Transparant.png"
-              alt="PT. BATUKARANG KENAN ABADI Logo"
-              loading="lazy"
-            />
-          </a>
-          <h1
-            class="hidden md:flex mx-2 my-1 items-center pt-2 text-blue-700 font-bold text-base"
-          >
-            PT. BATUKARANG KENAN ABADI
-          </h1>
+            <!-- Products dropdown Trigger -->
+            <li class="relative px-2 hidden lg:flex" data-twe-dropdown-ref>
+              <a
+                class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
+                href="#"
+                role="button"
+                data-twe-dropdown-toggle-ref
+                aria-expanded="false"
+              >
+                <strong class="[&>svg]:h-6 [&>svg]:w-6"> Products </strong>
+              </a>
+              <ul
+                class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
+                aria-labelledby="dropdownMenuButton1"
+                data-twe-dropdown-menu-ref
+              >
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Monitoring.html"
+                    data-twe-dropdown-item-ref
+                    >Monitoring</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Sensors.html"
+                    data-twe-dropdown-item-ref
+                    >Sensors</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Access-Management.html"
+                    data-twe-dropdown-item-ref
+                    >Access Management</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Parking-System.html"
+                    data-twe-dropdown-item-ref
+                    >Parking System</a
+                  >
+                </li>
+                <!-- <li>
+               <a
+                 class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                 href="Data-Centers.html"
+                 data-twe-dropdown-item-ref
+                 >Data Center</a
+               >
+             </li> -->
+                <!-- <li>
+               <a
+                 class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                 href="Softwares.html"
+                 data-twe-dropdown-item-ref
+                 >Softwares</a
+               >
+             </li> -->
+              </ul>
+              <!-- First dropdown trigger -->
+            </li>
+
+            <!-- Solutions dropdown trigger -->
+            <li class="relative px-2 hidden lg:flex" data-twe-dropdown-ref>
+              <a
+                class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
+                href=""
+                role="button"
+                data-twe-dropdown-toggle-ref
+                aria-expanded="false"
+              >
+                <strong class="[&>svg]:h-6 [&>svg]:w-6"> Solutions </strong>
+              </a>
+              <ul
+                class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
+                aria-labelledby="dropdownMenuButton1"
+                data-twe-dropdown-menu-ref
+              >
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="ISMS.html"
+                    data-twe-dropdown-item-ref
+                    >Integrated Smart Security System</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="WIM.html"
+                    data-twe-dropdown-item-ref
+                    >Weigh In Motion</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="ISHMS.html"
+                    data-twe-dropdown-item-ref
+                    >Structure Health Monitoring System</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="VPMS.html"
+                    data-twe-dropdown-item-ref
+                    >Vehicle Parking Management System</a
+                  >
+                </li>
+              </ul>
+
+              <!-- First dropdown trigger -->
+            </li>
+
+            <!-- Markets dropdown trigger -->
+            <li class="relative px-2 hidden lg:flex" data-twe-dropdown-ref>
+              <a
+                class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
+                href=""
+                role="button"
+                data-twe-dropdown-toggle-ref
+                aria-expanded="false"
+              >
+                <strong class="[&>svg]:h-6 [&>svg]:w-6"> Markets </strong>
+              </a>
+              <ul
+                class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
+                aria-labelledby="dropdownMenuButton1"
+                data-twe-dropdown-menu-ref
+              >
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Telecom.html"
+                    data-twe-dropdown-item-ref
+                    >Telecom</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Goverment.html"
+                    data-twe-dropdown-item-ref
+                    >Goverment</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Infrastructure.html"
+                    data-twe-dropdown-item-ref
+                    >infrastructures</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Industrial-Area.html"
+                    data-twe-dropdown-item-ref
+                    >Industrial Area</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Commercial-Area.html"
+                    data-twe-dropdown-item-ref
+                    >Commercial Buildings</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Residential-Area.html"
+                    data-twe-dropdown-item-ref
+                    >Residential Area</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Parking-Management.html"
+                    data-twe-dropdown-item-ref
+                    >Parking Management</a
+                  >
+                </li>
+                <!-- <li>
+               <a
+                 class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                 href="Data-Centers.html"
+                 data-twe-dropdown-item-ref
+                 >Data Center</a
+               >
+             </li> -->
+              </ul>
+
+              <!-- First dropdown trigger -->
+            </li>
+
+            <!-- Partners -->
+            <li class="px-2 hidden lg:flex" data-twe-nav-item-ref>
+              <a
+                class="flex text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
+                href="become-a-partner.html"
+                data-twe-nav-link-ref
+              >
+                <strong class="ms-1 sm:block">Partners</strong>
+              </a>
+            </li>
+
+            <!-- About Us Dropdown trigger  -->
+            <li class="relative px-2 hidden lg:flex" data-twe-dropdown-ref>
+              <a
+                class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
+                href=""
+                role="button"
+                data-twe-dropdown-toggle-ref
+                aria-expanded="false"
+              >
+                <strong class="[&>svg]:h-6 [&>svg]:w-6"> About </strong>
+              </a>
+              <ul
+                class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
+                aria-labelledby="dropdownMenuButton1"
+                data-twe-dropdown-menu-ref
+              >
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="company-profile.html"
+                    data-twe-dropdown-item-ref
+                    >Company</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+                    href="Joinus.html"
+                    data-twe-dropdown-item-ref
+                    >Join Us</a
+                  >
+                </li>
+              </ul>
+
+              <!-- First dropdown trigger -->
+            </li>
+
+            <!-- Contact Us -->
+            <li class="px-2 hidden lg:flex" data-twe-nav-item-ref>
+              <a
+                class="flex text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
+                href="Contactus.html"
+                data-twe-nav-link-ref
+              >
+                <strong class="ms-1 sm:block">Contact</strong>
+              </a>
+            </li>
+
+            <!-- Login Button -->
+            <li class="px-2 hidden lg:block" data-twe-nav-item-ref>
+              <a
+                class="flex text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
+                href="login.html"
+                data-twe-nav-link-ref
+              >
+                <span class="[&>svg]:h-6 [&>svg]:w-6">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"
+                    fill="currentColor"
+                  >
+                    <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                      fill-rule="evenodd"
+                      d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span class="hidden">Login</span>
+                </span>
+              </a>
+            </li>
+          </ul>
         </div>
-        <!-- Left elements -->
-
-        <!-- Right elements -->
-        <ul
-          class="list-style-none ms-auto flex flex-row ps-0 md:ps-4"
-          data-twe-navbar-nav-ref
-        >
-          <!-- Products dropdown Trigger -->
-          <li class="relative px-2 hidden md:flex" data-twe-dropdown-ref>
-            <a
-              class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
-              href="#"
-              role="button"
-              data-twe-dropdown-toggle-ref
-              aria-expanded="false"
-            >
-              <strong class="[&>svg]:h-6 [&>svg]:w-6"> Products </strong>
-            </a>
-            <ul
-              class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
-              aria-labelledby="dropdownMenuButton1"
-              data-twe-dropdown-menu-ref
-            >
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Products/Monitoring.html"
-                  data-twe-dropdown-item-ref
-                  >Monitoring</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Products/Sensors.html"
-                  data-twe-dropdown-item-ref
-                  >Sensors</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Products/Access-Controls.html"
-                  data-twe-dropdown-item-ref
-                  >Access Control</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Products/Parking-Management.html"
-                  data-twe-dropdown-item-ref
-                  >Parking Management</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Products/Data-Centers.html"
-                  data-twe-dropdown-item-ref
-                  >Data Center</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Products/Softwares.html"
-                  data-twe-dropdown-item-ref
-                  >Softwares</a
-                >
-              </li>
-            </ul>
-            <!-- First dropdown trigger -->
-          </li>
-
-          <!-- Solutions dropdown trigger -->
-          <li class="relative px-2 hidden md:flex" data-twe-dropdown-ref>
-            <a
-              class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
-              href=""
-              role="button"
-              data-twe-dropdown-toggle-ref
-              aria-expanded="false"
-            >
-              <strong class="[&>svg]:h-6 [&>svg]:w-6"> Solutions </strong>
-            </a>
-            <ul
-              class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
-              aria-labelledby="dropdownMenuButton1"
-              data-twe-dropdown-menu-ref
-            >
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="ISMS.html"
-                  data-twe-dropdown-item-ref
-                  >Integrated Smart Security System</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="WIM.html"
-                  data-twe-dropdown-item-ref
-                  >Weigh In Motion</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="ISHMS.html"
-                  data-twe-dropdown-item-ref
-                  >Structure Health Monitoring System</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="VPMS.html"
-                  data-twe-dropdown-item-ref
-                  >Vehicle Parking Management System</a
-                >
-              </li>
-            </ul>
-
-            <!-- First dropdown trigger -->
-          </li>
-
-          <!-- Markets dropdown trigger -->
-          <li class="relative px-2 hidden lg:flex" data-twe-dropdown-ref>
-            <a
-              class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
-              href=""
-              role="button"
-              data-twe-dropdown-toggle-ref
-              aria-expanded="false"
-            >
-              <strong class="[&>svg]:h-6 [&>svg]:w-6"> Markets </strong>
-            </a>
-            <ul
-              class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
-              aria-labelledby="dropdownMenuButton1"
-              data-twe-dropdown-menu-ref
-            >
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Telecom.html"
-                  data-twe-dropdown-item-ref
-                  >Telecom</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Goverment.html"
-                  data-twe-dropdown-item-ref
-                  >Goverment</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Infrastructure.html"
-                  data-twe-dropdown-item-ref
-                  >infrastructures</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Industrial-Area.html"
-                  data-twe-dropdown-item-ref
-                  >Industrial Area</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Commercial-Area.html"
-                  data-twe-dropdown-item-ref
-                  >Commercial Buildings</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Residential-Area.html"
-                  data-twe-dropdown-item-ref
-                  >Residential Area</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Parking-Area.html"
-                  data-twe-dropdown-item-ref
-                  >Parking Area</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="Data-Centers.html"
-                  data-twe-dropdown-item-ref
-                  >Data Center</a
-                >
-              </li>
-            </ul>
-
-            <!-- First dropdown trigger -->
-          </li>
-
-          <!-- Partners -->
-          <li class="px-2 hidden lg:flex" data-twe-nav-item-ref>
-            <a
-              class="flex text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
-              href="become-a-partner.html"
-              data-twe-nav-link-ref
-            >
-              <strong class="ms-1 sm:block">Partners</strong>
-            </a>
-          </li>
-
-          <!-- About Us Dropdown trigger  -->
-          <li class="relative px-2 hidden lg:flex" data-twe-dropdown-ref>
-            <a
-              class="hidden-arrow flex items-center text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
-              href=""
-              role="button"
-              data-twe-dropdown-toggle-ref
-              aria-expanded="false"
-            >
-              <strong class="[&>svg]:h-6 [&>svg]:w-6"> About </strong>
-            </a>
-            <ul
-              class="absolute z-[1000] float-left hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-surface-dark data-[twe-dropdown-show]:block"
-              aria-labelledby="dropdownMenuButton1"
-              data-twe-dropdown-menu-ref
-            >
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="About Us/company.html"
-                  data-twe-dropdown-item-ref
-                  >Company</a
-                >
-              </li>
-              <li>
-                <a
-                  class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
-                  href="About Us/Joinus.html"
-                  data-twe-dropdown-item-ref
-                  >Join Us</a
-                >
-              </li>
-            </ul>
-
-            <!-- First dropdown trigger -->
-          </li>
-
-          <!-- Contact Us -->
-          <li class="px-2 hidden lg:flex" data-twe-nav-item-ref>
-            <a
-              class="flex text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
-              href="Contactus.html"
-              data-twe-nav-link-ref
-            >
-              <strong class="ms-1 sm:block">Contact</strong>
-            </a>
-          </li>
-
-          <!-- Login Button -->
-          <li class="px-2" data-twe-nav-item-ref>
-            <a
-              class="flex text-black/60 transition duration-200 hover:text-black/80 hover:ease-in-out focus:text-black/80 active:text-black/80 motion-reduce:transition-none dark:text-white/60 dark:hover:text-white/80 dark:focus:text-white/80 dark:active:text-white/80"
-              href="signup.html"
-              data-twe-nav-link-ref
-            >
-              <span class="[&>svg]:h-6 [&>svg]:w-6">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 448 512"
-                  fill="currentColor"
-                >
-                  <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                  <path
-                    fill-rule="evenodd"
-                    d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-                <span class="hidden">Login</span>
-              </span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+      </nav>
+    </section>
 
     <!-- Hero -->
     <div class="w-full">
       <div class="relative mt-16">
-        <img src="Asset/66.jpg" alt="man pressing Solution" />
-        <div
-          class="absolute top-20 md:top-[150px] lg:top-[300px] left-3 md:left-10"
-        >
-          <h1
-            class="w-1/2 font-extrabold text-[9px] text-white md:text-xl lg:text-3xl"
-          >
-            PT. BATUKARANG KENAN ABADI
-          </h1>
-          <h2
-            class="w-1/2 pb-1 md:pb-4 lg:pb-8 text-[7px] text-white md:text-xl lg:text-xl"
-          >
-            We specificaly develop AI-powered technology solutions that make
-            your Bussiness safer, more efficient, and more accessible.
-          </h2>
-          <a
-            href="book-consultation.html"
-            class="border p-1 m-1 md:p-2 md:m-2 rounded-3xl bg-white text-[8px] md:text-[12px] lg:text-[20px] text-black font-extrabold hover:text-black hover:bg-blue-600 hover:font-extrabold hover:border-blue-600"
-          >
-            Book a Free consultation
-          </a>
-        </div>
+        <img
+          class="w-full"
+          src="Assets/About/NAVBAR ABOUT US 1.png"
+          alt="man pressing Solution"
+        />
       </div>
     </div>
 
     <!-- Join Us -->
 
     <!-- Subscribe -->
-    <section class="mx-auto px-4">
-      <div class="">
+    <section class="mx-auto">
+      <div class="dark:bg-black dark:text-white">
         <img
           class="mx-auto w-full"
-          src="Asset/subs.png"
+          src="Assets/Index/subs.png"
           alt="Subscribe to get the latest news and updates from PT. BATUKARANG KENAN ABADI."
         />
-        <div class="relative mb-4 flex w-full flex-wrap items-stretch">
+        <div
+          class="relative mb-4 flex w-full flex-wrap items-stretch justify-center"
+        >
           <input
             type="email"
-            class="relative m-0 -me-px block flex-auto rounded-s border border-solid border-neutral-200 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-surface outline-none transition duration-200 ease-in-out placeholder:text-neutral-500 focus:z-[3] focus:border-primary focus:shadow-inset focus:outline-none motion-reduce:transition-none dark:border-white/10 dark:text-white dark:placeholder:text-neutral-200 dark:autofill:shadow-autofill dark:focus:border-primary"
+            class="lg:absolute p-2 border-2 border-black dark:border-white w-full md:w-[85vw] lg:w-[20vw] lg:bottom-[80px] lg:left-[55px] md:bottom-[] inline-block dark:text-white"
             placeholder="Bussiness E-Mail"
             aria-label="Bussiness E-Mail"
             aria-describedby="button-Subscribe"
           />
           <button
-            class="z-[2] inline-block rounded-e border-2 border-primary-100 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:border-primary-accent-200 hover:bg-secondary-50/50 focus:border-primary-accent-200 focus:bg-secondary-50/50 focus:outline-none focus:ring-0 active:border-primary-accent-200 dark:border-primary-400 dark:text-primary-300 dark:hover:bg-blue-950 dark:focus:bg-blue-950"
+            class="lg:absolute lg:bottom-[80px] lg:left-[400px] z-[2] inline-block border-2 border-primary-100 px-6 pb-[6px] pt-2 text-lg font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:border-primary-accent-200 hover:bg-secondary-50/50 focus:border-primary-accent-200 focus:bg-secondary-50/50 focus:outline-none focus:ring-0 active:border-primary-accent-200 dark:border-primary-400 dark:text-primary-300 dark:hover:bg-blue-950 dark:focus:bg-blue-950"
             data-twe-ripple-init
             type="button"
             id="button-Subscribe"
@@ -435,8 +639,8 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white dark:bg-gray-900">
-      <div class="w-full p-4 py-6 md:py-4">
+    <footer class="bg-white dark:bg-gray-900 dark:text-white">
+      <div class="w-full p-4 py-6 md:py-4 dark:bg-black dark:text-white">
         <div
           class="w-full flex flex-col md:grid md:grid-cols-3 md:justify-between lg:flex lg:flex-row lg:justify-between"
         >
@@ -447,8 +651,8 @@
               <div>
                 <a href="Index.html">
                   <img
-                    class="h-30 md:h-20 mb-4"
-                    src="Asset/LOGO PT/Logo-BKKA-Transparant.png"
+                    class="h-30 md:h-20 mb-4 mx-auto"
+                    src="Assets/Logo-PT/Logo-BKKA-Transparant.png"
                     alt="PT. BATUKARANG KENAN ABADI LOGO"
                   />
                 </a>
@@ -460,7 +664,7 @@
                   <a href="https://instagram.com">
                     <img
                       class="h-8 px-1"
-                      src="Asset/instagram.png"
+                      src="Assets/Index/instagram.webp"
                       alt="Instagram"
                     />
                   </a>
@@ -469,21 +673,32 @@
                   <a href="https://facebook.com">
                     <img
                       class="h-8 px-1"
-                      src="Asset/facebook.png"
+                      src="Assets/Index/facebook.webp"
                       alt="PT. Facebook"
                     />
                   </a>
                 </div>
                 <div>
                   <a href="https://X.com">
-                    <img class="h-8 px-1" src="Asset/twitter.png" alt="X" />
+                    <img
+                      class="h-8 px-1 dark:hidden"
+                      src="Assets/Index/twitter.webp"
+                      alt="X"
+                    />
+                  </a>
+                  <a href="https://X.com">
+                    <img
+                      class="h-8 px-1 hidden dark:block"
+                      src="Assets/Index/twitter2.webp"
+                      alt="X"
+                    />
                   </a>
                 </div>
                 <div>
                   <a href="https://youtube.com">
                     <img
                       class="h-8 px-1"
-                      src="Asset/youtube.png"
+                      src="Assets/Index/youtube.webp"
                       alt="Youtube"
                     />
                   </a>
@@ -492,7 +707,7 @@
                   <a href="https://linkedin.com">
                     <img
                       class="h-8 px-1"
-                      src="Asset/linkedin.png"
+                      src="Assets/Index/linkedin.webp"
                       alt="LinkedIn"
                     />
                   </a>
@@ -501,7 +716,7 @@
             </div>
 
             <!-- Company Copyright footer-->
-            <div>
+            <div class="dark:bg-black dark:text-white">
               <p class="text-[14px] mt-2 mx-4 text-center">
                 &copy; 2024. PT.BATUKARANG KENAN ABADI. All Rights Reserved.
               </p>
@@ -516,140 +731,105 @@
             </div>
           </div>
           <!-- Solutions footer-->
-          <div class="py-6 flex-col">
-            <a
-              href="Solutions/solution.html"
-              class="mb-2 font-bold hover:underline"
-            >
-              Solutions
-            </a>
-            <ul>
+          <div class="py-6 flex-col dark:bg-black dark:text-white">
+            <span class="mb-2 font-bold hover:underline"> Solutions </span>
+            <ul class="dark:bg-black dark:text-white">
               <li class="mt-4">
-                <a
-                  href="Solutions/IntegratedSmartSecuritySystem.html"
-                  class="hover:underline"
+                <a href="ISMS.html" class="hover:underline"
                   >Integrated Security Management System (ISMS)</a
                 >
               </li>
               <li>
-                <a href="Solutions/WeighinMotion.html" class="hover:underline"
+                <a href="WIM.html" class="hover:underline"
                   >Weigh In Motion (WIM)</a
                 >
               </li>
               <li>
-                <a
-                  href="Solutions/StructureHealthMonitoringSystem.html"
-                  class="hover:underline"
+                <a href="ISHMS.html" class="hover:underline"
                   >Structural Health Monitoring System (SHMS)</a
                 >
               </li>
               <li>
-                <a
-                  href="Solutions/Vehicle-Parking-Management-System.html"
-                  class="hover:underline"
+                <a href="VPMS.html" class="hover:underline"
                   >Vehicle Parking Management System (VPMS)</a
                 >
               </li>
             </ul>
           </div>
           <!-- Products footer-->
-          <div class="py-6 flex-col">
-            <a
-              class="mb-2 font-bold hover:underline"
-              href="Products/Products.html"
-              >Products</a
-            >
+          <div class="py-6 flex-col dark:bg-black dark:text-white">
+            <span class="mb-2 font-bold hover:underline">Products</span>
             <ul>
               <li class="mt-4">
-                <a class="hover:underline" href="Products/Monitoring.html"
-                  >Monitoring</a
-                >
+                <a class="hover:underline" href="Monitoring.html">Monitoring</a>
               </li>
               <li>
-                <a class="hover:underline" href="Products/Sensors.html"
-                  >Sensors</a
-                >
+                <a class="hover:underline" href="Sensors.html">Sensors</a>
               </li>
               <li>
-                <a class="hover:underline" href="Products/Access-Controls.html"
+                <a class="hover:underline" href="Access-Management.html"
                   >Access Control</a
                 >
               </li>
               <li>
-                <a
-                  class="hover:underline"
-                  href="Products/Parking-Management.html"
-                  >Parking Management</a
+                <a class="hover:underline" href="Parking-System.html"
+                  >Parking System</a
                 >
               </li>
-              <li>
-                <a class="hover:underline" href="Products/Data-Centers.html"
+              <!-- <li>
+                <a class="hover:underline" href="Data-Centers.html"
                   >Data Center</a
                 >
-              </li>
+              </li> -->
             </ul>
           </div>
           <!-- Markets footer-->
-          <div class="py-6 flex-col">
-            <a
-              class="mb-2 font-bold hover:underline"
-              href="Markets/Markets.html"
-              >Scenarios</a
-            >
+          <div class="py-6 flex-col dark:bg-black dark:text-white">
+            <span class="mb-2 font-bold hover:underline">Scenarios</span>
             <ul>
               <li class="mt-4">
-                <a class="hover:underline" href="Markets/Telecom.html"
-                  >Telecom</a
-                >
+                <a class="hover:underline" href="Telecom.html">Telecom</a>
               </li>
               <li>
-                <a class="hover:underline" href="Markets/Govermental.html"
-                  >Goverment</a
-                >
+                <a class="hover:underline" href="Govermental.html">Goverment</a>
               </li>
               <li>
-                <a class="hover:underline" href="Markets/Infrastructures.html"
+                <a class="hover:underline" href="Infrastructures.html"
                   >Infrastructures</a
                 >
               </li>
               <li>
-                <a class="hover:underline" href="Markets/Industrial Area.html"
+                <a class="hover:underline" href="Industrial-Area.html"
                   >Industrial Area</a
                 >
               </li>
               <li>
-                <a
-                  class="hover:underline"
-                  href="Markets/Commercial Buildings.html"
+                <a class="hover:underline" href="Commercial-Area.html"
                   >Commercial Building</a
                 >
               </li>
               <li>
-                <a class="hover:underline" href="Markets/Residential Area.html"
+                <a class="hover:underline" href="Residential-Area.html"
                   >Residential Area</a
                 >
               </li>
               <li>
-                <a
-                  class="hover:underline"
-                  href="Markets/Parking Area.html Area.html"
-                  >Parking Area</a
+                <a class="hover:underline" href="Parking-Management.html"
+                  >Parking Management</a
                 >
               </li>
-              <li>
-                <a class="hover:underline" href="Markets/Data Centers.html"
+              <!-- <li>
+                <a class="hover:underline" href="Data-Centers.html"
                   >Data Center</a
                 >
-              </li>
+              </li> -->
             </ul>
           </div>
-          <div class="py-6 flex-col">
+          <div class="py-6 flex-col dark:bg-black dark:text-white">
             <span class="mb-2 font-bold">Partners</span>
             <ul>
               <li class="my-4">
-                <a
-                  class="hover:underline"
-                  href="Become Our Partner/become-a-partner.html"
+                <a class="hover:underline" href="become-a-partner.html"
                   >Become our Partner</a
                 >
               </li>
@@ -658,20 +838,16 @@
             <span class="my-2 font-bold">About Us</span>
             <ul>
               <li class="mt-4">
-                <a class="hover:underline" href="About Us/company.html"
+                <a class="hover:underline" href="company-profile.html"
                   >Company Profile</a
                 >
               </li>
               <li>
-                <a class="hover:underline" href="About Us/Joinus.html"
-                  >Join Us</a
-                >
+                <a class="hover:underline" href="Joinus.html">Join Us</a>
               </li>
             </ul>
-            <div class="flex flex-col">
-              <a
-                class="mt-2 font-bold hover:underline"
-                href="Contact Us/contactus.html"
+            <div class="flex flex-col dark:bg-black dark:text-white">
+              <a class="mt-2 font-bold hover:underline" href="Contactus.html"
                 >Contact Us</a
               >
             </div>
@@ -679,6 +855,57 @@
         </div>
       </div>
     </footer>
+    <script src="Index_New.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/js/tw-elements.umd.min.js"></script>
+
+    <!-- Darkmode Script -->
+    <script>
+      var themeToggleDarkIcon = document.getElementById(
+        "theme-toggle-dark-icon"
+      );
+      var themeToggleLightIcon = document.getElementById(
+        "theme-toggle-light-icon"
+      );
+
+      // Change the icons inside the button based on previous settings
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        themeToggleLightIcon.classList.remove("hidden");
+      } else {
+        themeToggleDarkIcon.classList.remove("hidden");
+      }
+
+      var themeToggleBtn = document.getElementById("theme-toggle");
+
+      themeToggleBtn.addEventListener("click", function () {
+        // toggle icons inside button
+        themeToggleDarkIcon.classList.toggle("hidden");
+        themeToggleLightIcon.classList.toggle("hidden");
+
+        // if set via local storage previously
+        if (localStorage.getItem("color-theme")) {
+          if (localStorage.getItem("color-theme") === "light") {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("color-theme", "dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("color-theme", "light");
+          }
+
+          // if NOT set via local storage previously
+        } else {
+          if (document.documentElement.classList.contains("dark")) {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("color-theme", "light");
+          } else {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("color-theme", "dark");
+          }
+        }
+      });
+    </script>
   </body>
 </html>

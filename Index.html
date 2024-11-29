@@ -74,7 +74,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="NewCSS.css" />
     <link rel="stylesheet" href="navbar-css-trial.css" />
     <link rel="icon" href="Assets/Logo-PT/logoicon.ico" />
     <title>PT.BKKA.CO.ID</title>
@@ -149,7 +148,7 @@
                   A fake / hidden checkbox is used as click reciever,
                   so you can use the :checked selector on it.
                   -->
-                <input type="checkbox" />
+                <input type="checkbox" aria-label="checkbox" />
 
                 <!--
                   Some spans to act as a hamburger.
@@ -258,11 +257,11 @@
                             >Parking Management</a
                           >
                         </li>
-                        <!-- <li>
+                        <li>
                           <a class="mx-8 text-xl" href="Data-Centers.html"
                             >Data Centers</a
                           >
-                        </li> -->
+                        </li>
                       </ul>
                     </div>
                   </li>
@@ -389,7 +388,7 @@
                     class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
                     href="ISMS.html"
                     data-twe-dropdown-item-ref
-                    >Integrated Smart Security System</a
+                    >Integrated Security Management System</a
                   >
                 </li>
                 <li>
@@ -397,7 +396,7 @@
                     class="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
                     href="WIM.html"
                     data-twe-dropdown-item-ref
-                    >Weigh In Motion</a
+                    >Weigh In Motion System</a
                   >
                 </li>
                 <li>
@@ -595,27 +594,42 @@
     </section>
 
     <!-- Hero -->
-    <div class="w-full">
+    <section class="w-full">
       <div class="relative mt-16">
         <img
           src="Assets/Index/HERO HP CAROUSEL 1 OPTION 2.webp"
           alt="man pressing Solution"
         />
       </div>
-    </div>
+    </section>
+
+    <!-- Opering -->
+    <section class="bg-white dark:bg-black">
+      <div>
+        <h1
+          class="text-black dark:text-white text-center font-extrabold text-2xl md:text-4xl lg:text-5xl mx-4 my-8"
+        >
+          PT. BATUKARANG KENAN ABADI
+        </h1>
+
+        <p class="text-black dark:text-white mx-4">
+          Need Opening paragraphs here.
+        </p>
+      </div>
+    </section>
 
     <!-- solution -->
-    <div
-      class="w-full mx-auto px-4 bg-white text-black dark:bg-black dark:text-white"
+    <section
+      class="w-full mx-auto bg-white text-black dark:bg-black dark:text-white"
     >
-      <section>
+      <div class="w-full">
         <h2
-          class="my-8 text-4xl font-extrabold pb-8 pt-4 pl-2 shadow-lg uppercase"
+          class="text-black dark:text-white my-8 text-xl md:text-2xl lg:text-4xl font-extrabold py-8 px-4 shadow-lg uppercase"
         >
           solution
         </h2>
-        <ul class="grid md:grid-cols-2 gap-4">
-          <li class="lg:flex-row shadow-lg mb-8 rounded-lg overflow-hidden">
+        <ul class="px-4 grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <li class="shadow-lg mb-8 rounded-lg overflow-hidden">
             <div>
               <img
                 src="Assets/Index/HP ISMS.webp"
@@ -733,131 +747,153 @@
             </div>
           </li>
         </ul>
-      </section>
-    </div>
+      </div>
+    </section>
 
     <!-- Products -->
     <!--Tabs navigation-->
-    <section class="w-full md:grid md:grid-cols-3 lg:grid-cols-5 gap-4">
-      <div id="monitoring" class="tabcontent text-black dark:text-white">
-        <div class="mx-auto px-4">
-          <img
-            class="object-fill"
-            src="Assets/Index/HP PRODUCT MONITORING.webp"
-            alt="CCTV camera active monitoring"
-          />
-        </div>
-        <div class="px-4 dark:bg-black dark:text-white">
-          <h3 class="text-lg md:text-2xl font-bold mb-4">Monitoring</h3>
-          <p class="text-sm mb-4">
-            Streamlined your operations with integration of IoT devices and AI
-            at its core. More productivity, higher efficientcy with less effort.
-          </p>
-          <a
-            href="Monitoring.html"
-            class="text-blue-500 hover:text-white hover:bg-blue-600 active:bg-blue-700"
-            >Explore</a
-          >
-          <i class="fa-solid fa-arrow-right-long text-blue-500"></i>
-        </div>
-      </div>
-
-      <div id="sensors" class="tabcontent text-black dark:text-white">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6">
-          <!--Container-->
-          <img
-            src="Assets/Index/HP PRODUC SENSORS.webp"
-            alt="Moving truck are weighed on the road"
-          />
-        </div>
-        <div class="px-6 dark:bg-black dark:text-white">
-          <h3 class="text-lg md:text-2xl font-bold mb-4">Sensors</h3>
-          <p class="text-sm mb-4">
-            Streamlined your operations with integration of IoT devices and AI
-            at its core. More productivity, higher efficientcy with less effort.
-          </p>
-          <a
-            href="Sensors.html"
-            class="text-blue-500 hover:text-white hover:bg-blue-600 active:bg-blue-700"
-            >Explore</a
-          >
-          <i class="fa-solid fa-arrow-right-long text-blue-500"></i>
-        </div>
-      </div>
-
-      <div id="access management" class="tabcontent text-black dark:text-white">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6">
-          <img
-            src="Assets/Index/HP PRODUCT ACCESS MGMT.webp"
-            alt="a regular man scanning face for door access"
-          />
-        </div>
-        <div class="px-6 dark:bg-black dark:text-white">
-          <h3 class="text-lg md:text-2xl font-bold mb-4">Access Management</h3>
-          <p class="text-sm mb-4">
-            Streamlined your operations with integration of IoT devices and AI
-            at its core. More productivity, higher efficientcy with less effort.
-          </p>
-          <a
-            href="Access-Management.html"
-            class="text-blue-500 hover:text-white hover:bg-blue-600 active:bg-blue-700"
-            >Explore</a
-          >
-          <i class="fa-solid fa-arrow-right-long text-blue-500"></i>
-        </div>
-      </div>
-
-      <div
-        id="parking management"
-        class="tabcontent text-black dark:text-white"
+    <section class="w-full">
+      <h2
+        class="text-black dark:text-white my-8 text-xl md:text-2xl lg:text-4xl font-extrabold py-8 px-4 shadow-lg uppercase"
       >
-        <div class="max-w-3xl mx-auto px-4 sm:px-6">
-          <img
-            src="Assets/Index/HP PRODUCT PARKING MGMT.webp"
-            alt="Showing a parking area, remotely monitored by system and connected to mobile phone and security room"
-          />
+        Products
+      </h2>
+      <div class="md:grid md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div id="monitoring" class="tabcontent text-black dark:text-white">
+          <div class="mx-auto px-4">
+            <img
+              class="object-fill"
+              src="Assets/Index/HP PRODUCT MONITORING.webp"
+              alt="CCTV camera active monitoring"
+            />
+          </div>
+          <div class="px-4 dark:bg-black dark:text-white">
+            <h3 class="text-lg md:text-2xl font-bold mb-4">Monitoring</h3>
+            <p class="text-sm mb-4">
+              Streamlined your operations with integration of IoT devices and AI
+              at its core. More productivity, higher efficientcy with less
+              effort.
+            </p>
+            <a
+              href="Monitoring.html"
+              class="text-blue-500 hover:text-white hover:bg-blue-600 active:bg-blue-700"
+              >Explore</a
+            >
+            <i class="fa-solid fa-arrow-right-long text-blue-500"></i>
+          </div>
         </div>
-        <div class="px-6 dark:bg-black dark:text-white">
-          <h3 class="text-lg md:text-2xl font-bold mb-4">Parking System</h3>
-          <p class="text-sm mb-4">
-            Streamlined your operations with integration of IoT devices and AI
-            at its core. More productivity, higher efficientcy with less effort.
-          </p>
-          <a
-            href="Parking-System.html"
-            class="text-blue-500 hover:text-white hover:bg-blue-600 active:bg-blue-700"
-            >Explore</a
-          >
-          <i class="fa-solid fa-arrow-right-long text-blue-500"></i>
-        </div>
-      </div>
 
-      <div id="data centers" class="tabcontent text-black dark:text-white">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6">
-          <img
-            src="Assets/Index/HP PRODUCT DATA CENTER.webp"
-            alt="server racks are lined up orderly"
-          />
+        <div id="sensors" class="tabcontent text-black dark:text-white">
+          <div class="max-w-3xl mx-auto px-4 sm:px-6">
+            <!--Container-->
+            <img
+              src="Assets/Index/HP PRODUC SENSORS.webp"
+              alt="Moving truck are weighed on the road"
+            />
+          </div>
+          <div class="px-6 dark:bg-black dark:text-white">
+            <h3 class="text-lg md:text-2xl font-bold mb-4">Sensors</h3>
+            <p class="text-sm mb-4">
+              Streamlined your operations with integration of IoT devices and AI
+              at its core. More productivity, higher efficientcy with less
+              effort.
+            </p>
+            <a
+              href="Sensors.html"
+              class="text-blue-500 hover:text-white hover:bg-blue-600 active:bg-blue-700"
+              >Explore</a
+            >
+            <i class="fa-solid fa-arrow-right-long text-blue-500"></i>
+          </div>
         </div>
-        <div class="px-6 dark:bg-black dark:text-white">
-          <h3 class="text-lg md:text-2xl font-bold mb-4">Data Center</h3>
-          <p class="text-sm mb-4">
-            Streamlined your operations with integration of IoT devices and AI
-            at its core. More productivity, higher efficientcy with less effort.
-          </p>
-          <a
-            href="Data-Centers.html"
-            class="text-blue-500 hover:text-white hover:bg-blue-600 active:bg-blue-700"
-            >Explore</a
-          >
-          <i class="fa-solid fa-arrow-right-long text-blue-500"></i>
+
+        <div
+          id="access management"
+          class="tabcontent text-black dark:text-white"
+        >
+          <div class="max-w-3xl mx-auto px-4 sm:px-6">
+            <img
+              src="Assets/Index/HP PRODUCT ACCESS MGMT.webp"
+              alt="a regular man scanning face for door access"
+            />
+          </div>
+          <div class="px-6 dark:bg-black dark:text-white">
+            <h3 class="text-lg md:text-2xl font-bold mb-4">
+              Access Management
+            </h3>
+            <p class="text-sm mb-4">
+              Streamlined your operations with integration of IoT devices and AI
+              at its core. More productivity, higher efficientcy with less
+              effort.
+            </p>
+            <a
+              href="Access-Management.html"
+              class="text-blue-500 hover:text-white hover:bg-blue-600 active:bg-blue-700"
+              >Explore</a
+            >
+            <i class="fa-solid fa-arrow-right-long text-blue-500"></i>
+          </div>
+        </div>
+
+        <div
+          id="parking management"
+          class="tabcontent text-black dark:text-white"
+        >
+          <div class="max-w-3xl mx-auto px-4 sm:px-6">
+            <img
+              src="Assets/Index/HP PRODUCT PARKING MGMT.webp"
+              alt="Showing a parking area, remotely monitored by system and connected to mobile phone and security room"
+            />
+          </div>
+          <div class="px-6 dark:bg-black dark:text-white">
+            <h3 class="text-lg md:text-2xl font-bold mb-4">Parking System</h3>
+            <p class="text-sm mb-4">
+              Streamlined your operations with integration of IoT devices and AI
+              at its core. More productivity, higher efficientcy with less
+              effort.
+            </p>
+            <a
+              href="Parking-System.html"
+              class="text-blue-500 hover:text-white hover:bg-blue-600 active:bg-blue-700"
+              >Explore</a
+            >
+            <i class="fa-solid fa-arrow-right-long text-blue-500"></i>
+          </div>
+        </div>
+
+        <div id="data centers" class="tabcontent text-black dark:text-white">
+          <div class="max-w-3xl mx-auto px-4 sm:px-6">
+            <img
+              src="Assets/Index/HP PRODUCT DATA CENTER.webp"
+              alt="server racks are lined up orderly"
+            />
+          </div>
+          <div class="px-6 dark:bg-black dark:text-white">
+            <h3 class="text-lg md:text-2xl font-bold mb-4">Data Center</h3>
+            <p class="text-sm mb-4">
+              Streamlined your operations with integration of IoT devices and AI
+              at its core. More productivity, higher efficientcy with less
+              effort.
+            </p>
+            <a
+              href="Data-Centers.html"
+              class="text-blue-500 hover:text-white hover:bg-blue-600 active:bg-blue-700"
+              >Explore</a
+            >
+            <i class="fa-solid fa-arrow-right-long text-blue-500"></i>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Markets -->
-    <div class="mx-auto w-full md:w-1/2 my-8">
-      <section>
+    <section class="mx-auto my-8">
+      <h2
+        class="text-black dark:text-white my-8 text-xl md:text-2xl lg:text-4xl font-extrabold py-8 px-4 shadow-lg uppercase"
+      >
+        Markets
+      </h2>
+      <div class="flex justify-center">
         <div
           id="carouselIndicators"
           class="relative"
@@ -941,7 +977,7 @@
             >
               <img
                 src="Assets/Index/HP-market-carousel/HP MARKET TELECOM.webp"
-                class="block w-full"
+                class="block max-h-[40vh]"
                 alt="Telecom Tower"
               />
             </div>
@@ -953,7 +989,7 @@
             >
               <img
                 src="Assets/Index/HP-market-carousel/HP MARKET GOVT OFFICE.webp"
-                class="block w-full"
+                class="block max-h-[40vh]"
                 alt="Goverment Buildings"
               />
             </div>
@@ -964,7 +1000,7 @@
             >
               <img
                 src="Assets/Index/HP-market-carousel/HP - INFRA BRIDGES.webp"
-                class="block w-full"
+                class="block max-h-[40vh]"
                 alt="Infrastructures"
               />
             </div>
@@ -975,7 +1011,7 @@
             >
               <img
                 src="Assets/Index/HP-market-carousel/HP MARKET INDUSTRIAL.webp"
-                class="block w-full"
+                class="block max-h-[40vh]"
                 alt="Industrial Area"
               />
             </div>
@@ -986,7 +1022,7 @@
             >
               <img
                 src="Assets/Index/HP-market-carousel/HP MARKET COMMERCIAL.webp"
-                class="block w-full"
+                class="block max-h-[40vh]"
                 alt="Commercial Buildings"
               />
             </div>
@@ -997,7 +1033,7 @@
             >
               <img
                 src="Assets/Index/HP-market-carousel/HP MARKET RESIDENTIAL.webp"
-                class="block w-full"
+                class="block max-h-[40vh]"
                 alt="Residential Buildings"
               />
             </div>
@@ -1082,13 +1118,13 @@
             >
           </button>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
 
     <!-- Encouragement -->
     <section class="mx-auto my-8">
       <img
-        class="w-full md:h-[40vh]"
+        class="w-full md:max-h-[40vh]"
         src="Assets/Index/encourage 1.png"
         alt="THEY TRUST PT. BATUKARANG KENAN ABADI"
       />
@@ -1341,7 +1377,6 @@
         </div>
       </div>
     </footer>
-    <script src="Index_New.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tw-elements/js/tw-elements.umd.min.js"></script>
 
     <!-- Darkmode Script -->

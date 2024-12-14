@@ -33,14 +33,67 @@
       crossorigin="anonymous"
     ></script>
     <style>
-      #projects-carousel-inner {
+      <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Navbar</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com/3.3.0"></script>
+    <style>
+      .hamburger {
         display: flex;
-        gap: 2vw; /* Adds space between images */
+        cursor: pointer;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        width: 40px;
+        border: none;
+        background: transparent;
       }
 
-      .projects-carousel-image {
-        flex-shrink: 0;
-        width: 30vw;
+      .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: black;
+        margin: 4px 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      #nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+      }
+
+      #nav-links.active {
+        display: flex;
+      }
+
+      @media (min-width: 768px) {
+        #nav-links {
+          display: none;
+        }
       }
     </style>
   </head>
@@ -64,7 +117,10 @@
           </div>
 
           <!-- Navigation Menu -->
-          <div id="menu" class="flex justify-between items-center p-5">
+          <div
+            id="menu"
+            class="hidden md:block flex justify-between items-center p-5"
+          >
             <!-- Menu Links -->
             <div
               id="menu-links"
@@ -252,7 +308,7 @@
               <img
                 src="/Assets/Index/HERO HP CAROUSEL 2 OPTION 6.webp"
                 alt="PT. Batukarang Kenan Abadi Hero Image 1"
-                class="w-full mt-[10vh] object-cover"
+                class="h-[50vh] lg:h-full w-full mt-[10vh] object-cover"
               />
             </div>
             <div

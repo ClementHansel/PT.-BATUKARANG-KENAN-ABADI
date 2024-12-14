@@ -1,3 +1,12 @@
+// Hamburger Menu
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("nav-links");
+
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+  hamburger.classList.toggle("active");
+});
+
 // Hero
 // JavaScript for controlling the carousel functionality
 let currentIndex = 0; // Keeps track of the current image index

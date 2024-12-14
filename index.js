@@ -241,113 +241,51 @@ const achievementSection = document.getElementById("achievement-counter");
 observer.observe(achievementSection);
 
 // Projects
-document.addEventListener("DOMContentLoaded", function () {
-  let currentIndex = 1; // Start at the first actual image (not the clone)
-  const projectsCarouselInner = document.querySelector(
-    "#projects-carousel-inner"
-  );
-  const projectsImages = document.querySelectorAll(".projects-carousel-image");
-  const totalImages = projectsImages.length;
+const projectsCarouselInner = document.getElementById(
+  "projects-carousel-inner"
+);
+const projectsNextButton = document.getElementById("projects-next-button");
+const projectsPrevButton = document.getElementById("projects-prev-button");
+const projectsImages = document.querySelectorAll(".projects-carousel-image");
 
-  const imageWidth = 30; // Each image is 30vw wide
-  const gap = 2; // Gap between images in vw
-  let autoplayInterval;
+let projectsCurrentIndex = 0;
+const projectsTotalImages = projectsImages.length;
 
-  // Clone the first and last images
-  const firstClone = projectsImages[0].cloneNode(true);
-  const lastClone = projectsImages[totalImages - 1].cloneNode(true);
+function projectsUpdateCarousel() {
+  const offset = -(projectsCurrentIndex * 100); // Calculate offset in percentage
+  projectsCarouselInner.style.transform = `translateX(${offset}%)`;
+}
 
-  // Add clones to the DOM
-  projectsCarouselInner.appendChild(firstClone); // Append first image clone to the end
-  projectsCarouselInner.insertBefore(lastClone, projectsImages[0]); // Prepend last image clone to the start
-
-  const allImages = document.querySelectorAll(".projects-carousel-image");
-  const totalImagesWithClones = allImages.length;
-
-  // Set the width of the carousel inner dynamically
-  function setCarouselWidth() {
-    const totalWidth = (imageWidth + gap) * totalImagesWithClones - gap; // Includes original images, clones, and gaps
-    projectsCarouselInner.style.width = `${totalWidth}vw`;
+function projectsNextSlide() {
+  projectsCurrentIndex++;
+  if (projectsCurrentIndex >= projectsTotalImages - 1) {
+    setTimeout(() => {
+      projectsCarouselInner.classList.remove("transition-transform");
+      projectsCurrentIndex = 0;
+      projectsUpdateCarousel();
+    }, 700); // Match transition duration
   }
+  projectsUpdateCarousel();
+  projectsCarouselInner.classList.add("transition-transform");
+}
 
-  // Calculate the offset for centering the active image
-  function calculateOffset(index) {
-    const viewportCenter = 50; // Center of the viewport is 50vw
-    const imageCenter = imageWidth / 2; // Half the width of one image
-    const totalGapOffset = gap * index; // Cumulative gap offsets
-    return viewportCenter - index * imageWidth - totalGapOffset - imageCenter; // Offset to center the active image
+function projectsPrevSlide() {
+  if (projectsCurrentIndex <= 0) {
+    projectsCurrentIndex = projectsTotalImages - 2;
+    projectsCarouselInner.classList.remove("transition-transform");
+    projectsUpdateCarousel();
   }
+  setTimeout(() => {
+    projectsCarouselInner.classList.add("transition-transform");
+    projectsCurrentIndex--;
+    projectsUpdateCarousel();
+  }, 0);
+}
 
-  // Update the carousel's position
-  function updateCarousel(isJump = false) {
-    const offset = calculateOffset(currentIndex); // Calculate the offset to center the image
-    if (isJump) {
-      projectsCarouselInner.style.transition = "none"; // Disable animation for jumps
-    } else {
-      projectsCarouselInner.style.transition = "transform 0.5s ease-in-out"; // Enable smooth animation
-    }
-    projectsCarouselInner.style.transform = `translateX(${offset}vw)`;
-  }
+projectsNextButton.addEventListener("click", projectsNextSlide);
+projectsPrevButton.addEventListener("click", projectsPrevSlide);
 
-  // Move to the next image
-  function moveToNextImage() {
-    currentIndex++;
-    updateCarousel();
-
-    // Check if we need to jump back to the first original image
-    if (currentIndex === totalImagesWithClones - 1) {
-      setTimeout(() => {
-        currentIndex = 1; // Jump to the first original image
-        updateCarousel(true); // Instant transition
-      }, 500); // Wait for the animation to complete
-    }
-  }
-
-  // Move to the previous image
-  function moveToPrevImage() {
-    currentIndex--;
-    updateCarousel();
-
-    // Check if we need to jump to the last original image
-    if (currentIndex === 0) {
-      setTimeout(() => {
-        currentIndex = totalImages; // Jump to the last original image
-        updateCarousel(true); // Instant transition
-      }, 500); // Wait for the animation to complete
-    }
-  }
-
-  // Start autoplay
-  function startAutoplay() {
-    autoplayInterval = setInterval(moveToNextImage, 3000); // Slide every 3 seconds
-  }
-
-  // Reset autoplay when user interacts
-  function resetAutoplay() {
-    clearInterval(autoplayInterval);
-    startAutoplay();
-  }
-
-  // Attach event listeners to navigation buttons
-  document
-    .getElementById("projects-nextBtn")
-    .addEventListener("click", function () {
-      moveToNextImage();
-      resetAutoplay();
-    });
-
-  document
-    .getElementById("projects-prevBtn")
-    .addEventListener("click", function () {
-      moveToPrevImage();
-      resetAutoplay();
-    });
-
-  // Initialize the carousel
-  setCarouselWidth(); // Set the carousel's total width
-  updateCarousel(true); // Start at the first actual image
-  startAutoplay(); // Start autoplay
-});
+setInterval(projectsNextSlide, 3000); // Auto-slide every 3 seconds
 
 // Contacts Section
 document.addEventListener("DOMContentLoaded", function () {

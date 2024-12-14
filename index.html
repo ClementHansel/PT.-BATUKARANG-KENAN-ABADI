@@ -96,14 +96,14 @@
       <nav>
         <div
           id="nav-container"
-          class="w-full bg-white fixed top-0 flex flex-row justify-around z-10 shadow-md"
+          class="w-full bg-white fixed top-0 flex flex-row justify-between z-20"
         >
           <!-- Logo -->
-          <div id="logo-container" class="my-4">
+          <div id="logo-container" class="my-4 ml-8 lg:mx-20">
             <a href="/index.html">
               <img
                 id="logo-image"
-                class="w-[30vw] md:w-[20vw] lg:w-[10vw] grid justify-center"
+                class="w-[30vw] md:w-[20vw] lg:w-[10vw] flex justify-center"
                 src="/Assets/Index/Logo-PT/Logo-BKKA-Transparant.png"
                 alt="PT. Batukarang Kenan Abadi Logo"
               />
@@ -132,15 +132,15 @@
           <!-- Navigation Menu -->
           <div
             id="menu"
-            class="hidden md:block flex justify-between content-center py-5"
+            class="hidden md:block flex content-center mr-8 lg:mx-20 py-5"
           >
             <!-- Menu Links -->
             <div
               id="menu-links"
-              class="hidden md:flex justify-between text-center content-center text-black lg:text-xl font-semibold lg:gap-8 text-sm gap-4 font-semibold"
+              class="hidden md:flex justify-between text-center content-center text-black text-sm lg:text-xl font-semibold lg:gap-8 gap-4 font-semibold"
             >
               <!-- Solutions Dropdown -->
-              <div class="relative group md:text-base lg:text-lg text-left">
+              <div class="relative group md:text-base lg:text-xl text-left">
                 <div class="flex items-center cursor-pointer space-x-2">
                   <a class="hover:text-blue-900" href="#solutions">Solutions</a>
                   <i
@@ -185,7 +185,7 @@
               </div>
 
               <!-- Products Dropdown -->
-              <div class="relative group md:text-base lg:text-lg text-left">
+              <div class="relative group md:text-base lg:text-xl text-left">
                 <div class="flex items-center cursor-pointer space-x-2">
                   <a class="hover:text-blue-900" href="#products">Products</a>
                   <i
@@ -194,7 +194,7 @@
                 </div>
                 <!-- Dropdown Menu -->
                 <div
-                  class="absolute left-0 hidden group-hover:block bg-white shadow-lg py-4 w-[300px] rounded-md"
+                  class="absolute left-0 hidden group-hover:block bg-white shadow-lg md:text-base lg:text-lg py-4 w-[300px] rounded-md"
                 >
                   <a
                     class="block px-4 py-2 hover:bg-gray-100 hover:text-blue-900"
@@ -230,7 +230,7 @@
               </div>
 
               <!-- Supports Dropdown -->
-              <div class="relative group md:text-base lg:text-lg text-left">
+              <div class="relative group md:text-base lg:text-xl text-left">
                 <div class="flex items-center cursor-pointer space-x-2">
                   <a class="hover:text-blue-900">Supports</a>
                   <i
@@ -239,7 +239,7 @@
                 </div>
                 <!-- Dropdown Menu -->
                 <div
-                  class="absolute left-0 hidden group-hover:block bg-white shadow-lg py-4 w-[300px] rounded-md"
+                  class="absolute left-0 hidden group-hover:block bg-white shadow-lg md:text-base lg:text-lg py-4 w-[300px] rounded-md"
                 >
                   <a
                     class="block px-4 py-2 hover:bg-gray-100 hover:text-blue-900"
@@ -263,7 +263,7 @@
               </div>
 
               <!-- About Us Dropdown -->
-              <div class="relative group md:text-base lg:text-lg text-left">
+              <div class="relative group md:text-base lg:text-xl text-left">
                 <div class="flex items-center cursor-pointer space-x-2">
                   <a class="hover:text-blue-900">About Us</a>
                   <i
@@ -272,7 +272,7 @@
                 </div>
                 <!-- Dropdown Menu -->
                 <div
-                  class="absolute left-0 hidden group-hover:block bg-white shadow-lg py-4 w-[300px] rounded-md"
+                  class="absolute left-0 hidden group-hover:block bg-white shadow-lg md:text-base lg:text-lg py-4 w-[300px] rounded-md"
                 >
                   <a
                     class="block px-4 py-2 hover:bg-gray-100 hover:text-blue-900"
@@ -311,51 +311,64 @@
           >
             <div
               id="hero-carousel-images"
-              class="flex transition-transform duration-500"
+              class="flex transition-transform duration-500 mt-[10vh] md:mt-[10vh] lg:mt-[13vh]"
             >
               <img
                 src="/Assets/Index/HERO HP CAROUSEL 1 OPTION 2.webp"
                 alt="PT. Batukarang Kenan Abadi Hero Image 1"
-                class="h-[50vh] lg:h-full w-full mt-[10vh] object-cover"
+                class="h-[30vh] md:h-[40vh] lg:h-full w-full sm:object-fill md:object-fill lg:object-fill"
               />
               <img
                 src="/Assets/Index/HERO HP CAROUSEL 2 OPTION 6.webp"
-                alt="PT. Batukarang Kenan Abadi Hero Image 1"
-                class="h-[50vh] lg:h-full w-full mt-[10vh] object-cover"
+                alt="PT. Batukarang Kenan Abadi Hero Image 2"
+                class="h-[30vh] md:h-[40vh] lg:h-full w-full sm:object-fill md:object-fill lg:object-fill"
               />
             </div>
+
+            <!-- Navigation Buttons -->
             <div
-              id="hero-content"
-              class="text-white font-bold absolute lg:bottom-[15vh] md: bottom-[9vh] flex flex-col content-center w-full"
+              id="carousel-controls"
+              class="absolute inset-x-4 sm:inset-x-8 top-[35vh] md:top-[30vh] lg:top-[50vh] flex -translate-y-1/2 transform justify-between z-10"
             >
-              <div id="hero-button-container">
-                <button
-                  type="button"
-                  id="hero-button"
-                  class="flex justify-self-center text-[10px] md:text-sm lg:text-base md:justify-self-start md:ml-[15vw] rounded-lg border-2 shadow-sm shadow-white bg-neutral-800 p-4 hover:bg-white hover:text-black hover:font-bold"
-                >
-                  Get your free Consultation
-                </button>
-              </div>
+              <button
+                type="button"
+                id="heroPreviousButton"
+                class="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-white hover:text-black bg-black/50 hover:bg-white rounded-full transition-all duration-300 shadow-lg"
+              >
+                <span class="text-xl sm:text-2xl">&#10094;</span>
+              </button>
+              <button
+                type="button"
+                id="heroNextButton"
+                class="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-white hover:text-black bg-black/50 hover:bg-white rounded-full transition-all duration-300 shadow-lg"
+              >
+                <span class="text-xl sm:text-2xl">&#10095;</span>
+              </button>
             </div>
           </div>
-          <div
-            id="carousel-controls"
-            class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between"
+        </div>
+
+        <!-- Hero Content/Button -->
+        <div class="mx-4 md-[8vh] lg:mt-[10vh]">
+          <h1
+            class="text-lg md:text-4xl lg:text-5xl font-bold text-center mx-4 my-8"
           >
+            Welcome to PT. Batukarang Kenan Abadi
+          </h1>
+          <p
+            class="text-base md:text-2xl lg:text-xl text-black text-center mx-auto my-8 lg:w-2/3"
+          >
+            PT. Batukarang Kenan Abadi is a leader in IoT solutions, empowering
+            businesses with innovative technology and Artificial Intelligent to
+            enhance efficiency, productivity, and data-driven decision-making.
+          </p>
+          <div id="hero-button-container" class="flex justify-center mt-4">
             <button
               type="button"
-              id="heroPreviousButton"
-              class="absolute left-0 top-1/2 transform -translate-y-1/2 text-white hover:text-black bg-black hover:bg-white bg-opacity-50 px-3 py-1 rounded-full z-10"
+              id="hero-button"
+              class="text-sm md:text-xl text-white bg-blue-600 hover:bg-blue-700 py-2 px-4 rounded-md transition duration-300 ease-in-out"
             >
-              &#10094;
-            </button>
-            <button
-              type="button"
-              id="heroNextButton"
-              class="absolute right-0 top-1/2 transform -translate-y-1/2 text-white hover:text-black bg-black hover:bg-white bg-opacity-50 px-3 py-1 rounded-full z-10"
-            >
-              &#10095;
+              Get your free Consultation
             </button>
           </div>
         </div>
@@ -389,7 +402,7 @@
             <!-- Thumbnails Container Below Main Image -->
             <div
               id="solutions-thumbnails"
-              class="flex justify-center gap-4 mt-4"
+              class="flex justify-center gap-4 mt-4 overflow-x-auto lg:overflow-x-hidden"
             >
               <img
                 src="Assets/Index/HP ISMS.webp"
@@ -806,60 +819,75 @@
       </section>
 
       <section id="projects" class="mx-12 my-[15vh] bg-white">
-        <div id="projects-container">
+        <div id="projects-container" class="w-full mx-auto">
           <h2 class="text-5xl font-semibold text-center mb-[8vh]">Projects</h2>
           <!-- Full Bleed Carousel Container -->
-          <div id="projects-carousel" class="relative h-[40vh] overflow-hidden">
+          <div
+            id="projects-carousel"
+            class="relative w-full lg:h-[60vh] overflow-hidden lg:w-2/3 lg:mx-auto"
+          >
             <!-- Carousel Images -->
             <div
               id="projects-carousel-inner"
-              class="projects-carousel-inner flex transform transition-transform duration-500 ease-in-out"
+              class="flex transition-transform duration-700 ease-in-out"
             >
+              <!-- Duplicate images for infinite effect -->
               <img
                 src="/Assets/Index/HP-market-carousel/HP MARKET TELECOM.webp"
                 alt="Image 1"
-                class="projects-carousel-image h-[40vh]"
+                class="projects-carousel-image lg:h-[60vh] w-full flex-shrink-0"
               />
               <img
                 src="/Assets/Index/HP-market-carousel/HP MARKET GOVT OFFICE.webp"
                 alt="Image 2"
-                class="projects-carousel-image h-[40vh]"
+                class="projects-carousel-image lg:h-[60vh] w-full flex-shrink-0"
               />
               <img
                 src="/Assets/Index/HP-market-carousel/HP - INFRA BRIDGES.webp"
                 alt="Image 3"
-                class="projects-carousel-image h-[40vh]"
+                class="projects-carousel-image lg:h-[60vh] w-full flex-shrink-0"
               />
               <img
                 src="/Assets/Index/HP-market-carousel/HP MARKET INDUSTRIAL.webp"
                 alt="Image 4"
-                class="projects-carousel-image h-[40vh]"
+                class="projects-carousel-image lg:h-[60vh] w-full flex-shrink-0"
               />
               <img
                 src="/Assets/Index/HP-market-carousel/HP MARKET COMMERCIAL.webp"
                 alt="Image 5"
-                class="projects-carousel-image h-[40vh]"
+                class="projects-carousel-image lg:h-[60vh] w-full flex-shrink-0"
               />
               <img
                 src="/Assets/Index/HP-market-carousel/HP MARKET RESIDENTIAL.webp"
                 alt="Image 6"
-                class="projects-carousel-image h-[40vh]"
+                class="projects-carousel-image lg:h-[60vh] w-full flex-shrink-0"
               />
               <img
                 src="/Assets/Index/HP-market-carousel/HP MARKET PARKING AREA.webp"
                 alt="Image 7"
-                class="projects-carousel-image h-[40vh]"
+                class="projects-carousel-image lg:h-[60vh] w-full flex-shrink-0"
               />
               <img
                 src="/Assets/Index/HP-market-carousel/HP MARKET DATA CENTER.webp"
                 alt="Image 8"
-                class="projects-carousel-image h-[40vh]"
+                class="projects-carousel-image lg:h-[60vh] w-full flex-shrink-0"
+              />
+              <!-- Duplicate start for infinite looping -->
+              <img
+                src="/Assets/Index/HP-market-carousel/HP MARKET TELECOM.webp"
+                alt="Image 1"
+                class="projects-carousel-image lg:h-[60vh] w-full flex-shrink-0"
+              />
+              <img
+                src="/Assets/Index/HP-market-carousel/HP MARKET GOVT OFFICE.webp"
+                alt="Image 2"
+                class="projects-carousel-image lg:h-[60vh] w-full flex-shrink-0"
               />
             </div>
 
             <!-- Navigation Arrows -->
             <button
-              id="projects-prevBtn"
+              id="projects-prev-button"
               class="absolute top-1/2 left-5 transform -translate-y-1/2 text-white bg-black bg-opacity-50 p-3 rounded-full z-10"
               title="Previous"
               type="button"
@@ -867,7 +895,7 @@
               <i class="fas fa-chevron-left"></i>
             </button>
             <button
-              id="projects-nextBtn"
+              id="projects-next-button"
               class="absolute top-1/2 right-5 transform -translate-y-1/2 text-white bg-black bg-opacity-50 p-3 rounded-full z-10"
               title="Next"
               type="button"

@@ -33,25 +33,22 @@
       crossorigin="anonymous"
     ></script>
     <style>
-      <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Responsive Navbar</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com/3.3.0"></script>
-    <style>
       .hamburger {
         display: flex;
         cursor: pointer;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
         height: 40px;
         width: 40px;
         border: none;
         background: transparent;
+        overflow: visible;
+        z-index: 1000;
       }
 
       .hamburger span {
@@ -61,16 +58,19 @@
         background: black;
         margin: 4px 0;
         transition: transform 0.3s ease, opacity 0.3s ease;
+        transform-origin: center;
       }
 
       .hamburger.active span:nth-child(1) {
-        transform: translateY(7px) rotate(45deg);
+        position: absolute;
+        transform: rotate(45deg);
       }
       .hamburger.active span:nth-child(2) {
         opacity: 0;
       }
       .hamburger.active span:nth-child(3) {
-        transform: translateY(-7px) rotate(-45deg);
+        position: absolute;
+        transform: rotate(-45deg);
       }
 
       #nav-links {
@@ -89,12 +89,6 @@
       #nav-links.active {
         display: flex;
       }
-
-      @media (min-width: 768px) {
-        #nav-links {
-          display: none;
-        }
-      }
     </style>
   </head>
   <body class="bg-white">
@@ -102,10 +96,10 @@
       <nav>
         <div
           id="nav-container"
-          class="w-full bg-white fixed top-0 flex flex-row justify-between z-10 shadow-md"
+          class="w-full bg-white fixed top-0 flex flex-row justify-around z-10 shadow-md"
         >
           <!-- Logo -->
-          <div id="logo-container" class="my-4 mx-[5vw]">
+          <div id="logo-container" class="my-4">
             <a href="/index.html">
               <img
                 id="logo-image"
@@ -138,15 +132,15 @@
           <!-- Navigation Menu -->
           <div
             id="menu"
-            class="hidden md:block flex justify-between items-center p-5"
+            class="hidden md:block flex justify-between content-center py-5"
           >
             <!-- Menu Links -->
             <div
               id="menu-links"
-              class="hidden md:flex justify-between md:mx-[5vw] text-center items-center text-black lg:text-xl font-semibold lg:gap-8 text-sm gap-4 font-normal"
+              class="hidden md:flex justify-between text-center content-center text-black lg:text-xl font-semibold lg:gap-8 text-sm gap-4 font-semibold"
             >
               <!-- Solutions Dropdown -->
-              <div class="relative group">
+              <div class="relative group md:text-base lg:text-lg text-left">
                 <div class="flex items-center cursor-pointer space-x-2">
                   <a class="hover:text-blue-900" href="#solutions">Solutions</a>
                   <i
@@ -155,7 +149,7 @@
                 </div>
                 <!-- Dropdown Menu -->
                 <div
-                  class="absolute left-0 hidden group-hover:block bg-white shadow-lg py-4 w-[500px] rounded-md"
+                  class="absolute left-0 hidden group-hover:block bg-white shadow-lg py-4 w-[500px] rounded-md md:text-base lg:text-lg text-left"
                 >
                   <a
                     class="block px-4 py-2 hover:bg-gray-100 hover:text-blue-900"
@@ -191,7 +185,7 @@
               </div>
 
               <!-- Products Dropdown -->
-              <div class="relative group">
+              <div class="relative group md:text-base lg:text-lg text-left">
                 <div class="flex items-center cursor-pointer space-x-2">
                   <a class="hover:text-blue-900" href="#products">Products</a>
                   <i
@@ -236,7 +230,7 @@
               </div>
 
               <!-- Supports Dropdown -->
-              <div class="relative group">
+              <div class="relative group md:text-base lg:text-lg text-left">
                 <div class="flex items-center cursor-pointer space-x-2">
                   <a class="hover:text-blue-900">Supports</a>
                   <i
@@ -269,7 +263,7 @@
               </div>
 
               <!-- About Us Dropdown -->
-              <div class="relative group">
+              <div class="relative group md:text-base lg:text-lg text-left">
                 <div class="flex items-center cursor-pointer space-x-2">
                   <a class="hover:text-blue-900">About Us</a>
                   <i
@@ -367,10 +361,10 @@
         </div>
       </section>
 
-      <section id="solutions" class="mx-12 my-4">
+      <section id="solutions" class="mx-4 mt-[15vh] max-w-full">
         <!-- Solution Carousel Container -->
         <div
-          class="solutions-carousel-container max-w-full mx-auto p-4 flex gap-8"
+          class="solutions-carousel-container max-w-full mx-auto p-4 flex flex-col lg:flex-row gap-8"
         >
           <!-- Carousel Section (Left Side) -->
           <div
@@ -577,12 +571,15 @@
         </div>
       </section>
 
-      <section id="about-us" class="bg-slate-50 px-12 py-[6vh] mt-[5vh]">
-        <div id="about-us-container" class="mx-auto p-4 flex gap-8">
-          <div
-            id="about-us-content"
-            class="text-black w-full lg:w-1/2 h-[70vh]"
-          >
+      <section
+        id="about-us"
+        class="bg-slate-50 mx-4 mt-[15vh] max-w-full py-[6vh] mt-[5vh]"
+      >
+        <div
+          id="about-us-container"
+          class="mx-auto p-4 flex flex-col md:flex-row gap-8"
+        >
+          <div id="about-us-content" class="text-black w-full lg:w-1/2">
             <h2 class="text-3xl font-semibold mb-4">About Us</h2>
             <p>
               PT.Batukarang Kenan Abadi was established in march 2024. Our
@@ -595,9 +592,12 @@
               Learn More About Us
             </a>
           </div>
-          <div id="about-us-image-container" class="w-1/2 flex justify-center">
+          <div
+            id="about-us-image-container"
+            class="w-full lg:w-1/2 flex justify-center"
+          >
             <img
-              class="object-cover h-[70vh]"
+              class="object-cover"
               src="/Assets/Index/—Pngtree—smart home phone control 3d_14614947.png"
               alt="smart home system"
             />
@@ -609,32 +609,64 @@
         <div id="achievement-counter-container" class="text-slate-200 py-[5vh]">
           <div
             id="achievement-counter-content"
-            class="grid grid-cols-4 text-center"
+            class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center"
           >
             <div id="achievement1">
-              <h3 id="milestone1-counter" class="text-5xl font-bold">2</h3>
-              <h4 id="milestone1-description" class="text-xl font-semibold">
+              <h3
+                id="milestone1-counter"
+                class="text-3xl md:text-5xl font-bold"
+              >
+                2
+              </h3>
+              <h4
+                id="milestone1-description"
+                class="text-base md:text-lg lg:text-xl font-semibold"
+              >
                 Specialist are expert
               </h4>
             </div>
 
             <div id="achievement2">
-              <h3 id="milestone2-counter" class="text-5xl font-semibold">5</h3>
-              <h4 id="milestone2-description" class="text-xl font-semibold">
+              <h3
+                id="milestone2-counter"
+                class="text-3xl md:text-5xl font-semibold"
+              >
+                5
+              </h3>
+              <h4
+                id="milestone2-description"
+                class="text-base md:text-lg lg:text-xl font-semibold"
+              >
                 Completed sites successfully
               </h4>
             </div>
 
             <div id="achievement3">
-              <h3 id="milestone3-counter" class="text-5xl font-semibold">7</h3>
-              <h4 id="milestone3-description" class="text-xl font-semibold">
+              <h3
+                id="milestone3-counter"
+                class="text-3xl md:text-5xl font-semibold"
+              >
+                7
+              </h3>
+              <h4
+                id="milestone3-description"
+                class="text-base md:text-lg lg:text-xl font-semibold"
+              >
                 Satisfied customers experience
               </h4>
             </div>
 
             <div id="achievement4">
-              <h3 id="milestone4-counter" class="text-5xl font-semibold">20</h3>
-              <h4 id="milestone4-description" class="text-xl font-semibold">
+              <h3
+                id="milestone4-counter"
+                class="text-3xl md:text-5xl font-semibold"
+              >
+                20
+              </h3>
+              <h4
+                id="milestone4-description"
+                class="text-base md:text-lg lg:text-xl font-semibold"
+              >
                 Intellectual properties
               </h4>
             </div>
@@ -644,10 +676,13 @@
 
       <section id="why-us" class="px-12 py-[6vh] bg-orange-50">
         <h2 class="text-5xl font-semibold text-center mb-[8vh]">Why Us?</h2>
-        <div id="why-us-container" class="text-black flex gap-8">
-          <div id="why-us-image-container" class="w-full lg:w-1/2 h-[70vh]">
+        <div
+          id="why-us-container"
+          class="text-black flex flex-col lg:flex-row gap-8"
+        >
+          <div id="why-us-image-container" class="w-full lg:w-1/2 lg:h-[70vh]">
             <img
-              class="h-[70vh]"
+              class="lg:h-[70vh] object-fill"
               src="/Assets/Index/whyus.jpg"
               alt="Enjoyable smart technology"
             />
@@ -655,7 +690,7 @@
 
           <ul
             id="why-us-content-container"
-            class="w-full lg:w-1/2 h-[70vh] space-y-6"
+            class="w-full lg:w-1/2 space-y-6 lg:h-[70vh]"
           >
             <!-- List Item 1 -->
             <li class="flex items-start space-x-4">
@@ -877,7 +912,7 @@
             class="flex justify-center items-start"
           >
             <!-- Contact Form Section -->
-            <form id="contact-us-form" class="w-full sm:w-2/3 space-y-6">
+            <form id="contact-us-form" class="w-full lg:w-2/3 space-y-6">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- First Name -->
                 <div class="form-group">
@@ -1202,7 +1237,7 @@
       <!-- Footer Container -->
       <div class="w-full p-4 py-6">
         <div
-          class="w-full flex flex-col md:grid md:grid-cols-3 md:justify-between lg:flex lg:flex-row lg:justify-between"
+          class="w-full flex flex-col md:grid md:grid-cols-3 md:justify-between lg:flex lg:flex-row lg:justify-between text-center md:text-left"
         >
           <!-- Company Section -->
           <div class="flex flex-col mb-6 lg:mb-0 px-4 lg:px-0">

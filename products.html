@@ -123,13 +123,13 @@
           <!-- Navigation Links -->
           <div id="nav-links" class="hidden h-[70vh] overflow-y-scroll">
             <a
-              href="#solutions"
+              href="/solutions.html"
               class="hover:text-blue-900 text-black text-lg font-bold"
               >Solutions</a
             >
 
             <a
-              href="#products"
+              href="/products.html"
               class="hover:text-blue-900 text-black text-lg font-bold"
               >Products</a
             >
@@ -137,9 +137,9 @@
             <a href="" class="hover:text-blue-900 text-black text-lg font-bold"
               >Supports</a
             >
-            <a class="ml-5" href="blog.html">Blog</a>
+            <a class="ml-5" href="/blog.html">Blog</a>
             <!-- <a class="ml-5" href="news&events.html">News & Events</a> -->
-            <a class="ml-5" href="download.html">Downloads</a>
+            <a class="ml-5" href="/download.html">Downloads</a>
 
             <a
               href="#about-us"
@@ -174,20 +174,18 @@
               <!-- Solutions Dropdown -->
               <div class="relative group md:text-base lg:text-xl text-left">
                 <div class="flex items-center cursor-pointer space-x-2">
-                  <a class="hover:text-blue-900" href="#solutions">Solutions</a>
-                  <i
-                    class="fas fa-chevron-down text-sm transition-transform duration-300 group-hover:rotate-180"
-                  ></i>
+                  <a class="hover:text-blue-900" href="solutions.html"
+                    >Solutions</a
+                  >
                 </div>
               </div>
 
               <!-- Products Dropdown -->
               <div class="relative group md:text-base lg:text-xl text-left">
                 <div class="flex items-center cursor-pointer space-x-2">
-                  <a class="hover:text-blue-900" href="#products">Products</a>
-                  <i
-                    class="fas fa-chevron-down text-sm transition-transform duration-300 group-hover:rotate-180"
-                  ></i>
+                  <a class="hover:text-blue-900" href="products.html"
+                    >Products</a
+                  >
                 </div>
               </div>
 
@@ -506,7 +504,7 @@
                       alt="ASM100 ASM100-D"
                     />
                     <div class="dark:text-white">
-                      <h4 class="font-bold">ASM100 ASM100-D</h4>
+                      <h4 class="font-bold">ASM100</h4>
                     </div>
                   </a>
                 </div>
@@ -671,7 +669,7 @@
                       alt="NVD0405DU-2I-8K"
                     />
                     <div class="dark:text-white">
-                      <h4 class="dark:text-white font-bold">NVD0405DU-2I-8K</h4>
+                      <h4 class="dark:text-white font-bold">NVD0405DU</h4>
                     </div>
                   </a>
                 </div>
@@ -740,7 +738,7 @@
                       alt="IPC-HDW3449H-AS-PV"
                     />
                     <div class="dark:text-white flex flex-col">
-                      <h4 class="font-bold">IPC-HDW3449H-AS-PV</h4>
+                      <h4 class="font-bold">IPC-HDW3449H</h4>
                     </div>
                   </a>
                 </div>
@@ -852,9 +850,7 @@
                       alt="SD6C3432GB-HNR-AGQ-PV1-LA"
                     />
                     <div class="dark:text-white">
-                      <h4 class="dark:text-white font-bold">
-                        SD6C3432GB-HNR-AGQ-PV1-LA
-                      </h4>
+                      <h4 class="dark:text-white font-bold">SD6C3432GB</h4>
                     </div>
                   </a>
                 </div>
@@ -886,9 +882,7 @@
                       alt="IPC-HFW3441DG-AS-4G-LA-B"
                     />
                     <div class="dark:text-white">
-                      <h4 class="dark:text-white font-bold">
-                        IPC-HFW3441DG-AS-4G-LA-B
-                      </h4>
+                      <h4 class="dark:text-white font-bold">IPC-HFW3441DG</h4>
                     </div>
                   </a>
                 </div>
@@ -2234,9 +2228,6 @@
           indicatorsIsms.forEach((dot, index) => {
             dot.addEventListener("click", () => jumpToSlideIsms(index));
           });
-
-          setInterval(autoSlideIsms, 60000); // Auto slide every 3 seconds
-          updateSlideIsms(currentIndexIsms); // Initialize
         </script>
 
         <!-- JavaScript ISHMS Slider -->
@@ -2270,9 +2261,6 @@
           indicatorsIshms.forEach((dot, index) => {
             dot.addEventListener("click", () => jumpToSlideIshms(index));
           });
-
-          setInterval(autoSlideIshms, 3000); // Auto slide every 3 seconds
-          updateSlideIshms(currentIndexIshms); // Initialize
         </script>
 
         <!-- JavaScript VPMS Slider -->
@@ -2305,9 +2293,6 @@
           indicatorsVpms.forEach((dot, index) => {
             dot.addEventListener("click", () => jumpToSlideVpms(index));
           });
-
-          setInterval(autoSlideVpms, 3000); // Auto slide every 3 seconds
-          updateSlideVpms(currentIndexVpms); // Initialize
         </script>
       </section>
 
@@ -2668,9 +2653,9 @@
     </main>
     <footer class="bg-white text-black w-full overflow-hidden">
       <!-- Footer Container -->
-      <div class="w-full p-4 py-6">
+      <div class="w-full p-4 py-6 flex flex-col md:flex-row mx-auto">
         <div
-          class="w-full flex flex-col md:grid md:grid-cols-3 md:justify-between lg:flex lg:flex-row lg:justify-between text-center md:text-left"
+          class="w-full md:w-1/3 flex flex-col md:flex md:flex-row md:justify-between text-center md:text-left"
         >
           <!-- Company Section -->
           <div class="flex flex-col mb-6 lg:mb-0 px-4 lg:px-0">
@@ -2741,68 +2726,33 @@
               </p>
             </div>
           </div>
+        </div>
+
+        <div
+          class="flex flex-col md:flex-row mb-6 lg:mb-0 px-4 lg:px-0 w-full md:w-2/3 justify-around text-center md:text-left"
+        >
+          <div class="flex flex-col md:gap-6">
+            <div class="mb-6 lg:mb-0 px-4 lg:px-0">
+              <a
+                class="block font-bold mb-2 hover:underline"
+                href="solutions.html"
+                >Solutions</a
+              >
+            </div>
+
+            <!-- Products Section -->
+            <div class="mb-6 lg:mb-0 px-4 lg:px-0">
+              <a
+                class="block font-bold mb-2 hover:underline"
+                href="products.html"
+                >Products</a
+              >
+            </div>
+          </div>
 
           <!-- Solutions Section -->
-          <div class="py-6 mb-6 lg:mb-0 px-4 lg:px-0">
-            <span class="block font-bold mb-2 hover:underline">Solutions</span>
-            <ul>
-              <li>
-                <a href="ISMS.html" class="hover:underline"
-                  >Integrated Security Management System (ISMS)</a
-                >
-              </li>
-              <li>
-                <a href="WIM.html" class="hover:underline"
-                  >Weigh In Motion (WIM)</a
-                >
-              </li>
-              <li>
-                <a href="ISHMS.html" class="hover:underline"
-                  >Intelligent Structure Health Monitoring System (ISHMS)</a
-                >
-              </li>
-              <li>
-                <a href="VPMS.html" class="hover:underline"
-                  >Vehicle Parking Management System (VPMS)</a
-                >
-              </li>
-              <li>
-                <a href="weighbridge.html" class="hover:underline"
-                  >Integrated Weigh Bridge System</a
-                >
-              </li>
-            </ul>
-          </div>
 
-          <!-- Products Section -->
-          <div class="py-6 mb-6 lg:mb-0 px-4 lg:px-0">
-            <span class="block font-bold mb-2 hover:underline">Products</span>
-            <ul>
-              <li>
-                <a href="Monitoring.html" class="hover:underline">Monitoring</a>
-              </li>
-              <li>
-                <a href="Sensors.html" class="hover:underline">Sensors</a>
-              </li>
-              <li>
-                <a href="Access-Management.html" class="hover:underline"
-                  >Access Management</a
-                >
-              </li>
-              <li>
-                <a href="Parking-System.html" class="hover:underline"
-                  >Parking System</a
-                >
-              </li>
-              <li>
-                <a href="weighbridge.html" class="hover:underline"
-                  >Weigh Bridge</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <div class="py-6 mb-6 lg:mb-0 px-4 lg:px-0">
+          <div class="mb-6 lg:mb-0 px-4 lg:px-0">
             <span class="block font-bold mb-2 hover:underline">Supports</span>
             <ul>
               <li>
@@ -2817,10 +2767,10 @@
                 <a href="downloads.html" class="hover:underline">Downloads</a>
               </li>
             </ul>
+          </div>
 
-            <span class="block font-bold mt-6 mb-2 hover:underline"
-              >About Us</span
-            >
+          <div class="mb-6 lg:mb-0 px-4 lg:px-0">
+            <span class="block font-bold mb-2 hover:underline"> About Us </span>
             <ul>
               <li>
                 <a href="company-profile.html" class="hover:underline"
@@ -2831,8 +2781,7 @@
             </ul>
           </div>
 
-          <!-- Partners Section -->
-          <div class="py-6 mb-6 lg:mb-0 px-4 lg:px-0">
+          <div class="mb-6 lg:mb-0 px-4 lg:px-0">
             <span class="block font-bold mb-2">Partners</span>
             <ul>
               <li>
@@ -2841,18 +2790,14 @@
                 >
               </li>
             </ul>
+          </div>
 
-            <!-- Contact Us -->
-            <div class="mt-4">
-              <a href="Contactus.html" class="font-bold hover:underline"
-                >Contact Us</a
-              >
-            </div>
-
-            <!-- Login -->
-            <div class="mt-4">
-              <a href="login.html" class="font-bold hover:underline">Login</a>
-            </div>
+          <!-- Contact Us -->
+          <div class="mb-6 lg:mb-0 px-4 lg:px-0 flex flex-col gap-6">
+            <a href="Contactus.html" class="font-bold hover:underline"
+              >Contact Us</a
+            >
+            <a href="login.html" class="font-bold hover:underline">Login</a>
           </div>
         </div>
       </div>

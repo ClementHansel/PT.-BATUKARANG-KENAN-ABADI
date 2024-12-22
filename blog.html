@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="keywords"
+      content="IOT, JEMBATAN TIMBANG, JEMBATAN TIMBANG DINAMIS, WIM, SECURITY SYSTEM, CCTV, STRUCTURE HEALTH"
+    />
+    <meta
+      name="description"
+      content="PT.BKKA.CO.ID is a leading global company specializing in IoT Solutions. We also have a range of products, such as JEMBATAN TIMBANG, JEMBATAN TIMBANG DINAMIS, WIM, SECURITY SYSTEM, CCTV, STRUCTURE HEALTH"
+    />
+    <meta name="author" content="PT.BKKA.CO.ID" />
+    <title>PT.BKKA.CO.ID</title>
+    <link rel="icon" href="/Assets/Index/Logo-PT/logoicon.ico" />
+    <!-- AOS CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com/3.3.0"></script>
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/2985af7cb1.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .hamburger {
+        display: flex;
+        cursor: pointer;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 40px;
+        width: 40px;
+        border: none;
+        background: transparent;
+        overflow: visible;
+        z-index: 1000;
+      }
+
+      .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: black;
+        margin: 4px 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        transform-origin: center;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        position: absolute;
+        transform: rotate(45deg);
+      }
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.active span:nth-child(3) {
+        position: absolute;
+        transform: rotate(-45deg);
+      }
+
+      #nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+      }
+
+      #nav-links.active {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body class="bg-white">
+    <header>
+      <nav>
+        <div
+          id="nav-container"
+          class="w-full bg-white fixed top-0 flex flex-row justify-between z-20"
+        >
+          <!-- Logo -->
+          <div id="logo-container" class="my-4 ml-8 lg:mx-20">
+            <a href="/index.html">
+              <img
+                id="logo-image"
+                class="w-[30vw] md:w-[20vw] lg:w-[10vw] flex justify-center"
+                src="/Assets/Index/Logo-PT/Logo-BKKA-Transparant.png"
+                alt="PT. Batukarang Kenan Abadi Logo"
+              />
+            </a>
+          </div>
+
+          <!-- Hamburger Button -->
+          <button
+            id="hamburger"
+            class="hamburger md:hidden right-5"
+            aria-label="Toggle navigation"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <!-- Navigation Links -->
+          <div id="nav-links" class="hidden h-[70vh] overflow-y-scroll">
+            <a
+              href="#solutions"
+              class="hover:text-blue-900 text-black text-lg font-bold"
+              >Solutions</a
+            >
+
+            <a
+              href="#products"
+              class="hover:text-blue-900 text-black text-lg font-bold"
+              >Products</a
+            >
+
+            <a href="" class="hover:text-blue-900 text-black text-lg font-bold"
+              >Supports</a
+            >
+            <a class="ml-5" href="blog.html">Blog</a>
+            <!-- <a class="ml-5" href="news&events.html">News & Events</a> -->
+            <a class="ml-5" href="download.html">Downloads</a>
+
+            <a
+              href="#about-us"
+              class="hover:text-blue-900 text-black text-lg font-bold"
+              >About Us</a
+            >
+            <a class="ml-5" href="company-profile.html">Company Profile</a>
+            <a class="ml-5" href="Joinus.html">Join Us</a>
+
+            <a
+              href="#contact-us"
+              class="hover:text-blue-900 text-black text-lg font-bold"
+              >Contact Us</a
+            >
+            <a
+              href="#login"
+              class="hover:text-blue-900 text-black text-lg font-bold"
+              >Login</a
+            >
+          </div>
+
+          <!-- Navigation Menu -->
+          <div
+            id="menu"
+            class="hidden md:block flex content-center mr-8 lg:mx-20 py-5"
+          >
+            <!-- Menu Links -->
+            <div
+              id="menu-links"
+              class="hidden md:flex justify-between text-center content-center text-black text-sm lg:text-xl font-semibold lg:gap-8 gap-4 font-semibold"
+            >
+              <!-- Solutions Dropdown -->
+              <div class="relative group md:text-base lg:text-xl text-left">
+                <div class="flex items-center cursor-pointer space-x-2">
+                  <a class="hover:text-blue-900" href="#solutions">Solutions</a>
+                  <i
+                    class="fas fa-chevron-down text-sm transition-transform duration-300 group-hover:rotate-180"
+                  ></i>
+                </div>
+              </div>
+
+              <!-- Products Dropdown -->
+              <div class="relative group md:text-base lg:text-xl text-left">
+                <div class="flex items-center cursor-pointer space-x-2">
+                  <a class="hover:text-blue-900" href="#products">Products</a>
+                  <i
+                    class="fas fa-chevron-down text-sm transition-transform duration-300 group-hover:rotate-180"
+                  ></i>
+                </div>
+              </div>
+
+              <!-- Supports Dropdown -->
+              <div class="relative group md:text-base lg:text-xl text-left">
+                <div class="flex items-center cursor-pointer space-x-2">
+                  <a class="hover:text-blue-900">Supports</a>
+                  <i
+                    class="fas fa-chevron-down text-sm transition-transform duration-300 group-hover:rotate-180"
+                  ></i>
+                </div>
+                <!-- Dropdown Menu -->
+                <div
+                  class="absolute left-0 hidden group-hover:block bg-white shadow-lg md:text-base lg:text-lg py-4 w-[300px] rounded-md"
+                >
+                  <a
+                    class="block px-4 py-2 hover:bg-gray-100 hover:text-blue-900"
+                    href="blog.html"
+                  >
+                    Blog
+                  </a>
+                  <!-- <a
+                    class="block px-4 py-2 hover:bg-gray-100 hover:text-blue-900"
+                    href="news&events.html"
+                  >
+                    News & Events
+                  </a> -->
+                  <a
+                    class="block px-4 py-2 hover:bg-gray-100 hover:text-blue-900"
+                    href="downloads.html"
+                  >
+                    Downloads
+                  </a>
+                </div>
+              </div>
+
+              <!-- About Us Dropdown -->
+              <div class="relative group md:text-base lg:text-xl text-left">
+                <div class="flex items-center cursor-pointer space-x-2">
+                  <a class="hover:text-blue-900">About Us</a>
+                  <i
+                    class="fas fa-chevron-down text-sm transition-transform duration-300 group-hover:rotate-180"
+                  ></i>
+                </div>
+                <!-- Dropdown Menu -->
+                <div
+                  class="absolute left-0 hidden group-hover:block bg-white shadow-lg md:text-base lg:text-lg py-4 w-[300px] rounded-md"
+                >
+                  <a
+                    class="block px-4 py-2 hover:bg-gray-100 hover:text-blue-900"
+                    href="company-profile.html"
+                  >
+                    Company Profile
+                  </a>
+                  <a
+                    class="block px-4 py-2 hover:bg-gray-100 hover:text-blue-900"
+                    href="Joinus.html"
+                  >
+                    Join Us
+                  </a>
+                </div>
+              </div>
+
+              <!-- Other Links -->
+              <a class="hover:text-blue-900" href="become-a-partner.html"
+                >Partners</a
+              >
+              <a class="hover:text-blue-900" href="Contactus.html"
+                >Contact Us</a
+              >
+              <a class="hover:text-blue-900" href="login.html">Login</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section id="hero">
+        <div id="hero-container" class="mt-[15vh] flex flex-col md:flex-row">
+          <div
+            id="hero-image-container"
+            class="relative lg:w-1/2 mx-8 overflow-hidden rounded-xl"
+          >
+            <img
+              src="/Assets/Blog/IoT-in-agriculture-crop-monitoring.jpg"
+              alt="PT. Batukarang Kenan Abadi Hero Image 1"
+              class="lg:h-[60vh] w-full sm:object-fill md:object-fill lg:object-fill"
+            />
+          </div>
+        </div>
+
+        <!-- Hero Content/Button -->
+        <div class="m-8 md-[8vh] lg:mt-[10vh]">
+          <h2
+            class="text-2xl md:text-4xl lg:text-5xl font-bold text-center mx-4 my-2"
+          >
+            Welcome to
+          </h2>
+          <h1
+            class="text-2xl md:text-4xl lg:text-5xl font-bold text-center mx-4"
+          >
+            PT. Batukarang Kenan Abadi
+          </h1>
+          <p
+            class="text-lg md:text-2xl lg:text-xl text-black text-center mx-auto my-8 lg:w-2/3"
+          >
+            PT. Batukarang Kenan Abadi is a leader in IoT solutions, empowering
+            businesses with innovative technology and Artificial Intelligent to
+            enhance efficiency, productivity, and data-driven decision-making.
+          </p>
+          <div id="hero-button-container" class="flex justify-center mt-4">
+            <a
+              href="https://wa.me/628111798995?text=Hello%2C%20I%20need%20customer%20support%21"
+              id="hero-button"
+              aria-label="Chat with customer support on WhatsApp"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm md:text-xl text-white bg-blue-600 hover:bg-blue-700 py-2 px-4 rounded-md transition duration-300 ease-in-out"
+            >
+              Get your free Consultation
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="flex flex-col md:flex-row">
+        <section class="md:w-3/4">
+          <div
+            class="mx-8 mt-12 p-6 border-[1px] border-neutral-200 shadow rounded-lg"
+          >
+            <article class="flex flex-col gap-2">
+              <h2 class="font-semibold text-xl md:text-2xl lg:text-3xl">
+                Judul berita 1
+              </h2>
+              <div class="flex flex-col md:flex-row gap-4">
+                <img
+                  class="my-4 rounded-xl w-full md:w-1/3"
+                  src="Assets/Index/HP ISMS.webp"
+                  alt="Berita 1"
+                />
+                <div class="flex flex-col gap-4 my-4">
+                  <p class="text-lg">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Culpa iste, nam a voluptatem architecto, eum sit illo magnam
+                    voluptatibus, dolore odio nesciunt aspernatur quasi iusto
+                    praesentium rem repudiandae accusantium pariatur.
+                  </p>
+                  <p class="hidden-content hidden">
+                    Additional content for berita 1. Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Nisi, laboriosam.
+                  </p>
+                  <button class="toggle-button text-blue-500 underline">
+                    Read More
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div
+            class="mx-8 mt-12 p-6 border-[1px] border-neutral-200 shadow rounded-lg"
+          >
+            <article class="flex flex-col gap-2">
+              <h2 class="font-semibold text-xl md:text-2xl lg:text-3xl">
+                Judul berita 2
+              </h2>
+              <div class="">
+                <img
+                  class="my-4 rounded-xl"
+                  src="Assets/Index/news-2.webp"
+                  alt="Berita 2"
+                />
+                <p class="text-lg">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
+                  corrupti ipsum labore quas quos eligendi architecto id laborum
+                  nobis nisi aliquam nemo eos, velit autem commodi consectetur
+                  pariatur, voluptate impedit.
+                </p>
+                <div class="hidden-content hidden">
+                  <p>
+                    Additional content for berita 2. Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Nisi, laboriosam.
+                  </p>
+                </div>
+                <button class="toggle-button text-blue-500 underline">
+                  Read More
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <div
+            class="mx-8 mt-12 p-6 border-[1px] border-neutral-200 shadow rounded-lg"
+          >
+            <article class="flex flex-col gap-2">
+              <h2 class="font-semibold text-xl md:text-2xl lg:text-3xl">
+                Judul berita 3
+              </h2>
+              <div class="">
+                <img
+                  class="my-4 rounded-xl"
+                  src="Assets/Index/news-3.webp"
+                  alt="Berita 3"
+                />
+                <p class="text-lg">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Expedita excepturi nulla, reiciendis natus harum vero quae
+                  quas voluptatibus ipsum iste rem tempora ad fugiat libero
+                  dolore.
+                </p>
+                <div class="hidden-content hidden">
+                  <p>
+                    Additional content for berita 3. Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit. Vivamus lacinia odio vitae.
+                  </p>
+                </div>
+                <button class="toggle-button text-blue-500 underline">
+                  Read More
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <div
+            class="mx-8 mt-12 p-6 border-[1px] border-neutral-200 shadow rounded-lg"
+          >
+            <article class="flex flex-col gap-2">
+              <h2 class="font-semibold text-xl md:text-2xl lg:text-3xl">
+                Judul berita 4
+              </h2>
+              <div class="">
+                <img
+                  class="my-4 rounded-xl"
+                  src="Assets/Index/news-4.webp"
+                  alt="Berita 4"
+                />
+                <p class="text-lg">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+                  venenatis, lacus nec tempor tincidunt, magna libero tincidunt
+                  orci, nec tempus erat ex at arcu.
+                </p>
+                <div class="hidden-content hidden">
+                  <p>
+                    Additional content for berita 4. Duis gravida magna eget
+                    libero sodales, vel eleifend erat malesuada.
+                  </p>
+                </div>
+                <button class="toggle-button text-blue-500 underline">
+                  Read More
+                </button>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <aside class="md:w-1/4">
+          <section class="border-[1px] rounded shadow mx-8 mt-12 p-6">
+            <div class="flex flex-row gap-4">
+              <div
+                class="rounded-full w-[20px] h-[20px] md:w-[40px] h-[40px] lg:w-[60px] h-[60px]"
+              >
+                <img
+                  class=""
+                  src="/Assets/Blog/IoT-in-agriculture-crop-monitoring.jpg"
+                  alt=""
+                />
+              </div>
+              <div class="">
+                <h1>Clement Hansel</h1>
+                <h2>CEO of PT. Batukarang Kenan Abadi</h2>
+              </div>
+            </div>
+            <br />
+            <div>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Inventore sapiente ducimus maiores soluta excepturi! Porro
+                similique excepturi eos molestiae, accusantium quae beatae
+                suscipit laudantium autem repellendus provident harum dicta
+                quas.
+              </p>
+            </div>
+          </section>
+
+          <section class="border-[1px] rounded shadow mx-8 mt-12 p-6">
+            <div class="flex flex-row gap-4">
+              <div>
+                <img
+                  class="rounded-full w-[20px] h-[20px] md:w-[40px] h-[40px] lg:w-[60px] h-[60px]"
+                  src="/Assets/Blog/IoT-in-agriculture-crop-monitoring.jpg"
+                  alt=""
+                />
+              </div>
+              <div>
+                <h1>Graace Stevanda</h1>
+                <h2>CMO of PT. Batukarang Kenan Abadi</h2>
+              </div>
+            </div>
+            <br />
+            <div>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Inventore sapiente ducimus maiores soluta excepturi! Porro
+                similique excepturi eos molestiae, accusantium quae beatae
+                suscipit laudantium autem repellendus provident harum dicta
+                quas.
+              </p>
+            </div>
+            <br />
+          </section>
+
+          <section class="border-[1px] rounded shadow mx-8 mt-12 p-6">
+            <div class="flex flex-row gap-4">
+              <div>
+                <img
+                  class="rounded-full w-[20px] h-[20px] md:w-[40px] h-[40px] lg:w-[60px] h-[60px]"
+                  src="/Assets/Blog/IoT-in-agriculture-crop-monitoring.jpg"
+                  alt=""
+                />
+              </div>
+              <div>
+                <h1>Guntur Kurniawan</h1>
+                <h2>CTO of PT. Batukarang Kenan Abadi</h2>
+              </div>
+            </div>
+            <br />
+            <div>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Inventore sapiente ducimus maiores soluta excepturi! Porro
+                similique excepturi eos molestiae, accusantium quae beatae
+                suscipit laudantium autem repellendus provident harum dicta
+                quas.
+              </p>
+            </div>
+            <br />
+          </section>
+        </aside>
+      </section>
+
+      <br />
+
+      <!-- <section id="testimony"></section> -->
+
+      <section
+        id="encouragement"
+        class="mx-4 mt-[15vh] px-4 md:px-12 mb-[12vh]"
+      >
+        <div
+          id="encouragement-banner-container"
+          class="w-full grid grid-row-auto justify-center"
+        >
+          <h2
+            class="text-3xl font-semibold text-black dark:text-white mb-4 text-center"
+          >
+            They Trust PT. Batukarang Kenan Abadi
+          </h2>
+          <h3
+            class="text-xl font-semibold text-black dark:text-white mb-4 text-center"
+          >
+            Professional, Personalized, Perfection
+          </h3>
+        </div>
+      </section>
+
+      <section id="contact-us" class="px-12 py-[6vh] bg-slate-50">
+        <div id="contact-us-container" class="max-w-7xl mx-auto p-6">
+          <h2 class="text-3xl font-semibold mb-6 text-center">
+            Connect with Us
+          </h2>
+
+          <div
+            id="contact-us-content-container"
+            class="flex justify-center items-start"
+          >
+            <!-- Contact Form Section -->
+            <form id="contact-us-form" class="w-full lg:w-2/3 space-y-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- First Name -->
+                <div class="form-group">
+                  <label
+                    for="contact-us-first-name"
+                    class="block text-sm font-semibold"
+                    >First Name</label
+                  >
+                  <input
+                    type="text"
+                    id="contact-us-first-name"
+                    placeholder="First Name"
+                    required
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+
+                <!-- Last Name -->
+                <div class="form-group">
+                  <label
+                    for="contact-us-last-name"
+                    class="block text-sm font-semibold"
+                    >Last Name</label
+                  >
+                  <input
+                    type="text"
+                    id="contact-us-last-name"
+                    placeholder="Last Name"
+                    required
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+
+                <!-- Company Name -->
+                <div class="form-group">
+                  <label
+                    for="contact-us-company-name"
+                    class="block text-sm font-semibold"
+                    >Company Name</label
+                  >
+                  <input
+                    type="text"
+                    id="contact-us-company-name"
+                    placeholder="Company Name"
+                    required
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+
+                <!-- Job Title -->
+                <div class="form-group">
+                  <label
+                    for="contact-us-job-tittle"
+                    class="block text-sm font-semibold"
+                    >Job Title</label
+                  >
+                  <input
+                    type="text"
+                    id="contact-us-job-tittle"
+                    placeholder="Job Title"
+                    required
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+
+                <!-- Business Email -->
+                <div class="form-group">
+                  <label
+                    for="contact-us-email"
+                    class="block text-sm font-semibold"
+                    >Business Email</label
+                  >
+                  <input
+                    type="email"
+                    id="contact-us-email"
+                    placeholder="Business Email"
+                    required
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+
+                <!-- Telephone -->
+                <div class="form-group">
+                  <label
+                    for="contact-us-telephone"
+                    class="block text-sm font-semibold"
+                    >Telephone</label
+                  >
+                  <input
+                    type="tel"
+                    id="contact-us-telephone"
+                    placeholder="+62 1234 567 8910"
+                    required
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+
+                <!-- Website -->
+                <div class="form-group">
+                  <label
+                    for="contact-us-website"
+                    class="block text-sm font-semibold"
+                    >Website</label
+                  >
+                  <input
+                    type="url"
+                    id="contact-us-website"
+                    placeholder="www.your-company.com"
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+
+                <!-- Advertising -->
+                <div class="form-group">
+                  <label
+                    for="contact-us-advertising"
+                    class="block text-sm font-semibold"
+                    >Advertising</label
+                  >
+                  <input
+                    type="text"
+                    id="contact-us-advertising"
+                    placeholder="Google Ads"
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+              </div>
+
+              <!-- Full Width Fields (Subject and Message) -->
+              <div class="form-group">
+                <label
+                  for="contact-us-subject"
+                  class="block text-sm font-semibold"
+                  >Subject</label
+                >
+                <textarea
+                  id="contact-us-subject"
+                  placeholder="Subject"
+                  required
+                  class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <label
+                  for="contact-us-message"
+                  class="block text-sm font-semibold"
+                  >Message</label
+                >
+                <textarea
+                  id="contact-us-message"
+                  placeholder="Message"
+                  required
+                  class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                ></textarea>
+              </div>
+
+              <!-- Terms and Conditions Checkbox -->
+              <div id="checkbox-tnc-container" class="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  name="checkbox-tnc"
+                  id="checkbox-tnc"
+                  class="h-5 w-5"
+                />
+                <label for="checkbox-tnc" class="text-sm">
+                  I agree with the
+                  <a href="tnc.html" class="text-blue-500"
+                    >Term and Condition</a
+                  >
+                  and
+                  <a href="privacy-policy.html" class="text-blue-500"
+                    >Privacy Policy</a
+                  >.
+                </label>
+              </div>
+
+              <!-- Submit Button -->
+              <div id="submit-button-container" class="mt-4">
+                <button
+                  type="submit"
+                  class="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Social Media Links Section (Placed Below the Form) -->
+          <div
+            id="contact-us-social-media-container"
+            class="flex justify-center gap-6 mt-8"
+          >
+            <a
+              href="#"
+              class="text-blue-500 hover:text-blue-700 transition duration-300"
+            >
+              <img
+                src="/Assets/Index/facebook.png"
+                alt="Facebook"
+                class="w-8 h-8"
+              />
+            </a>
+            <a
+              href="#"
+              class="text-blue-500 hover:text-blue-700 transition duration-300"
+            >
+              <img
+                src="/Assets/Index/instagram.webp"
+                alt="Instagram"
+                class="w-8 h-8"
+              />
+            </a>
+            <a
+              href="#"
+              class="text-blue-500 hover:text-blue-700 transition duration-300"
+            >
+              <img
+                src="/Assets/Index/twitter.webp"
+                alt="Twitter"
+                class="w-8 h-8"
+              />
+            </a>
+            <a
+              href="#"
+              class="text-blue-500 hover:text-blue-700 transition duration-300"
+            >
+              <img
+                src="/Assets/Index/youtube.webp"
+                alt="Twitter"
+                class="w-8 h-8"
+              />
+            </a>
+            <a
+              href="#"
+              class="text-blue-500 hover:text-blue-700 transition duration-300"
+            >
+              <img
+                src="/Assets/Index/linkedin.webp"
+                alt="Twitter"
+                class="w-8 h-8"
+              />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="Subscribe"
+        class="px-4 md:px-12 bg-slate-50 border-2 shadow-lg"
+      >
+        <div
+          id="subscribe-container"
+          class="relative w-full max-w-4xl mx-auto flex items-center justify-center flex-col text-centerp py-16"
+        >
+          <!-- Content Container -->
+          <div id="subscribe-content-container" class="w-full max-w-md">
+            <h2 class="text-3xl font-semibold text-black mb-4 text-center">
+              Stay Updated
+            </h2>
+            <p class="text-lg text-black mb-6 text-center">
+              Subscribe to our newsletter to get the latest updates and news
+              directly to your inbox.
+            </p>
+
+            <!-- Subscribe Form -->
+            <div
+              id="subscribe-form-container"
+              class="w-full flex justify-center"
+            >
+              <input
+                type="email"
+                id="subscribe-email"
+                placeholder="Email Address"
+                class="w-full md:w-2/3 py-2 px-4 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+              />
+              <button
+                type="submit"
+                class="py-2 px-6 bg-blue-600 text-white rounded-r-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+              >
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="scroll-to-top">
+        <!-- Back to Top Button -->
+        <button
+          id="back-to-top"
+          class="fixed bottom-5 right-5 px-4 py-2 bg-blue-500 text-white text-lg font-semibold rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:animate-bounce hover:bg-blue-600"
+          aria-label="Back to top"
+        >
+          <i class="fa-solid fa-angles-up fa-xs"></i>
+        </button>
+      </section>
+
+      <section id="whatsapp">
+        <!-- WhatsApp Button -->
+        <a
+          href="https://wa.me/628111798995?text=Hello%2C%20I%20need%20customer%20support%21"
+          id="whatsapp-btn"
+          class="fixed bottom-[100px] right-5 w-auto h-auto py-[6px] px-3 bg-green-500 text-white rounded-full shadow-lg flex justify-center items-center gap-2 transition-all duration-300 ease-in-out group overflow-hidden w-auto hover:w-auto hover:h-auto"
+          aria-label="Chat with customer support on WhatsApp"
+          target="_blank"
+          rel="noopener noreferrer"
+          <!--
+        >
+          <!-- WhatsApp Icon -->
+          <i class="fab fa-whatsapp text-2xl"></i>
+
+          <!-- WhatsApp Text -->
+          <span class="hidden group-hover:inline text-sm">
+            Chat on WhatsApp
+          </span>
+        </a>
+      </section>
+    </main>
+    <footer class="bg-white text-black w-full overflow-hidden">
+      <!-- Footer Container -->
+      <div class="w-full p-4 py-6">
+        <div
+          class="w-full flex flex-col md:grid md:grid-cols-3 md:justify-between lg:flex lg:flex-row lg:justify-between text-center md:text-left"
+        >
+          <!-- Company Section -->
+          <div class="flex flex-col mb-6 lg:mb-0 px-4 lg:px-0">
+            <!-- Company Logo -->
+            <div class="mx-auto mb-4">
+              <a href="Index.html">
+                <img
+                  class="h-30 md:h-20 mx-auto"
+                  src="Assets/Index/Logo-PT/Logo-BKKA-Transparant.png"
+                  alt="PT. BATUKARANG KENAN ABADI LOGO"
+                />
+              </a>
+            </div>
+
+            <!-- Social Media Links -->
+            <div class="flex justify-center space-x-3 mx-1 mb-4">
+              <a href="https://instagram.com">
+                <img
+                  class="h-8"
+                  src="Assets/Index/instagram.webp"
+                  alt="Instagram"
+                />
+              </a>
+              <a href="https://facebook.com">
+                <img
+                  class="h-8"
+                  src="Assets/Index/facebook.webp"
+                  alt="Facebook"
+                />
+              </a>
+              <a href="https://X.com">
+                <img
+                  class="h-8 dark:hidden"
+                  src="Assets/Index/twitter.webp"
+                  alt="X"
+                />
+                <img
+                  class="h-8 hidden dark:block"
+                  src="Assets/Index/twitter2.webp"
+                  alt="X"
+                />
+              </a>
+              <a href="https://youtube.com">
+                <img
+                  class="h-8"
+                  src="Assets/Index/youtube.webp"
+                  alt="YouTube"
+                />
+              </a>
+              <a href="https://linkedin.com">
+                <img
+                  class="h-8"
+                  src="Assets/Index/linkedin.webp"
+                  alt="LinkedIn"
+                />
+              </a>
+            </div>
+
+            <!-- Copyright and Privacy Policy -->
+            <div>
+              <p class="text-sm mt-2 text-center">
+                &copy; 2024. PT. BATUKARANG KENAN ABADI. All Rights Reserved.
+              </p>
+              <p class="text-sm text-center">
+                <a class="underline text-blue-500" href="privacy-policy.html">
+                  Privacy Policy
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <!-- Solutions Section -->
+          <div class="py-6 mb-6 lg:mb-0 px-4 lg:px-0">
+            <span class="block font-bold mb-2 hover:underline">Solutions</span>
+            <ul>
+              <li>
+                <a href="ISMS.html" class="hover:underline"
+                  >Integrated Security Management System (ISMS)</a
+                >
+              </li>
+              <li>
+                <a href="WIM.html" class="hover:underline"
+                  >Weigh In Motion (WIM)</a
+                >
+              </li>
+              <li>
+                <a href="ISHMS.html" class="hover:underline"
+                  >Intelligent Structure Health Monitoring System (ISHMS)</a
+                >
+              </li>
+              <li>
+                <a href="VPMS.html" class="hover:underline"
+                  >Vehicle Parking Management System (VPMS)</a
+                >
+              </li>
+              <li>
+                <a href="weighbridge.html" class="hover:underline"
+                  >Integrated Weigh Bridge System</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Products Section -->
+          <div class="py-6 mb-6 lg:mb-0 px-4 lg:px-0">
+            <span class="block font-bold mb-2 hover:underline">Products</span>
+            <ul>
+              <li>
+                <a href="Monitoring.html" class="hover:underline">Monitoring</a>
+              </li>
+              <li>
+                <a href="Sensors.html" class="hover:underline">Sensors</a>
+              </li>
+              <li>
+                <a href="Access-Management.html" class="hover:underline"
+                  >Access Management</a
+                >
+              </li>
+              <li>
+                <a href="Parking-System.html" class="hover:underline"
+                  >Parking System</a
+                >
+              </li>
+              <li>
+                <a href="weighbridge.html" class="hover:underline"
+                  >Weigh Bridge</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="py-6 mb-6 lg:mb-0 px-4 lg:px-0">
+            <span class="block font-bold mb-2 hover:underline">Supports</span>
+            <ul>
+              <li>
+                <a href="blog.html" class="hover:underline">Blog</a>
+              </li>
+              <li>
+                <a href="news&events.html" class="hover:underline"
+                  >News & Events</a
+                >
+              </li>
+              <li>
+                <a href="downloads.html" class="hover:underline">Downloads</a>
+              </li>
+            </ul>
+
+            <span class="block font-bold mt-6 mb-2 hover:underline"
+              >About Us</span
+            >
+            <ul>
+              <li>
+                <a href="company-profile.html" class="hover:underline"
+                  >Company Profile</a
+                >
+              </li>
+              <li><a href="Joinus.html" class="hover:underline">Join Us</a></li>
+            </ul>
+          </div>
+
+          <!-- Partners Section -->
+          <div class="py-6 mb-6 lg:mb-0 px-4 lg:px-0">
+            <span class="block font-bold mb-2">Partners</span>
+            <ul>
+              <li>
+                <a href="become-a-partner.html" class="hover:underline"
+                  >Become our Partner</a
+                >
+              </li>
+            </ul>
+
+            <!-- Contact Us -->
+            <div class="mt-4">
+              <a href="Contactus.html" class="font-bold hover:underline"
+                >Contact Us</a
+              >
+            </div>
+
+            <!-- Login -->
+            <div class="mt-4">
+              <a href="login.html" class="font-bold hover:underline">Login</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.querySelectorAll(".toggle-button").forEach((button) => {
+        button.addEventListener("click", () => {
+          // Find the corresponding hidden content
+          const hiddenContent = button.previousElementSibling;
+
+          // Toggle visibility and button text
+          if (hiddenContent.classList.contains("hidden")) {
+            hiddenContent.classList.remove("hidden");
+            button.textContent = "Read Less";
+          } else {
+            hiddenContent.classList.add("hidden");
+            button.textContent = "Read More";
+          }
+        });
+      });
+    </script>
+    <script src="index.js"></script>
+    <script src="scrolltotop.js"></script>
+  </body>
+</html>

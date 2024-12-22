@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="keywords"
+      content="JEMBATAN TIMBANG, JEMBATAN TIMBANG DINAMIS, WIM, SECURITY SYSTEM, CCTV, STRUCTURE HEALTH"
+    />
+    <meta
+      name="description"
+      content="PT.BKKA.CO.ID is a leading global company specializing in JEMBATAN TIMBANG, JEMBATAN TIMBANG DINAMIS, WIM, SECURITY SYSTEM, CCTV, STRUCTURE HEALTH"
+    />
+    <meta name="author" content="PT.BKKA.CO.ID" />
+    <script
+      src="https://kit.fontawesome.com/2985af7cb1.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tw-elements/css/tw-elements.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com/3.3.0"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          fontFamily: {
+            sans: ["Roboto", "sans-serif"],
+            body: ["Roboto", "sans-serif"],
+            mono: ["ui-monospace", "monospace"],
+          },
+        },
+        corePlugins: { preflight: false },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Dark Mode Theme -->
+    <script>
+      tailwind.config = {
+        darkMode:
+          "class" /* class/media, here we use class to enable manually dark mode */,
+      };
+    </script>
+    <script>
+      /**
+       * Loads the theme stored
+       */
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+    <!-- End of Mode Theme -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="NewCSS.css" />
+    <link rel="stylesheet" href="navbar-css-trial.css" />
+    <link rel="icon" href="Assets/Index/Logo-PT/logoicon.ico" />
+    <title>PT.BKKA.CO.ID</title>
+
+    <style>
+      .accordion {
+        background-color: #eee;
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+      }
+
+      .active,
+      .accordion:hover {
+        background-color: #ccc;
+      }
+
+      .accordion:after {
+        content: "\002B";
+        color: #777;
+        font-weight: bold;
+        float: right;
+        margin-left: 5px;
+      }
+
+      .active:after {
+        content: "\2212";
+      }
+
+      .panel {
+        padding: 0 18px;
+        background-color: white;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+      }
+    </style>
+  </head>
+  <body class="bg-blue-50 font-sans min-h-screen">
+    <header>
+      <nav>
+        <div
+          id="nav-container"
+          class="w-full bg-white fixed top-0 flex flex-row justify-between z-20"
+        >
+          <!-- Logo -->
+          <div id="logo-container" class="my-4 ml-8 lg:mx-20">
+            <a href="/index.html">
+              <img
+                id="logo-image"
+                class="w-[30vw] md:w-[20vw] lg:w-[10vw] flex justify-center"
+                src="/Assets/Index/Logo-PT/Logo-BKKA-Transparant.png"
+                alt="PT. Batukarang Kenan Abadi Logo"
+              />
+            </a>
+          </div>
+
+          <!-- Hamburger Button -->
+          <button
+            id="hamburger"
+            class="hamburger md:hidden right-5"
+            aria-label="Toggle navigation"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <!-- Navigation Links -->
+          <div id="nav-links" class="hidden h-[70vh] overflow-y-scroll">
+            <a
+              href="/solutions.html"
+              class="hover:text-blue-900 text-black text-lg font-bold"
+              >Solutions</a
+            >
+
+            <a
+              href="/products.html"
+              class="hover:text-blue-900 text-black text-lg font-bold"
+              >Products</a
+            >
+
+            <a href="" class="hover:text-blue-900 text-black text-lg font-bold"
+              >Supports</a
+            >
+            <!-- <a class="ml-5" href="/blog.html">Blog</a> -->
+            <!-- <a class="ml-5" href="news&events.html">News & Events</a> -->
+            <a class="ml-5" href="/downloads.html">Downloads</a>
+
+            <a
+              href="#about-us"
+              class="hover:text-blue-900 text-black text-lg font-bold"
+              >About Us</a
+            >
+            <a class="ml-5" href="company-profile.html">Company Profile</a>
+            <a class="ml-5" href="Joinus.html">Join Us</a>
+
+            <a
+              href="become-a-partner.html"
+              class="hover:text-blue-900 text-black text-lg font-bold"
+              >Partners</a
+            >
+            <a
+              href="Contactus.html"
+              class="hover:text-blue-900 text-black text-lg font-bold"
+              >Contact Us</a
+            >
+            <a
+              href="login.html"
+              class="hover:text-blue-900 text-black text-lg font-bold"
+              >Login</a
+            >
+          </div>
+
+          <!-- Navigation Menu -->
+          <div
+            id="menu"
+            class="hidden md:block flex content-center mr-8 lg:mx-20 py-5"
+          >
+            <!-- Menu Links -->
+            <div
+              id="menu-links"
+              class="hidden md:flex justify-between text-center content-center text-black text-sm lg:text-xl font-semibold lg:gap-8 gap-4 font-semibold"
+            >
+              <!-- Solutions Dropdown -->
+              <div class="relative group md:text-base lg:text-xl text-left">
+                <div class="flex items-center cursor-pointer space-x-2">
+                  <a class="hover:text-blue-900" href="solutions.html"
+                    >Solutions</a
+                  >
+                </div>
+              </div>
+
+              <!-- Products Dropdown -->
+              <div class="relative group md:text-base lg:text-xl text-left">
+                <div class="flex items-center cursor-pointer space-x-2">
+                  <a class="hover:text-blue-900" href="products.html"
+                    >Products</a
+                  >
+                </div>
+              </div>
+
+              <!-- Supports Dropdown -->
+              <div class="relative group md:text-base lg:text-xl text-left">
+                <div class="flex items-center cursor-pointer space-x-2">
+                  <a class="hover:text-blue-900">Supports</a>
+                  <i
+                    class="fas fa-chevron-down text-sm transition-transform duration-300 group-hover:rotate-180"
+                  ></i>
+                </div>
+                <!-- Dropdown Menu -->
+                <div
+                  class="absolute left-0 hidden group-hover:block bg-white shadow-lg md:text-base lg:text-lg py-4 w-[300px] rounded-md"
+                >
+                  <!-- <a
+                    class="block px-4 py-2 hover:bg-gray-100 hover:text-blue-900"
+                    href="blog.html"
+                  >
+                    Blog
+                  </a> -->
+                  <!-- <a
+                    class="block px-4 py-2 hover:bg-gray-100 hover:text-blue-900"
+                    href="news&events.html"
+                  >
+                    News & Events
+                  </a> -->
+                  <a
+                    class="block px-4 py-2 hover:bg-gray-100 hover:text-blue-900"
+                    href="downloads.html"
+                  >
+                    Downloads
+                  </a>
+                </div>
+              </div>
+
+              <!-- About Us Dropdown -->
+              <div class="relative group md:text-base lg:text-xl text-left">
+                <div class="flex items-center cursor-pointer space-x-2">
+                  <a class="hover:text-blue-900">About Us</a>
+                  <i
+                    class="fas fa-chevron-down text-sm transition-transform duration-300 group-hover:rotate-180"
+                  ></i>
+                </div>
+                <!-- Dropdown Menu -->
+                <div
+                  class="absolute left-0 hidden group-hover:block bg-white shadow-lg md:text-base lg:text-lg py-4 w-[300px] rounded-md"
+                >
+                  <a
+                    class="block px-4 py-2 hover:bg-gray-100 hover:text-blue-900"
+                    href="company-profile.html"
+                  >
+                    Company Profile
+                  </a>
+                  <a
+                    class="block px-4 py-2 hover:bg-gray-100 hover:text-blue-900"
+                    href="Joinus.html"
+                  >
+                    Join Us
+                  </a>
+                </div>
+              </div>
+
+              <!-- Other Links -->
+              <a class="hover:text-blue-900" href="become-a-partner.html"
+                >Partners</a
+              >
+              <a class="hover:text-blue-900" href="Contactus.html"
+                >Contact Us</a
+              >
+              <a class="hover:text-blue-900" href="login.html">Login</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <div class="w-full">
+        <div class="relative mt-16">
+          <img
+            class="w-full"
+            src="Assets/Partner/NAVBAR PARTNER 3.png"
+            alt="man pressing Solution"
+          />
+        </div>
+      </div>
+
+      <!-- Be our partner -->
+      <section class="mx-auto my-8 py-6">
+        <div class="bg-white">
+          <div class="md:w-2/3 md:mx-auto">
+            <span>
+              <h2
+                class="text-center text-black text-[18px] font-bold uppercase px-2 py-4 mb-2"
+              >
+                receive a range of
+                <strong>benefits</strong>
+              </h2>
+            </span>
+            <span class="">
+              <h3 class="text-center text-black text-[16px] align-center mb-6">
+                As a partner, you’ll receive a range of benefits, including:
+              </h3>
+            </span>
+            <ul class="mx-4 px-">
+              <li>
+                <span class="flex flex-row">
+                  <i
+                    class="fa-regular fa-square-check fa-lg flex items-center"
+                    style="color: #0054e6"
+                  ></i>
+                  <h4 class="text-black text-[16px] px-4 py-2">
+                    “Precious Metal” discounts and volume pricing.
+                  </h4>
+                </span>
+              </li>
+              <li>
+                <span class="flex flex-row">
+                  <i
+                    class="fa-regular fa-square-check fa-lg flex items-center"
+                    style="color: #0054e6"
+                  ></i>
+                  <h4 class="text-black text-[16px] px-4 py-2">
+                    A dedicated account manager who will provide the training
+                    and support you need to succeed.
+                  </h4>
+                </span>
+              </li>
+              <li>
+                <span class="flex flex-row">
+                  <i
+                    class="fa-regular fa-square-check fa-lg flex items-center"
+                    style="color: #0054e6"
+                  ></i>
+                  <h4 class="text-black text-[16px] px-4 py-2">
+                    Marketing support and tools to help you reach your target
+                    audience and grow your business.
+                  </h4>
+                </span>
+              </li>
+              <li>
+                <span class="flex flex-row">
+                  <i
+                    class="fa-regular fa-square-check fa-lg flex items-center"
+                    style="color: #0054e6"
+                  ></i>
+                  <h4 class="text-black text-[16px] px-4 py-2">
+                    Sales support to help you close deals.
+                  </h4>
+                </span>
+              </li>
+              <li>
+                <span class="flex flex-row">
+                  <i
+                    class="fa-regular fa-square-check fa-lg flex items-center"
+                    style="color: #0054e6"
+                  ></i>
+                  <h4 class="text-black text-[16px] px-4 py-2">
+                    Lead generation to help you grow your business.
+                  </h4>
+                </span>
+              </li>
+              <li>
+                <span class="flex flex-row">
+                  <i
+                    class="fa-regular fa-square-check fa-lg flex items-center"
+                    style="color: #0054e6"
+                  ></i>
+                  <h4 class="text-black text-[16px] px-4 py-2">
+                    Online Ordering
+                  </h4>
+                </span>
+              </li>
+            </ul>
+            <div class="mx-2 my-8">
+              <p class="text-center text-black text-[14px] font-bold mb-8">
+                You start as a Silver Partner. You reach Gold, then Platinum
+                statuses, which come with enhanced discounts and benefits, by
+                achieving a certain sales volume.
+              </p>
+              <div class="flex justify-center">
+                <a
+                  class="my-4 text-center align-center text-white bg-blue-700 hover:bg-blue-800 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm flex justify-center px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  href="#joinus"
+                  >JOIN NOW</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Become a Partner Form -->
+      <section id="joinus" class="mx-auto mb-6">
+        <div>
+          <form
+            class="w-full md:w-3/4 lg:w-1/2 rounded-2xl mx-auto my-2 p-4 bg-white"
+          >
+            <span>
+              <h2 class="text-black font-bold text-[18px] text-center mb-4">
+                Interested - <strong>Definitely</strong>
+              </h2>
+            </span>
+            <div>
+              <p class="text-black text-[14px] text-center mb-8">
+                To become a Willowmore Value Added Reseller partner, fill out
+                the form below. One of our representatives will be in touch to
+                discuss the next steps.
+              </p>
+            </div>
+
+            <!-- ID -->
+            <div class="grid gap-6 mb-6 md:grid-cols-2">
+              <!-- First name -->
+              <div>
+                <label
+                  for="first_name"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >First name</label
+                >
+                <input
+                  type="text"
+                  id="first_name"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="John"
+                  required
+                />
+              </div>
+
+              <!-- Last name -->
+              <div>
+                <label
+                  for="last_name"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >Last name</label
+                >
+                <input
+                  type="text"
+                  id="last_name"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Doe"
+                  required
+                />
+              </div>
+
+              <!-- Email -->
+              <div class="mb-6">
+                <label
+                  for="email"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >Business Email</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="john.doe@company.com"
+                  required
+                />
+              </div>
+
+              <!-- Job Title -->
+              <div>
+                <label
+                  for="job-title"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >Job Title</label
+                >
+                <input
+                  type="text"
+                  id="job-title"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Purchasing"
+                  required
+                />
+              </div>
+
+              <!-- Company -->
+              <div>
+                <label
+                  for="company"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >Company</label
+                >
+                <input
+                  type="text"
+                  id="company"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="PT. BKKA"
+                  required
+                />
+              </div>
+
+              <!-- Phone -->
+              <div>
+                <label
+                  for="phone"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >Phone number</label
+                >
+                <input
+                  type="tel"
+                  id="phone"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="123-45-678"
+                  pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                  required
+                />
+              </div>
+
+              <!-- Website -->
+              <div>
+                <label
+                  for="website"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >Website URL</label
+                >
+                <input
+                  type="url"
+                  id="website"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="bkka.co.id"
+                  required
+                />
+              </div>
+
+              <!-- How do u hear about us -->
+              <div>
+                <label
+                  for="how-do-u-hear-about-us"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >How do you hear about us?</label
+                >
+                <input
+                  type="text"
+                  id="how-do-u-hear-about-us"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Google Ads"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- Message -->
+            <div>
+              <label
+                for="message"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >Message</label
+              >
+              <textarea
+                id="message"
+                rows="10"
+                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Write your thoughts here..."
+              ></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="flex justify-center">
+              <button
+                type="submit"
+                class="my-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section
+        id="Subscribe"
+        class="px-4 md:px-12 bg-slate-50 border-2 shadow-lg"
+      >
+        <div
+          id="subscribe-container"
+          class="relative w-full max-w-4xl mx-auto flex items-center justify-center flex-col text-centerp py-16"
+        >
+          <!-- Content Container -->
+          <div id="subscribe-content-container" class="w-full max-w-md">
+            <h2 class="text-3xl font-semibold text-black mb-4 text-center">
+              Stay Updated
+            </h2>
+            <p class="text-lg text-black mb-6 text-center">
+              Subscribe to our newsletter to get the latest updates and news
+              directly to your inbox.
+            </p>
+
+            <!-- Subscribe Form -->
+            <div
+              id="subscribe-form-container"
+              class="w-full flex justify-center"
+            >
+              <input
+                type="email"
+                id="subscribe-email"
+                placeholder="Email Address"
+                class="w-full md:w-2/3 py-2 px-4 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+              />
+              <button
+                type="submit"
+                class="py-2 px-6 bg-blue-600 text-white rounded-r-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+              >
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="scroll-to-top">
+        <!-- Back to Top Button -->
+        <button
+          id="back-to-top"
+          class="fixed bottom-5 right-5 px-4 py-2 bg-blue-500 text-white text-lg font-semibold rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:animate-bounce hover:bg-blue-600"
+          aria-label="Back to top"
+        >
+          <i class="fa-solid fa-angles-up fa-xs"></i>
+        </button>
+      </section>
+
+      <section id="whatsapp">
+        <!-- WhatsApp Button -->
+        <a
+          href="https://wa.me/628111798995?text=Hello%2C%20I%20need%20customer%20support%21"
+          id="whatsapp-btn"
+          class="fixed bottom-[100px] right-5 w-auto h-auto py-[6px] px-3 bg-green-500 text-white rounded-full shadow-lg flex justify-center items-center gap-2 transition-all duration-300 ease-in-out group overflow-hidden w-auto hover:w-auto hover:h-auto"
+          aria-label="Chat with customer support on WhatsApp"
+          target="_blank"
+          rel="noopener noreferrer"
+          <!--
+        >
+          <!-- WhatsApp Icon -->
+          <i class="fab fa-whatsapp text-2xl"></i>
+
+          <!-- WhatsApp Text -->
+          <span class="hidden group-hover:inline text-sm">
+            Chat on WhatsApp
+          </span>
+        </a>
+      </section>
+    </main>
+    <footer class="bg-white text-black w-full overflow-hidden">
+      <!-- Footer Container -->
+      <div class="w-full p-4 py-6 flex flex-col md:flex-row mx-auto">
+        <div
+          class="w-full md:w-1/3 flex flex-col md:flex md:flex-row md:justify-between text-center md:text-left"
+        >
+          <!-- Company Section -->
+          <div class="flex flex-col mb-6 lg:mb-0 px-4 lg:px-0">
+            <!-- Company Logo -->
+            <div class="mx-auto mb-4">
+              <a href="Index.html">
+                <img
+                  class="h-30 md:h-20 mx-auto"
+                  src="Assets/Index/Logo-PT/Logo-BKKA-Transparant.png"
+                  alt="PT. BATUKARANG KENAN ABADI LOGO"
+                />
+              </a>
+            </div>
+
+            <!-- Social Media Links -->
+            <div class="flex justify-center space-x-3 mx-1 mb-4">
+              <a href="https://instagram.com">
+                <img
+                  class="h-8"
+                  src="Assets/Index/instagram.webp"
+                  alt="Instagram"
+                />
+              </a>
+              <a href="https://facebook.com">
+                <img
+                  class="h-8"
+                  src="Assets/Index/facebook.webp"
+                  alt="Facebook"
+                />
+              </a>
+              <a href="https://X.com">
+                <img
+                  class="h-8 dark:hidden"
+                  src="Assets/Index/twitter.webp"
+                  alt="X"
+                />
+                <img
+                  class="h-8 hidden dark:block"
+                  src="Assets/Index/twitter2.webp"
+                  alt="X"
+                />
+              </a>
+              <a href="https://youtube.com">
+                <img
+                  class="h-8"
+                  src="Assets/Index/youtube.webp"
+                  alt="YouTube"
+                />
+              </a>
+              <a href="https://linkedin.com">
+                <img
+                  class="h-8"
+                  src="Assets/Index/linkedin.webp"
+                  alt="LinkedIn"
+                />
+              </a>
+            </div>
+
+            <!-- Copyright and Privacy Policy -->
+            <div>
+              <p class="text-sm mt-2 text-center">
+                &copy; 2024. PT. BATUKARANG KENAN ABADI. All Rights Reserved.
+              </p>
+              <p class="text-sm text-center">
+                <a class="underline text-blue-500" href="privacy-policy.html">
+                  Privacy Policy
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="flex flex-col md:flex-row mb-6 lg:mb-0 px-4 lg:px-0 w-full md:w-2/3 justify-around text-center md:text-left"
+        >
+          <div class="flex flex-col md:gap-6">
+            <div class="mb-6 lg:mb-0 px-4 lg:px-0">
+              <a
+                class="block font-bold mb-2 hover:underline"
+                href="solutions.html"
+                >Solutions</a
+              >
+            </div>
+
+            <!-- Products Section -->
+            <div class="mb-6 lg:mb-0 px-4 lg:px-0">
+              <a
+                class="block font-bold mb-2 hover:underline"
+                href="products.html"
+                >Products</a
+              >
+            </div>
+          </div>
+
+          <!-- Solutions Section -->
+
+          <div class="mb-6 lg:mb-0 px-4 lg:px-0">
+            <span class="block font-bold mb-2 hover:underline">Supports</span>
+            <ul>
+              <!-- <li>
+                <a href="blog.html" class="hover:underline">Blog</a>
+              </li>
+              <li>
+                <a href="news&events.html" class="hover:underline"
+                  >News & Events</a
+                >
+              </li> -->
+              <li>
+                <a href="downloads.html" class="hover:underline">Downloads</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mb-6 lg:mb-0 px-4 lg:px-0">
+            <span class="block font-bold mb-2 hover:underline"> About Us </span>
+            <ul>
+              <li>
+                <a href="company-profile.html" class="hover:underline"
+                  >Company Profile</a
+                >
+              </li>
+              <li><a href="Joinus.html" class="hover:underline">Join Us</a></li>
+            </ul>
+          </div>
+
+          <div class="mb-6 lg:mb-0 px-4 lg:px-0">
+            <span class="block font-bold mb-2">Partners</span>
+            <ul>
+              <li>
+                <a href="become-a-partner.html" class="hover:underline"
+                  >Become our Partner</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Us -->
+          <div class="mb-6 lg:mb-0 px-4 lg:px-0 flex flex-col gap-6">
+            <a href="Contactus.html" class="font-bold hover:underline"
+              >Contact Us</a
+            >
+            <a href="login.html" class="font-bold hover:underline">Login</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="index.js"></script>
+    <script src="scrolltotop.js"></script>
+  </body>
+</html>

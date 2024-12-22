@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="keywords"
+      content="IOT, JEMBATAN TIMBANG, JEMBATAN TIMBANG DINAMIS, WIM, SECURITY SYSTEM, CCTV, STRUCTURE HEALTH"
+    />
+    <meta
+      name="description"
+      content="PT.BKKA.CO.ID is a leading global company specializing in IoT Solutions. We also have a range of products, such as JEMBATAN TIMBANG, JEMBATAN TIMBANG DINAMIS, WIM, SECURITY SYSTEM, CCTV, STRUCTURE HEALTH"
+    />
+    <meta name="author" content="PT.BKKA.CO.ID" />
+    <title>PT.BKKA.CO.ID</title>
+    <link rel="icon" href="/Assets/Index/Logo-PT/logoicon.ico" />
+    <!-- AOS CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com/3.3.0"></script>
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/2985af7cb1.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .hamburger {
+        display: flex;
+        cursor: pointer;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 40px;
+        width: 40px;
+        border: none;
+        background: transparent;
+        overflow: visible;
+        z-index: 1000;
+      }
+
+      .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: black;
+        margin: 4px 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        transform-origin: center;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        position: absolute;
+        transform: rotate(45deg);
+      }
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.active span:nth-child(3) {
+        position: absolute;
+        transform: rotate(-45deg);
+      }
+
+      #nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+      }
+
+      #nav-links.active {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body class="bg-white">
+    <header>
+      <nav>
+        <div
+          id="nav-container"
+          class="w-full bg-white fixed top-0 flex flex-row justify-between z-20"
+        >
+          <!-- Logo -->
+          <div id="logo-container" class="my-4 ml-8 lg:mx-20">
+            <a href="/index.html">
+              <img
+                id="logo-image"
+                class="w-[30vw] md:w-[20vw] lg:w-[10vw] flex justify-center"
+                src="/Assets/Index/Logo-PT/Logo-BKKA-Transparant.png"
+                alt="PT. Batukarang Kenan Abadi Logo"
+              />
+            </a>
+          </div>
+
+          <!-- Hamburger Button -->
+          <button
+            id="hamburger"
+            class="hamburger md:hidden right-5"
+            aria-label="Toggle navigation"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <!-- Navigation Links -->
+          <div id="nav-links" class="hidden h-[70vh] overflow-y-scroll">
+            <a
+              href="/solutions.html"
+              class="hover:text-blue-900 text-black text-lg font-bold"
+              >Solutions</a
+            >
+
+            <a
+              href="/products.html"
+              class="hover:text-blue-900 text-black text-lg font-bold"
+              >Products</a
+            >
+
+            <a href="" class="hover:text-blue-900 text-black text-lg font-bold"
+              >Supports</a
+            >
+            <!-- <a class="ml-5" href="/blog.html">Blog</a> -->
+            <!-- <a class="ml-5" href="news&events.html">News & Events</a> -->
+            <a class="ml-5" href="/downloads.html">Downloads</a>
+
+            <a
+              href="#about-us"
+              class="hover:text-blue-900 text-black text-lg font-bold"
+              >About Us</a
+            >
+            <a class="ml-5" href="company-profile.html">Company Profile</a>
+            <a class="ml-5" href="Joinus.html">Join Us</a>
+
+            <a
+              href="become-a-partner.html"
+              class="hover:text-blue-900 text-black text-lg font-bold"
+              >Partners</a
+            >
+            <a
+              href="Contactus.html"
+              class="hover:text-blue-900 text-black text-lg font-bold"
+              >Contact Us</a
+            >
+            <a
+              href="login.html"
+              class="hover:text-blue-900 text-black text-lg font-bold"
+              >Login</a
+            >
+          </div>
+
+          <!-- Navigation Menu -->
+          <div
+            id="menu"
+            class="hidden md:block flex content-center mr-8 lg:mx-20 py-5"
+          >
+            <!-- Menu Links -->
+            <div
+              id="menu-links"
+              class="hidden md:flex justify-between text-center content-center text-black text-sm lg:text-xl font-semibold lg:gap-8 gap-4 font-semibold"
+            >
+              <!-- Solutions Dropdown -->
+              <div class="relative group md:text-base lg:text-xl text-left">
+                <div class="flex items-center cursor-pointer space-x-2">
+                  <a class="hover:text-blue-900" href="solutions.html"
+                    >Solutions</a
+                  >
+                </div>
+              </div>
+
+              <!-- Products Dropdown -->
+              <div class="relative group md:text-base lg:text-xl text-left">
+                <div class="flex items-center cursor-pointer space-x-2">
+                  <a class="hover:text-blue-900" href="products.html"
+                    >Products</a
+                  >
+                </div>
+              </div>
+
+              <!-- Supports Dropdown -->
+              <div class="relative group md:text-base lg:text-xl text-left">
+                <div class="flex items-center cursor-pointer space-x-2">
+                  <a class="hover:text-blue-900">Supports</a>
+                  <i
+                    class="fas fa-chevron-down text-sm transition-transform duration-300 group-hover:rotate-180"
+                  ></i>
+                </div>
+                <!-- Dropdown Menu -->
+                <div
+                  class="absolute left-0 hidden group-hover:block bg-white shadow-lg md:text-base lg:text-lg py-4 w-[300px] rounded-md"
+                >
+                  <!-- <a
+                    class="block px-4 py-2 hover:bg-gray-100 hover:text-blue-900"
+                    href="blog.html"
+                  >
+                    Blog
+                  </a> -->
+                  <!-- <a
+                    class="block px-4 py-2 hover:bg-gray-100 hover:text-blue-900"
+                    href="news&events.html"
+                  >
+                    News & Events
+                  </a> -->
+                  <a
+                    class="block px-4 py-2 hover:bg-gray-100 hover:text-blue-900"
+                    href="downloads.html"
+                  >
+                    Downloads
+                  </a>
+                </div>
+              </div>
+
+              <!-- About Us Dropdown -->
+              <div class="relative group md:text-base lg:text-xl text-left">
+                <div class="flex items-center cursor-pointer space-x-2">
+                  <a class="hover:text-blue-900">About Us</a>
+                  <i
+                    class="fas fa-chevron-down text-sm transition-transform duration-300 group-hover:rotate-180"
+                  ></i>
+                </div>
+                <!-- Dropdown Menu -->
+                <div
+                  class="absolute left-0 hidden group-hover:block bg-white shadow-lg md:text-base lg:text-lg py-4 w-[300px] rounded-md"
+                >
+                  <a
+                    class="block px-4 py-2 hover:bg-gray-100 hover:text-blue-900"
+                    href="company-profile.html"
+                  >
+                    Company Profile
+                  </a>
+                  <a
+                    class="block px-4 py-2 hover:bg-gray-100 hover:text-blue-900"
+                    href="Joinus.html"
+                  >
+                    Join Us
+                  </a>
+                </div>
+              </div>
+
+              <!-- Other Links -->
+              <a class="hover:text-blue-900" href="become-a-partner.html"
+                >Partners</a
+              >
+              <a class="hover:text-blue-900" href="Contactus.html"
+                >Contact Us</a
+              >
+              <a class="hover:text-blue-900" href="login.html">Login</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section id="hero">
+        <div id="hero-container">
+          <div
+            id="hero-image-carousel-container"
+            class="relative max-w-full mx-auto overflow-hidden"
+          >
+            <div
+              id="hero-carousel-images"
+              class="flex transition-transform duration-500 mt-[10vh] md:mt-[10vh] lg:mt-[13vh]"
+            >
+              <img
+                src="/Assets/Index/HERO HP CAROUSEL 1 OPTION 2.webp"
+                alt="PT. Batukarang Kenan Abadi Hero Image 1"
+                class="h-[30vh] md:h-[40vh] lg:h-full w-full sm:object-fill md:object-fill lg:object-fill"
+              />
+              <img
+                src="/Assets/Index/HERO HP CAROUSEL 2 OPTION 6.webp"
+                alt="PT. Batukarang Kenan Abadi Hero Image 2"
+                class="h-[30vh] md:h-[40vh] lg:h-full w-full sm:object-fill md:object-fill lg:object-fill"
+              />
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div
+              id="carousel-controls"
+              class="absolute inset-x-4 sm:inset-x-8 top-[35vh] md:top-[30vh] lg:top-[50vh] flex -translate-y-1/2 transform justify-between z-10"
+            >
+              <button
+                type="button"
+                id="heroPreviousButton"
+                class="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-white hover:text-black bg-black/50 hover:bg-white rounded-full transition-all duration-300 shadow-lg"
+              >
+                <span class="text-xl sm:text-2xl">&#10094;</span>
+              </button>
+              <button
+                type="button"
+                id="heroNextButton"
+                class="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-white hover:text-black bg-black/50 hover:bg-white rounded-full transition-all duration-300 shadow-lg"
+              >
+                <span class="text-xl sm:text-2xl">&#10095;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Content/Button -->
+        <div class="mx-4 md-[8vh] lg:mt-[10vh]">
+          <h1
+            class="text-lg md:text-4xl lg:text-5xl font-bold text-center mx-4 my-8"
+          >
+            Welcome to PT. Batukarang Kenan Abadi
+          </h1>
+          <p
+            class="text-base md:text-2xl lg:text-xl text-black text-center mx-auto my-8 lg:w-2/3"
+          >
+            PT. Batukarang Kenan Abadi is a leader in IoT solutions, empowering
+            businesses with innovative technology and Artificial Intelligent to
+            enhance efficiency, productivity, and data-driven decision-making.
+          </p>
+          <div id="hero-button-container" class="flex justify-center mt-4">
+            <a href="https://wa.me/628111798995?text=Hello%2C%20I%20need%20customer%20support%21"
+              id="hero-button"
+              aria-label="Chat with customer support on WhatsApp"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm md:text-xl text-white bg-blue-600 hover:bg-blue-700 py-2 px-4 rounded-md transition duration-300 ease-in-out"
+            >
+              Get your free Consultation
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="solutions" class="mx-4 mt-[15vh] max-w-full">
+        <!-- Solution Carousel Container -->
+        <div
+          class="solutions-carousel-container max-w-full mx-auto p-4 flex flex-col lg:flex-row gap-8"
+        >
+          <!-- Carousel Section (Left Side) -->
+          <div
+            id="solutions-carousel"
+            class="relative w-full lg:w-1/2"
+            data-aos="fade-right"
+            data-aos-duration="1000"
+          >
+            <!-- Main Image -->
+            <div
+              id="solutions-carousel-main-image"
+              class="overflow-hidden rounded-lg"
+            >
+              <img
+                src="Assets/Index/HP ISMS.webp"
+                alt="Image 1"
+                class="w-full lg:h-[500px] object-contain lg:object-cover"
+                id="solutions-mainImage"
+              />
+            </div>
+
+            <!-- Thumbnails Container Below Main Image -->
+            <div
+              id="solutions-thumbnails"
+              class="flex justify-center gap-4 mt-4 overflow-x-auto lg:overflow-x-hidden"
+            >
+              <img
+                src="Assets/Index/HP ISMS.webp"
+                alt="Thumbnail 1"
+                class="w-20 h-20 object-cover cursor-pointer rounded-lg"
+                data-index="0"
+                id="solutions-thumb1"
+              />
+              <img
+                src="Assets/Index/HP WIM.webp"
+                alt="Thumbnail 2"
+                class="w-20 h-20 object-cover cursor-pointer rounded-lg"
+                data-index="1"
+                id="solutions-thumb2"
+              />
+              <img
+                src="Assets/Index/HP - ISHMS.webp"
+                alt="Thumbnail 3"
+                class="w-20 h-20 object-cover cursor-pointer rounded-lg"
+                data-index="2"
+                id="solutions-thumb3"
+              />
+              <img
+                src="Assets/Index/HP VPMS 1.webp"
+                alt="Thumbnail 4"
+                class="w-20 h-20 object-cover cursor-pointer rounded-lg"
+                data-index="3"
+                id="solutions-thumb4"
+              />
+            </div>
+
+            <!-- Navigation Buttons -->
+            <button
+              id="solutions-prevBtn"
+              class="absolute left-5 top-1/2 transform -translate-y-1/2 text-white bg-black bg-opacity-50 p-2 rounded-full z-10"
+            >
+              &#10094;
+            </button>
+            <button
+              id="solutions-nextBtn"
+              class="absolute right-5 top-1/2 transform -translate-y-1/2 text-white bg-black bg-opacity-50 p-2 rounded-full z-10"
+            >
+              &#10095;
+            </button>
+          </div>
+
+          <!-- Explanation Section (Right Side) -->
+          <div
+            class="text-black w-full lg:w-1/2"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+          >
+            <h2 class="text-3xl font-semibold mb-4">Solutions</h2>
+            <p class="mb-4">
+              We offer holistic IoT and AI-based solutions to help you overcome operational challenges with a tailored approach. With integrated systems and artificial intelligence, our solutions are designed to deliver tangible results and sustainable value for your business.
+
+            </p>
+            <p class="my-2">Our service advantages:
+
+              <ul>
+                <li class="flex flex-cols gap-4 my-2">
+                  <i
+                  class="fa-regular fa-circle-check text-green-500 text-2xl"
+                  ></i>
+                  <div>
+                    <h3>Technological Innovation:</h3>
+                    <p> IoT and AI-based solutions that keep up with the latest advancements.
+
+                    </p>
+                  </div>
+                </li>
+                <li class="flex flex-cols gap-4 my-2">
+                  <i
+                  class="fa-regular fa-circle-check text-green-500 text-2xl"
+                  ></i>
+                  <div>
+                    <h3>Reliable Quality:</h3>
+                    <p>IoT and AI-based solutions for real-time monitoring of infrastructure health, such as bridges, buildings, and tunnels.
+                    </p>
+                  </div>
+                </li>
+                <li class="flex flex-cols gap-4 my-2">
+                  <i
+                  class="fa-regular fa-circle-check text-green-500 text-2xl"
+                  ></i>
+                  <div>
+                    <h3>Proven systems that deliver optimal performance and high accuracy.
+                    </h3>
+                    <p>Vehicle weight measurement technology that works without stopping vehicles, seamlessly integrated for optimal data management.
+                    </p>
+                  </div>
+                </li>
+                <li class="flex flex-cols gap-4 my-2">
+                  <i
+                  class="fa-regular fa-circle-check text-green-500 text-2xl"
+                  ></i>
+                  <div>
+                    <h3>Comprehensive Service:</h3>
+                    <p>
+                      From consultation to implementation, we are with you at every step of your journey.
+                    </p>
+                  </div>
+                </li>
+                <li class="flex flex-cols gap-4 my-2">
+                  <i
+                  class="fa-regular fa-circle-check text-green-500 text-2xl"
+                  ></i>
+                  <div>
+                    <h3>Operational Efficiency:</h3>
+                    <p>
+                      Integrated systems that maximize productivity and reduce manual workload.
+                    </p>
+                  </div>
+                </li>
+                <li class="flex flex-cols gap-4 my-2">
+                  <i
+                  class="fa-regular fa-circle-check text-green-500 text-2xl"
+                  ></i>
+                  <div>
+                    <h3>Sustainability:</h3>
+                    <p>
+                      Eco-friendly technologies with positive impacts on communities.
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </p>
+
+            <!-- Redirect Button -->
+            <a
+              href="solutions.html"
+              class="mt-6 inline-block text-white bg-blue-600 hover:bg-blue-700 py-2 px-4 rounded-md transition duration-300 ease-in-out"
+            >
+              See our complete solutions
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="products" class="mx-4 mt-[15vh] max-w-full">
+        <!-- Product Carousel Container -->
+        <div
+          class="product-carousel-container w-full mx-auto p-4 flex flex-col lg:flex-row gap-8 overflow-hidden"
+        >
+          <!-- Explanation Section (Left Side) -->
+          <div
+            class="text-black w-full lg:w-1/2"
+            data-aos="fade-right"
+            data-aos-duration="1000"
+          >
+            <h2 class="text-3xl font-semibold mb-4">Products</h2>
+            <p class="mb-4">
+              Discover our innovative product range designed to meet your needs
+              for cutting-edge technology. From the Intelligent Structural
+              Health Monitoring System to the Integrated Security Management
+              System, every solution we offer delivers reliability, efficiency,
+              AI-driven technology, and comprehensive integration to support
+              your digital transformation.
+            </p>
+            <p class="my-2">Our products include:
+              <ul>
+                <li class="flex flex-cols gap-4 my-2">
+                  <i
+                  class="fa-regular fa-circle-check text-green-500 text-2xl"
+                  ></i>
+                  <div>
+                    <h3>Integrated Security Management System:</h3>
+                    <p> Integrated security systems with AI analytics for proactive threat detection.
+                    </p>
+                  </div>
+                </li>
+                <li class="flex flex-cols gap-4 my-2">
+                  <i
+                  class="fa-regular fa-circle-check text-green-500 text-2xl"
+                  ></i>
+                  <div>
+                    <h3>Intelligent Structural Health Monitoring System:</h3>
+                    <p>IoT and AI-based solutions for real-time monitoring of infrastructure health, such as bridges, buildings, and tunnels.
+                    </p>
+                  </div>
+                </li>
+                <li class="flex flex-cols gap-4 my-2">
+                  <i
+                  class="fa-regular fa-circle-check text-green-500 text-2xl"
+                  ></i>
+                  <div>
+                    <h3>Weigh-in-Motion System:</h3>
+                    <p>Vehicle weight measurement technology that works without stopping vehicles, seamlessly integrated for optimal data management.
+                    </p>
+                  </div>
+                </li>
+                <li class="flex flex-cols gap-4 my-2">
+                  <i
+                  class="fa-regular fa-circle-check text-green-500 text-2xl"
+                  ></i>
+                  <div>
+                    <h3>Vehicle Parking Management System</h3>
+                    <p>
+                      Smart parking management powered by advanced technology to enhance efficiency and convenience.
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </p>
+
+            <!-- Redirect Button -->
+            <a
+              href="products.html"
+              class="mt-6 inline-block text-white bg-blue-600 hover:bg-blue-700 py-2 px-4 rounded-md transition duration-300 ease-in-out"
+            >
+              See our complete products
+            </a>
+          </div>
+
+          <!-- Carousel Section (Right Side) -->
+          <div
+            id="product-carousel"
+            class="relative w-full lg:w-1/2 overflow-hidden"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+          >
+            <!-- Main Image -->
+            <div
+              id="product-carousel-main-image"
+              class="overflow-hidden rounded-lg"
+            >
+              <img
+                src="Assets/Index/HP PRODUCT MONITORING.webp"
+                alt="Product 1"
+                class="w-full lg:h-[500px] object-contain lg:object-cover"
+                id="product-mainImage"
+              />
+            </div>
+
+            <!-- Thumbnails Container Below Main Image -->
+            <div
+              id="product-thumbnails"
+              class="flex justify-center gap-4 mt-4 overflow-x-auto lg:overflow-x-hidden"
+            >
+              <img
+                src="Assets/Index/HP PRODUCT MONITORING.webp"
+                alt="Thumbnail 1"
+                class="w-32 h-20 object-cover cursor-pointer rounded-lg"
+                data-index="0"
+                id="product-thumb1"
+              />
+              <img
+                src="Assets/Index/HP PRODUC SENSORS.webp"
+                alt="Thumbnail 2"
+                class="w-32 h-20 object-cover cursor-pointer rounded-lg"
+                data-index="1"
+                id="product-thumb2"
+              />
+              <img
+                src="Assets/Index/HP PRODUCT ACCESS MGMT.webp"
+                alt="Thumbnail 3"
+                class="w-32 h-20 object-cover cursor-pointer rounded-lg"
+                data-index="2"
+                id="product-thumb3"
+              />
+              <img
+                src="Assets/Index/HP PRODUCT PARKING MGMT.webp"
+                alt="Thumbnail 4"
+                class="w-32 h-20 object-cover cursor-pointer rounded-lg"
+                data-index="3"
+                id="product-thumb4"
+              />
+            </div>
+
+            <!-- Navigation Buttons -->
+            <button
+              id="product-prevBtn"
+              class="absolute left-5 top-1/2 transform -translate-y-1/2 text-white bg-black bg-opacity-50 p-2 rounded-full z-10"
+            >
+              &#10094;
+            </button>
+            <button
+              id="product-nextBtn"
+              class="absolute right-5 top-1/2 transform -translate-y-1/2 text-white bg-black bg-opacity-50 p-2 rounded-full z-10"
+            >
+              &#10095;
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="about-us"
+        class="bg-slate-50 mx-4 mt-[15vh] max-w-full py-[6vh] mt-[5vh]"
+      >
+        <div
+          id="about-us-container"
+          class="mx-auto p-4 flex flex-col lg:flex-row gap-8"
+        >
+          <div id="about-us-content" class="text-black w-full lg:w-1/2">
+            <h2 class="text-3xl font-semibold mb-4">About Us</h2>
+            <p>
+              Founded on march 2024, PT bkka is a company that focus on iot solution. To provide the industries needs that growing ever complex. We are dedicated to help organizations and institution to achieve their best version with efficiency and security through integrated smart technology.
+            </p>
+            <p>
+              <h2 class="my-4 font-semibold">Vision</h2>
+              <ol class="mx-4 list-decimal">
+                <li>Empowering Indonesia and the world with transformative AI and software solutions, fostering innovation, and shaping a future where technology bridges boundaries and uplifts communities. Through cutting-edge research and collaboration, we aim to redefine excellence in the tech industry and contribute to global academic and technological advancement</li>
+                <li class="my-4">To pioneer the creation of generational high technology that accelerates Indonesia's technological advancement, empowering industries, communities, and institutions to achieve global competitiveness and long-term sustainability</li>
+                <li>To normalize advanced technology by making it affordable, accessible, and adaptable, ensuring its benefits reach every individual and community, driving equitable progress and fostering innovation at all levels</li>  
+              </ol>
+            </p>
+            <p>
+              <h2 class="my-4 font-semibold">Mission</h2>
+              <ol class="mx-4 list-decimal">
+                <li>To lead in AI and software innovation by delivering world-class solutions that address global challenges, while actively contributing to academic research and knowledge-sharing. We strive to build a collaborative ecosystem that fosters learning, nurtures talent, and transforms technological potential into impactful advancements for Indonesia and the world</li>
+                <li class="my-4">To design and deliver cutting-edge technological solutions that address Indonesia's critical challenges, empower local innovation, and establish a sustainable foundation for long-term global competitiveness. We are committed to fostering partnerships, driving research, and investing in talent development to create transformative technologies that serve current and future generations</li>
+                <li>To develop and distribute advanced technologies that are affordable, user-friendly, and easily adoptable by individuals and organizations at all levels. By prioritizing inclusivity and innovation, we aim to bridge the digital divide, empower communities, and enable equitable access to technology that drives progress and prosperity</li>
+              </ol>
+            </p>
+            <a
+              href="company-profile.html"
+              class="mt-6 inline-block text-white bg-blue-600 hover:bg-blue-700 py-2 px-4 rounded-md transition duration-300 ease-in-out"
+            >
+              Learn More About Us
+            </a>
+          </div>
+          <div
+            id="about-us-image-container"
+            class="w-full lg:w-1/2 flex justify-center hidden lg:block"
+          >
+            <img
+              class="object-cover "
+              src="/Assets/Index/—Pngtree—smart home phone control 3d_14614947.png"
+              alt="smart home system"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="achievement-counter" class="bg-[#003366]">
+        <div id="achievement-counter-container" class="text-slate-200 py-[5vh]">
+          <div
+            id="achievement-counter-content"
+            class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center"
+          >
+            <div id="achievement1">
+              <h3
+                id="milestone1-counter"
+                class="text-3xl md:text-5xl font-bold"
+              >
+                2
+              </h3>
+              <h4
+                id="milestone1-description"
+                class="text-base md:text-lg lg:text-xl font-semibold"
+              >
+                Specialist are expert
+              </h4>
+            </div>
+
+            <div id="achievement2">
+              <h3
+                id="milestone2-counter"
+                class="text-3xl md:text-5xl font-semibold"
+              >
+                5
+              </h3>
+              <h4
+                id="milestone2-description"
+                class="text-base md:text-lg lg:text-xl font-semibold"
+              >
+                Completed sites successfully
+              </h4>
+            </div>
+
+            <div id="achievement3">
+              <h3
+                id="milestone3-counter"
+                class="text-3xl md:text-5xl font-semibold"
+              >
+                7
+              </h3>
+              <h4
+                id="milestone3-description"
+                class="text-base md:text-lg lg:text-xl font-semibold"
+              >
+                Satisfied customers experience
+              </h4>
+            </div>
+
+            <div id="achievement4">
+              <h3
+                id="milestone4-counter"
+                class="text-3xl md:text-5xl font-semibold"
+              >
+                20
+              </h3>
+              <h4
+                id="milestone4-description"
+                class="text-base md:text-lg lg:text-xl font-semibold"
+              >
+                Intellectual properties
+              </h4>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="why-us" class="px-12 py-[6vh] bg-orange-50">
+        <h2 class="text-5xl font-semibold text-center mb-[8vh]">Why Us?</h2>
+        <div
+          id="why-us-container"
+          class="text-black flex flex-col lg:flex-row gap-8"
+        >
+          <div id="why-us-image-container" class="w-full lg:w-1/2 lg:h-[70vh]">
+            <img
+              class="lg:h-[70vh] object-fill"
+              src="/Assets/Index/whyus.jpg"
+              alt="Enjoyable smart technology"
+            />
+          </div>
+
+          <ul
+            id="why-us-content-container"
+            class="w-full lg:w-1/2 space-y-6 lg:h-[70vh]"
+          >
+            <!-- List Item 1 -->
+            <li class="flex items-start space-x-4">
+              <div
+                id="why-us-content-list1-icon-container"
+                class="flex-shrink-0"
+              >
+                <i
+                  class="fa-regular fa-circle-check text-green-500 text-2xl"
+                ></i>
+              </div>
+              <div id="why-us-content-list1-content-container">
+                <h3 class="mb-2 text-lg font-semibold text-gray-800">
+                  Innovative IoT
+                </h3>
+                <p class="text-gray-600">
+                  PT. Batukarang Kenan Abadi offers cutting-edge solutions
+                  tailored to various sectors, enabling businesses to fully
+                  leverage the benefits of connected technology.
+                </p>
+              </div>
+            </li>
+
+            <!-- List Item 2 -->
+            <li class="flex items-start space-x-4">
+              <div
+                id="why-us-content-list2-icon-container"
+                class="flex-shrink-0"
+              >
+                <i
+                  class="fa-regular fa-circle-check text-green-500 text-2xl"
+                ></i>
+              </div>
+              <div id="why-us-content-list2-content-container">
+                <h3 class="mb-2 text-lg font-semibold text-gray-800">
+                  High Quality Sensors
+                </h3>
+                <p class="text-gray-600">
+                  The company provides a diverse range of state-of-the-art
+                  sensors that ensure reliable data collection and seamless
+                  transmission, enhancing operational efficiency.
+                </p>
+              </div>
+            </li>
+
+            <!-- List Item 3 -->
+            <li class="flex items-start space-x-4">
+              <div
+                id="why-us-content-list3-icon-container"
+                class="flex-shrink-0"
+              >
+                <i
+                  class="fa-regular fa-circle-check text-green-500 text-2xl"
+                ></i>
+              </div>
+              <div id="why-us-content-list3-content-container">
+                <h3 class="mb-2 text-lg font-semibold text-gray-800">
+                  AI Integration as System Core
+                </h3>
+                <p class="text-gray-600">
+                  Our AI is trained specifically to support your business,
+                  making it personal and highly customizable for your business
+                  needs.
+                </p>
+              </div>
+            </li>
+
+            <!-- List Item 4 -->
+            <li class="flex items-start space-x-4">
+              <div
+                id="why-us-content-list4-icon-container"
+                class="flex-shrink-0"
+              >
+                <i
+                  class="fa-regular fa-circle-check text-green-500 text-2xl"
+                ></i>
+              </div>
+              <div id="why-us-content-list4-content-container">
+                <h3 class="mb-2 text-lg font-semibold text-gray-800">
+                  Experienced Team
+                </h3>
+                <p class="text-gray-600">
+                  With a team of engineers, data scientists, and industry
+                  experts boasting over 50 years of combined experience, PT.
+                  Batukarang Kenan Abadi excels in IoT applications.
+                </p>
+              </div>
+            </li>
+
+            <!-- List Item 5 -->
+            <li class="flex items-start space-x-4">
+              <div
+                id="why-us-content-list5-icon-container"
+                class="flex-shrink-0"
+              >
+                <i
+                  class="fa-regular fa-circle-check text-green-500 text-2xl"
+                ></i>
+              </div>
+              <div id="why-us-content-list5-content-container">
+                <h3 class="mb-2 text-lg font-semibold text-gray-800">
+                  Focus Collaboration
+                </h3>
+                <p class="text-gray-600">
+                  PT. Batukarang Kenan Abadi actively seeks partnerships and
+                  collaboration opportunities, fostering growth and innovation
+                  in the IoT landscape for enhanced solutions.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="projects" class="mx-12 my-[15vh] bg-white">
+        <div id="projects-container" class="w-full mx-auto">
+          <h2 class="text-5xl font-semibold text-center mb-[8vh]">Projects</h2>
+          <!-- Full Bleed Carousel Container -->
+          <div
+            id="projects-carousel"
+            class="relative w-full lg:h-[60vh] overflow-hidden lg:w-2/3 lg:mx-auto"
+          >
+            <!-- Carousel Images -->
+            <div
+              id="projects-carousel-inner"
+              class="flex transition-transform duration-700 ease-in-out"
+            >
+              <!-- Duplicate images for infinite effect -->
+              <img
+                src="/Assets/Index/HP-market-carousel/HP MARKET TELECOM.webp"
+                alt="Image 1"
+                class="projects-carousel-image lg:h-[60vh] w-full flex-shrink-0"
+              />
+              <img
+                src="/Assets/Index/HP-market-carousel/HP MARKET GOVT OFFICE.webp"
+                alt="Image 2"
+                class="projects-carousel-image lg:h-[60vh] w-full flex-shrink-0"
+              />
+              <img
+                src="/Assets/Index/HP-market-carousel/HP - INFRA BRIDGES.webp"
+                alt="Image 3"
+                class="projects-carousel-image lg:h-[60vh] w-full flex-shrink-0"
+              />
+              <img
+                src="/Assets/Index/HP-market-carousel/HP MARKET INDUSTRIAL.webp"
+                alt="Image 4"
+                class="projects-carousel-image lg:h-[60vh] w-full flex-shrink-0"
+              />
+              <img
+                src="/Assets/Index/HP-market-carousel/HP MARKET COMMERCIAL.webp"
+                alt="Image 5"
+                class="projects-carousel-image lg:h-[60vh] w-full flex-shrink-0"
+              />
+              <img
+                src="/Assets/Index/HP-market-carousel/HP MARKET RESIDENTIAL.webp"
+                alt="Image 6"
+                class="projects-carousel-image lg:h-[60vh] w-full flex-shrink-0"
+              />
+              <img
+                src="/Assets/Index/HP-market-carousel/HP MARKET PARKING AREA.webp"
+                alt="Image 7"
+                class="projects-carousel-image lg:h-[60vh] w-full flex-shrink-0"
+              />
+              <img
+                src="/Assets/Index/HP-market-carousel/HP MARKET DATA CENTER.webp"
+                alt="Image 8"
+                class="projects-carousel-image lg:h-[60vh] w-full flex-shrink-0"
+              />
+              <!-- Duplicate start for infinite looping -->
+              <img
+                src="/Assets/Index/HP-market-carousel/HP MARKET TELECOM.webp"
+                alt="Image 1"
+                class="projects-carousel-image lg:h-[60vh] w-full flex-shrink-0"
+              />
+              <img
+                src="/Assets/Index/HP-market-carousel/HP MARKET GOVT OFFICE.webp"
+                alt="Image 2"
+                class="projects-carousel-image lg:h-[60vh] w-full flex-shrink-0"
+              />
+            </div>
+
+            <!-- Navigation Arrows -->
+            <button
+              id="projects-prev-button"
+              class="absolute top-1/2 left-5 transform -translate-y-1/2 text-white bg-black bg-opacity-50 p-3 rounded-full z-10"
+              title="Previous"
+              type="button"
+            >
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button
+              id="projects-next-button"
+              class="absolute top-1/2 right-5 transform -translate-y-1/2 text-white bg-black bg-opacity-50 p-3 rounded-full z-10"
+              title="Next"
+              type="button"
+            >
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- <section id="testimony"></section> -->
+
+      <section
+        id="encouragement"
+        class="mx-4 mt-[15vh] px-4 md:px-12 mb-[12vh]"
+      >
+        <div
+          id="encouragement-banner-container"
+          class="w-full grid grid-row-auto justify-center"
+        >
+          <h2
+            class="text-3xl font-semibold text-black dark:text-white mb-4 text-center"
+          >
+            They Trust PT. Batukarang Kenan Abadi
+          </h2>
+          <h3
+            class="text-xl font-semibold text-black dark:text-white mb-4 text-center"
+          >
+            Professional, Personalized, Perfection
+          </h3>
+        </div>
+      </section>
+
+      <section id="contact-us" class="px-12 py-[6vh] bg-slate-50">
+        <div id="contact-us-container" class="max-w-7xl mx-auto p-6">
+          <h2 class="text-3xl font-semibold mb-6 text-center">
+            Connect with Us
+          </h2>
+
+          <div
+            id="contact-us-content-container"
+            class="flex justify-center items-start"
+          >
+            <!-- Contact Form Section -->
+            <form id="contact-us-form" class="w-full lg:w-2/3 space-y-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- First Name -->
+                <div class="form-group">
+                  <label
+                    for="contact-us-first-name"
+                    class="block text-sm font-semibold"
+                    >First Name</label
+                  >
+                  <input
+                    type="text"
+                    id="contact-us-first-name"
+                    placeholder="First Name"
+                    required
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+
+                <!-- Last Name -->
+                <div class="form-group">
+                  <label
+                    for="contact-us-last-name"
+                    class="block text-sm font-semibold"
+                    >Last Name</label
+                  >
+                  <input
+                    type="text"
+                    id="contact-us-last-name"
+                    placeholder="Last Name"
+                    required
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+
+                <!-- Company Name -->
+                <div class="form-group">
+                  <label
+                    for="contact-us-company-name"
+                    class="block text-sm font-semibold"
+                    >Company Name</label
+                  >
+                  <input
+                    type="text"
+                    id="contact-us-company-name"
+                    placeholder="Company Name"
+                    required
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+
+                <!-- Job Title -->
+                <div class="form-group">
+                  <label
+                    for="contact-us-job-tittle"
+                    class="block text-sm font-semibold"
+                    >Job Title</label
+                  >
+                  <input
+                    type="text"
+                    id="contact-us-job-tittle"
+                    placeholder="Job Title"
+                    required
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+
+                <!-- Business Email -->
+                <div class="form-group">
+                  <label
+                    for="contact-us-email"
+                    class="block text-sm font-semibold"
+                    >Business Email</label
+                  >
+                  <input
+                    type="email"
+                    id="contact-us-email"
+                    placeholder="Business Email"
+                    required
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+
+                <!-- Telephone -->
+                <div class="form-group">
+                  <label
+                    for="contact-us-telephone"
+                    class="block text-sm font-semibold"
+                    >Telephone</label
+                  >
+                  <input
+                    type="tel"
+                    id="contact-us-telephone"
+                    placeholder="+62 1234 567 8910"
+                    required
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+
+                <!-- Website -->
+                <div class="form-group">
+                  <label
+                    for="contact-us-website"
+                    class="block text-sm font-semibold"
+                    >Website</label
+                  >
+                  <input
+                    type="url"
+                    id="contact-us-website"
+                    placeholder="www.your-company.com"
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+
+                <!-- Advertising -->
+                <div class="form-group">
+                  <label
+                    for="contact-us-advertising"
+                    class="block text-sm font-semibold"
+                    >How do you hear about us?</label
+                  >
+                  <input
+                    type="text"
+                    id="contact-us-advertising"
+                    placeholder="Google Ads"
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+              </div>
+
+              <!-- Full Width Fields (Subject and Message) -->
+              <div class="form-group">
+                <label
+                  for="contact-us-subject"
+                  class="block text-sm font-semibold"
+                  >Subject</label
+                >
+                <textarea
+                  id="contact-us-subject"
+                  placeholder="Subject"
+                  required
+                  class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <label
+                  for="contact-us-message"
+                  class="block text-sm font-semibold"
+                  >Message</label
+                >
+                <textarea
+                  id="contact-us-message"
+                  placeholder="Message"
+                  rows="10"
+                  required
+                  class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                ></textarea>
+              </div>
+
+              <!-- Terms and Conditions Checkbox -->
+              <div id="checkbox-tnc-container" class="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  name="checkbox-tnc"
+                  id="checkbox-tnc"
+                  class="h-5 w-5"
+                />
+                <label for="checkbox-tnc" class="text-sm">
+                  I agree with the
+                  <a href="tnc.html" class="text-blue-500"
+                    >Term and Condition</a
+                  >
+                  and
+                  <a href="privacy-policy.html" class="text-blue-500"
+                    >Privacy Policy</a
+                  >.
+                </label>
+              </div>
+
+              <!-- Submit Button -->
+              <div id="submit-button-container" class="mt-4">
+                <button
+                  type="submit"
+                  class="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Social Media Links Section (Placed Below the Form) -->
+          <div
+            id="contact-us-social-media-container"
+            class="flex justify-center gap-6 mt-8"
+          >
+            <a
+              href="#"
+              class="text-blue-500 hover:text-blue-700 transition duration-300"
+            >
+              <img
+                src="/Assets/Index/facebook.png"
+                alt="Facebook"
+                class="w-8 h-8"
+              />
+            </a>
+            <a
+              href="#"
+              class="text-blue-500 hover:text-blue-700 transition duration-300"
+            >
+              <img
+                src="/Assets/Index/instagram.webp"
+                alt="Instagram"
+                class="w-8 h-8"
+              />
+            </a>
+            <a
+              href="#"
+              class="text-blue-500 hover:text-blue-700 transition duration-300"
+            >
+              <img
+                src="/Assets/Index/twitter.webp"
+                alt="Twitter"
+                class="w-8 h-8"
+              />
+            </a>
+            <a
+              href="#"
+              class="text-blue-500 hover:text-blue-700 transition duration-300"
+            >
+              <img
+                src="/Assets/Index/youtube.webp"
+                alt="Twitter"
+                class="w-8 h-8"
+              />
+            </a>
+            <a
+              href="#"
+              class="text-blue-500 hover:text-blue-700 transition duration-300"
+            >
+              <img
+                src="/Assets/Index/linkedin.webp"
+                alt="Twitter"
+                class="w-8 h-8"
+              />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="Subscribe"
+        class="px-4 md:px-12 bg-slate-50 border-2 shadow-lg"
+      >
+        <div
+          id="subscribe-container"
+          class="relative w-full max-w-4xl mx-auto flex items-center justify-center flex-col text-centerp py-16"
+        >
+          <!-- Content Container -->
+          <div id="subscribe-content-container" class="w-full max-w-md">
+            <h2 class="text-3xl font-semibold text-black mb-4 text-center">
+              Stay Updated
+            </h2>
+            <p class="text-lg text-black mb-6 text-center">
+              Subscribe to our newsletter to get the latest updates and news
+              directly to your inbox.
+            </p>
+
+            <!-- Subscribe Form -->
+            <div
+              id="subscribe-form-container"
+              class="w-full flex justify-center"
+            >
+              <input
+                type="email"
+                id="subscribe-email"
+                placeholder="Email Address"
+                class="w-full md:w-2/3 py-2 px-4 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+              />
+              <button
+                type="submit"
+                class="py-2 px-6 bg-blue-600 text-white rounded-r-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+              >
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="scroll-to-top">
+        <!-- Back to Top Button -->
+        <button
+          id="back-to-top"
+          class="fixed bottom-5 right-5 px-4 py-2 bg-blue-500 text-white text-lg font-semibold rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:animate-bounce hover:bg-blue-600"
+          aria-label="Back to top"
+        >
+          <i class="fa-solid fa-angles-up fa-xs"></i>
+        </button>
+      </section>
+
+      <section id="whatsapp">
+        <!-- WhatsApp Button -->
+        <a
+          href="https://wa.me/628111798995?text=Hello%2C%20I%20need%20customer%20support%21"
+          id="whatsapp-btn"
+          class="fixed bottom-[100px] right-5 w-auto h-auto py-[6px] px-3 bg-green-500 text-white rounded-full shadow-lg flex justify-center items-center gap-2 transition-all duration-300 ease-in-out group overflow-hidden w-auto hover:w-auto hover:h-auto"
+          aria-label="Chat with customer support on WhatsApp"
+          target="_blank"
+          rel="noopener noreferrer"
+          <!--
+        >
+          <!-- WhatsApp Icon -->
+          <i class="fab fa-whatsapp text-2xl"></i>
+
+          <!-- WhatsApp Text -->
+          <span class="hidden group-hover:inline text-sm">
+            Chat on WhatsApp
+          </span>
+        </a>
+      </section>
+    </main>
+    <footer class="bg-white text-black w-full overflow-hidden">
+      <!-- Footer Container -->
+      <div class="w-full p-4 py-6 flex flex-col md:flex-row mx-auto">
+        <div
+          class="w-full md:w-1/3 flex flex-col md:flex md:flex-row md:justify-between text-center md:text-left"
+        >
+          <!-- Company Section -->
+          <div class="flex flex-col mb-6 lg:mb-0 px-4 lg:px-0 ">
+            <!-- Company Logo -->
+            <div class="mx-auto mb-4">
+              <a href="Index.html">
+                <img
+                  class="h-30 md:h-20 mx-auto"
+                  src="Assets/Index/Logo-PT/Logo-BKKA-Transparant.png"
+                  alt="PT. BATUKARANG KENAN ABADI LOGO"
+                />
+              </a>
+            </div>
+
+            <!-- Social Media Links -->
+            <div class="flex justify-center space-x-3 mx-1 mb-4">
+              <a href="https://instagram.com">
+                <img
+                  class="h-8"
+                  src="Assets/Index/instagram.webp"
+                  alt="Instagram"
+                />
+              </a>
+              <a href="https://facebook.com">
+                <img
+                  class="h-8"
+                  src="Assets/Index/facebook.webp"
+                  alt="Facebook"
+                />
+              </a>
+              <a href="https://X.com">
+                <img
+                  class="h-8 dark:hidden"
+                  src="Assets/Index/twitter.webp"
+                  alt="X"
+                />
+                <img
+                  class="h-8 hidden dark:block"
+                  src="Assets/Index/twitter2.webp"
+                  alt="X"
+                />
+              </a>
+              <a href="https://youtube.com">
+                <img
+                  class="h-8"
+                  src="Assets/Index/youtube.webp"
+                  alt="YouTube"
+                />
+              </a>
+              <a href="https://linkedin.com">
+                <img
+                  class="h-8"
+                  src="Assets/Index/linkedin.webp"
+                  alt="LinkedIn"
+                />
+              </a>
+            </div>
+
+            <!-- Copyright and Privacy Policy -->
+            <div>
+              <p class="text-sm mt-2 text-center">
+                &copy; 2024. PT. BATUKARANG KENAN ABADI. All Rights Reserved.
+              </p>
+              <p class="text-sm text-center">
+                <a class="underline text-blue-500" href="privacy-policy.html">
+                  Privacy Policy
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flex flex-col md:flex-row mb-6 lg:mb-0 px-4 lg:px-0 w-full md:w-2/3 justify-around text-center md:text-left">
+          <div class="flex flex-col md:gap-6">
+            <div class="mb-6 lg:mb-0 px-4 lg:px-0">
+              <a class="block font-bold mb-2 hover:underline" href="solutions.html">Solutions</a>
+            </div>
+  
+            <!-- Products Section -->
+            <div class="mb-6 lg:mb-0 px-4 lg:px-0">
+              <a class="block font-bold mb-2 hover:underline" href="products.html">Products</a>
+            </div>
+          </div>
+          
+          <!-- Solutions Section -->
+          
+
+          <div class="mb-6 lg:mb-0 px-4 lg:px-0">
+            <span class="block font-bold mb-2 hover:underline">Supports</span>
+            <ul>
+              <!-- <li>
+                <a href="blog.html" class="hover:underline">Blog</a>
+              </li>
+              <li>
+                <a href="news&events.html" class="hover:underline"
+                  >News & Events</a
+                >
+              </li> -->
+              <li>
+                <a href="downloads.html" class="hover:underline">Downloads</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mb-6 lg:mb-0 px-4 lg:px-0">
+            <span class="block font-bold mb-2 hover:underline">
+              About Us
+            </span>
+            <ul>
+              <li>
+                <a href="company-profile.html" class="hover:underline"
+                  >Company Profile</a
+                >
+              </li>
+              <li><a href="Joinus.html" class="hover:underline">Join Us</a></li>
+            </ul>
+          </div>           
+
+          <div class="mb-6 lg:mb-0 px-4 lg:px-0">
+            <span class="block font-bold mb-2">Partners</span>
+            <ul>
+              <li>
+                <a href="become-a-partner.html" class="hover:underline"
+                  >Become our Partner</a
+                >
+              </li>
+            </ul>
+          </div>
+          
+
+            <!-- Contact Us -->
+          <div class="mb-6 lg:mb-0 px-4 lg:px-0 flex flex-col gap-6">
+              <a href="Contactus.html" class="font-bold hover:underline"
+                >Contact Us</a
+              >
+              <a href="login.html" class="font-bold hover:underline">Login</a>
+          </div>
+           
+        </div>
+      </div>
+    </footer>
+
+    <script src="index.js"></script>
+    <script src="scrolltotop.js"></script>
+  </body>
+</html>

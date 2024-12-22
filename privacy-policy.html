@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MeCats</title>
+    <link rel="icon" href="Asset/LOGO PT/Logo-BKKA-Transparant.png" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="index.html" class="logo">
+        <img src="Asset/LOGO PT/Logo-BKKA-Transparant.png" alt="Logo" />
+      </a>
+      <nav class="navbar-links" id="navbar-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="markets.html">Markets</a>
+        <a href="partners.html">Partners</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="contactus.html">Contact Us</a>
+      </nav>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="markets.html">Clients</a></li>
+          <li><a href="partners.html">Partners</a></li>
+          <li><a href="aboutUs.html">About Us</a></li>
+          <li><a href="contactus.html">Contact Us</a></li>
+        </ul>
+      </nav>
+      <span class="hamburger" id="hamburger" onclick="toggleMenu()"
+        >&#9776;</span
+      >
+    </header>
+    <section class="Hero">
+      <div class="homepage-video">
+        <video
+          class="hero-vid"
+          src="Asset/VIDEO2/1.mp4"
+          alt="Hero Video"
+          autoplay
+          muted
+          loop
+        ></video>
+        <p class="text-over-video1">AI-POWERED TECHNOLOGY</p>
+        <p class="text-over-video2">Specialy tailored for you</p>
+      </div>
+    </section>
+
+    <section class="feature-caption" id="products">
+      <img
+        src="Asset/17.jpg"
+        alt="Integrated Smart Security System"
+        class="feature-img"
+      />
+      <h1>Integrated Smart Security System</h1>
+      <p>
+        Streamlined your operations with integration of IoT devices and AI at
+        its core. More productivity, higher efficientcy with less effort
+      </p>
+      <a href="solution.html" class="homepage-button">Explore</a>
+      <script>
+        const p = document.querySelector("p");
+        const letters = Array.from(p.innerText);
+
+        const middles = [];
+        middles.length = Math.floor(letters.length * 0.2);
+        middles.fill("middle");
+
+        const sides = [];
+        sides.length = Math.floor(letters.length * 0.15);
+        sides.fill("sides");
+
+        const classes = [];
+        classes.length = Math.round(letters.length * 0.25);
+        classes.fill("edge");
+
+        classes.push(...sides, ...middles, ...sides);
+
+        p.innerHTML = letters
+          .map((l) => {
+            const className = classes.shift() || "edge";
+            return `<span class="${className}">${l}</span>`;
+          })
+          .join("");
+      </script>
+    </section>
+  </body>
+</html>

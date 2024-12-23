@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="keywords"
+      content="IOT, JEMBATAN TIMBANG, JEMBATAN TIMBANG DINAMIS, WIM, SECURITY SYSTEM, CCTV, STRUCTURE HEALTH"
+    />
+    <meta
+      name="description"
+      content="PT.BKKA.CO.ID is a leading global company specializing in IoT Solutions. We also have a range of products, such as JEMBATAN TIMBANG, JEMBATAN TIMBANG DINAMIS, WIM, SECURITY SYSTEM, CCTV, STRUCTURE HEALTH"
+    />
+    <meta name="author" content="PT.BKKA.CO.ID" />
+    <title>PT.BKKA.CO.ID</title>
+    <link rel="icon" href="/Assets/Index/Logo-PT/logoicon.ico" />
+    <!-- AOS CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/Products/Magnify.css" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com/3.3.0"></script>
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/2985af7cb1.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .hamburger {
+        display: flex;
+        cursor: pointer;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 40px;
+        width: 40px;
+        border: none;
+        background: transparent;
+        overflow: visible;
+        z-index: 1000;
+      }
+
+      .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: black;
+        margin: 4px 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        transform-origin: center;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        position: absolute;
+        transform: rotate(45deg);
+      }
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.active span:nth-child(3) {
+        position: absolute;
+        transform: rotate(-45deg);
+      }
+
+      #nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+      }
+
+      #nav-links.active {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body class="bg-white">
+    <!-- Navbar -->
+    <header>
+      <nav>
+        <div
+          id="nav-container"
+          class="w-full bg-white fixed top-0 flex flex-row justify-between z-20"
+        >
+          <!-- Logo -->
+          <div id="logo-container" class="my-4 ml-8 lg:mx-20">
+            <a href="/index.html">
+              <img
+                id="logo-image"
+                class="w-[30vw] md:w-[20vw] lg:w-[10vw] flex justify-center"
+                src="/Assets/Index/Logo-PT/Logo-BKKA-Transparant.png"
+                alt="PT. Batukarang Kenan Abadi Logo"
+              />
+            </a>
+          </div>
+
+          <!-- Hamburger Button -->
+          <button
+            id="hamburger"
+            class="hamburger md:hidden right-5"
+            aria-label="Toggle navigation"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <!-- Navigation Links -->
+          <div id="nav-links" class="hidden h-[70vh] overflow-y-scroll">
+            <a
+              href="/solutions.html"
+              class="hover:text-blue-900 text-black text-lg font-bold"
+              >Solutions</a
+            >
+
+            <a
+              href="/products.html"
+              class="hover:text-blue-900 text-black text-lg font-bold"
+              >Products</a
+            >
+
+            <a href="" class="hover:text-blue-900 text-black text-lg font-bold"
+              >Supports</a
+            >
+            <!-- <a class="ml-5" href="/blog.html">Blog</a> -->
+            <!-- <a class="ml-5" href="news&events.html">News & Events</a> -->
+            <a class="ml-5" href="/downloads.html">Downloads</a>
+
+            <a
+              href="#about-us"
+              class="hover:text-blue-900 text-black text-lg font-bold"
+              >About Us</a
+            >
+            <a class="ml-5" href="company-profile.html">Company Profile</a>
+            <a class="ml-5" href="Joinus.html">Join Us</a>
+
+            <a
+              href="become-a-partner.html"
+              class="hover:text-blue-900 text-black text-lg font-bold"
+              >Partners</a
+            >
+            <a
+              href="Contactus.html"
+              class="hover:text-blue-900 text-black text-lg font-bold"
+              >Contact Us</a
+            >
+            <a
+              href="login.html"
+              class="hover:text-blue-900 text-black text-lg font-bold"
+              >Login</a
+            >
+          </div>
+
+          <!-- Navigation Menu -->
+          <div
+            id="menu"
+            class="hidden md:block flex content-center mr-8 lg:mx-20 py-5"
+          >
+            <!-- Menu Links -->
+            <div
+              id="menu-links"
+              class="hidden md:flex justify-between text-center content-center text-black text-sm lg:text-xl font-semibold lg:gap-8 gap-4 font-semibold"
+            >
+              <!-- Solutions Dropdown -->
+              <div class="relative group md:text-base lg:text-xl text-left">
+                <div class="flex items-center cursor-pointer space-x-2">
+                  <a class="hover:text-blue-900" href="/solutions.html"
+                    >Solutions</a
+                  >
+                </div>
+              </div>
+
+              <!-- Products Dropdown -->
+              <div class="relative group md:text-base lg:text-xl text-left">
+                <div class="flex items-center cursor-pointer space-x-2">
+                  <a class="hover:text-blue-900" href="/products.html"
+                    >Products</a
+                  >
+                </div>
+              </div>
+
+              <!-- Supports Dropdown -->
+              <div class="relative group md:text-base lg:text-xl text-left">
+                <div class="flex items-center cursor-pointer space-x-2">
+                  <a class="hover:text-blue-900">Supports</a>
+                  <i
+                    class="fas fa-chevron-down text-sm transition-transform duration-300 group-hover:rotate-180"
+                  ></i>
+                </div>
+                <!-- Dropdown Menu -->
+                <div
+                  class="absolute left-0 hidden group-hover:block bg-white shadow-lg md:text-base lg:text-lg py-4 w-[300px] rounded-md"
+                >
+                  <!-- <a
+                    class="block px-4 py-2 hover:bg-gray-100 hover:text-blue-900"
+                    href="blog.html"
+                  >
+                    Blog
+                  </a> -->
+                  <!-- <a
+                    class="block px-4 py-2 hover:bg-gray-100 hover:text-blue-900"
+                    href="news&events.html"
+                  >
+                    News & Events
+                  </a> -->
+                  <a
+                    class="block px-4 py-2 hover:bg-gray-100 hover:text-blue-900"
+                    href="/downloads.html"
+                  >
+                    Downloads
+                  </a>
+                </div>
+              </div>
+
+              <!-- About Us Dropdown -->
+              <div class="relative group md:text-base lg:text-xl text-left">
+                <div class="flex items-center cursor-pointer space-x-2">
+                  <a class="hover:text-blue-900">About Us</a>
+                  <i
+                    class="fas fa-chevron-down text-sm transition-transform duration-300 group-hover:rotate-180"
+                  ></i>
+                </div>
+                <!-- Dropdown Menu -->
+                <div
+                  class="absolute left-0 hidden group-hover:block bg-white shadow-lg md:text-base lg:text-lg py-4 w-[300px] rounded-md"
+                >
+                  <a
+                    class="block px-4 py-2 hover:bg-gray-100 hover:text-blue-900"
+                    href="/company-profile.html"
+                  >
+                    Company Profile
+                  </a>
+                  <a
+                    class="block px-4 py-2 hover:bg-gray-100 hover:text-blue-900"
+                    href="/Joinus.html"
+                  >
+                    Join Us
+                  </a>
+                </div>
+              </div>
+
+              <!-- Other Links -->
+              <a class="hover:text-blue-900" href="/become-a-partner.html"
+                >Partners</a
+              >
+              <a class="hover:text-blue-900" href="/Contactus.html"
+                >Contact Us</a
+              >
+              <a class="hover:text-blue-900" href="/login.html">Login</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <!-- Hero -->
+      <div class="w-full">
+        <div class="relative mt-16">
+          <img
+            class="w-full"
+            src="/Assets/Product/NAVBAR PRODUCTS 1.png"
+            alt="man pressing Solution"
+          />
+        </div>
+      </div>
+
+      <!-- Main content -->
+      <section>
+        <!-- ISMS -->
+        <div>
+          <span
+            class="dark:text-white font-bolder text-[20px] text-center md:text-left"
+          >
+            <h2
+              class="m-8 font-extrabold text-center text-2xl md:text-4xl lg:text-5xl"
+            >
+              Integrated Security Management System (ISMS)
+            </h2>
+          </span>
+
+          <!-- Article Loss Prevention -->
+          <article class="dark:text-white m-8">
+            <h3
+              class="my-8 font-bold text-2xl md:text-3xl lg:text-4xl text-center"
+            >
+              Loss Prevention
+            </h3>
+
+            <!-- Product List -->
+            <div class="">
+              <div class="">
+                <div class="md:grid md:grid-cols-2 md:gap-8">
+                  <div class="img-magnifier-container border-[1px]">
+                    <img
+                      class="mx-auto"
+                      id="myimage"
+                      src="/Assets/Product/ISMS/LOSS PREVENTION/ISC-EAA8-C208-P.png"
+                      alt="ISC-EAA8-C208-P"
+                      width="600"
+                      height="600"
+                    />
+                  </div>
+
+                  <div class="dark:text-white my-auto">
+                    <h4 class="font-bold text-lg md:text-xl lg:text-xl">
+                      ISC-EAA8-C208-P
+                    </h4>
+                    <h5>Network Ultra Acrylic AM Antenna</h5>
+                    <ul class="my-4 list-disc">
+                      <li>
+                        Minimalist frameless design, high transparent acrylic
+                        shell, which is beautiful, stylish, durable, solid and
+                        easy to install.
+                      </li>
+                      <li>
+                        Superior detection distance, max detection distance can
+                        be 2.4 meters (pencil tag DHI-ISC-ETA5-T901).
+                      </li>
+                      <li>
+                        Excellent anti-interference, continuous working in
+                        complex electromagnetic environment.
+                      </li>
+                      <li>
+                        Built-in 1.3-inch OLED display and WEB interface,
+                        convenient configuration.
+                      </li>
+                      <li>
+                        Auto/manual adjust phase to effectively handle different
+                        kinds of interference.
+                      </li>
+                      <li>Alarm volume and alarm tone are both adjustable.</li>
+                      <li>Integrated 5 colors background LED light.</li>
+                      <li>Supports tag too close alert.</li>
+                      <li>
+                        The primary and replica antenna are all integrated
+                        transceivers, three modes can be selected: RX, TX, TR
+                        mode.
+                      </li>
+                      <li>
+                        The primary antenna can connect up to 2 replica antennas
+                        as 1 set system. Multi-system can work together.
+                      </li>
+                      <li>
+                        Economic operating power consumption, energy-saving and
+                        environment-friendly.
+                      </li>
+                      <li>CCTV monitoring linkage.</li>
+                      <li>Supports firmware upgrade.</li>
+                      <li>
+                        Supports network platforms connection, such as DSS Pro
+                        platforms.
+                      </li>
+                      <li>Support cloud services, remote configuration.</li>
+                    </ul>
+                    <div class="my-12">
+                      <a
+                        href="/products.html"
+                        class="rounded-lg border-grey-500 font-bold dark:border-white bg-blue-700 dark:bg-white text-white dark:text-black border-2 px-9 py-1 lg:px-12 lg:py-3 md:px-9 md:py-2 text-2xl shadow shadow-black dark:shadow-white hover:animate-pulse"
+                      >
+                        Back
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section
+        id="Subscribe"
+        class="px-4 md:px-12 bg-slate-50 border-2 shadow-lg"
+      >
+        <div
+          id="subscribe-container"
+          class="relative w-full max-w-4xl mx-auto flex items-center justify-center flex-col text-centerp py-16"
+        >
+          <!-- Content Container -->
+          <div id="subscribe-content-container" class="w-full max-w-md">
+            <h2 class="text-3xl font-semibold text-black mb-4 text-center">
+              Stay Updated
+            </h2>
+            <p class="text-lg text-black mb-6 text-center">
+              Subscribe to our newsletter to get the latest updates and news
+              directly to your inbox.
+            </p>
+
+            <!-- Subscribe Form -->
+            <div
+              id="subscribe-form-container"
+              class="w-full flex justify-center"
+            >
+              <input
+                type="email"
+                id="subscribe-email"
+                placeholder="Email Address"
+                class="w-full md:w-2/3 py-2 px-4 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600"
+              />
+              <button
+                type="submit"
+                class="py-2 px-6 bg-blue-600 text-white rounded-r-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+              >
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="scroll-to-top">
+        <!-- Back to Top Button -->
+        <button
+          id="back-to-top"
+          class="fixed bottom-5 right-5 px-4 py-2 bg-blue-500 text-white text-lg font-semibold rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:animate-bounce hover:bg-blue-600"
+          aria-label="Back to top"
+        >
+          <i class="fa-solid fa-angles-up fa-xs"></i>
+        </button>
+      </section>
+
+      <section id="whatsapp">
+        <!-- WhatsApp Button -->
+        <a
+          href="https://wa.me/628111798995?text=Hello%2C%20I%20need%20customer%20support%21"
+          id="whatsapp-btn"
+          class="fixed bottom-[100px] right-5 w-auto h-auto py-[6px] px-3 bg-green-500 text-white rounded-full shadow-lg flex justify-center items-center gap-2 transition-all duration-300 ease-in-out group overflow-hidden w-auto hover:w-auto hover:h-auto"
+          aria-label="Chat with customer support on WhatsApp"
+          target="_blank"
+          rel="noopener noreferrer"
+          <!--
+        >
+          <!-- WhatsApp Icon -->
+          <i class="fab fa-whatsapp text-2xl"></i>
+
+          <!-- WhatsApp Text -->
+          <span class="hidden group-hover:inline text-sm">
+            Chat on WhatsApp
+          </span>
+        </a>
+      </section>
+    </main>
+    <footer class="bg-white text-black w-full overflow-hidden">
+      <!-- Footer Container -->
+      <div class="w-full p-4 py-6 flex flex-col md:flex-row mx-auto">
+        <div
+          class="w-full md:w-1/3 flex flex-col md:flex md:flex-row md:justify-between text-center md:text-left"
+        >
+          <!-- Company Section -->
+          <div class="flex flex-col mb-6 lg:mb-0 px-4 lg:px-0">
+            <!-- Company Logo -->
+            <div class="mx-auto mb-4">
+              <a href="Index.html">
+                <img
+                  class="h-30 md:h-20 mx-auto"
+                  src="/Assets/Index/Logo-PT/Logo-BKKA-Transparant.png"
+                  alt="PT. BATUKARANG KENAN ABADI LOGO"
+                />
+              </a>
+            </div>
+
+            <!-- Social Media Links -->
+            <div class="flex justify-center space-x-3 mx-1 mb-4">
+              <a href="https://instagram.com">
+                <img
+                  class="h-8"
+                  src="/Assets/Index/instagram.webp"
+                  alt="Instagram"
+                />
+              </a>
+              <a href="https://facebook.com">
+                <img
+                  class="h-8"
+                  src="/Assets/Index/facebook.webp"
+                  alt="Facebook"
+                />
+              </a>
+              <a href="https://X.com">
+                <img
+                  class="h-8 dark:hidden"
+                  src="/Assets/Index/twitter.webp"
+                  alt="X"
+                />
+                <img
+                  class="h-8 hidden dark:block"
+                  src="/Assets/Index/twitter2.webp"
+                  alt="X"
+                />
+              </a>
+              <a href="https://youtube.com">
+                <img
+                  class="h-8"
+                  src="/Assets/Index/youtube.webp"
+                  alt="YouTube"
+                />
+              </a>
+              <a href="https://linkedin.com">
+                <img
+                  class="h-8"
+                  src="/Assets/Index/linkedin.webp"
+                  alt="LinkedIn"
+                />
+              </a>
+            </div>
+
+            <!-- Copyright and Privacy Policy -->
+            <div>
+              <p class="text-sm mt-2 text-center">
+                &copy; 2024. PT. BATUKARANG KENAN ABADI. All Rights Reserved.
+              </p>
+              <p class="text-sm text-center">
+                <a class="underline text-blue-500" href="privacy-policy.html">
+                  Privacy Policy
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="flex flex-col md:flex-row mb-6 lg:mb-0 px-4 lg:px-0 w-full md:w-2/3 justify-around text-center md:text-left"
+        >
+          <div class="flex flex-col md:gap-6">
+            <div class="mb-6 lg:mb-0 px-4 lg:px-0">
+              <a
+                class="block font-bold mb-2 hover:underline"
+                href="solutions.html"
+                >Solutions</a
+              >
+            </div>
+
+            <!-- Products Section -->
+            <div class="mb-6 lg:mb-0 px-4 lg:px-0">
+              <a
+                class="block font-bold mb-2 hover:underline"
+                href="products.html"
+                >Products</a
+              >
+            </div>
+          </div>
+
+          <!-- Solutions Section -->
+
+          <div class="mb-6 lg:mb-0 px-4 lg:px-0">
+            <span class="block font-bold mb-2 hover:underline">Supports</span>
+            <ul>
+              <!-- <li>
+                <a href="blog.html" class="hover:underline">Blog</a>
+              </li>
+              <li>
+                <a href="news&events.html" class="hover:underline"
+                  >News & Events</a
+                >
+              </li> -->
+              <li>
+                <a href="downloads.html" class="hover:underline">Downloads</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mb-6 lg:mb-0 px-4 lg:px-0">
+            <span class="block font-bold mb-2 hover:underline"> About Us </span>
+            <ul>
+              <li>
+                <a href="company-profile.html" class="hover:underline"
+                  >Company Profile</a
+                >
+              </li>
+              <li><a href="Joinus.html" class="hover:underline">Join Us</a></li>
+            </ul>
+          </div>
+
+          <div class="mb-6 lg:mb-0 px-4 lg:px-0">
+            <span class="block font-bold mb-2">Partners</span>
+            <ul>
+              <li>
+                <a href="become-a-partner.html" class="hover:underline"
+                  >Become our Partner</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Us -->
+          <div class="mb-6 lg:mb-0 px-4 lg:px-0 flex flex-col gap-6">
+            <a href="Contactus.html" class="font-bold hover:underline"
+              >Contact Us</a
+            >
+            <a href="login.html" class="font-bold hover:underline">Login</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/index.js"></script>
+    <script src="/scrolltotop.js"></script>
+    <script src="/Products/Magnify.js"></script>
+
+    <!-- Magnify Script -->
+    <script>
+      /* Initiate Magnify Function
+      with the id of the image, and the strength of the magnifier glass:*/
+      magnify("myimage", 2);
+    </script>
+  </body>
+</html>
